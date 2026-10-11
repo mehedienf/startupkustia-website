@@ -343,6 +343,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEn: "Founder & President",
     designationBn: "প্রোগ্রাম ও জাতীয়–আন্তর্জাতিক সম্পর্ক",
     designationEn: "Programs & National-International Relations",
+    image: "/images/team/shourov.jpg",
+    socials: {
+      linkedin: "https://linkedin.com",
+      facebook: "https://facebook.com",
+    },
   },
   {
     id: "2",
@@ -352,6 +357,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEn: "Co-Founder & Vice President",
     designationBn: "অপারেশনস এবং কমিউনিটি গ্রোথ",
     designationEn: "Operations & Community Growth",
+    image: "/images/team/saqlaen.jpg",
+    socials: {
+      linkedin: "https://linkedin.com",
+      facebook: "https://facebook.com",
+    },
   },
   {
     id: "3",
@@ -361,6 +371,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEn: "Co-Founder & General Secretary",
     designationBn: "ইভেন্ট এবং বিজনেস রিলেশনস",
     designationEn: "Events & Business Relations",
+    image: "/images/team/xahid.jpg",
+    socials: {
+      linkedin: "https://linkedin.com",
+      facebook: "https://facebook.com",
+    },
   },
   {
     id: "4",
@@ -370,6 +385,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEn: "Co-Founder & Treasurer",
     designationBn: "অর্থ ও যুব সম্পৃক্ততা",
     designationEn: "Finance & Youth Engagement",
+    image: "/images/team/sohan.jpg",
+    socials: {
+      linkedin: "https://linkedin.com",
+      facebook: "https://facebook.com",
+    },
   },
   {
     id: "5",
@@ -379,6 +399,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEn: "Co-Founder & Director",
     designationBn: "নারী উদ্যোক্তা ও এসএমই নেটওয়ার্ক",
     designationEn: "Women Entrepreneurs & SME Relations",
+    image: "/images/team/farhana.jpg",
+    socials: {
+      linkedin: "https://linkedin.com",
+      facebook: "https://facebook.com",
+    },
   },
   {
     id: "6",
@@ -388,6 +413,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEn: "Co-Founder & Director",
     designationBn: "মিডিয়া, প্রেস ও পাবলিক রিলেশনস",
     designationEn: "Media, Press & Public Relations",
+    image: "/images/team/tomal.jpg",
+    socials: {
+      linkedin: "https://linkedin.com",
+      facebook: "https://facebook.com",
+    },
   },
   {
     id: "7",
@@ -397,6 +427,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     roleEn: "Co-Founder & Director",
     designationBn: "ব্র্যান্ডিং, কনটেন্ট ও ক্রিয়েটিভ",
     designationEn: "Branding, Content & Creative Direction",
+    image: "/images/team/toru.jpg",
+    socials: {
+      linkedin: "https://linkedin.com",
+      facebook: "https://facebook.com",
+    },
   },
 ];
 
