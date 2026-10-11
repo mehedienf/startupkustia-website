@@ -2,215 +2,306 @@
 
 import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
-import { DIRECTORY_ITEMS } from "@/data/content";
-import { ExternalLink, MapPin, Plus, Search, User } from "lucide-react";
-import { useMemo, useState } from "react";
+import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
+import Image from "next/image";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface DirectoryProps {
   onOpenListingModal: () => void;
 }
 
+// Exactly 3 Featured Kushtia Startups with dedicated cover photos
+const FEATURED_STARTUPS = [
+  {
+    id: "shilaidaha-agro",
+    name: "shilaidahaagro",
+    nameBn: "শিলাইদহ এগ্রো",
+    website: "https://shilaidahaagro.com",
+    coverImage: "/images/directory/shilaidaha_agro_cover.jpg",
+  },
+  {
+    id: "gorai-tech",
+    name: "GoraiTech",
+    nameBn: "গড়াইটেক",
+    website: "https://goraitech.com",
+    coverImage: "/images/directory/gorai_tech_cover.jpg",
+  },
+  {
+    id: "kushtia-express",
+    name: "kushtiaexpress",
+    nameBn: "কুষ্টিয়া এক্সপ্রেস",
+    website: "https://kushtiaexpress.xyz",
+    coverImage: "/images/directory/kushtia_express_cover.jpg",
+  },
+];
+
 export default function Directory({ onOpenListingModal }: DirectoryProps) {
   const { language } = useLanguage();
   const isBn = language === "bn";
 
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const categories = [
-    { id: "all", labelBn: "সকল উদ্যোগ", labelEn: "All Ventures" },
-    { id: "startup", labelBn: "স্টার্টআপ", labelEn: "Startups" },
-    { id: "agency", labelBn: "এজেন্সি ও আইটি", labelEn: "Agencies & IT" },
-    { id: "sme", labelBn: "ব্যবসা ও এসএমই", labelEn: "SMEs & Retail" },
-    { id: "community", labelBn: "কমিউনিটি", labelEn: "Communities" },
-  ];
+  const totalItems = FEATURED_STARTUPS.length;
 
-  const filteredItems = useMemo(() => {
-    return DIRECTORY_ITEMS.filter((item) => {
-      const matchCat =
-        selectedCategory === "all" || item.category === selectedCategory;
+  // Scroll to active index
+  const scrollToIndex = useCallback((index: number) => {
+    if (!scrollContainerRef.current) return;
+    const container = scrollContainerRef.current;
+    if (index === 0) {
+      container.scrollTo({
+        left: 0,
+        behavior: "smooth",
+      });
+      return;
+    }
+    const cards = container.querySelectorAll<HTMLElement>(".portfolio-card");
+    if (cards[index]) {
+      const card = cards[index];
+      const containerStyle = window.getComputedStyle(container);
+      const paddingLeft = parseFloat(containerStyle.paddingLeft) || 0;
+      const offsetLeft = card.offsetLeft - container.offsetLeft - paddingLeft;
+      container.scrollTo({
+        left: Math.max(0, offsetLeft),
+        behavior: "smooth",
+      });
+    }
+  }, []);
 
-      const q = searchQuery.toLowerCase().trim();
-      if (!q) return matchCat;
-
-      const matchName = item.name.toLowerCase().includes(q);
-      const matchDescBn = item.descriptionBn.toLowerCase().includes(q);
-      const matchDescEn = item.descriptionEn.toLowerCase().includes(q);
-      const matchTags = item.tags.some((t) => t.toLowerCase().includes(q));
-      const matchLoc =
-        item.location.toLowerCase().includes(q) ||
-        item.locationEn.toLowerCase().includes(q);
-
-      return (
-        matchCat &&
-        (matchName || matchDescBn || matchDescEn || matchTags || matchLoc)
-      );
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => {
+      const nextIdx = (prev + 1) % totalItems;
+      scrollToIndex(nextIdx);
+      return nextIdx;
     });
-  }, [selectedCategory, searchQuery]);
+  }, [totalItems, scrollToIndex]);
+
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prev) => {
+      const prevIdx = (prev - 1 + totalItems) % totalItems;
+      scrollToIndex(prevIdx);
+      return prevIdx;
+    });
+  }, [totalItems, scrollToIndex]);
+
+  // 1. Keyboard Arrow Key Navigation (Left / Right arrow keys)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't intercept if user is typing inside an input/textarea
+      if (
+        document.activeElement?.tagName === "INPUT" ||
+        document.activeElement?.tagName === "TEXTAREA"
+      ) {
+        return;
+      }
+
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        handlePrev();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        handleNext();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [handleNext, handlePrev]);
+
+  // 2. Auto-change / Autoplay every 4.5s
+  useEffect(() => {
+    if (isPaused) return;
+
+    const timer = setInterval(() => {
+      handleNext();
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [isPaused, handleNext]);
+
+  // Touch Swipe Handlers for mobile
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+    setIsPaused(true);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        handleNext();
+      } else {
+        handlePrev();
+      }
+    }
+    setTouchStartX(null);
+    setIsPaused(false);
+  };
 
   return (
     <section
       id="directory"
-      className="pt-20 pb-28 md:pt-28 md:pb-36 bg-brand-soft relative overflow-hidden"
+      className="pt-20 pb-28 md:pt-28 md:pb-36 bg-brand-soft relative overflow-hidden select-none"
     >
       {/* Subtle topographic river contour pattern */}
       <div
         className="absolute inset-0 bg-topography pointer-events-none"
         aria-hidden="true"
       />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        {/* ========================================================
+            HEADER SECTION (Matches Startup Bangladesh reference screenshot)
+           ======================================================== */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 sm:mb-16 gap-8">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand ring-4 ring-brand/15 animate-pulse"></span>
-              <span>{isBn ? "ডিরেক্টরি" : "Ecosystem Directory"}</span>
+            {/* Pill Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand ring-4 ring-brand/15 animate-pulse" />
+              <span>{isBn ? "আমাদের পোর্টফোলিও" : "Our Portfolios"}</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-heading tracking-tight">
-              {isBn
-                ? "কুষ্টিয়ার স্টার্টআপ ও ব্যবসা খুঁজে নিন।"
-                : "Explore Kushtia Startups & Businesses."}
+
+            {/* Giant Title: "Enterprises we / Empower" */}
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#64748B] tracking-tight leading-[1.08]">
+              {isBn ? "যেসব উদ্যোগে আমাদের" : "Enterprises we"}
+              <br />
+              <span className="text-brand font-black">
+                {isBn ? "সহযোগিতা ও শক্তি" : "Empower"}
+              </span>
             </h2>
-            <p className="mt-2 text-base text-[#444E69] max-w-xl">
-              {isBn
-                ? "স্থানীয় উদ্ভাবন, সফল স্টার্টআপ এবং প্রতিষ্ঠিত ব্যবসাগুলোকে জানুন ও যুক্ত হোন।"
-                : "Discover and connect with ventures shaping Kushtia’s economic landscape."}
-            </p>
           </div>
 
-          {/* List business CTA button */}
-          <button
-            type="button"
-            onClick={onOpenListingModal}
-            className="px-6 py-3.5 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-sm btn-hard flex items-center justify-center gap-2 shrink-0 self-start md:self-auto shadow-md"
-          >
-            <Plus className="w-4 h-4" />
-            <span>{isBn ? "তালিকাভুক্ত হোন" : "List Your Venture"}</span>
-          </button>
-        </div>
+          {/* Right Header Column: Subtitle + Circular Arrow Buttons */}
+          <div className="max-w-md flex flex-col lg:items-end justify-between gap-6">
+            <p className="text-base sm:text-lg text-[#444E69] leading-relaxed">
+              {isBn
+                ? "একটি স্টার্টআপ একা বড় হতে পারে না। আমরা পুঁজি, নেটওয়ার্ক এবং আস্থার যোগসূত্রে কুষ্টিয়া থেকে বিশ্বমঞ্চে পৌঁছানোর শক্তি যোগাই।"
+                : "Great startups don't scale alone. We bring the capital, the connections, and the conviction to get there."}
+            </p>
 
-        {/* Filter bar and Search */}
-        <div className="bg-white p-4 rounded-2xl mb-10 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
-          {/* Category Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-2 lg:pb-0 scrollbar-none">
-            {categories.map((cat) => (
+            {/* Controls: Listing CTA + Circular Arrow Navigation Buttons */}
+            <div className="flex items-center gap-4">
               <button
-                key={cat.id}
                 type="button"
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all ${
-                  selectedCategory === cat.id
-                    ? "bg-heading text-white shadow-sm"
-                    : "text-[#444E69] hover:bg-brand-soft"
-                }`}
+                onClick={onOpenListingModal}
+                className="px-5 py-2.5 rounded-full bg-white border border-slate-200/90 hover:border-brand hover:text-brand text-heading font-bold text-xs flex items-center gap-2 cursor-pointer transition-all shadow-xs"
               >
-                {isBn ? cat.labelBn : cat.labelEn}
+                <Plus className="w-3.5 h-3.5 text-brand" />
+                <span>{isBn ? "তালিকাভুক্ত হোন" : "List Venture"}</span>
               </button>
-            ))}
-          </div>
 
-          {/* Search Box */}
-          <div className="relative w-full lg:w-72 shrink-0">
-            <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              placeholder={
-                isBn
-                  ? "খুঁজুন (নাম, ট্যাগ, এলাকা)..."
-                  : "Search ventures, tags..."
-              }
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-sm rounded-xl border border-[#E2E7F1] bg-brand-soft focus:bg-white focus:outline-none focus:border-brand text-heading"
-            />
+              {/* Circular Prev/Next Arrow Buttons (Matching Screenshot) */}
+              <div className="flex items-center gap-2.5">
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  aria-label={isBn ? "পূর্ববর্তী উদ্যোগ" : "Previous startup"}
+                  className="w-12 h-12 rounded-full border border-slate-300 bg-white hover:border-brand hover:bg-brand hover:text-white text-slate-700 transition-all flex items-center justify-center cursor-pointer shadow-xs active:scale-95"
+                >
+                  <ArrowLeft className="w-5 h-5" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label={isBn ? "পরবর্তী উদ্যোগ" : "Next startup"}
+                  className="w-12 h-12 rounded-full border border-slate-300 bg-white hover:border-brand hover:bg-brand hover:text-white text-slate-700 transition-all flex items-center justify-center cursor-pointer shadow-xs active:scale-95"
+                >
+                  <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Directory Grid */}
-        {filteredItems.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-2xl">
-            <p className="text-gray-500 text-sm">
-              {isBn
-                ? "কোনো ফলাফল পাওয়া যায়নি।"
-                : "No matching ventures found."}
-            </p>
-            <button
-              onClick={() => {
-                setSelectedCategory("all");
-                setSearchQuery("");
-              }}
-              className="mt-3 text-xs font-semibold text-brand underline"
-            >
-              {isBn ? "ফিল্টার রিসেট করুন" : "Reset filters"}
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredItems.map((item) => (
+        {/* ========================================================
+            FULL-BLEED CAROUSEL SLIDER (Exactly 3 Startups with Full Cover Images)
+           ======================================================== */}
+        <div
+          ref={scrollContainerRef}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="flex gap-5 sm:gap-6 overflow-x-auto scroll-smooth scrollbar-none pb-4 pt-1 -mx-4 sm:-mx-8 pl-6 sm:pl-10 lg:pl-12 pr-6 sm:pr-10 lg:pr-12 scroll-pl-6 sm:scroll-pl-10 lg:scroll-pl-12 cursor-grab active:cursor-grabbing"
+          style={{ scrollSnapType: "x mandatory" }}
+        >
+          {FEATURED_STARTUPS.map((item, index) => {
+            const isActive = index === currentIndex;
+
+            return (
               <div
                 key={item.id}
-                className="bg-white p-7 rounded-2xl card-hover flex flex-col justify-between"
+                style={{ scrollSnapAlign: "start" }}
+                onClick={() => {
+                  if (item.website) {
+                    window.open(item.website, "_blank", "noopener,noreferrer");
+                  } else {
+                    onOpenListingModal();
+                  }
+                }}
+                className={`portfolio-card shrink-0 w-[86vw] sm:w-[65vw] md:w-[50vw] lg:w-[48%] rounded-xl sm:rounded-2xl overflow-hidden relative cursor-pointer group aspect-[16/10] sm:aspect-[16/9.5] transition-all duration-500 ${
+                  isActive
+                    ? "ring-1 ring-brand/30 shadow-md"
+                    : "opacity-95 hover:opacity-100"
+                }`}
               >
-                <div>
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-brand-soft2 text-heading">
-                      {isBn ? item.badge : item.badgeEn}
-                    </span>
-                    <div className="flex items-center gap-1 text-[11px] text-[#6B7591]">
-                      <MapPin className="w-3 h-3 text-brand" />
-                      <span>{isBn ? item.location : item.locationEn}</span>
-                    </div>
-                  </div>
+                {/* 1. Full Cover Photo Banner (All graphics, headlines & device mockups inside) */}
+                <Image
+                  src={item.coverImage}
+                  alt={item.name}
+                  fill
+                  sizes="(max-width: 640px) 86vw, (max-width: 1024px) 50vw, 48vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  priority={index === 0}
+                />
 
-                  <h3 className="text-xl font-bold text-heading mb-2">
+                {/* Subtle vignette gradient at bottom for contrast */}
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
+
+                {/* 2. Left Bottom Corner: Startup Name / Logo (Matches ifarmer, pickaboo in screenshot) */}
+                <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 z-20 pointer-events-none">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight drop-shadow-md">
                     {item.name}
-                  </h3>
-
-                  <p className="text-sm text-[#444E69] leading-relaxed mb-4">
-                    {isBn ? item.descriptionBn : item.descriptionEn}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-6">
-                    {item.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-0.5 rounded text-[11px] bg-brand-soft text-brand-hover font-medium"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
                   </div>
-                </div>
-
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                  {item.founder && (
-                    <div className="flex items-center gap-1.5 text-gray-600 font-medium">
-                      <User className="w-3.5 h-3.5 text-gray-400" />
-                      <span>{item.founder}</span>
-                    </div>
-                  )}
-
-                  {item.website ? (
-                    <a
-                      href={item.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-brand hover:text-brand-hover font-bold"
-                    >
-                      <span>{isBn ? "ভিজিট করুন" : "Visit"}</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  ) : (
-                    <span className="text-gray-400">
-                      {isBn ? "তালিকাভুক্ত" : "Verified"}
-                    </span>
-                  )}
                 </div>
               </div>
+            );
+          })}
+        </div>
+
+        {/* ========================================================
+            FOOTER CONTROLS: Dot Indicators & Slide Counter (3 Dots)
+           ======================================================== */}
+        <div className="mt-8 flex items-center justify-center gap-3">
+          <div className="flex items-center gap-1.5">
+            {FEATURED_STARTUPS.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setCurrentIndex(idx);
+                  scrollToIndex(idx);
+                }}
+                aria-label={`Go to startup ${idx + 1}`}
+                className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  currentIndex === idx
+                    ? "w-8 bg-brand"
+                    : "w-2.5 bg-slate-300/80 hover:bg-slate-400"
+                }`}
+              />
             ))}
           </div>
-        )}
+
+          <span className="text-xs font-mono font-bold text-slate-400 pl-2">
+            {String(currentIndex + 1).padStart(2, "0")} /{" "}
+            {String(totalItems).padStart(2, "0")}
+          </span>
+        </div>
       </div>
 
       {/* Organic river wave transition into dark Ambassadors section */}
