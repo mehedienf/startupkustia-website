@@ -67,7 +67,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
     >
       {/* Top subtle notification ribbon - visible only at the top */}
       {!isScrolled && (
-        <div className="bg-dark text-slate-300 text-[11px] py-1.5 px-4 sm:px-8 border-b border-[var(--sk-dark-border)] transition-all">
+        <div className="bg-dark/90 backdrop-blur-md text-slate-300 text-[11px] py-1.5 px-4 sm:px-8 border-b border-[var(--sk-dark-border)] transition-all">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="sk-status-dot"></span>
@@ -99,12 +99,12 @@ export default function Header({ onOpenJoin }: HeaderProps) {
         </div>
       )}
 
-      {/* Main Glassmorphic Navigation Bar */}
+      {/* Main Glassmorphic Navigation Bar - Frosted Glass Transparent */}
       <nav
         className={`w-full transition-all duration-200 ${
           isScrolled
-            ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-2.5"
-            : "bg-white/95 backdrop-blur-sm border-b border-slate-200 py-3.5"
+            ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-200/60 py-2.5"
+            : "bg-white/70 backdrop-blur-md border-b border-slate-200/40 py-3"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between gap-4">
