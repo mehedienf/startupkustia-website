@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Startup Kushtia (স্টার্টআপ কুষ্টিয়া)
 
-## Getting Started
+> **Building Blocks Connecting Dots**  
+> আইডিয়া ও ব্যবসার জন্য কুষ্টিয়ার লঞ্চপ্যাড। একটি আধুনিক Next.js ওয়েব প্ল্যাটফর্ম।
 
-First, run the development server:
+এই প্ল্যাটফর্মটি [Startup Pabna](https://startuppabna.com/bn/home-bn/) এর পূর্ণাঙ্গ স্ট্রাকচার, ডিজাইন ল্যাঙ্গুয়েজ, ব্র্যান্ডিং প্যাটার্ন ও ফিচার বিশ্লেষণ করে **কুষ্টিয়া জেলা**-এর উদ্যোক্তা, উদ্ভাবক ও ব্যবসায়ী ইকোসিস্টেমের জন্য কাস্টমাইজ করে তৈরি করা হয়েছে।
+
+---
+
+## 🚀 প্রধান বৈশিষ্ট্যসমূহ (Key Features)
+
+1. **ব্র্যান্ডিং ও ডিজাইন সিস্টেম**:
+   - কালার প্যালেট: Deep Navy (`#000A3C`), Secondary Navy (`#0A1A55`), Electric Blue (`#0C4DEB`), Cyan Accent (`#48E2E7`), Light Shell (`#F5F7FC`)
+   - সিগনেচার ব্রুটালিস্ট-মডার্ন শ্যাডো (`box-shadow: 4px 4px 0 #000A3C`) এবং ট্রানজিশন হোভার এফেক্ট
+   - সাইয়ান হাইলাইটার টেক্সট ও গ্লোয়িং লাইভ স্ট্যাটাস ডট
+   - বাংলা ফন্ট সাপোর্ট: `Hind Siliguri`, `Noto Sans Bengali` এবং ডিসপ্লে ফন্ট `Montserrat` / `Inter`
+
+2. **দ্বিভাষিক সমর্থন (Bilingual Support - বাংলা / English)**:
+   - হেডার টপবারে তাৎক্ষণিক ভাষা পরিবর্তনের সুইচ (`বাংলা | EN`)
+   - সাইটের প্রতিটি সেকশন, বাটন, কার্ড ও মোডাল সম্পূর্ণ দ্বিভাষিক সমর্থনযুক্ত
+
+3. **ওয়েবসাইটের মূল সেকশনসমূহ**:
+   - **টপবার ও স্টিকি হেডার**: অবস্থান ট্যাগ, লাইভ স্ট্যাটাস, ইমেইল, হোয়াটসঅ্যাপ লিংক ও কমিউনিটি হাইলাইট পিল।
+   - **হিরো সেকশন (Hero Launchpad)**: কুষ্টিয়ার লঞ্চপ্যাড স্লোগান, ডাইনামিক মেট্রিক্স বার (৫০০+ সদস্য, ৫০+ ব্যবসা, ১২+ ক্যাম্পাস, ২০+ মেন্টর)।
+   - **কাদের জন্য (Who It's For)**: ৬টি ক্যাটাগরি (আইডিয়াধারী শিক্ষার্থী, উদ্যোক্তা হতে ইচ্ছুক, প্রারম্ভিক স্টার্টআপ, বিদ্যমান এসএমই ও ঐতিহ্যবাহী হস্তশিল্প, ইন্ডাস্ট্রি লিডার, আইটি ফ্রিল্যান্সার ও পেশাজীবী)।
+   - **আমরা যা করি (6 Pillars)**: মিটআপ ও নেটওয়ার্কিং, ওয়ার্কশপ ও বুটক্যাম্প, এক-এক মেন্টরশিপ, স্টার্টআপ ডিরেক্টরি, জ্ঞান ও রিসোর্স হাব, এআই ও উদ্ভাবন গ্রহণ।
+   - **কুষ্টিয়ার স্টার্টআপ ও ব্যবসা ডিরেক্টরি (Filterable Directory)**:
+     - ইনস্ট্যান্ট সার্চ ও ফিল্টার (সফটওয়্যার ও আইটি, এগ্রো ও ফুড-টেক, হস্তশিল্প ও ফ্যাশন, লজিস্টিকস, শিক্ষা ও এডটেক)।
+     - কুষ্টিয়ার স্থানীয় উদ্যোগের রিয়েল কার্ড (Gorai Tech Labs, Shilaidaha Organic Agro, Lalon Heritage Crafts, ইত্যাদি)।
+     - "তালিকাভুক্ত হোন" মোডাল ফর্ম।
+   - **ক্যাম্পাস অ্যাম্বাসেডর প্রোগ্রাম (Campus Ambassador Program)**:
+     - ইসলামী বিশ্ববিদ্যালয় (IU), কুষ্টিয়া সরকারি কলেজ, কুষ্টিয়া পলিটেকনিক ইনস্টিটিউট সহ অন্যান্য শিক্ষা প্রতিষ্ঠানের জন্য বিশেষায়িত আবেদন ও বিবরণ।
+   - **আমাদের মূল্যবোধ (Core Values)**: উদ্ভাবন, সহযোগিতা, অন্তর্ভুক্তি, কর্ম, সততা ও প্রভাব।
+   - **ফাউন্ডিং টিম (Founding Team)**: কুষ্টিয়া চ্যাপ্টারের ৭ সদস্যের ফাউন্ডিং টিম কার্ড ও যোগাযোগ চ্যানেল।
+   - **সচরাচর জিজ্ঞাসা (FAQ Accordion)**: ইন্টারঅ্যাক্টিভ অ্যাকর্ডিয়ন যাতে স্টার্টআপ কুষ্টিয়া সম্পর্কে প্রয়োজনীয় প্রশ্নগুলোর দ্রুত উত্তর মেলে।
+   - **কল-টু-অ্যাকশন ব্যানার (CTA Banner)**: "কুষ্টিয়া থেকে গড়ে তুলতে প্রস্তুত?" হাই-ইমপ্যাক্ট অ্যাকশন ব্যানার।
+   - **ফুটার ও পলিসি মোডাল (Footer & Policy Modals)**: এক্সপ্লোর লিংকস, গোপনীয়তা নীতি (Privacy Policy) ও ব্যবহারের শর্তাবলি (Terms of Use)।
+
+4. **ইন্টারঅ্যাক্টিভ মোডাল ও ফর্মসমূহ**:
+   - `JoinModal`: কমিউনিটি মেম্বার রেজিস্ট্রেশন ফর্ম (নাম, ইমেইল, ফোন, ভূমিকা, প্রতিষ্ঠান ও আইডিয়া বিবরণ)।
+   - `AmbassadorModal`: ক্যাম্পাস অ্যাম্বাসেডর আবেদন ফর্ম।
+   - `DirectoryModal`: ডিরেক্টরিতে নিজস্ব ব্যবসা তালিকাভুক্তির আবেদন ফর্ম।
+   - `ContactModal`: বার্তা পাঠানোর ফর্ম।
+   - `PolicyModal`: প্রাইভেসি পলিসি ও শর্তাবলি পপআপ।
+
+---
+
+## 🛠️ টেকনোলজি স্ট্যাক (Tech Stack)
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Icons**: Lucide React
+- **Build Engine**: Webpack (অপটিমাইজড ও স্থিতিশীল)
+
+---
+
+## 💻 রান করার নির্দেশিকা (How to Run)
+
+প্রজেক্টের ডিরেক্টরিতে প্রবেশ করে নিচের কমান্ডগুলো রান করুন:
 
 ```bash
+# ডিপেন্ডেন্সি ইনস্টল (প্রয়োজনে)
+npm install
+
+# ডেভেলপমেন্ট সার্ভার চালু
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# প্রোডাকশন বিল্ড তৈরি
+npm run build
+
+# প্রোডাকশন সার্ভার চালু
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ব্রাউজারে খুলুন: `http://localhost:3000`

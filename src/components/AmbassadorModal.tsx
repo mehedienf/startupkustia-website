@@ -1,0 +1,239 @@
+'use client';
+
+import React, { useState } from 'react';
+import { X, CheckCircle, GraduationCap, Send } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+
+interface AmbassadorModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function AmbassadorModal({ isOpen, onClose }: AmbassadorModalProps) {
+  const { language } = useLanguage();
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    campus: 'Islamic University (IU), Kushtia',
+    department: '',
+    year: '',
+    motivation: '',
+  });
+
+  if (!isOpen) return null;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+    }, 600);
+  };
+
+  const handleReset = () => {
+    setSubmitted(false);
+    onClose();
+  };
+
+  const isBn = language === 'bn';
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#000A3C]/70 backdrop-blur-sm animate-fade-in">
+      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border-2 border-[#000A3C] overflow-hidden">
+        <div className="bg-[#000A3C] text-white px-6 py-4 flex items-center justify-between border-b-2 border-[#48E2E7]">
+          <div className="flex items-center gap-2">
+            <GraduationCap className="w-5 h-5 text-[#48E2E7]" />
+            <h3 className="font-bold text-lg text-white">
+              {isBn ? 'ক্যাম্পাস অ্যাম্বাসেডর আবেদন' : 'Campus Ambassador Application'}
+            </h3>
+          </div>
+          <button
+            onClick={onClose}
+            className="text-gray-300 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors"
+            aria-label="Close modal"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        <div className="p-6">
+          {submitted ? (
+            <div className="py-8 text-center space-y-4">
+              <div className="w-16 h-16 bg-[#E6FAFB] text-[#0C4DEB] rounded-full flex items-center justify-center mx-auto border-2 border-[#48E2E7]">
+                <CheckCircle className="w-8 h-8 text-[#0C4DEB]" />
+              </div>
+              <h4 className="text-xl font-bold text-[#000A3C]">
+                {isBn ? 'আবেদন সফলভাবে গৃহীত হয়েছে!' : 'Application Submitted!'}
+              </h4>
+              <p className="text-sm text-[#444E69] max-w-sm mx-auto">
+                {isBn
+                  ? 'আপনার ক্যাম্পাসে স্টার্টআপ কুষ্টিয়ার লিডারশিপ টিমের প্রতিনিধি নির্বাচনের জন্য প্রাথমিক বাছাই সম্পন্ন করে আমরা আপনাকে ইন্টারভিউ এর জন্য কল বা ইমেইল করব।'
+                  : 'Thank you for stepping forward to lead your campus. Our youth team will review your application and schedule an interview.'}
+              </p>
+              <div className="pt-4">
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className="px-6 py-2.5 bg-[#0C4DEB] text-white font-semibold rounded-xl btn-hard text-sm"
+                >
+                  {isBn ? 'বন্ধ করুন' : 'Close'}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-3.5 text-left">
+              <p className="text-xs text-[#444E69]">
+                {isBn
+                  ? 'নিজ ক্যাম্পাসে উদ্ভাবন, নেটওয়ার্কিং ও স্টার্টআপ সংস্কৃতি ছড়িয়ে দিতে যুক্ত হোন আমাদের অ্যাম্বাসেডর নেটওয়ার্কে।'
+                  : 'Represent Startup Kushtia at your university or college and build invaluable leadership skills.'}
+              </p>
+
+              <div>
+                <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  {isBn ? 'আপনার নাম *' : 'Your Name *'}
+                </label>
+                <input
+                  required
+                  type="text"
+                  placeholder={isBn ? 'আপনার পূর্ণ নাম' : 'Full Name'}
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                    {isBn ? 'ইমেইল *' : 'Email *'}
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    placeholder="student@gmail.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                    {isBn ? 'ফোন / হোয়াটসঅ্যাপ *' : 'WhatsApp Phone *'}
+                  </label>
+                  <input
+                    required
+                    type="tel"
+                    placeholder="01XXXXXXXXX"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  {isBn ? 'ক্যাম্পাস / প্রতিষ্ঠান *' : 'Campus / Institution *'}
+                </label>
+                <select
+                  value={formData.campus}
+                  onChange={(e) => setFormData({ ...formData, campus: e.target.value })}
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C] bg-white"
+                >
+                  <option value="Islamic University (IU), Kushtia">
+                    {isBn ? 'ইসলামী বিশ্ববিদ্যালয় (IU), কুষ্টিয়া' : 'Islamic University (IU), Kushtia'}
+                  </option>
+                  <option value="Kushtia Govt College">
+                    {isBn ? 'কুষ্টিয়া সরকারি কলেজ' : 'Kushtia Govt College'}
+                  </option>
+                  <option value="Kushtia Polytechnic Institute">
+                    {isBn ? 'কুষ্টিয়া পলিটেকনিক ইনস্টিটিউট' : 'Kushtia Polytechnic Institute'}
+                  </option>
+                  <option value="Kushtia Medical College">
+                    {isBn ? 'কুষ্টিয়া মেডিকেল কলেজ' : 'Kushtia Medical College'}
+                  </option>
+                  <option value="Kushtia Govt Central College">
+                    {isBn ? 'কুষ্টিয়া সরকারি মহিলা / সেন্ট্রাল কলেজ' : 'Kushtia Govt Women / Central College'}
+                  </option>
+                  <option value="Other">
+                    {isBn ? 'কুষ্টিয়ার অন্যান্য শিক্ষা প্রতিষ্ঠান' : 'Other College / Institute'}
+                  </option>
+                </select>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                    {isBn ? 'বিভাগ / বিষয় *' : 'Department *'}
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    placeholder={isBn ? 'যেমন: সিএসই, বিবিএ' : 'e.g. CSE, BBA, English'}
+                    value={formData.department}
+                    onChange={(e) => setFormData({ ...formData, department: e.target.value })}
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                    {isBn ? 'বর্ষ / সেমিস্টার *' : 'Academic Year *'}
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    placeholder={isBn ? 'যেমন: ২য় বর্ষ' : 'e.g. 2nd Year / 4th Sem'}
+                    value={formData.year}
+                    onChange={(e) => setFormData({ ...formData, year: e.target.value })}
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  {isBn ? 'কেন ক্যাম্পাস অ্যাম্বাসেডর হতে চান?' : 'Why do you want to be an ambassador?'}
+                </label>
+                <textarea
+                  rows={2}
+                  placeholder={isBn ? 'আপনার নেতৃত্ব ও আগ্রহের কথা লিখুন...' : 'Share your motivation and leadership interest...'}
+                  value={formData.motivation}
+                  onChange={(e) => setFormData({ ...formData, motivation: e.target.value })}
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                />
+              </div>
+
+              <div className="pt-2 flex items-center justify-end gap-3">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="px-4 py-2 text-sm text-[#444E69] hover:text-[#000A3C] font-medium"
+                >
+                  {isBn ? 'বাতিল' : 'Cancel'}
+                </button>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="px-6 py-2.5 bg-[#0C4DEB] hover:bg-[#083DB8] text-white font-bold rounded-xl btn-hard text-sm flex items-center gap-2"
+                >
+                  {loading ? (
+                    <span>{isBn ? 'জমা হচ্ছে...' : 'Submitting...'}</span>
+                  ) : (
+                    <>
+                      <span>{isBn ? 'আবেদন জমা দিন' : 'Submit Application'}</span>
+                      <Send className="w-4 h-4" />
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
