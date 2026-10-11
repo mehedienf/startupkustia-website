@@ -2,7 +2,7 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import { SITE_CONFIG } from "@/data/content";
-import { ArrowUp, Heart, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUp, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -222,10 +222,33 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
           </div>
 
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1 text-gray-400">
-              Made with{" "}
-              <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" /> for
-              Kushtia
+            <span className="flex items-center gap-1.5 text-gray-400">
+              {isBn ? (
+                <>
+                  <span>কুষ্টিয়ার জন্য তৈরি করেছে</span>
+                  <a
+                    href="https://www.olivosoft.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-white hover:text-brand-accent-light transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-brand-accent-light"
+                  >
+                    Olivosoft
+                  </a>
+                </>
+              ) : (
+                <>
+                  <span>Made by</span>
+                  <a
+                    href="https://www.olivosoft.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold text-white hover:text-brand-accent-light transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-brand-accent-light"
+                  >
+                    Olivosoft
+                  </a>
+                  <span>for Kushtia</span>
+                </>
+              )}
             </span>
             <button
               type="button"

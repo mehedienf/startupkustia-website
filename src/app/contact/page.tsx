@@ -235,7 +235,7 @@ function ContactPageInner() {
           </div>
 
           {/* Tab Switcher - 4 Interactive Categories */}
-          <div className="bg-white p-2 rounded-2xl shadow-sm mb-10 overflow-x-auto">
+          <div className="bg-white p-2 rounded-2xl mb-10 overflow-x-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-2 min-w-[620px] md:min-w-0">
               {/* Tab 1: Community */}
               <button
@@ -302,7 +302,7 @@ function ContactPageInner() {
           {/* Main Grid: Form Left, Contact Sidebar Right */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Form Panel (8 Cols) */}
-            <div className="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-sm">
+            <div className="lg:col-span-8 bg-white rounded-3xl p-6 sm:p-8 md:p-10">
               {/* TAB 1: Join Community Form */}
               {activeTab === "community" && (
                 <div>
@@ -1327,7 +1327,7 @@ function ContactPageInner() {
               </div>
 
               {/* Direct Info Card: Email & Location */}
-              <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-sm space-y-5">
+              <div className="bg-white rounded-3xl p-6 sm:p-7 space-y-5">
                 <h3 className="text-base font-black text-heading uppercase tracking-wider">
                   {isBn ? "অফিশিয়াল চ্যানেলসমূহ" : "Official Channels"}
                 </h3>
@@ -1409,7 +1409,7 @@ function ContactPageInner() {
           </div>
 
           {/* Bottom Accordion FAQ Section */}
-          <div className="mt-16 bg-white rounded-3xl p-6 sm:p-10 shadow-sm">
+          <div className="mt-16 bg-white rounded-3xl p-6 sm:p-10">
             <div className="text-center max-w-2xl mx-auto mb-8">
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-soft2 text-brand-hover text-xs font-bold mb-3">
                 <HelpCircle className="w-3.5 h-3.5" />

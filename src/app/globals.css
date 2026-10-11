@@ -7,6 +7,7 @@
   font-weight: 400;
   font-style: normal;
   display: swap;
+  unicode-range: U+0980-09FF, U+200C-200D, U+25CC;
 }
 
 @font-face {
@@ -15,6 +16,7 @@
   font-weight: 400;
   font-style: italic;
   display: swap;
+  unicode-range: U+0980-09FF, U+200C-200D, U+25CC;
 }
 
 :root {
@@ -66,23 +68,61 @@
   --color-dark: var(--sk-dark);
   --color-dark-surface: var(--sk-dark-surface);
   --color-heading: var(--sk-heading);
+
+  /* Modern typography font stacks */
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, var(--font-tiro-bangla), "Tiro Bangla", sans-serif;
+  --font-display:
+    "Montserrat", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, var(--font-tiro-bangla), "Tiro Bangla", sans-serif;
 }
 
 body {
   font-family:
-    var(--font-tiro-bangla),
-    "Tiro Bangla",
-    "Hind Siliguri",
-    "Noto Sans Bengali",
-    system-ui,
+    "Inter",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     Roboto,
+    "Helvetica Neue",
+    Arial,
+    var(--font-tiro-bangla),
+    "Tiro Bangla",
+    "Hind Siliguri",
+    "Noto Sans Bengali",
     sans-serif;
   color: var(--sk-text);
   background-color: var(--sk-shell);
   -webkit-font-smoothing: antialiased;
+}
+
+/* English mode styling - strictly clean modern tech sans */
+html[lang="en"],
+html[lang="en"] body {
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif !important;
+}
+
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] .font-display {
+  font-family:
+    "Montserrat",
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif !important;
 }
 
 /* Smooth flat modern pill-shaped buttons */
@@ -151,17 +191,16 @@ body {
   }
 }
 
-/* Card hover lift - clean borderless with elegant shadow */
+/* Card hover lift - clean flat without shadow */
 .card-hover {
   border: none !important;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  box-shadow: none !important;
+  transition: transform 0.2s ease;
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px -10px rgba(25, 10, 15, 0.12);
+  transform: translateY(-3px);
+  box-shadow: none !important;
 }
 
 ::selection {

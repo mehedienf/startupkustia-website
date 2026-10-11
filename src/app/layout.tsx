@@ -18,6 +18,12 @@ const tiroBangla = localFont({
   ],
   variable: "--font-tiro-bangla",
   display: "swap",
+  declarations: [
+    {
+      prop: "unicode-range",
+      value: "U+0980-09FF, U+200C-200D, U+25CC",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -55,7 +61,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="bn" className={`scroll-smooth ${tiroBangla.variable}`}>
-      <body className="min-h-screen flex flex-col bg-[#F5F7FC] text-[#444E69] antialiased">
+      <body className="min-h-screen flex flex-col bg-[var(--sk-shell)] text-[var(--sk-body)] antialiased">
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

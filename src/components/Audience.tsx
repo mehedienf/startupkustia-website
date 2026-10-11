@@ -75,7 +75,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
             <div
               key={item.id}
               onClick={onSelectCategory}
-              className="group cursor-pointer bg-white p-7 rounded-2xl shadow-sm card-hover flex flex-col justify-between"
+              className="group cursor-pointer bg-white p-7 rounded-2xl card-hover flex flex-col justify-between"
             >
               <div>
                 <div className="w-12 h-12 rounded-xl bg-brand-soft2 flex items-center justify-center mb-5 group-hover:bg-brand-accent/20 transition-colors">

@@ -41,7 +41,7 @@ export default function Team() {
           {TEAM_MEMBERS.map((member, index) => (
             <div
               key={member.id}
-              className={`bg-white p-6 rounded-2xl shadow-sm card-hover flex flex-col justify-between ${
+              className={`bg-white p-6 rounded-2xl card-hover flex flex-col justify-between ${
                 index === 0 ? "sm:col-span-2 lg:col-span-1" : ""
               }`}
             >

@@ -90,7 +90,7 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
         </div>
 
         {/* Filter bar and Search */}
-        <div className="bg-white p-4 rounded-2xl shadow-sm mb-10 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+        <div className="bg-white p-4 rounded-2xl mb-10 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
           {/* Category Tabs */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-2 lg:pb-0 scrollbar-none">
             {categories.map((cat) => (
@@ -128,7 +128,7 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
 
         {/* Directory Grid */}
         {filteredItems.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-2xl shadow-sm">
+          <div className="text-center py-16 bg-white rounded-2xl">
             <p className="text-gray-500 text-sm">
               {isBn
                 ? "কোনো ফলাফল পাওয়া যায়নি।"
@@ -149,7 +149,7 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
             {filteredItems.map((item) => (
               <div
                 key={item.id}
-                className="bg-white p-7 rounded-2xl shadow-sm card-hover flex flex-col justify-between"
+                className="bg-white p-7 rounded-2xl card-hover flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-start justify-between gap-3 mb-3">
