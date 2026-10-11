@@ -67,35 +67,35 @@ export default function WelcomeSplash({
 
       {/* Main Hero Content (Centered & Compact so it fits any screen without scrolling) */}
       <main className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 flex-1 flex flex-col items-center justify-center text-center my-auto min-h-0">
-        {/* Brand Logo from Navbar (Prominent, cleanly inverted for dark backdrop without card/side-text) */}
-        <div className="mb-2 sm:mb-3.5 animate-fade-in shrink-0 flex items-center justify-center">
+        {/* Brand Logo from Navbar (Large & Prominent) */}
+        <div className="mb-3 sm:mb-4 animate-fade-in shrink-0 flex items-center justify-center">
           <Image
             src="/logo.png"
             alt="Startup Kushtia"
-            width={240}
-            height={78}
+            width={380}
+            height={125}
             priority
-            className="h-12 sm:h-14 md:h-16 w-auto object-contain brightness-0 invert drop-shadow-[0_2px_14px_rgba(255,255,255,0.35)]"
+            className="h-16 sm:h-20 md:h-24 lg:h-28 w-auto max-w-[85vw] object-contain brightness-0 invert drop-shadow-[0_4px_24px_rgba(255,255,255,0.35)]"
           />
         </div>
 
-        {/* Big Bold Headline with Line Break & Vertical Padding to prevent glyph clipping */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight py-2.5 sm:py-3.5 mb-2 sm:mb-3 drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)] shrink-0 flex flex-col items-center gap-2 sm:gap-3">
-          {/* Line 1: Startup Kushtia with generous top & bottom padding */}
-          <span className="block leading-snug pt-1 pb-1.5 px-3">
-            {isBn ? "স্টার্টআপ কুষ্টিয়া" : "Startup Kushtia"}
-          </span>
-          {/* Line 2: Official Launch Badge */}
-          <span className="inline-block bg-brand text-white px-4 py-1 sm:px-6 sm:py-1.5 rounded-2xl font-black shadow-[0_0_28px_rgba(217,38,86,0.65)] text-xl sm:text-3xl md:text-4xl leading-normal">
+        {/* Official Launch Headline Badge (Crisper border radius) */}
+        <h1 className="mb-3 sm:mb-4 shrink-0 flex justify-center">
+          <span className="inline-block bg-brand text-white px-5 py-1.5 sm:px-7 sm:py-2 rounded-xl font-black shadow-[0_0_28px_rgba(217,38,86,0.65)] text-xl sm:text-2xl md:text-3xl tracking-wide leading-normal">
             {isBn ? "অফিসিয়াল লঞ্চ" : "Official Launch"}
           </span>
         </h1>
 
-        {/* Subtitle / Community Motto */}
+        {/* Subtitle / Community Motto (With line break before tagline) */}
         <p className="text-xs sm:text-sm md:text-base text-slate-300 max-w-xl leading-relaxed mb-3 sm:mb-5 font-medium shrink-0">
-          {isBn
-            ? "কুষ্টিয়ার উদ্যোক্তা ও উদ্ভাবনী কমিউনিটি। Learn. Lead. Connect. Impact."
-            : "Kushtia's Entrepreneurship & Innovation Community. Learn. Lead. Connect. Impact."}
+          <span className="block">
+            {isBn
+              ? "কুষ্টিয়ার উদ্যোক্তা ও উদ্ভাবনী কমিউনিটি।"
+              : "Kushtia's Entrepreneurship & Innovation Community."}
+          </span>
+          <span className="block text-slate-400 font-semibold tracking-wider text-[11px] sm:text-xs md:text-sm mt-0.5 sm:mt-1">
+            Learn. Lead. Connect. Impact.
+          </span>
         </p>
 
         {/* "We Are Now Live!" Glowing Callout */}
