@@ -171,7 +171,7 @@ export default function Team() {
                   width: `${100 / visibleCount}%`,
                 }}
               >
-                <div className="bg-white rounded-2xl p-4 sm:p-5 flex flex-col justify-between h-full group transition-all duration-300">
+                <div className="bg-white/80 backdrop-blur-md hover:bg-white/95 rounded-2xl p-4 sm:p-5 flex flex-col justify-between h-full group transition-all duration-300">
                   <div>
                     {/* Member Cover Photo (1:1 Square) */}
                     <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-4 bg-slate-100">
