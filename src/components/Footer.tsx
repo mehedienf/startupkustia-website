@@ -4,20 +4,13 @@ import { useLanguage } from "@/context/LanguageContext";
 import { SITE_CONFIG } from "@/data/content";
 import { ArrowUp, Heart, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface FooterProps {
-  onOpenJoin: () => void;
-  onOpenAmbassador: () => void;
-  onOpenContact: () => void;
   onOpenPolicy: (type: "privacy" | "terms") => void;
 }
 
-export default function Footer({
-  onOpenJoin,
-  onOpenAmbassador,
-  onOpenContact,
-  onOpenPolicy,
-}: FooterProps) {
+export default function Footer({ onOpenPolicy }: FooterProps) {
   const { language } = useLanguage();
   const isBn = language === "bn";
 
@@ -26,13 +19,13 @@ export default function Footer({
   };
 
   return (
-    <footer className="bg-[#000826] text-[#C9D2EA] border-t border-white/10 pt-16 pb-12">
+    <footer className="bg-[#03140E] text-[#C9D2EA] border-t border-white/10 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Brand Column */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-white shadow-md border border-white/20 inline-block">
+              <div className="p-2.5 rounded-xl bg-white shadow-md inline-block">
                 <Image
                   src="/logo.png"
                   alt="Startup Kushtia"
@@ -50,13 +43,12 @@ export default function Footer({
             </p>
 
             <div className="pt-2">
-              <button
-                type="button"
-                onClick={onOpenJoin}
-                className="px-5 py-2.5 rounded-xl bg-[#0C4DEB] hover:bg-[#083DB8] text-white font-bold text-xs btn-hard"
+              <Link
+                href="/contact?tab=community"
+                className="inline-block px-5 py-2.5 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-xs btn-hard"
               >
                 {isBn ? "কমিউনিটিতে যোগ দিন" : "Join Community"}
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -67,44 +59,44 @@ export default function Footer({
             </h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
-                <a
-                  href="#audience"
-                  className="hover:text-[#48E2E7] transition-colors"
+                <Link
+                  href="/#audience"
+                  className="hover:text-[#A3E635] transition-colors"
                 >
                   {isBn ? "স্টার্টআপ কুষ্টিয়া সম্পর্কে" : "About Platform"}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#values"
-                  className="hover:text-[#48E2E7] transition-colors"
+                <Link
+                  href="/#values"
+                  className="hover:text-[#A3E635] transition-colors"
                 >
                   {isBn ? "ভিশন ও মিশন" : "Vision & Mission"}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#values"
-                  className="hover:text-[#48E2E7] transition-colors"
+                <Link
+                  href="/#values"
+                  className="hover:text-[#A3E635] transition-colors"
                 >
                   {isBn ? "আমাদের মূল্যবোধ" : "Our Values"}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#team"
-                  className="hover:text-[#48E2E7] transition-colors"
+                <Link
+                  href="/#team"
+                  className="hover:text-[#A3E635] transition-colors"
                 >
                   {isBn ? "ফাউন্ডিং টিম" : "Founding Team"}
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#pillars"
-                  className="hover:text-[#48E2E7] transition-colors"
+                <Link
+                  href="/#pillars"
+                  className="hover:text-[#A3E635] transition-colors"
                 >
                   {isBn ? "প্রোগ্রাম ও উদ্যোগ" : "Programs"}
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -116,48 +108,44 @@ export default function Footer({
             </h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
-                <button
-                  type="button"
-                  onClick={onOpenJoin}
-                  className="hover:text-[#48E2E7] transition-colors text-left"
+                <Link
+                  href="/contact?tab=community"
+                  className="hover:text-[#A3E635] transition-colors text-left block"
                 >
                   {isBn ? "সদস্য হোন" : "Become a Member"}
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={onOpenAmbassador}
-                  className="hover:text-[#48E2E7] transition-colors text-left"
+                <Link
+                  href="/contact?tab=ambassador"
+                  className="hover:text-[#A3E635] transition-colors text-left block"
                 >
                   {isBn ? "ক্যাম্পাস অ্যাম্বাসেডর" : "Campus Ambassador"}
-                </button>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#directory"
-                  className="hover:text-[#48E2E7] transition-colors"
+                <Link
+                  href="/#directory"
+                  className="hover:text-[#A3E635] transition-colors block"
                 >
                   {isBn ? "ব্যবসার ডিরেক্টরি" : "Business Directory"}
-                </a>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={onOpenJoin}
-                  className="hover:text-[#48E2E7] transition-colors text-left"
+                <Link
+                  href="/contact?tab=community"
+                  className="hover:text-[#A3E635] transition-colors text-left block"
                 >
                   {isBn ? "মেন্টর হোন" : "Become a Mentor"}
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={onOpenContact}
-                  className="hover:text-[#48E2E7] transition-colors text-left"
+                <Link
+                  href="/contact?tab=contact"
+                  className="hover:text-[#A3E635] transition-colors text-left block"
                 >
                   {isBn ? "পৃষ্ঠপোষক ও পার্টনার" : "Partner & Sponsor"}
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -169,7 +157,7 @@ export default function Footer({
             </h4>
             <ul className="space-y-2.5 text-sm text-gray-400">
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#48E2E7] shrink-0" />
+                <Mail className="w-4 h-4 text-[#A3E635] shrink-0" />
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
                   className="hover:text-white transition-colors"
@@ -178,7 +166,7 @@ export default function Footer({
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#48E2E7] shrink-0" />
+                <Phone className="w-4 h-4 text-[#A3E635] shrink-0" />
                 <a
                   href={SITE_CONFIG.whatsappUrl}
                   target="_blank"
@@ -189,10 +177,22 @@ export default function Footer({
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#48E2E7] shrink-0" />
+                <MapPin className="w-4 h-4 text-[#A3E635] shrink-0" />
                 <span>
                   {isBn ? "কুষ্টিয়া, বাংলাদেশ" : "Kushtia, Bangladesh"}
                 </span>
+              </li>
+              <li className="pt-2">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#A3E635] hover:text-white transition-colors font-semibold"
+                >
+                  <span>
+                    {isBn
+                      ? "যোগাযোগ ও আবেদন কেন্দ্র →"
+                      : "Connect & Apply Hub →"}
+                  </span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -230,7 +230,7 @@ export default function Footer({
             <button
               type="button"
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-white/10 hover:bg-white/20 text-white transition-colors"
+              className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
               aria-label="Scroll to top"
             >
               <ArrowUp className="w-4 h-4" />

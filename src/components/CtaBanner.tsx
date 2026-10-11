@@ -16,12 +16,12 @@ export default function CtaBanner({
   const isBn = language === "bn";
 
   return (
-    <section className="py-20 md:py-24 bg-[#000A3C] relative overflow-hidden text-white">
+    <section className="py-20 md:py-24 bg-[#061C14] relative overflow-hidden text-white">
       {/* Background glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#0C4DEB]/25 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#84CC16]/20 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-8 text-center relative z-10 space-y-6">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#48E2E7]/10 text-[#48E2E7] text-xs font-bold uppercase tracking-wider border border-[#48E2E7]/30">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A3E635]/15 text-[#A3E635] text-xs font-bold uppercase tracking-wider">
           <Sparkles className="w-3.5 h-3.5" />
           <span>{isBn ? "শুরু হোক আজই" : "Start Today"}</span>
         </div>
@@ -30,12 +30,12 @@ export default function CtaBanner({
           {isBn ? (
             <>
               কুষ্টিয়া থেকে গড়ে তুলতে{" "}
-              <span className="text-[#48E2E7]">প্রস্তুত?</span>
+              <span className="text-[#A3E635]">প্রস্তুত?</span>
             </>
           ) : (
             <>
               Ready to Build from{" "}
-              <span className="text-[#48E2E7]">Kushtia?</span>
+              <span className="text-[#A3E635]">Kushtia?</span>
             </>
           )}
         </h2>
@@ -50,7 +50,7 @@ export default function CtaBanner({
           <button
             type="button"
             onClick={onOpenJoin}
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#0C4DEB] hover:bg-[#083DB8] text-white font-bold text-base btn-hard flex items-center justify-center gap-2 group"
+            className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-base btn-hard flex items-center justify-center gap-2 group"
           >
             <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join the Community"}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -59,7 +59,7 @@ export default function CtaBanner({
           <button
             type="button"
             onClick={onOpenContact}
-            className="w-full sm:w-auto px-7 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-base border-2 border-white/20 transition-all text-center"
+            className="w-full sm:w-auto px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-base transition-all text-center"
           >
             {isBn ? "যোগাযোগ করুন" : "Contact Us"}
           </button>

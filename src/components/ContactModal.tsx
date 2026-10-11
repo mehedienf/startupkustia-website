@@ -40,18 +40,18 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const isBn = language === "bn";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#000A3C]/70 backdrop-blur-sm animate-fade-in">
-      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border-2 border-[#000A3C] overflow-hidden">
-        <div className="bg-[#000A3C] text-white px-6 py-4 flex items-center justify-between border-b-2 border-[#48E2E7]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061C14]/70 backdrop-blur-sm animate-fade-in">
+      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-[#061C14] text-white px-6 py-4 flex items-center justify-between border-b-2 border-[#A3E635]">
           <div className="flex items-center gap-2">
-            <Mail className="w-5 h-5 text-[#48E2E7]" />
+            <Mail className="w-5 h-5 text-[#A3E635]" />
             <h3 className="font-bold text-lg text-white">
               {isBn ? "যোগাযোগ করুন" : "Contact Startup Kushtia"}
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="text-gray-300 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors"
+            className="text-gray-300 hover:text-white p-1.5 rounded-full hover:bg-white/10 transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -61,10 +61,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         <div className="p-6">
           {submitted ? (
             <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 bg-[#E6FAFB] text-[#0C4DEB] rounded-full flex items-center justify-center mx-auto border-2 border-[#48E2E7]">
-                <CheckCircle className="w-8 h-8 text-[#0C4DEB]" />
+              <div className="w-16 h-16 bg-[#ECFCCB] text-[#65A30D] rounded-full flex items-center justify-center mx-auto border-2 border-[#A3E635]">
+                <CheckCircle className="w-8 h-8 text-[#65A30D]" />
               </div>
-              <h4 className="text-xl font-bold text-[#000A3C]">
+              <h4 className="text-xl font-bold text-[#061C14]">
                 {isBn
                   ? "বার্তাটি সফলভাবে পাঠানো হয়েছে!"
                   : "Message Sent Successfully!"}
@@ -78,7 +78,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-6 py-2.5 bg-[#0C4DEB] text-white font-semibold rounded-xl btn-hard text-sm"
+                  className="px-6 py-2.5 bg-[#84CC16] hover:bg-[#65A30D] text-white font-semibold rounded-full btn-hard text-sm"
                 >
                   {isBn ? "ঠিক আছে" : "Done"}
                 </button>
@@ -87,28 +87,28 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           ) : (
             <div>
               {/* Direct channels */}
-              <div className="mb-4 p-3 bg-[#F5F7FC] rounded-xl border border-[#E2E7F1] grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#000A3C]">
+              <div className="mb-4 p-3 bg-[#F7FEE7] rounded-xl grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#061C14]">
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
-                  className="flex items-center gap-2 hover:text-[#0C4DEB] transition-colors"
+                  className="flex items-center gap-2 hover:text-[#65A30D] transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-[#0C4DEB]" />
+                  <Mail className="w-4 h-4 text-[#65A30D]" />
                   <span>{SITE_CONFIG.email}</span>
                 </a>
                 <a
                   href={SITE_CONFIG.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 hover:text-[#0C4DEB] transition-colors"
+                  className="flex items-center gap-2 hover:text-[#65A30D] transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-[#0C4DEB]" />
+                  <Phone className="w-4 h-4 text-[#65A30D]" />
                   <span>{SITE_CONFIG.whatsapp} (WhatsApp)</span>
                 </a>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-3 text-left">
                 <div>
-                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                     {isBn ? "আপনার নাম *" : "Name *"}
                   </label>
                   <input
@@ -119,12 +119,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                     {isBn ? "ইমেইল বা ফোন *" : "Email or Phone *"}
                   </label>
                   <input
@@ -135,12 +135,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                     {isBn ? "বিষয় *" : "Subject *"}
                   </label>
                   <input
@@ -155,12 +155,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, subject: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                     {isBn ? "আপনার বার্তা *" : "Your Message *"}
                   </label>
                   <textarea
@@ -175,7 +175,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                   />
                 </div>
 
@@ -183,14 +183,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   <button
                     type="button"
                     onClick={onClose}
-                    className="px-4 py-2 text-sm text-[#444E69] hover:text-[#000A3C] font-medium"
+                    className="px-4 py-2 text-sm text-[#444E69] hover:text-[#061C14] font-medium rounded-full hover:bg-slate-100 transition-colors"
                   >
                     {isBn ? "বাতিল" : "Cancel"}
                   </button>
                   <button
                     type="submit"
                     disabled={loading}
-                    className="px-6 py-2.5 bg-[#0C4DEB] hover:bg-[#083DB8] text-white font-bold rounded-xl btn-hard text-sm flex items-center gap-2"
+                    className="px-6 py-2.5 bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold rounded-full btn-hard text-sm flex items-center gap-2"
                   >
                     {loading ? (
                       <span>{isBn ? "পাঠানো হচ্ছে..." : "Sending..."}</span>

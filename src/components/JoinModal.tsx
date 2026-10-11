@@ -49,19 +49,19 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
   const isBn = language === "bn";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#000A3C]/70 backdrop-blur-sm animate-fade-in">
-      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border-2 border-[#000A3C] overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061C14]/70 backdrop-blur-sm animate-fade-in">
+      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden">
         {/* Header bar */}
-        <div className="bg-[#000A3C] text-white px-6 py-4 flex items-center justify-between border-b-2 border-[#48E2E7]">
+        <div className="bg-[#061C14] text-white px-6 py-4 flex items-center justify-between border-b-2 border-[#A3E635]">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#48E2E7] animate-pulse"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#A3E635] animate-pulse"></span>
             <h3 className="font-bold text-lg text-white">
               {isBn ? "কমিউনিটিতে যোগ দিন" : "Join Our Community"}
             </h3>
           </div>
           <button
             onClick={onClose}
-            className="text-gray-300 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors"
+            className="text-gray-300 hover:text-white p-1.5 rounded-full hover:bg-white/10 transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -71,10 +71,10 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
         <div className="p-6">
           {submitted ? (
             <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 bg-[#E6FAFB] text-[#0C4DEB] rounded-full flex items-center justify-center mx-auto border-2 border-[#48E2E7]">
-                <CheckCircle className="w-8 h-8 text-[#0C4DEB]" />
+              <div className="w-16 h-16 bg-[#ECFCCB] text-[#65A30D] rounded-full flex items-center justify-center mx-auto border-2 border-[#A3E635]">
+                <CheckCircle className="w-8 h-8 text-[#65A30D]" />
               </div>
-              <h4 className="text-xl font-bold text-[#000A3C]">
+              <h4 className="text-xl font-bold text-[#061C14]">
                 {isBn
                   ? "অভিনন্দন! আপনার আবেদন গৃহীত হয়েছে"
                   : "Welcome to Startup Kushtia!"}
@@ -88,7 +88,7 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-6 py-2.5 bg-[#0C4DEB] text-white font-semibold rounded-xl btn-hard text-sm"
+                  className="px-6 py-2.5 bg-[#84CC16] hover:bg-[#65A30D] text-white font-semibold rounded-full btn-hard text-sm"
                 >
                   {isBn ? "ঠিক আছে" : "Done"}
                 </button>
@@ -103,7 +103,7 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
               </p>
 
               <div>
-                <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                   {isBn ? "আপনার পূর্ণ নাম *" : "Full Name *"}
                 </label>
                 <input
@@ -114,13 +114,13 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C]"
+                  className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                     {isBn ? "ইমেইল ঠিকানা *" : "Email Address *"}
                   </label>
                   <input
@@ -131,11 +131,11 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C]"
+                    className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                     {isBn ? "হোয়াটসঅ্যাপ / ফোন *" : "WhatsApp / Phone *"}
                   </label>
                   <input
@@ -146,13 +146,13 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C]"
+                    className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                   {isBn ? "আপনার ভূমিকা / পরিচয় *" : "Your Category / Role *"}
                 </label>
                 <select
@@ -160,7 +160,7 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                   onChange={(e) =>
                     setFormData({ ...formData, category: e.target.value })
                   }
-                  className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C] bg-white"
+                  className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] bg-white"
                 >
                   <option value="student">
                     {isBn
@@ -191,7 +191,7 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                   {isBn ? "প্রতিষ্ঠান বা ক্যাম্পাস" : "Organization or Campus"}
                 </label>
                 <input
@@ -205,12 +205,12 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                   onChange={(e) =>
                     setFormData({ ...formData, institution: e.target.value })
                   }
-                  className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C]"
+                  className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                   {isBn
                     ? "আপনার আইডিয়া বা আগ্রহ সংক্ষেপে লিখুন"
                     : "Briefly describe your idea or goal"}
@@ -226,7 +226,7 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                   onChange={(e) =>
                     setFormData({ ...formData, note: e.target.value })
                   }
-                  className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C]"
+                  className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                 />
               </div>
 
@@ -234,14 +234,14 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 text-sm text-[#444E69] hover:text-[#000A3C] font-medium"
+                  className="px-4 py-2 text-sm text-[#444E69] hover:text-[#061C14] font-medium rounded-full hover:bg-slate-100 transition-colors"
                 >
                   {isBn ? "বাতিল" : "Cancel"}
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-6 py-2.5 bg-[#0C4DEB] hover:bg-[#083DB8] text-white font-bold rounded-xl btn-hard text-sm flex items-center gap-2"
+                  className="px-6 py-2.5 bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold rounded-full btn-hard text-sm flex items-center gap-2"
                 >
                   {loading ? (
                     <span>{isBn ? "জমা হচ্ছে..." : "Submitting..."}</span>

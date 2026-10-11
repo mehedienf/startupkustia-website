@@ -21,19 +21,19 @@ export default function Faq({ onOpenContact }: FaqProps) {
   return (
     <section
       id="faq"
-      className="py-20 md:py-28 bg-white border-b border-[#E2E7F1] relative"
+      className="py-20 md:py-28 bg-white border-b border-slate-100 relative"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-8">
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0C4DEB] mb-3">
-            <span className="w-6 h-0.5 bg-[#48E2E7]"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#65A30D] mb-3">
+            <span className="w-6 h-0.5 bg-[#A3E635]"></span>
             <span>
               {isBn ? "সচরাচর জিজ্ঞাসা" : "Frequently Asked Questions"}
             </span>
-            <span className="w-6 h-0.5 bg-[#48E2E7]"></span>
+            <span className="w-6 h-0.5 bg-[#A3E635]"></span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#000A3C] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#061C14] tracking-tight">
             {isBn ? "দ্রুত উত্তর।" : "Quick Answers."}
           </h2>
           <p className="mt-3 text-base text-[#444E69]">
@@ -50,24 +50,24 @@ export default function Faq({ onOpenContact }: FaqProps) {
             return (
               <div
                 key={item.id}
-                className={`rounded-2xl border transition-all overflow-hidden ${
+                className={`rounded-2xl transition-all overflow-hidden ${
                   isOpen
-                    ? "border-[#0C4DEB] bg-[#F5F7FC]/70 shadow-sm"
-                    : "border-[#E2E7F1] bg-white hover:border-gray-300"
+                    ? "bg-[#F7FEE7] shadow-sm"
+                    : "bg-[#FAFCFF] hover:bg-[#F7FEE7] shadow-xs"
                 }`}
               >
                 <button
                   type="button"
                   onClick={() => toggleAccordion(item.id)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-[#000A3C]"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-[#061C14]"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="text-[#0C4DEB] text-sm">✦</span>
+                    <span className="text-[#65A30D] text-sm">✦</span>
                     <span>{isBn ? item.questionBn : item.questionEn}</span>
                   </span>
                   <ChevronDown
                     className={`w-5 h-5 text-gray-500 shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-[#0C4DEB]" : ""
+                      isOpen ? "rotate-180 text-[#65A30D]" : ""
                     }`}
                   />
                 </button>
@@ -85,9 +85,9 @@ export default function Faq({ onOpenContact }: FaqProps) {
         </div>
 
         {/* Additional help footer */}
-        <div className="mt-12 p-6 rounded-2xl bg-[#EDF2FE] border border-[#0C4DEB]/20 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 p-6 rounded-2xl bg-[#ECFCCB] text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
           <div className="text-left">
-            <h4 className="font-bold text-[#000A3C] text-base">
+            <h4 className="font-bold text-[#061C14] text-base">
               {isBn ? "আরও কোনো প্রশ্ন আছে?" : "Have more questions?"}
             </h4>
             <p className="text-xs text-[#444E69] mt-0.5">
@@ -100,7 +100,7 @@ export default function Faq({ onOpenContact }: FaqProps) {
           <button
             type="button"
             onClick={onOpenContact}
-            className="px-5 py-2.5 rounded-xl bg-[#000A3C] text-white font-bold text-xs btn-hard shrink-0"
+            className="px-5 py-2.5 rounded-full bg-[#061C14] hover:bg-[#84CC16] text-white font-bold text-xs btn-hard shrink-0"
           >
             {isBn ? "আমাদের লিখুন" : "Contact Us"}
           </button>

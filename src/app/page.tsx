@@ -16,7 +16,6 @@ import Pillars from "@/components/Pillars";
 import PolicyModal from "@/components/PolicyModal";
 import Team from "@/components/Team";
 import Values from "@/components/Values";
-import { LanguageProvider } from "@/context/LanguageContext";
 import { useState } from "react";
 
 export default function HomePage() {
@@ -29,83 +28,73 @@ export default function HomePage() {
   >(null);
 
   return (
-    <LanguageProvider>
-      <div className="min-h-screen flex flex-col bg-[#F5F7FC] text-[#444E69]">
-        {/* Navigation */}
-        <Header
+    <div className="min-h-screen flex flex-col bg-[#F5F7FC] text-[#444E69]">
+      {/* Navigation */}
+      <Header onOpenJoin={() => setJoinModalOpen(true)} />
+
+      {/* Main Content */}
+      <main className="flex-1">
+        {/* Hero Section */}
+        <Hero onOpenJoin={() => setJoinModalOpen(true)} />
+
+        {/* For Who / Audience Section */}
+        <Audience onSelectCategory={() => setJoinModalOpen(true)} />
+
+        {/* 6 Ways We Support / Pillars */}
+        <Pillars onOpenJoin={() => setJoinModalOpen(true)} />
+
+        {/* Directory & Kushtia Ecosystem Showcase */}
+        <Directory onOpenListingModal={() => setDirectoryModalOpen(true)} />
+
+        {/* Campus Ambassador Program */}
+        <Ambassadors
+          onOpenAmbassadorModal={() => setAmbassadorModalOpen(true)}
+        />
+
+        {/* Core Values */}
+        <Values />
+
+        {/* Founding Team */}
+        <Team />
+
+        {/* FAQ Accordion */}
+        <Faq onOpenContact={() => setContactModalOpen(true)} />
+
+        {/* Ready to Build Call to Action Banner */}
+        <CtaBanner
           onOpenJoin={() => setJoinModalOpen(true)}
           onOpenContact={() => setContactModalOpen(true)}
         />
+      </main>
 
-        {/* Main Content */}
-        <main className="flex-1">
-          {/* Hero Section */}
-          <Hero onOpenJoin={() => setJoinModalOpen(true)} />
+      {/* Footer */}
+      <Footer onOpenPolicy={(type) => setPolicyModalType(type)} />
 
-          {/* For Who / Audience Section */}
-          <Audience onSelectCategory={() => setJoinModalOpen(true)} />
+      {/* Interactive Modals */}
+      <JoinModal
+        isOpen={joinModalOpen}
+        onClose={() => setJoinModalOpen(false)}
+      />
 
-          {/* 6 Ways We Support / Pillars */}
-          <Pillars onOpenJoin={() => setJoinModalOpen(true)} />
+      <AmbassadorModal
+        isOpen={ambassadorModalOpen}
+        onClose={() => setAmbassadorModalOpen(false)}
+      />
 
-          {/* Directory & Kushtia Ecosystem Showcase */}
-          <Directory onOpenListingModal={() => setDirectoryModalOpen(true)} />
+      <DirectoryModal
+        isOpen={directoryModalOpen}
+        onClose={() => setDirectoryModalOpen(false)}
+      />
 
-          {/* Campus Ambassador Program */}
-          <Ambassadors
-            onOpenAmbassadorModal={() => setAmbassadorModalOpen(true)}
-          />
+      <ContactModal
+        isOpen={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+      />
 
-          {/* Core Values */}
-          <Values />
-
-          {/* Founding Team */}
-          <Team />
-
-          {/* FAQ Accordion */}
-          <Faq onOpenContact={() => setContactModalOpen(true)} />
-
-          {/* Ready to Build Call to Action Banner */}
-          <CtaBanner
-            onOpenJoin={() => setJoinModalOpen(true)}
-            onOpenContact={() => setContactModalOpen(true)}
-          />
-        </main>
-
-        {/* Footer */}
-        <Footer
-          onOpenJoin={() => setJoinModalOpen(true)}
-          onOpenAmbassador={() => setAmbassadorModalOpen(true)}
-          onOpenContact={() => setContactModalOpen(true)}
-          onOpenPolicy={(type) => setPolicyModalType(type)}
-        />
-
-        {/* Interactive Modals */}
-        <JoinModal
-          isOpen={joinModalOpen}
-          onClose={() => setJoinModalOpen(false)}
-        />
-
-        <AmbassadorModal
-          isOpen={ambassadorModalOpen}
-          onClose={() => setAmbassadorModalOpen(false)}
-        />
-
-        <DirectoryModal
-          isOpen={directoryModalOpen}
-          onClose={() => setDirectoryModalOpen(false)}
-        />
-
-        <ContactModal
-          isOpen={contactModalOpen}
-          onClose={() => setContactModalOpen(false)}
-        />
-
-        <PolicyModal
-          type={policyModalType}
-          onClose={() => setPolicyModalType(null)}
-        />
-      </div>
-    </LanguageProvider>
+      <PolicyModal
+        type={policyModalType}
+        onClose={() => setPolicyModalType(null)}
+      />
+    </div>
   );
 }

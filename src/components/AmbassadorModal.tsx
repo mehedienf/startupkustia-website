@@ -45,11 +45,11 @@ export default function AmbassadorModal({
   const isBn = language === "bn";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#000A3C]/70 backdrop-blur-sm animate-fade-in">
-      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border-2 border-[#000A3C] overflow-hidden">
-        <div className="bg-[#000A3C] text-white px-6 py-4 flex items-center justify-between border-b-2 border-[#48E2E7]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061C14]/70 backdrop-blur-sm animate-fade-in">
+      <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden">
+        <div className="bg-[#061C14] text-white px-6 py-4 flex items-center justify-between border-b-2 border-[#A3E635]">
           <div className="flex items-center gap-2">
-            <GraduationCap className="w-5 h-5 text-[#48E2E7]" />
+            <GraduationCap className="w-5 h-5 text-[#A3E635]" />
             <h3 className="font-bold text-lg text-white">
               {isBn
                 ? "ক্যাম্পাস অ্যাম্বাসেডর আবেদন"
@@ -58,7 +58,7 @@ export default function AmbassadorModal({
           </div>
           <button
             onClick={onClose}
-            className="text-gray-300 hover:text-white p-1 rounded-lg hover:bg-white/10 transition-colors"
+            className="text-gray-300 hover:text-white p-1.5 rounded-full hover:bg-white/10 transition-colors"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -68,10 +68,10 @@ export default function AmbassadorModal({
         <div className="p-6">
           {submitted ? (
             <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 bg-[#E6FAFB] text-[#0C4DEB] rounded-full flex items-center justify-center mx-auto border-2 border-[#48E2E7]">
-                <CheckCircle className="w-8 h-8 text-[#0C4DEB]" />
+              <div className="w-16 h-16 bg-[#ECFCCB] text-[#65A30D] rounded-full flex items-center justify-center mx-auto border-2 border-[#A3E635]">
+                <CheckCircle className="w-8 h-8 text-[#65A30D]" />
               </div>
-              <h4 className="text-xl font-bold text-[#000A3C]">
+              <h4 className="text-xl font-bold text-[#061C14]">
                 {isBn
                   ? "আবেদন সফলভাবে গৃহীত হয়েছে!"
                   : "Application Submitted!"}
@@ -85,7 +85,7 @@ export default function AmbassadorModal({
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-6 py-2.5 bg-[#0C4DEB] text-white font-semibold rounded-xl btn-hard text-sm"
+                  className="px-6 py-2.5 bg-[#84CC16] hover:bg-[#65A30D] text-white font-semibold rounded-full btn-hard text-sm"
                 >
                   {isBn ? "বন্ধ করুন" : "Close"}
                 </button>
@@ -100,7 +100,7 @@ export default function AmbassadorModal({
               </p>
 
               <div>
-                <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                   {isBn ? "আপনার নাম *" : "Your Name *"}
                 </label>
                 <input
@@ -111,13 +111,13 @@ export default function AmbassadorModal({
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                     {isBn ? "ইমেইল *" : "Email *"}
                   </label>
                   <input
@@ -128,11 +128,11 @@ export default function AmbassadorModal({
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                     {isBn ? "ফোন / হোয়াটসঅ্যাপ *" : "WhatsApp Phone *"}
                   </label>
                   <input
@@ -143,13 +143,13 @@ export default function AmbassadorModal({
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                   {isBn ? "ক্যাম্পাস / প্রতিষ্ঠান *" : "Campus / Institution *"}
                 </label>
                 <select
@@ -157,7 +157,7 @@ export default function AmbassadorModal({
                   onChange={(e) =>
                     setFormData({ ...formData, campus: e.target.value })
                   }
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C] bg-white"
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] bg-white"
                 >
                   <option value="Islamic University (IU), Kushtia">
                     {isBn
@@ -192,7 +192,7 @@ export default function AmbassadorModal({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                     {isBn ? "বিভাগ / বিষয় *" : "Department *"}
                   </label>
                   <input
@@ -205,11 +205,11 @@ export default function AmbassadorModal({
                     onChange={(e) =>
                       setFormData({ ...formData, department: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                     {isBn ? "বর্ষ / সেমিস্টার *" : "Academic Year *"}
                   </label>
                   <input
@@ -222,13 +222,13 @@ export default function AmbassadorModal({
                     onChange={(e) =>
                       setFormData({ ...formData, year: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
                   {isBn
                     ? "কেন ক্যাম্পাস অ্যাম্বাসেডর হতে চান?"
                     : "Why do you want to be an ambassador?"}
@@ -244,7 +244,7 @@ export default function AmbassadorModal({
                   onChange={(e) =>
                     setFormData({ ...formData, motivation: e.target.value })
                   }
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
                 />
               </div>
 
@@ -252,14 +252,14 @@ export default function AmbassadorModal({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 text-sm text-[#444E69] hover:text-[#000A3C] font-medium"
+                  className="px-4 py-2 text-sm text-[#444E69] hover:text-[#061C14] font-medium rounded-full hover:bg-slate-100 transition-colors"
                 >
                   {isBn ? "বাতিল" : "Cancel"}
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-6 py-2.5 bg-[#0C4DEB] hover:bg-[#083DB8] text-white font-bold rounded-xl btn-hard text-sm flex items-center gap-2"
+                  className="px-6 py-2.5 bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold rounded-full btn-hard text-sm flex items-center gap-2"
                 >
                   {loading ? (
                     <span>{isBn ? "জমা হচ্ছে..." : "Submitting..."}</span>

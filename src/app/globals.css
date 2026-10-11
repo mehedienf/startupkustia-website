@@ -18,17 +18,17 @@
 }
 
 :root {
-  --sk-navy: #000a3c;
-  --sk-navy2: #0a1a55;
-  --sk-blue: #0c4deb;
-  --sk-bluedeep: #083db8;
-  --sk-cyan: #48e2e7;
-  --sk-cyansoft: #e6fafb;
-  --sk-bluesoft: #edf2fe;
-  --sk-shell: #f5f7fc;
-  --sk-text: #444e69;
-  --sk-hair: #e2e7f1;
-  --sk-muted: #6b7591;
+  --sk-navy: #061c14;
+  --sk-navy2: #0d2a20;
+  --sk-lime: #84cc16;
+  --sk-limedeep: #65a30d;
+  --sk-limeaccent: #a3e635;
+  --sk-limesoft: #f7fee7;
+  --sk-limesoft2: #ecfccb;
+  --sk-shell: #f8faf9;
+  --sk-text: #374151;
+  --sk-hair: #e5e7eb;
+  --sk-muted: #6b7280;
 }
 
 body {
@@ -48,44 +48,35 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Hard offset brutalist shadow */
-.btn-hard {
-  box-shadow: 4px 4px 0 var(--sk-navy);
-  transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    background-color 0.15s ease;
-}
-
-.btn-hard:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--sk-navy);
-}
-
-.btn-hard:active {
-  transform: translate(4px, 4px);
-  box-shadow: 0 0 0 var(--sk-navy);
-}
-
+/* Smooth flat modern pill-shaped buttons */
+.btn-hard,
 .btn-hard-cyan {
-  box-shadow: 4px 4px 0 #ffffff;
+  border-radius: 9999px !important;
+  box-shadow: none !important;
   transition:
     transform 0.15s ease,
-    box-shadow 0.15s ease,
-    background-color 0.15s ease;
+    background-color 0.15s ease,
+    opacity 0.15s ease;
 }
 
+.btn-hard:hover,
 .btn-hard-cyan:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--sk-cyan);
+  transform: translateY(-1px);
+  box-shadow: none !important;
 }
 
-/* Cyan highlighter text */
+.btn-hard:active,
+.btn-hard-cyan:active {
+  transform: translateY(1px);
+  box-shadow: none !important;
+}
+
+/* Lime Green highlighter text */
 .sk-hl {
   background: linear-gradient(
     transparent 52%,
-    var(--sk-cyan) 52%,
-    var(--sk-cyan) 92%,
+    #bef264 52%,
+    #bef264 92%,
     transparent 92%
   );
   padding: 0 0.12em;
@@ -94,8 +85,8 @@ body {
 }
 
 .sk-hl-dark {
-  background: var(--sk-cyan);
-  color: var(--sk-navy);
+  background: #a3e635;
+  color: #061c14;
   padding: 0 0.2em;
   border-radius: 2px;
   box-decoration-break: clone;
@@ -108,33 +99,37 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--sk-cyan);
-  box-shadow: 0 0 0 3px rgba(72, 226, 231, 0.28);
+  background-color: #a3e635;
+  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.28);
   animation: pulse-dot 2s infinite ease-in-out;
 }
 
 @keyframes pulse-dot {
   0%,
   100% {
-    box-shadow: 0 0 0 2px rgba(72, 226, 231, 0.2);
+    box-shadow: 0 0 0 2px rgba(163, 230, 53, 0.2);
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(72, 226, 231, 0.4);
+    box-shadow: 0 0 0 6px rgba(163, 230, 53, 0.4);
   }
 }
 
-/* Card hover lift */
+/* Card hover lift - clean borderless with elegant shadow */
 .card-hover {
+  border: none !important;
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
+    box-shadow 0.2s ease;
 }
 
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px -10px rgba(0, 10, 60, 0.12);
-  border-color: #cbd5e1;
+  box-shadow: 0 14px 28px -10px rgba(6, 28, 20, 0.12);
+}
+
+::selection {
+  background-color: #bef264;
+  color: #061c14;
 }
 
 /* Custom scrollbar */

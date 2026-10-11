@@ -9,16 +9,16 @@ export default function Team() {
   const isBn = language === "bn";
 
   return (
-    <section id="team" className="py-20 md:py-28 bg-[#F5F7FC] relative">
+    <section id="team" className="py-20 md:py-28 bg-[#F7FEE7] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Heading */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0C4DEB] mb-3">
-            <span className="w-6 h-0.5 bg-[#48E2E7]"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#65A30D] mb-3">
+            <span className="w-6 h-0.5 bg-[#A3E635]"></span>
             <span>{isBn ? "কোর টিম" : "Core Leadership"}</span>
-            <span className="w-6 h-0.5 bg-[#48E2E7]"></span>
+            <span className="w-6 h-0.5 bg-[#A3E635]"></span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#000A3C] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#061C14] tracking-tight">
             {isBn ? "যাঁদের হাত ধরে শুরু" : "Meet the Founding Team"}
           </h2>
           <p className="mt-3 text-base text-[#444E69]">
@@ -33,26 +33,24 @@ export default function Team() {
           {TEAM_MEMBERS.map((member, index) => (
             <div
               key={member.id}
-              className={`bg-white p-6 rounded-2xl border border-[#E2E7F1] card-hover flex flex-col justify-between ${
-                index === 0
-                  ? "sm:col-span-2 lg:col-span-1 border-t-4 border-t-[#0C4DEB]"
-                  : ""
+              className={`bg-white p-6 rounded-2xl shadow-sm card-hover flex flex-col justify-between ${
+                index === 0 ? "sm:col-span-2 lg:col-span-1" : ""
               }`}
             >
               <div>
                 {/* Avatar with initial */}
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#000A3C] to-[#0A1A55] text-white flex items-center justify-center font-bold text-xl mb-5 shadow-sm border border-[#E2E7F1]">
-                  <span className="text-[#48E2E7]">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#061C14] to-[#0D2A20] text-white flex items-center justify-center font-bold text-xl mb-5 shadow-xs">
+                  <span className="text-[#A3E635]">
                     {member.nameEn.split(" ")[0][0]}
                   </span>
                   <span>{member.nameEn.split(" ")[1]?.[0] || ""}</span>
                 </div>
 
-                <div className="text-[11px] font-bold text-[#0C4DEB] uppercase tracking-wider mb-1">
+                <div className="text-[11px] font-bold text-[#65A30D] uppercase tracking-wider mb-1">
                   {isBn ? member.roleBn : member.roleEn}
                 </div>
 
-                <h3 className="text-lg font-bold text-[#000A3C] mb-1">
+                <h3 className="text-lg font-bold text-[#061C14] mb-1">
                   {isBn ? member.nameBn : member.nameEn}
                 </h3>
 
@@ -69,7 +67,7 @@ export default function Team() {
                   <a
                     href="mailto:startupkushtia@gmail.com"
                     aria-label={`Email ${member.nameEn}`}
-                    className="hover:text-[#0C4DEB] transition-colors"
+                    className="hover:text-[#65A30D] transition-colors"
                   >
                     <Mail className="w-3.5 h-3.5" />
                   </a>
@@ -78,7 +76,7 @@ export default function Team() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`LinkedIn for ${member.nameEn}`}
-                    className="hover:text-[#0C4DEB] transition-colors"
+                    className="hover:text-[#65A30D] transition-colors"
                   >
                     <Globe className="w-3.5 h-3.5" />
                   </a>

@@ -1,3 +1,4 @@
+import { LanguageProvider } from "@/context/LanguageContext";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -55,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="bn" className={`scroll-smooth ${tiroBangla.variable}`}>
       <body className="min-h-screen flex flex-col bg-[#F5F7FC] text-[#444E69] antialiased">
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );
