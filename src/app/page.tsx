@@ -30,7 +30,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-[#F5F7FC] text-[#444E69]">
       {/* Navigation */}
-      <Header onOpenJoin={() => setJoinModalOpen(true)} />
+      <Header />
 
       {/* Main Content */}
       <main className="flex-1">

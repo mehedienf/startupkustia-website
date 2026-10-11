@@ -5,7 +5,6 @@ import { SITE_CONFIG } from "@/data/content";
 import { ArrowUpRight, Menu, MessageCircle, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 interface HeaderProps {
@@ -13,7 +12,6 @@ interface HeaderProps {
 }
 
 export default function Header({ onOpenJoin }: HeaderProps) {
-  const router = useRouter();
   const { language, setLanguage } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -58,14 +56,6 @@ export default function Header({ onOpenJoin }: HeaderProps) {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [mobileMenuOpen]);
-
-  const handleJoinClick = () => {
-    if (onOpenJoin) {
-      onOpenJoin();
-    } else {
-      router.push("/contact?tab=community");
-    }
-  };
 
   return (
     <header
@@ -168,12 +158,6 @@ export default function Header({ onOpenJoin }: HeaderProps) {
             >
               {isBn ? "প্রশ্নোত্তর" : "FAQ"}
             </Link>
-            <Link
-              href="/contact"
-              className="px-3 py-1.5 rounded-lg hover:text-[#65A30D] hover:bg-slate-100/70 transition-all text-[#65A30D] font-bold"
-            >
-              {isBn ? "যোগাযোগ ও আবেদন" : "Contact & Apply"}
-            </Link>
           </div>
 
           {/* Right Action Controls */}
@@ -204,23 +188,15 @@ export default function Header({ onOpenJoin }: HeaderProps) {
               </button>
             </div>
 
-            {/* Quick Contact Link */}
+            {/* Primary CTA Button - Redirects directly to Contact & Applications Hub */}
             <Link
               href="/contact"
-              className="text-xs font-bold text-slate-600 hover:text-[#65A30D] px-3 py-1.5 rounded-full transition-colors"
-            >
-              {isBn ? "যোগাযোগ" : "Contact"}
-            </Link>
-
-            {/* Primary CTA Button */}
-            <button
-              type="button"
-              onClick={handleJoinClick}
+              onClick={onOpenJoin}
               className="px-5 py-2.5 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-xs sm:text-sm btn-hard flex items-center gap-1.5"
             >
               <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join Community"}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Actions & Menu Toggle */}
@@ -234,13 +210,15 @@ export default function Header({ onOpenJoin }: HeaderProps) {
               {isBn ? "EN" : "বাং"}
             </button>
 
-            <button
-              type="button"
-              onClick={handleJoinClick}
+            <Link
+              href="/contact"
+              onClick={() => {
+                if (onOpenJoin) onOpenJoin();
+              }}
               className="px-3 py-1.5 rounded-full bg-[#84CC16] text-white font-bold text-xs btn-hard sm:hidden"
             >
               {isBn ? "যুক্ত হোন" : "Join"}
-            </button>
+            </Link>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -302,33 +280,19 @@ export default function Header({ onOpenJoin }: HeaderProps) {
               >
                 {isBn ? "প্রশ্নোত্তর" : "FAQ"}
               </Link>
-              <Link
-                href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 text-[#65A30D] font-bold transition-colors"
-              >
-                {isBn ? "যোগাযোগ ও আবেদন কেন্দ্র" : "Contact & Apply Hub"}
-              </Link>
             </div>
 
             <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
-              <button
-                type="button"
+              <Link
+                href="/contact"
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  handleJoinClick();
+                  if (onOpenJoin) onOpenJoin();
                 }}
                 className="w-full py-2.5 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-center btn-hard flex items-center justify-center gap-1.5 text-sm"
               >
                 <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join Community"}</span>
                 <ArrowUpRight className="w-4 h-4" />
-              </button>
-              <Link
-                href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-2 rounded-full border border-slate-300 text-[#061C14] font-semibold text-center text-xs hover:bg-slate-50 block"
-              >
-                {isBn ? "যোগাযোগ ও আবেদন কেন্দ্র" : "Contact & Applications"}
               </Link>
             </div>
           </div>
