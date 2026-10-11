@@ -2,16 +2,14 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 interface CtaBannerProps {
-  onOpenJoin: () => void;
+  onOpenJoin?: () => void;
   onOpenContact: () => void;
 }
 
-export default function CtaBanner({
-  onOpenJoin,
-  onOpenContact,
-}: CtaBannerProps) {
+export default function CtaBanner({ onOpenContact }: CtaBannerProps) {
   const { language } = useLanguage();
   const isBn = language === "bn";
 
@@ -54,14 +52,13 @@ export default function CtaBanner({
         </p>
 
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            type="button"
-            onClick={onOpenJoin}
+          <Link
+            href="/contact"
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-base btn-hard flex items-center justify-center gap-2 group shadow-lg"
           >
             <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join the Community"}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
 
           <button
             type="button"

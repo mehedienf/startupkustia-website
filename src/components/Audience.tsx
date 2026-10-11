@@ -90,7 +90,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
                     <span className="text-2xl font-extrabold text-slate-900 tracking-tight">
-                      ৮৫%
+                      {isBn ? "৮৫%" : "85%"}
                     </span>
                     <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
                       {isBn ? "আইডিয়া যাচাই" : "Validated"}
@@ -101,7 +101,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
 
               <div className="text-center pt-2">
                 <div className="text-3xl font-extrabold text-slate-900 tracking-tight">
-                  ১২+
+                  {isBn ? "১২+" : "12+"}
                 </div>
                 <p className="text-xs text-[#525D7A] font-medium mt-1 leading-snug">
                   {isBn
@@ -113,10 +113,10 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                     IU Campus
                   </span>
                   <span className="text-[10px] font-semibold bg-white/70 px-2 py-0.5 rounded-md text-slate-700">
-                    পলিটেকনিক
+                    {isBn ? "পলিটেকনিক" : "Polytechnic"}
                   </span>
                   <span className="text-[10px] font-semibold bg-white/70 px-2 py-0.5 rounded-md text-slate-700">
-                    কুষ্টিয়া সদর
+                    {isBn ? "কুষ্টিয়া সদর" : "Kushtia Sadar"}
                   </span>
                 </div>
               </div>
@@ -192,7 +192,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
               <div className="flex items-start justify-between relative z-10 mb-4">
                 <div>
                   <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-                    <span>৬টি উপজেলা</span>
+                    <span>{isBn ? "৬টি উপজেলা" : "6 Upazilas"}</span>
                     <Heart className="w-5 h-5 fill-rose-500 text-rose-500" />
                   </div>
                   <p className="text-xs text-slate-500 font-medium mt-1">
@@ -207,9 +207,9 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                     {isBn ? "কমিউনিটি উদ্যোক্তা" : "Active Founders"}
                   </span>
                   <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight flex items-center justify-end gap-2">
-                    <span>৫০০+</span>
+                    <span>{isBn ? "৫০০+" : "500+"}</span>
                     <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
-                      +৭৫% গ্রোথ
+                      {isBn ? "+৭৫% গ্রোথ" : "+75% Growth"}
                     </span>
                   </div>
                 </div>
@@ -242,23 +242,23 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                   <div className="flex items-end gap-1.5 h-8">
                     <span
                       className="w-1.5 h-3 rounded-xs bg-amber-400"
-                      title="আইডিয়া"
+                      title={isBn ? "আইডিয়া" : "Idea"}
                     />
                     <span
                       className="w-1.5 h-5 rounded-xs bg-orange-500"
-                      title="টিম"
+                      title={isBn ? "টিম" : "Team"}
                     />
                     <span
                       className="w-1.5 h-4 rounded-xs bg-rose-400"
-                      title="ভ্যালিডেশন"
+                      title={isBn ? "ভ্যালিডেশন" : "Validation"}
                     />
                     <span
                       className="w-1.5 h-8 rounded-xs bg-brand"
-                      title="এমভিপি"
+                      title={isBn ? "এমভিপি" : "MVP"}
                     />
                     <span
                       className="w-1.5 h-6 rounded-xs bg-emerald-500"
-                      title="মার্কেট লঞ্চ"
+                      title={isBn ? "মার্কেট লঞ্চ" : "Market Launch"}
                     />
                   </div>
                 </div>
@@ -270,7 +270,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                   </span>
                   <div>
                     <span className="text-xs font-bold text-slate-900 block leading-none">
-                      ১,২০০+
+                      {isBn ? "১,২০০+" : "1,200+"}
                     </span>
                     <span className="text-[10px] text-slate-400 font-medium">
                       {isBn ? "মিটআপ ও ওয়ার্কশপ উপস্থিতি" : "Meetup Attendees"}
@@ -305,7 +305,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                     {isBn ? "পদ্মা ও গড়াই অববাহিকা" : "Padma & Gorai Basin"}
                   </span>
                   <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full inline-block mt-1">
-                    ▲ কুষ্টিয়া টু গ্লোবাল
+                    {isBn ? "▲ কুষ্টিয়া টু গ্লোবাল" : "▲ Kushtia to Global"}
                   </span>
                 </div>
               </div>
@@ -464,7 +464,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                     </div>
                   ))}
                   <div className="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center text-[11px] font-bold border-2 border-white shrink-0">
-                    +৫০
+                    {isBn ? "+৫০" : "+50"}
                   </div>
                 </div>
 
@@ -475,7 +475,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                       : "Listed Regional Ventures"}
                   </span>
                   <div className="text-4xl font-extrabold text-slate-900 tracking-tight mt-0.5">
-                    ৩০+
+                    {isBn ? "৩০+" : "30+"}
                   </div>
                   <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full inline-block mt-1">
                     {isBn ? "+৪০% নতুন উদ্যোগ" : "+40% New Ventures"}
@@ -571,13 +571,13 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
 
                 <div className="flex items-center justify-center gap-1 mt-2.5 flex-wrap">
                   <span className="text-[9px] font-semibold bg-slate-100 px-2 py-0.5 rounded text-slate-600">
-                    কুমারখালী তাঁত
+                    {isBn ? "কুমারখালী তাঁত" : "Kumarkhali Handloom"}
                   </span>
                   <span className="text-[9px] font-semibold bg-slate-100 px-2 py-0.5 rounded text-slate-600">
-                    শিলাইদহ এগ্রো
+                    {isBn ? "শিলাইদহ এগ্রো" : "Shilaidaha Agro"}
                   </span>
                   <span className="text-[9px] font-semibold bg-slate-100 px-2 py-0.5 rounded text-slate-600">
-                    তিলের খাজা
+                    {isBn ? "তিলের খাজা" : "Tiler Khaja"}
                   </span>
                 </div>
               </div>
