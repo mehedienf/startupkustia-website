@@ -1,5 +1,6 @@
 "use client";
 
+import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
 import { SITE_CONFIG } from "@/data/content";
 import { ArrowRight } from "lucide-react";
@@ -13,7 +14,7 @@ export default function Hero({ onOpenJoin }: HeroProps) {
   const isBn = language === "bn";
 
   return (
-    <section className="relative w-full overflow-hidden bg-dark text-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-white/10">
+    <section className="relative w-full overflow-hidden bg-dark text-white pt-28 pb-28 md:pt-36 md:pb-36">
       {/* Background Image of Shilaidaha Kuthibari spanning exact 100% laptop screen width with 0% horizontal crop */}
       <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
         <div
@@ -104,6 +105,9 @@ export default function Hero({ onOpenJoin }: HeroProps) {
           </a>
         </div>
       </div>
+
+      {/* Organic river wave transition into Audience section */}
+      <RiverWaveDivider position="bottom" color="text-brand-soft" />
     </section>
   );
 }

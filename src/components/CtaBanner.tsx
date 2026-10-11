@@ -17,6 +17,12 @@ export default function CtaBanner({
 
   return (
     <section className="py-20 md:py-24 bg-dark relative overflow-hidden text-white">
+      {/* Subtle topographic river contour pattern */}
+      <div
+        className="absolute inset-0 bg-topography-dark pointer-events-none opacity-50"
+        aria-hidden="true"
+      />
+
       {/* Background glow effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand/20 rounded-full blur-3xl pointer-events-none"></div>
 

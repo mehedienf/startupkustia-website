@@ -191,8 +191,13 @@ function ContactPageInner() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1 pt-28 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
+      <main className="flex-1 pt-28 pb-20 relative overflow-hidden">
+        {/* Subtle topographic river contour pattern */}
+        <div
+          className="absolute inset-0 bg-topography pointer-events-none"
+          aria-hidden="true"
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
           {/* Breadcrumb & Hero Header */}
           <div className="mb-10 text-center sm:text-left">
             {/* Breadcrumb */}

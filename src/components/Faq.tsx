@@ -1,5 +1,6 @@
 "use client";
 
+import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
 import { FAQ_ITEMS } from "@/data/content";
 import { ChevronDown } from "lucide-react";
@@ -21,9 +22,14 @@ export default function Faq({ onOpenContact }: FaqProps) {
   return (
     <section
       id="faq"
-      className="py-20 md:py-28 bg-white border-b border-slate-100 relative"
+      className="pt-20 pb-28 md:pt-28 md:pb-36 bg-white relative overflow-hidden"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-8">
+      {/* Subtle topographic river contour pattern */}
+      <div
+        className="absolute inset-0 bg-topography pointer-events-none"
+        aria-hidden="true"
+      />
+      <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Heading */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-4">
@@ -105,6 +111,9 @@ export default function Faq({ onOpenContact }: FaqProps) {
           </button>
         </div>
       </div>
+
+      {/* Organic river wave transition into dark CTA Banner */}
+      <RiverWaveDivider position="bottom" color="text-dark" flip={true} />
     </section>
   );
 }

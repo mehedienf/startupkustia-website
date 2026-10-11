@@ -1,5 +1,6 @@
 "use client";
 
+import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
 import { DIRECTORY_ITEMS } from "@/data/content";
 import { ExternalLink, MapPin, Plus, Search, User } from "lucide-react";
@@ -48,8 +49,16 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <section id="directory" className="py-20 md:py-28 bg-brand-soft relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+    <section
+      id="directory"
+      className="pt-20 pb-28 md:pt-28 md:pb-36 bg-brand-soft relative overflow-hidden"
+    >
+      {/* Subtle topographic river contour pattern */}
+      <div
+        className="absolute inset-0 bg-topography pointer-events-none"
+        aria-hidden="true"
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
@@ -203,6 +212,9 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
           </div>
         )}
       </div>
+
+      {/* Organic river wave transition into dark Ambassadors section */}
+      <RiverWaveDivider position="bottom" color="text-dark" flip={true} />
     </section>
   );
 }

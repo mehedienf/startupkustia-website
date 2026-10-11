@@ -1,5 +1,6 @@
 "use client";
 
+import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
 import { AUDIENCE_ITEMS } from "@/data/content";
 import {
@@ -40,8 +41,16 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
   };
 
   return (
-    <section id="audience" className="py-20 md:py-28 bg-brand-soft relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+    <section
+      id="audience"
+      className="pt-20 pb-28 md:pt-28 md:pb-36 bg-brand-soft relative overflow-hidden"
+    >
+      {/* Subtle topographic river contour pattern */}
+      <div
+        className="absolute inset-0 bg-topography pointer-events-none"
+        aria-hidden="true"
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Heading */}
         <div className="max-w-2xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-4">
@@ -88,6 +97,9 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
           ))}
         </div>
       </div>
+
+      {/* Organic river wave transition into Pillars section */}
+      <RiverWaveDivider position="bottom" color="text-white" flip={true} />
     </section>
   );
 }

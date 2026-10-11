@@ -1,5 +1,6 @@
 "use client";
 
+import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
 import { VALUES_ITEMS } from "@/data/content";
 import {
@@ -37,9 +38,14 @@ export default function Values() {
   return (
     <section
       id="values"
-      className="py-20 md:py-28 bg-white border-b border-slate-100 relative"
+      className="pt-20 pb-28 md:pt-28 md:pb-36 bg-white relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-8">
+      {/* Subtle topographic river contour pattern */}
+      <div
+        className="absolute inset-0 bg-topography pointer-events-none"
+        aria-hidden="true"
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Heading */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-4">
@@ -78,6 +84,9 @@ export default function Values() {
           ))}
         </div>
       </div>
+
+      {/* Organic river wave transition into Team section */}
+      <RiverWaveDivider position="bottom" color="text-brand-soft" flip={true} />
     </section>
   );
 }

@@ -196,3 +196,44 @@ body {
     background-size: 100% auto;
   }
 }
+
+/* Topographic river contour patterns for solid color surfaces with soft edge fade */
+.bg-topography {
+  background-image: url("/images/topography.svg");
+  background-repeat: repeat;
+  background-size: 800px 800px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}
+
+.bg-topography-dark {
+  background-image: url("/images/topography-dark.svg");
+  background-repeat: repeat;
+  background-size: 800px 800px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 12%,
+    black 88%,
+    transparent 100%
+  );
+}

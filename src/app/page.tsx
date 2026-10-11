@@ -28,7 +28,7 @@ export default function HomePage() {
   >(null);
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F5F7FC] text-[#444E69]">
+    <div className="min-h-screen flex flex-col bg-[var(--sk-shell)] text-[#444E69]">
       {/* Navigation */}
       <Header />
 

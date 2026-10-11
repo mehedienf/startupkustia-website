@@ -1,5 +1,6 @@
 "use client";
 
+import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowRight, CheckCircle2, GraduationCap } from "lucide-react";
 
@@ -16,8 +17,14 @@ export default function Ambassadors({
   return (
     <section
       id="ambassadors"
-      className="py-20 md:py-28 bg-dark text-white relative overflow-hidden"
+      className="pt-20 pb-28 md:pt-28 md:pb-36 bg-dark text-white relative overflow-hidden"
     >
+      {/* Subtle topographic river contour pattern */}
+      <div
+        className="absolute inset-0 bg-topography-dark pointer-events-none opacity-50"
+        aria-hidden="true"
+      />
+
       {/* Decorative gradient glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-brand-accent-light/15 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand/20 rounded-full blur-3xl pointer-events-none"></div>
@@ -187,6 +194,9 @@ export default function Ambassadors({
           </div>
         </div>
       </div>
+
+      {/* Organic river wave transition into Values section */}
+      <RiverWaveDivider position="bottom" color="text-white" />
     </section>
   );
 }
