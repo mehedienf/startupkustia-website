@@ -43,25 +43,25 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
           </p>
         </div>
 
-        {/* Modern Bento Grid (Inspired by the Reference Layout) */}
+        {/* Modern Bento Grid — 100% Relatable to Startup Kushtia */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {/* ========================================================
-              COLUMN 1 (Left): Top Pink Stat Card + Bottom Tech Card
+              COLUMN 1 (Left): Campus Innovations + Gorai Tech Builders
              ======================================================== */}
           <div className="flex flex-col gap-4 sm:gap-5 h-full">
-            {/* Card 1A: First Round / Campus Validation (Pink Blush Card) */}
+            {/* Card 1A: Islamic University & Campus Innovations (Pink Blush Card) */}
             <div
               onClick={onSelectCategory}
-              className="bg-[#FDECEF] rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 cursor-pointer flex-1 min-h-[300px]"
+              className="bg-[#FDECEF] rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 cursor-pointer flex-1 min-h-[310px]"
             >
               <div>
-                <p className="text-xs font-bold text-slate-800 tracking-tight text-center">
+                <p className="text-xs font-bold text-slate-800 tracking-tight text-center uppercase">
                   {isBn
-                    ? "প্রথম রাউন্ডের ভ্যালিডেশন"
-                    : "First Round of Validation"}
+                    ? "ক্যাম্পাস ইনোভেশন ও তরুণ মেধা"
+                    : "IU Campus & Youth Hub"}
                 </p>
 
-                {/* Circular Progress Ring */}
+                {/* Circular Progress Ring: Validation Rate */}
                 <div className="relative my-6 flex items-center justify-center">
                   <svg
                     className="w-28 h-28 -rotate-90"
@@ -84,16 +84,16 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                       stroke="#D92656"
                       strokeWidth="8"
                       strokeDasharray="251.2"
-                      strokeDashoffset="62.8"
+                      strokeDashoffset="37.6"
                       strokeLinecap="round"
                     />
                   </svg>
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
                     <span className="text-2xl font-extrabold text-slate-900 tracking-tight">
-                      ৭৫%
+                      ৮৫%
                     </span>
                     <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-                      {isBn ? "প্রগ্রেস" : "In Progress"}
+                      {isBn ? "আইডিয়া যাচাই" : "Validated"}
                     </span>
                   </div>
                 </div>
@@ -101,136 +101,179 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
 
               <div className="text-center pt-2">
                 <div className="text-3xl font-extrabold text-slate-900 tracking-tight">
-                  ২.৫K+
+                  ১২+
                 </div>
                 <p className="text-xs text-[#525D7A] font-medium mt-1 leading-snug">
                   {isBn
-                    ? "শিক্ষার্থী ও প্রাথমিক পর্যায়ের উদ্যোগ"
-                    : "Student innovations & early founders"}
+                    ? "ইসলামী বিশ্ববিদ্যালয় ও কুষ্টিয়ার কলেজ ক্যাম্পাস"
+                    : "Islamic University & Kushtia Colleges"}
                 </p>
+                <div className="flex items-center justify-center gap-1.5 mt-2.5 flex-wrap">
+                  <span className="text-[10px] font-semibold bg-white/70 px-2 py-0.5 rounded-md text-slate-700">
+                    IU Campus
+                  </span>
+                  <span className="text-[10px] font-semibold bg-white/70 px-2 py-0.5 rounded-md text-slate-700">
+                    পলিটেকনিক
+                  </span>
+                  <span className="text-[10px] font-semibold bg-white/70 px-2 py-0.5 rounded-md text-slate-700">
+                    কুষ্টিয়া সদর
+                  </span>
+                </div>
               </div>
             </div>
 
-            {/* Card 1B: Smart Digital / Tech Freelancers (White Card with Dual Capsule Photos) */}
+            {/* Card 1B: Gorai Tech / Freelancers to SaaS Builders (White Card) */}
             <div
               onClick={onSelectCategory}
               className="bg-white rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 cursor-pointer flex-1 min-h-[340px]"
             >
               <div>
                 <span className="inline-block bg-[#18181B] text-white text-[11px] font-bold px-3.5 py-1.5 rounded-xl mb-3 tracking-wide">
-                  {isBn ? "স্মার্ট ডিজিটাল উদ্যোক্তা" : "Smart Tech Builders"}
+                  {isBn
+                    ? "গড়াই টেক ও সফটওয়্যার মেকার্স"
+                    : "Gorai Tech & AI Makers"}
                 </span>
 
                 <h3 className="text-base font-bold text-slate-900 leading-snug">
                   {isBn
-                    ? "ফ্রিল্যান্সার থেকে নিজস্ব প্রোডাক্ট প্রতিষ্ঠাতা"
-                    : "Empowering Freelancers to Build Tech Products"}
+                    ? "ফ্রিল্যান্সার থেকে নিজস্ব SaaS ও সফটওয়্যার স্টার্টআপ"
+                    : "Transforming Freelancers into Global SaaS Founders"}
                 </h3>
               </div>
 
-              {/* Dual Rounded Capsule Portraits */}
+              {/* Dual Rounded Capsule Portraits of Tech Builders */}
               <div className="flex items-center justify-center gap-3 my-4">
                 <div className="w-20 h-28 rounded-full overflow-hidden relative border-2 border-slate-100 bg-slate-100">
                   <Image
                     src="/images/team/shourov.jpg"
-                    alt="Builder"
+                    alt="Shourov"
                     fill
                     sizes="80px"
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
+                  <span className="absolute bottom-1 inset-x-0 text-center text-[9px] font-bold text-white bg-black/60 backdrop-blur-xs py-0.5">
+                    SaaS
+                  </span>
                 </div>
                 <div className="w-20 h-28 rounded-full overflow-hidden relative border-2 border-slate-100 bg-slate-100 translate-y-3">
                   <Image
                     src="/images/team/saqlaen.jpg"
-                    alt="Developer"
+                    alt="Saqlaen"
                     fill
                     sizes="80px"
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-2 right-2 w-3 h-3 rounded-full bg-emerald-500 border border-white" />
+                  <span className="absolute bottom-1 inset-x-0 text-center text-[9px] font-bold text-white bg-black/60 backdrop-blur-xs py-0.5">
+                    AI Tech
+                  </span>
                 </div>
               </div>
 
               <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brand">
-                <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Explore Community"}</span>
+                <span>
+                  {isBn ? "টেক কমিউনিটিতে যুক্ত হোন" : "Join Tech Circle"}
+                </span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </div>
             </div>
           </div>
 
           {/* ========================================================
-              COLUMNS 2 & 3 (Center): Big Hero Showcase + 2 Mini Cards
+              COLUMNS 2 & 3 (Center): Kushtia Launchpad Hero + Building Blocks
              ======================================================== */}
           <div className="lg:col-span-2 flex flex-col gap-4 sm:gap-5 h-full">
-            {/* Card 2A: Large Centerpiece Hero with Floating UI Badges */}
+            {/* Card 2A: Large Centerpiece Hero with Authentic Kushtia Startup Pulse */}
             <div
               onClick={onSelectCategory}
               className="bg-white rounded-[32px] p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 cursor-pointer flex-1 min-h-[440px]"
             >
-              {/* Top Metrics Row */}
+              {/* Top Metrics Row: Upazilas & Community Network */}
               <div className="flex items-start justify-between relative z-10 mb-4">
                 <div>
                   <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight flex items-center gap-2">
-                    <span>৪.৮৭৫</span>
+                    <span>৬টি উপজেলা</span>
                     <Heart className="w-5 h-5 fill-rose-500 text-rose-500" />
                   </div>
                   <p className="text-xs text-slate-500 font-medium mt-1">
-                    {isBn ? "বাৎসরিক ইকোসিস্টেম রিচ" : "Annual Project Views"}
+                    {isBn
+                      ? "সমন্বিত কুষ্টিয়া জেলা নেটওয়ার্ক"
+                      : "6 Upazilas of Kushtia Connected"}
                   </p>
                 </div>
 
                 <div className="text-right">
                   <span className="text-xs text-slate-400 font-medium">
-                    {isBn ? "নতুন কানেকশন" : "New Members"}
+                    {isBn ? "কমিউনিটি উদ্যোক্তা" : "Active Founders"}
                   </span>
                   <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight flex items-center justify-end gap-2">
-                    <span>৫৭K</span>
+                    <span>৫০০+</span>
                     <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
-                      +১০%
+                      +৭৫% গ্রোথ
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Center Portrait and Floating UI Cards */}
+              {/* Center Portrait and Kushtia Startup Widgets */}
               <div className="relative my-2 flex items-center justify-center">
-                {/* Central Founder Portrait Frame */}
+                {/* Central Founder Portrait Frame (Farhana - Women & SME Lead) */}
                 <div className="relative w-48 sm:w-56 h-56 sm:h-64 rounded-3xl overflow-hidden bg-slate-100 z-0">
                   <Image
                     src="/images/team/farhana.jpg"
-                    alt="Startup Leader"
+                    alt="Farhana Islam"
                     fill
                     sizes="(max-width: 640px) 192px, 224px"
                     className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </div>
-
-                {/* Floating Widget 1: Bar Chart (Top Right of Photo) */}
-                <div className="absolute top-2 right-0 sm:right-4 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 border border-slate-100/90 shadow-xs z-10 hidden sm:block">
-                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">
-                    {isBn ? "অ্যাক্টিভিটি" : "Growth Activity"}
-                  </span>
-                  <div className="flex items-end gap-1.5 h-8">
-                    <span className="w-1.5 h-3 rounded-xs bg-amber-400" />
-                    <span className="w-1.5 h-6 rounded-xs bg-orange-500" />
-                    <span className="w-1.5 h-4 rounded-xs bg-brand" />
-                    <span className="w-1.5 h-8 rounded-xs bg-brand" />
-                    <span className="w-1.5 h-5 rounded-xs bg-amber-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                  <div className="absolute bottom-2 inset-x-2 text-center">
+                    <span className="text-[10px] font-bold text-white bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-xs">
+                      {isBn ? "নারী উদ্যোক্তা ও এসএমই উইং" : "Women & SME Wing"}
+                    </span>
                   </div>
                 </div>
 
-                {/* Floating Widget 2: Sparkline / Views (Left of Photo) */}
+                {/* Floating Widget 1: Startup Pipeline Bars (Top Right of Photo) */}
+                <div className="absolute top-2 right-0 sm:right-4 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 border border-slate-100/90 shadow-xs z-10 hidden sm:block">
+                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
+                    {isBn ? "আইডিয়া ➔ এমভিপি পাইপলাইন" : "Ideate ➔ MVP"}
+                  </span>
+                  <div className="flex items-end gap-1.5 h-8">
+                    <span
+                      className="w-1.5 h-3 rounded-xs bg-amber-400"
+                      title="আইডিয়া"
+                    />
+                    <span
+                      className="w-1.5 h-5 rounded-xs bg-orange-500"
+                      title="টিম"
+                    />
+                    <span
+                      className="w-1.5 h-4 rounded-xs bg-rose-400"
+                      title="ভ্যালিডেশন"
+                    />
+                    <span
+                      className="w-1.5 h-8 rounded-xs bg-brand"
+                      title="এমভিপি"
+                    />
+                    <span
+                      className="w-1.5 h-6 rounded-xs bg-emerald-500"
+                      title="মার্কেট লঞ্চ"
+                    />
+                  </div>
+                </div>
+
+                {/* Floating Widget 2: Meetup Attendees (Left of Photo) */}
                 <div className="absolute bottom-10 left-0 sm:left-4 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-slate-100/90 shadow-xs z-10 flex items-center gap-2.5">
                   <span className="w-6 h-6 rounded-full bg-brand flex items-center justify-center text-white shrink-0">
                     <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
                   </span>
                   <div>
                     <span className="text-xs font-bold text-slate-900 block leading-none">
-                      ২৬,৮০৭
+                      ১,২০০+
                     </span>
                     <span className="text-[10px] text-slate-400 font-medium">
-                      {isBn ? "কমিউনিটি ইম্প্রেশন" : "Impressions"}
+                      {isBn ? "মিটআপ ও ওয়ার্কশপ উপস্থিতি" : "Meetup Attendees"}
                     </span>
                   </div>
                   <svg
@@ -248,84 +291,90 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                   </svg>
                 </div>
 
-                {/* Floating Widget 3: Engagement Rate Card (Bottom Right of Photo) */}
+                {/* Floating Widget 3: Regional Impact Card (Bottom Right of Photo) */}
                 <div className="absolute -bottom-2 right-2 sm:right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3 border border-slate-100/90 shadow-xs z-10">
                   <div className="flex items-center gap-1.5 mb-1">
                     <span className="w-4 h-4 rounded-full bg-rose-100 flex items-center justify-center">
                       <Heart className="w-2.5 h-2.5 fill-brand text-brand" />
                     </span>
-                    <span className="text-sm font-bold text-slate-900">
-                      ১৯.৪৬%
+                    <span className="text-xs font-bold text-slate-900">
+                      {isBn ? "তৃণমূল উদ্ভাবন" : "Grassroots Impact"}
                     </span>
                   </div>
                   <span className="text-[10px] text-slate-400 font-medium block">
-                    {isBn ? "এনগেজমেন্ট রেট" : "Engagement Rate"}
+                    {isBn ? "পদ্মা ও গড়াই অববাহিকা" : "Padma & Gorai Basin"}
                   </span>
                   <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full inline-block mt-1">
-                    ▲ +১০২.৪৮%
+                    ▲ কুষ্টিয়া টু গ্লোবাল
                   </span>
                 </div>
               </div>
 
-              {/* Bottom Tagline */}
+              {/* Bottom Official Slogan */}
               <div className="relative z-10 pt-4 text-center sm:text-left">
                 <span className="text-xs font-bold text-brand uppercase tracking-wider">
-                  {isBn ? "কুষ্টিয়া লঞ্চপ্যাড" : "Kushtia Launchpad"}
+                  {isBn
+                    ? "বিল্ডিং ব্লকস · কানেক্টিং ডটস"
+                    : "Building Blocks · Connecting Dots"}
                 </span>
                 <p className="text-sm font-bold text-heading mt-0.5">
                   {isBn
-                    ? "উদ্ভাবন, তরুণ মেধা ও ব্যবসার সংযোগস্থল"
-                    : "Catalyzing Founders & Scale-ups from Kushtia"}
+                    ? "জ্ঞান, মেন্টরশিপ, প্রযুক্তি ও নেটওয়ার্কে কুষ্টিয়ার উদ্যোক্তাদের ঐক্যবদ্ধ প্ল্যাটফর্ম"
+                    : "Connecting ideas, founders & capital across Kushtia"}
                 </p>
               </div>
             </div>
 
-            {/* Bottom Two Cards of Center Column */}
+            {/* Bottom Two Cards: 4 Building Blocks & Heritage Meets Tech */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-              {/* Card 2B: Founder Roadmap / Color Swatches */}
+              {/* Card 2B: 4 Core Building Blocks of Startup Kushtia */}
               <div
                 onClick={onSelectCategory}
                 className="bg-white rounded-[28px] p-6 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 cursor-pointer min-h-[170px]"
               >
                 <div>
                   <h4 className="text-xl font-extrabold text-slate-900">
-                    {isBn ? "রোডম্যাপ" : "Roadmap"}
+                    {isBn ? "৪টি কোর বিল্ডিং ব্লক" : "4 Building Blocks"}
                   </h4>
                   <p className="text-xs font-semibold text-slate-500 mt-0.5">
                     {isBn
-                      ? "০ থেকে ১ স্টার্টআপ গাইড"
-                      : "0 to 1 Founder Journey"}
+                      ? "উদ্যোগকে সফল করার ৪ ধাপ"
+                      : "How We Accelerate Founders"}
                   </p>
                 </div>
 
-                {/* Color Swatch Pills (Direct homage to screenshot) */}
-                <div className="flex items-center gap-2.5 my-3">
-                  <span
-                    className="w-8 h-8 rounded-xl bg-[#18181B] inline-block shadow-xs"
-                    title="আইডিয়া"
-                  />
-                  <span
-                    className="w-8 h-8 rounded-xl bg-[#94A3B8] inline-block shadow-xs"
-                    title="টিম"
-                  />
-                  <span
-                    className="w-8 h-8 rounded-xl bg-[#D92656] inline-block shadow-xs"
-                    title="এমভিপি"
-                  />
-                  <span
-                    className="w-8 h-8 rounded-xl bg-[#FDECEF] inline-block shadow-xs"
-                    title="স্কেল"
-                  />
+                {/* The 4 Building Block Swatches */}
+                <div className="flex items-center gap-2 my-2.5">
+                  <div className="flex-1 text-center">
+                    <span className="w-full h-7 rounded-lg bg-[#18181B] flex items-center justify-center text-[10px] font-bold text-white shadow-xs">
+                      {isBn ? "জ্ঞান" : "Info"}
+                    </span>
+                  </div>
+                  <div className="flex-1 text-center">
+                    <span className="w-full h-7 rounded-lg bg-[#64748B] flex items-center justify-center text-[10px] font-bold text-white shadow-xs">
+                      {isBn ? "মেন্টর" : "Mentor"}
+                    </span>
+                  </div>
+                  <div className="flex-1 text-center">
+                    <span className="w-full h-7 rounded-lg bg-[#D92656] flex items-center justify-center text-[10px] font-bold text-white shadow-xs">
+                      {isBn ? "প্রযুক্তি" : "Tech"}
+                    </span>
+                  </div>
+                  <div className="flex-1 text-center">
+                    <span className="w-full h-7 rounded-lg bg-[#FDECEF] border border-brand/20 flex items-center justify-center text-[10px] font-bold text-brand shadow-xs">
+                      {isBn ? "নেটওয়ার্ক" : "Capital"}
+                    </span>
+                  </div>
                 </div>
 
                 <p className="text-[11px] text-[#525D7A] font-medium leading-relaxed">
                   {isBn
-                    ? "আইডিয়া যাচাই · টিম গঠন · প্রোডাক্ট লঞ্চ"
-                    : "Ideate · Team · MVP · Scale"}
+                    ? "জ্ঞান · মেন্টরশিপ · প্রযুক্তি · নেটওয়ার্ক"
+                    : "Knowledge · Mentorship · Technology · Network"}
                 </p>
               </div>
 
-              {/* Card 2C: Future Vision + 3D Asterisk Icon (Blush Pink Card) */}
+              {/* Card 2C: Lalon & Tagore Heritage to Tech Innovation (Blush Pink Card) */}
               <div
                 onClick={onSelectCategory}
                 className="bg-[#FDECEF] rounded-[28px] p-6 flex items-center justify-between gap-3 group hover:-translate-y-1 transition-all duration-300 cursor-pointer min-h-[170px]"
@@ -333,17 +382,17 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                 <div>
                   <h4 className="text-base font-extrabold text-slate-900 leading-snug">
                     {isBn
-                      ? "কুষ্টিয়ার ভবিষ্যৎ ইকোসিস্টেম তৈরি করছি"
-                      : "We Build Future of Regional Startups"}
+                      ? "ঐতিহ্যের মাটি থেকে টেক-উদ্ভাবন"
+                      : "Heritage Soil to Modern Tech"}
                   </h4>
                   <p className="text-xs text-[#525D7A] font-medium mt-1.5 leading-relaxed">
                     {isBn
-                      ? "উদ্ভাবন, মেন্টরশিপ ও বৈশ্বিক সংযোগ।"
-                      : "Crafting sustainable regional impact."}
+                      ? "তাঁত, জৈব কৃষি ও কুষ্টিয়ার সৃজনশীল মেধা — আধুনিক প্রযুক্তিতে বৈশ্বিক প্রসার।"
+                      : "Preserving cultural heritage with modern tech solutions."}
                   </p>
                 </div>
 
-                {/* 3D Asterisk Star Vector */}
+                {/* 3D Asterisk / River Confluence Star Vector */}
                 <div className="shrink-0 group-hover:rotate-45 transition-transform duration-500">
                   <svg
                     viewBox="0 0 100 100"
@@ -378,10 +427,10 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
           </div>
 
           {/* ========================================================
-              COLUMN 4 (Right): Team + Spring Card & Logo Hub Card
+              COLUMN 4 (Right): Founding Circle & Regional Hub
              ======================================================== */}
           <div className="flex flex-col gap-4 sm:gap-5 h-full">
-            {/* Card 3A: Team & Passionate Builders + 3D Spring (White Card) */}
+            {/* Card 3A: Kushtia Founding Circle & Verified Directory (White Card) */}
             <div
               onClick={onSelectCategory}
               className="bg-white rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 cursor-pointer relative overflow-hidden min-h-[340px]"
@@ -389,11 +438,11 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
               <div>
                 <h3 className="text-base font-bold text-slate-900 leading-snug">
                   {isBn
-                    ? "উদ্যোক্তা, ডিজাইনার ও মেন্টরদের ঐক্যবদ্ধ দল"
-                    : "Team of passionate founders and mentors"}
+                    ? "ফাউন্ডিং লিডারশিপ ও মেন্টর সার্কেল"
+                    : "Founding Leadership & Mentor Circle"}
                 </h3>
 
-                {/* Overlapping Avatar Stack */}
+                {/* Overlapping Avatar Stack of Kushtia Team Leads */}
                 <div className="flex items-center -space-x-2.5 my-4">
                   {[
                     "/images/team/shourov.jpg",
@@ -407,32 +456,34 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                     >
                       <Image
                         src={imgSrc}
-                        alt="Member"
+                        alt="Kushtia Leader"
                         fill
                         sizes="40px"
                         className="object-cover object-top"
                       />
                     </div>
                   ))}
-                  <div className="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center text-xs font-bold border-2 border-white shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center text-[11px] font-bold border-2 border-white shrink-0">
                     +৫০
                   </div>
                 </div>
 
                 <div className="pt-2">
                   <span className="text-xs text-slate-500 font-medium">
-                    {isBn ? "নিয়মিত নতুন উদ্যোগ" : "Daily New Ventures"}
+                    {isBn
+                      ? "তালিকাভুক্ত স্থানীয় ব্যবসা"
+                      : "Listed Regional Ventures"}
                   </span>
                   <div className="text-4xl font-extrabold text-slate-900 tracking-tight mt-0.5">
-                    ৫৪+
+                    ৩০+
                   </div>
                   <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full inline-block mt-1">
-                    +৪০% প্রবৃদ্ধি
+                    {isBn ? "+৪০% নতুন উদ্যোগ" : "+40% New Ventures"}
                   </span>
                 </div>
               </div>
 
-              {/* 3D Chrome Metallic Spring Element */}
+              {/* 3D Chrome Metallic Spring Element: Dynamic Growth Momentum */}
               <div className="self-end -mr-2 -mb-2 group-hover:scale-105 transition-transform duration-500">
                 <svg
                   viewBox="0 0 100 130"
@@ -467,16 +518,16 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
               </div>
             </div>
 
-            {/* Card 3B: Geometric Logo / Hub Card - Stretches down to bottom baseline */}
+            {/* Card 3B: Startup Kushtia Hub — 3 Triple Helix Rings (Education ⋂ Business ⋂ Tech) */}
             <div
               onClick={onSelectCategory}
-              className="bg-white rounded-[28px] p-6 sm:p-7 flex flex-col items-center justify-between text-center group hover:-translate-y-1 transition-all duration-300 cursor-pointer flex-1 min-h-[240px]"
+              className="bg-white rounded-[28px] p-6 sm:p-7 flex flex-col items-center justify-between text-center group hover:-translate-y-1 transition-all duration-300 cursor-pointer flex-1 min-h-[250px]"
             >
               <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
-                {isBn ? "ইকোসিস্টেম নেটওয়ার্ক" : "Ecosystem Network"}
+                {isBn ? "শিক্ষা ⋂ ব্যবসা ⋂ প্রযুক্তি" : "Academia ⋂ SME ⋂ Tech"}
               </span>
 
-              {/* Geometric Interlocking Rings (Venn) */}
+              {/* Geometric Interlocking Rings (Triple Helix of Kushtia) */}
               <div className="my-auto py-2 group-hover:scale-110 transition-transform duration-300 flex flex-col items-center">
                 <svg
                   viewBox="0 0 100 85"
@@ -510,18 +561,32 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                 </svg>
 
                 <h4 className="text-xl font-black tracking-widest text-slate-900 uppercase mt-3">
-                  {isBn ? "কুষ্টিয়া হাব" : "KUSHTIA HUB"}
+                  {isBn ? "স্টার্টআপ কুষ্টিয়া হাব" : "STARTUP KUSHTIA HUB"}
                 </h4>
-                <p className="text-xs text-slate-500 font-medium mt-1 max-w-[210px] leading-relaxed">
+                <p className="text-xs text-slate-500 font-medium mt-1.5 max-w-[210px] leading-relaxed">
                   {isBn
-                    ? "এসএমই, ঐতিহ্যবাহী তাঁত ও এগ্রো-টেক পার্টনারশিপ"
-                    : "SMEs, Crafts & Regional Ventures"}
+                    ? "তাঁত, তিলের খাজা, জৈব কৃষি ও সফটওয়্যার — স্থানীয় পণ্যকে জাতীয় বাজারে পৌঁছানোর সেতুবন্ধন।"
+                    : "Connecting Kumarkhali handloom, agro & software to wider markets."}
                 </p>
+
+                <div className="flex items-center justify-center gap-1 mt-2.5 flex-wrap">
+                  <span className="text-[9px] font-semibold bg-slate-100 px-2 py-0.5 rounded text-slate-600">
+                    কুমারখালী তাঁত
+                  </span>
+                  <span className="text-[9px] font-semibold bg-slate-100 px-2 py-0.5 rounded text-slate-600">
+                    শিলাইদহ এগ্রো
+                  </span>
+                  <span className="text-[9px] font-semibold bg-slate-100 px-2 py-0.5 rounded text-slate-600">
+                    তিলের খাজা
+                  </span>
+                </div>
               </div>
 
               {/* Bottom interactive link */}
               <div className="pt-3 border-t border-slate-100 w-full flex items-center justify-between text-xs font-bold text-brand">
-                <span>{isBn ? "যুক্ত হোন" : "Connect Now"}</span>
+                <span>
+                  {isBn ? "আপনার উদ্যোগ যুক্ত করুন" : "Get Listed in Hub"}
+                </span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </div>
             </div>
