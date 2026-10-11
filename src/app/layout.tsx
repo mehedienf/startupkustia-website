@@ -1,5 +1,23 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+
+const tiroBangla = localFont({
+  src: [
+    {
+      path: "./fonts/TiroBangla-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/TiroBangla-Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+  ],
+  variable: "--font-tiro-bangla",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Startup Kushtia – Building Blocks Connecting Dots",
@@ -14,6 +32,11 @@ export const metadata: Metadata = {
     "Entrepreneurship",
     "Kushtia Startups",
   ],
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "Startup Kushtia – Building Blocks Connecting Dots",
     description:
@@ -30,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="bn" className="scroll-smooth">
+    <html lang="bn" className={`scroll-smooth ${tiroBangla.variable}`}>
       <body className="min-h-screen flex flex-col bg-[#F5F7FC] text-[#444E69] antialiased">
         {children}
       </body>

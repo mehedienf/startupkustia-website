@@ -1,4 +1,4 @@
-export type Language = 'bn' | 'en';
+export type Language = "bn" | "en";
 
 export interface DirectoryItem {
   id: string;

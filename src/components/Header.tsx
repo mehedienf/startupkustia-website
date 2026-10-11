@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Mail, Phone, Menu, X, ArrowUpRight, Users } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
-import { SITE_CONFIG } from '@/data/content';
+import { useLanguage } from "@/context/LanguageContext";
+import { SITE_CONFIG } from "@/data/content";
+import { ArrowUpRight, Menu, MessageCircle, X } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 interface HeaderProps {
   onOpenJoin: () => void;
@@ -14,252 +15,287 @@ interface HeaderProps {
 export default function Header({ onOpenJoin, onOpenContact }: HeaderProps) {
   const { language, setLanguage } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
+  const prevScrollYRef = useRef(0);
+
+  const isBn = language === "bn";
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    prevScrollYRef.current = window.scrollY;
 
-  const isBn = language === 'bn';
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const prevScrollY = prevScrollYRef.current;
+      const diff = currentScrollY - prevScrollY;
+      if (mobileMenuOpen) return;
+
+      // Update shadow/scrolled state
+      setIsScrolled(currentScrollY > 20);
+
+      // Always show when near the top of the page
+      if (currentScrollY < 40) {
+        setIsVisible(true);
+        prevScrollYRef.current = currentScrollY;
+        return;
+      }
+
+      // Ignore micro-jitters
+      if (Math.abs(diff) < 8) return;
+
+      if (diff > 0) {
+        // User scrolled down -> HIDE navbar
+        setIsVisible(false);
+      } else {
+        // User scrolled up -> SHOW navbar
+        setIsVisible(true);
+      }
+
+      prevScrollYRef.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-40 w-full transition-all duration-200">
-      {/* Top Bar */}
-      <div className="bg-[#000A3C] text-[#C9D2EA] text-xs py-2 px-4 sm:px-8 border-b border-[#0A1A55]">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-3">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isVisible
+          ? "translate-y-0 opacity-100"
+          : "-translate-y-full opacity-0 pointer-events-none"
+      }`}
+    >
+      {/* Top subtle notification ribbon - visible only at the top */}
+      {!isScrolled && (
+        <div className="bg-[#000A3C] text-slate-300 text-[11px] py-1.5 px-4 sm:px-8 border-b border-[#0A1A55] transition-all">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="sk-status-dot"></span>
               <span className="font-semibold text-white tracking-wide">
                 {isBn ? SITE_CONFIG.locationBn : SITE_CONFIG.locationEn}
               </span>
+              <span className="text-white/20">|</span>
+              <span className="text-slate-300 text-[11px] hidden sm:inline">
+                {isBn
+                  ? "কুষ্টিয়ার উদ্যোক্তাদের ঐক্যবদ্ধ প্ল্যাটফর্ম"
+                  : "Kushtia’s Unified Platform for Founders & Innovators"}
+              </span>
             </div>
-            <span className="hidden md:inline text-white/30">|</span>
-            <span className="hidden md:inline text-gray-300">
-              {isBn
-                ? 'কুষ্টিয়ার উদ্যোক্তাদের ঐক্যবদ্ধ প্ল্যাটফর্ম'
-                : 'Empowering Innovators & Founders across Kushtia'}
-            </span>
-          </div>
 
-          <div className="flex items-center gap-4">
-            <a
-              href={`mailto:${SITE_CONFIG.email}`}
-              className="hidden sm:flex items-center gap-1.5 hover:text-[#48E2E7] transition-colors"
-            >
-              <Mail className="w-3.5 h-3.5" />
-              <span>{SITE_CONFIG.email}</span>
-            </a>
             <a
               href={SITE_CONFIG.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-[#48E2E7] transition-colors text-[#48E2E7] font-medium"
+              className="flex items-center gap-1.5 text-[#48E2E7] hover:text-white transition-colors text-[11px] font-medium"
             >
-              <Phone className="w-3.5 h-3.5" />
-              <span>{isBn ? 'হোয়াটসঅ্যাপ' : 'WhatsApp'}</span>
+              <MessageCircle className="w-3 h-3" />
+              <span>{isBn ? "হোয়াটসঅ্যাপে যোগাযোগ" : "WhatsApp Us"}</span>
             </a>
+          </div>
+        </div>
+      )}
 
-            {/* Language Switcher */}
-            <div className="flex items-center bg-[#0A1A55] border border-[#1e293b] rounded-full p-0.5 ml-1">
+      {/* Main Glassmorphic Navigation Bar */}
+      <nav
+        className={`w-full transition-all duration-200 ${
+          isScrolled
+            ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-2.5"
+            : "bg-white/95 backdrop-blur-sm border-b border-slate-200 py-3.5"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between gap-4">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
+            <Image
+              src="/logo.png"
+              alt="Startup Kushtia"
+              width={160}
+              height={52}
+              priority
+              className="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-102"
+            />
+          </Link>
+
+          {/* Desktop Nav Items - Clean, uncluttered, nicely spaced */}
+          <div className="hidden lg:flex items-center gap-1 xl:gap-2 text-[14px] font-semibold text-[#334155]">
+            <a
+              href="#audience"
+              className="px-3 py-1.5 rounded-lg hover:text-[#0C4DEB] hover:bg-slate-100/70 transition-all"
+            >
+              {isBn ? "পরিচিতি" : "About"}
+            </a>
+            <a
+              href="#pillars"
+              className="px-3 py-1.5 rounded-lg hover:text-[#0C4DEB] hover:bg-slate-100/70 transition-all"
+            >
+              {isBn ? "প্রোগ্রাম" : "Programs"}
+            </a>
+            <a
+              href="#directory"
+              className="px-3 py-1.5 rounded-lg hover:text-[#0C4DEB] hover:bg-slate-100/70 transition-all"
+            >
+              {isBn ? "ডিরেক্টরি" : "Directory"}
+            </a>
+            <a
+              href="#ambassadors"
+              className="px-3 py-1.5 rounded-lg hover:text-[#0C4DEB] hover:bg-slate-100/70 transition-all"
+            >
+              {isBn ? "ক্যাম্পাস অ্যাম্বাসেডর" : "Ambassadors"}
+            </a>
+            <a
+              href="#team"
+              className="px-3 py-1.5 rounded-lg hover:text-[#0C4DEB] hover:bg-slate-100/70 transition-all"
+            >
+              {isBn ? "টিম" : "Team"}
+            </a>
+            <a
+              href="#faq"
+              className="px-3 py-1.5 rounded-lg hover:text-[#0C4DEB] hover:bg-slate-100/70 transition-all"
+            >
+              {isBn ? "প্রশ্নোত্তর" : "FAQ"}
+            </a>
+          </div>
+
+          {/* Right Action Controls */}
+          <div className="hidden sm:flex items-center gap-3 shrink-0">
+            {/* Minimal Language Switcher */}
+            <div className="flex items-center bg-slate-100 border border-slate-200 rounded-full p-0.5">
               <button
                 type="button"
-                onClick={() => setLanguage('bn')}
-                className={`px-2.5 py-0.5 rounded-full text-xs font-semibold transition-all ${
+                onClick={() => setLanguage("bn")}
+                className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${
                   isBn
-                    ? 'bg-[#48E2E7] text-[#000A3C] shadow-sm'
-                    : 'text-gray-300 hover:text-white'
+                    ? "bg-white text-[#000A3C] shadow-xs"
+                    : "text-slate-500 hover:text-slate-900"
                 }`}
               >
                 বাংলা
               </button>
               <button
                 type="button"
-                onClick={() => setLanguage('en')}
-                className={`px-2.5 py-0.5 rounded-full text-xs font-semibold transition-all ${
+                onClick={() => setLanguage("en")}
+                className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${
                   !isBn
-                    ? 'bg-[#48E2E7] text-[#000A3C] shadow-sm'
-                    : 'text-gray-300 hover:text-white'
+                    ? "bg-white text-[#000A3C] shadow-xs"
+                    : "text-slate-500 hover:text-slate-900"
                 }`}
               >
                 EN
               </button>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Main Navbar */}
-      <nav
-        className={`w-full bg-white/95 backdrop-blur-md border-b border-[#E2E7F1] transition-shadow ${
-          isScrolled ? 'shadow-md py-3' : 'py-4'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-[#000A3C] flex items-center justify-center border-2 border-[#0C4DEB] shadow-md group-hover:scale-105 transition-transform">
-              <svg viewBox="0 0 32 32" className="w-6 h-6 fill-none" xmlns="http://www.w3.org/2000/svg">
-                {/* Connecting dots logo mark */}
-                <circle cx="9" cy="9" r="4" fill="#48E2E7" />
-                <circle cx="23" cy="9" r="3.5" fill="#0C4DEB" />
-                <circle cx="16" cy="23" r="4" fill="#48E2E7" />
-                <line x1="9" y1="9" x2="23" y2="9" stroke="#ffffff" strokeWidth="2" strokeDasharray="2 2" />
-                <line x1="9" y1="9" x2="16" y2="23" stroke="#48E2E7" strokeWidth="2.2" />
-                <line x1="23" y1="9" x2="16" y2="23" stroke="#0C4DEB" strokeWidth="2.2" />
-              </svg>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-tight text-[#000A3C] font-display flex items-center gap-1.5 leading-none">
-                Startup <span className="text-[#0C4DEB]">Kushtia</span>
-              </span>
-              <span className="text-[10px] tracking-widest text-[#6B7591] font-semibold uppercase mt-0.5">
-                {SITE_CONFIG.tagline}
-              </span>
-            </div>
-          </Link>
-
-          {/* Desktop Nav Items */}
-          <div className="hidden lg:flex items-center gap-7 text-[15px] font-medium text-[#444E69]">
-            <a href="#audience" className="hover:text-[#0C4DEB] transition-colors">
-              {isBn ? 'কাদের জন্য' : 'Who It’s For'}
-            </a>
-            <a href="#pillars" className="hover:text-[#0C4DEB] transition-colors">
-              {isBn ? 'আমরা যা করি' : 'What We Do'}
-            </a>
-            <a href="#directory" className="hover:text-[#0C4DEB] transition-colors">
-              {isBn ? 'ডিরেক্টরি' : 'Directory'}
-            </a>
-            <a href="#ambassadors" className="hover:text-[#0C4DEB] transition-colors">
-              {isBn ? 'ক্যাম্পাস অ্যাম্বাসেডর' : 'Ambassadors'}
-            </a>
-            <a href="#values" className="hover:text-[#0C4DEB] transition-colors">
-              {isBn ? 'মূল্যবোধ' : 'Values'}
-            </a>
-            <a href="#team" className="hover:text-[#0C4DEB] transition-colors">
-              {isBn ? 'টিম' : 'Team'}
-            </a>
-            <a href="#faq" className="hover:text-[#0C4DEB] transition-colors">
-              {isBn ? 'প্রশ্নোত্তর' : 'FAQ'}
-            </a>
-
-            {/* Pill Highlight Link */}
-            <a
-              href="#directory"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#48E2E7] text-[#000A3C] font-bold text-xs shadow-sm hover:translate-x-0.5 transition-transform"
-            >
-              <Users className="w-3.5 h-3.5" />
-              <span>{isBn ? 'কমিউনিটি' : 'Community'}</span>
-            </a>
-          </div>
-
-          {/* Action CTAs */}
-          <div className="hidden sm:flex items-center gap-3">
+            {/* Quick Contact Link */}
             <button
               type="button"
               onClick={onOpenContact}
-              className="px-4 py-2 rounded-xl text-sm font-semibold text-[#000A3C] border border-[#E2E7F1] hover:bg-[#F5F7FC] transition-colors"
+              className="text-xs font-bold text-slate-600 hover:text-[#0C4DEB] px-2.5 py-1.5 rounded-lg transition-colors"
             >
-              {isBn ? 'যোগাযোগ' : 'Contact'}
+              {isBn ? "যোগাযোগ" : "Contact"}
             </button>
+
+            {/* Primary CTA Button */}
             <button
               type="button"
               onClick={onOpenJoin}
-              className="px-5 py-2.5 rounded-xl bg-[#0C4DEB] hover:bg-[#083DB8] text-white font-bold text-sm btn-hard flex items-center gap-1.5"
+              className="px-4 py-2 rounded-xl bg-[#0C4DEB] hover:bg-[#083DB8] text-white font-bold text-xs sm:text-sm btn-hard flex items-center gap-1.5 shadow-sm"
             >
-              <span>{isBn ? 'কমিউনিটিতে যোগ দিন' : 'Join Community'}</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join Community"}</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Actions & Menu Toggle */}
           <div className="flex lg:hidden items-center gap-2">
+            {/* Mobile Lang Button */}
+            <button
+              type="button"
+              onClick={() => setLanguage(isBn ? "en" : "bn")}
+              className="px-2.5 py-1 rounded-lg bg-slate-100 text-[#000A3C] font-bold text-xs border border-slate-200"
+            >
+              {isBn ? "EN" : "বাং"}
+            </button>
+
             <button
               type="button"
               onClick={onOpenJoin}
               className="px-3 py-1.5 rounded-lg bg-[#0C4DEB] text-white font-bold text-xs btn-hard sm:hidden"
             >
-              {isBn ? 'যুক্ত হোন' : 'Join'}
+              {isBn ? "যুক্ত হোন" : "Join"}
             </button>
+
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#000A3C] hover:bg-[#F5F7FC] rounded-lg transition-colors"
+              className="p-2 text-[#000A3C] hover:bg-slate-100 rounded-lg transition-colors"
               aria-label="Toggle Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Mobile Slide-down Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-[#E2E7F1] bg-white px-6 py-6 space-y-4 animate-fade-in shadow-xl">
-            <div className="flex flex-col space-y-3 text-base font-semibold text-[#000A3C]">
+          <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-5 space-y-3 shadow-xl animate-fade-in">
+            <div className="flex flex-col space-y-2 text-sm font-semibold text-[#000A3C]">
               <a
                 href="#audience"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1 hover:text-[#0C4DEB] transition-colors"
+                className="py-1.5 hover:text-[#0C4DEB] transition-colors"
               >
-                {isBn ? 'কাদের জন্য' : 'Who It’s For'}
+                {isBn ? "পরিচিতি" : "About"}
               </a>
               <a
                 href="#pillars"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1 hover:text-[#0C4DEB] transition-colors"
+                className="py-1.5 hover:text-[#0C4DEB] transition-colors"
               >
-                {isBn ? 'আমরা যা করি' : 'What We Do'}
+                {isBn ? "প্রোগ্রাম ও উদ্যোগ" : "Programs"}
               </a>
               <a
                 href="#directory"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1 hover:text-[#0C4DEB] transition-colors"
+                className="py-1.5 hover:text-[#0C4DEB] transition-colors"
               >
-                {isBn ? 'ডিরেক্টরি ও ব্যবসা' : 'Directory & Businesses'}
+                {isBn ? "কুষ্টিয়ার ডিরেক্টরি" : "Directory"}
               </a>
               <a
                 href="#ambassadors"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1 hover:text-[#0C4DEB] transition-colors"
+                className="py-1.5 hover:text-[#0C4DEB] transition-colors"
               >
-                {isBn ? 'ক্যাম্পাস অ্যাম্বাসেডর' : 'Campus Ambassadors'}
-              </a>
-              <a
-                href="#values"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-1 hover:text-[#0C4DEB] transition-colors"
-              >
-                {isBn ? 'আমাদের মূল্যবোধ' : 'Our Values'}
+                {isBn ? "ক্যাম্পাস অ্যাম্বাসেডর" : "Campus Ambassadors"}
               </a>
               <a
                 href="#team"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1 hover:text-[#0C4DEB] transition-colors"
+                className="py-1.5 hover:text-[#0C4DEB] transition-colors"
               >
-                {isBn ? 'ফাউন্ডিং টিম' : 'Founding Team'}
+                {isBn ? "টিম" : "Team"}
               </a>
               <a
                 href="#faq"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1 hover:text-[#0C4DEB] transition-colors"
+                className="py-1.5 hover:text-[#0C4DEB] transition-colors"
               >
-                {isBn ? 'সচরাচর জিজ্ঞাসা' : 'FAQ'}
+                {isBn ? "প্রশ্নোত্তর" : "FAQ"}
               </a>
             </div>
 
-            <div className="pt-4 border-t border-[#E2E7F1] flex flex-col gap-3">
+            <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
               <button
                 type="button"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenJoin();
                 }}
-                className="w-full py-3 rounded-xl bg-[#0C4DEB] text-white font-bold text-center btn-hard flex items-center justify-center gap-2"
+                className="w-full py-2.5 rounded-xl bg-[#0C4DEB] text-white font-bold text-center btn-hard flex items-center justify-center gap-1.5 text-sm"
               >
-                <span>{isBn ? 'কমিউনিটিতে যোগ দিন' : 'Join Community'}</span>
+                <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join Community"}</span>
                 <ArrowUpRight className="w-4 h-4" />
               </button>
               <button
@@ -268,9 +304,9 @@ export default function Header({ onOpenJoin, onOpenContact }: HeaderProps) {
                   setMobileMenuOpen(false);
                   onOpenContact();
                 }}
-                className="w-full py-2.5 rounded-xl border-2 border-[#000A3C] text-[#000A3C] font-semibold text-center hover:bg-[#F5F7FC]"
+                className="w-full py-2 rounded-xl border border-slate-300 text-[#000A3C] font-semibold text-center text-xs hover:bg-slate-50"
               >
-                {isBn ? 'যোগাযোগ করুন' : 'Contact Us'}
+                {isBn ? "যোগাযোগ করুন" : "Contact Us"}
               </button>
             </div>
           </div>

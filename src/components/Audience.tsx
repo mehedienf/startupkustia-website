@@ -1,17 +1,16 @@
-'use client';
+"use client";
 
-import React from 'react';
+import { useLanguage } from "@/context/LanguageContext";
+import { AUDIENCE_ITEMS } from "@/data/content";
 import {
-  GraduationCap,
-  Compass,
-  Rocket,
-  Store,
+  ArrowRight,
   Briefcase,
   Code,
-  ArrowRight,
-} from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
-import { AUDIENCE_ITEMS } from '@/data/content';
+  Compass,
+  GraduationCap,
+  Rocket,
+  Store,
+} from "lucide-react";
 
 interface AudienceProps {
   onSelectCategory: () => void;
@@ -19,21 +18,21 @@ interface AudienceProps {
 
 export default function Audience({ onSelectCategory }: AudienceProps) {
   const { language } = useLanguage();
-  const isBn = language === 'bn';
+  const isBn = language === "bn";
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'GraduationCap':
+      case "GraduationCap":
         return <GraduationCap className="w-6 h-6 text-[#0C4DEB]" />;
-      case 'Compass':
+      case "Compass":
         return <Compass className="w-6 h-6 text-[#0C4DEB]" />;
-      case 'Rocket':
+      case "Rocket":
         return <Rocket className="w-6 h-6 text-[#0C4DEB]" />;
-      case 'Store':
+      case "Store":
         return <Store className="w-6 h-6 text-[#0C4DEB]" />;
-      case 'Briefcase':
+      case "Briefcase":
         return <Briefcase className="w-6 h-6 text-[#0C4DEB]" />;
-      case 'Code':
+      case "Code":
         return <Code className="w-6 h-6 text-[#0C4DEB]" />;
       default:
         return <Rocket className="w-6 h-6 text-[#0C4DEB]" />;
@@ -47,16 +46,18 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
         <div className="max-w-2xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0C4DEB] mb-3">
             <span className="w-6 h-0.5 bg-[#48E2E7]"></span>
-            <span>{isBn ? 'কাদের জন্য' : 'Who It Is For'}</span>
+            <span>{isBn ? "কাদের জন্য" : "Who It Is For"}</span>
             <span className="w-6 h-0.5 bg-[#48E2E7]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#000A3C] tracking-tight">
-            {isBn ? 'যারা গড়ে তোলে, তাদের জন্য।' : 'Built for Those Who Create & Scale.'}
+            {isBn
+              ? "যারা গড়ে তোলে, তাদের জন্য।"
+              : "Built for Those Who Create & Scale."}
           </h2>
           <p className="mt-3 text-base text-[#444E69]">
             {isBn
-              ? 'আইডিয়া থেকে পূর্ণাঙ্গ ব্যবসা — কুষ্টিয়ার প্রতিটি স্তরের স্বপ্নদ্রষ্টাদের জন্য আমাদের সুনির্দিষ্ট প্রোগ্রাম।'
-              : 'From embryonic campus ideas to scaling enterprises across Kushtia.'}
+              ? "আইডিয়া থেকে পূর্ণাঙ্গ ব্যবসা — কুষ্টিয়ার প্রতিটি স্তরের স্বপ্নদ্রষ্টাদের জন্য আমাদের সুনির্দিষ্ট প্রোগ্রাম।"
+              : "From embryonic campus ideas to scaling enterprises across Kushtia."}
           </p>
         </div>
 
@@ -81,7 +82,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
               </div>
 
               <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#0C4DEB] group-hover:text-[#083DB8]">
-                <span>{isBn ? 'যুক্ত হোন' : 'Get Involved'}</span>
+                <span>{isBn ? "যুক্ত হোন" : "Get Involved"}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </div>
             </div>

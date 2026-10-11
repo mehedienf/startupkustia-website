@@ -1,30 +1,32 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { LanguageProvider } from '@/context/LanguageContext';
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import Audience from '@/components/Audience';
-import Pillars from '@/components/Pillars';
-import Directory from '@/components/Directory';
-import Ambassadors from '@/components/Ambassadors';
-import Values from '@/components/Values';
-import Team from '@/components/Team';
-import Faq from '@/components/Faq';
-import CtaBanner from '@/components/CtaBanner';
-import Footer from '@/components/Footer';
-import JoinModal from '@/components/JoinModal';
-import AmbassadorModal from '@/components/AmbassadorModal';
-import DirectoryModal from '@/components/DirectoryModal';
-import ContactModal from '@/components/ContactModal';
-import PolicyModal from '@/components/PolicyModal';
+import AmbassadorModal from "@/components/AmbassadorModal";
+import Ambassadors from "@/components/Ambassadors";
+import Audience from "@/components/Audience";
+import ContactModal from "@/components/ContactModal";
+import CtaBanner from "@/components/CtaBanner";
+import Directory from "@/components/Directory";
+import DirectoryModal from "@/components/DirectoryModal";
+import Faq from "@/components/Faq";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import JoinModal from "@/components/JoinModal";
+import Pillars from "@/components/Pillars";
+import PolicyModal from "@/components/PolicyModal";
+import Team from "@/components/Team";
+import Values from "@/components/Values";
+import { LanguageProvider } from "@/context/LanguageContext";
+import { useState } from "react";
 
 export default function HomePage() {
   const [joinModalOpen, setJoinModalOpen] = useState(false);
   const [ambassadorModalOpen, setAmbassadorModalOpen] = useState(false);
   const [directoryModalOpen, setDirectoryModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
-  const [policyModalType, setPolicyModalType] = useState<'privacy' | 'terms' | null>(null);
+  const [policyModalType, setPolicyModalType] = useState<
+    "privacy" | "terms" | null
+  >(null);
 
   return (
     <LanguageProvider>
@@ -50,7 +52,9 @@ export default function HomePage() {
           <Directory onOpenListingModal={() => setDirectoryModalOpen(true)} />
 
           {/* Campus Ambassador Program */}
-          <Ambassadors onOpenAmbassadorModal={() => setAmbassadorModalOpen(true)} />
+          <Ambassadors
+            onOpenAmbassadorModal={() => setAmbassadorModalOpen(true)}
+          />
 
           {/* Core Values */}
           <Values />

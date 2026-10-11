@@ -1,34 +1,33 @@
-'use client';
+"use client";
 
-import React from 'react';
+import { useLanguage } from "@/context/LanguageContext";
+import { VALUES_ITEMS } from "@/data/content";
 import {
-  Lightbulb,
   HeartHandshake,
-  ShieldCheck,
-  Zap,
+  Lightbulb,
   Scale,
+  ShieldCheck,
   TrendingUp,
-} from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
-import { VALUES_ITEMS } from '@/data/content';
+  Zap,
+} from "lucide-react";
 
 export default function Values() {
   const { language } = useLanguage();
-  const isBn = language === 'bn';
+  const isBn = language === "bn";
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Lightbulb':
+      case "Lightbulb":
         return <Lightbulb className="w-5 h-5 text-[#0C4DEB]" />;
-      case 'HeartHandshake':
+      case "HeartHandshake":
         return <HeartHandshake className="w-5 h-5 text-[#0C4DEB]" />;
-      case 'ShieldCheck':
+      case "ShieldCheck":
         return <ShieldCheck className="w-5 h-5 text-[#0C4DEB]" />;
-      case 'Zap':
+      case "Zap":
         return <Zap className="w-5 h-5 text-[#0C4DEB]" />;
-      case 'Scale':
+      case "Scale":
         return <Scale className="w-5 h-5 text-[#0C4DEB]" />;
-      case 'TrendingUp':
+      case "TrendingUp":
         return <TrendingUp className="w-5 h-5 text-[#0C4DEB]" />;
       default:
         return <Lightbulb className="w-5 h-5 text-[#0C4DEB]" />;
@@ -36,22 +35,25 @@ export default function Values() {
   };
 
   return (
-    <section id="values" className="py-20 md:py-28 bg-white border-b border-[#E2E7F1] relative">
+    <section
+      id="values"
+      className="py-20 md:py-28 bg-white border-b border-[#E2E7F1] relative"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Heading */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0C4DEB] mb-3">
             <span className="w-6 h-0.5 bg-[#48E2E7]"></span>
-            <span>{isBn ? 'আমাদের মূল্যবোধ' : 'Our Core Values'}</span>
+            <span>{isBn ? "আমাদের মূল্যবোধ" : "Our Core Values"}</span>
             <span className="w-6 h-0.5 bg-[#48E2E7]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#000A3C] tracking-tight">
-            {isBn ? 'আমরা যা বিশ্বাস করি।' : 'What We Stand For.'}
+            {isBn ? "আমরা যা বিশ্বাস করি।" : "What We Stand For."}
           </h2>
           <p className="mt-3 text-base text-[#444E69]">
             {isBn
-              ? 'স্টার্টআপ কুষ্টিয়ার প্রতিটি সিদ্ধান্ত ও পদক্ষেপে পরিচালিত হয় এই ৬টি মৌলিক মূলনীতি দ্বারা।'
-              : 'The principles steering every initiative and partnership across Startup Kushtia.'}
+              ? "স্টার্টআপ কুষ্টিয়ার প্রতিটি সিদ্ধান্ত ও পদক্ষেপে পরিচালিত হয় এই ৬টি মৌলিক মূলনীতি দ্বারা।"
+              : "The principles steering every initiative and partnership across Startup Kushtia."}
           </p>
         </div>
 

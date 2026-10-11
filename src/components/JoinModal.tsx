@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { X, CheckCircle, Send } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
+import { useLanguage } from "@/context/LanguageContext";
+import { CheckCircle, Send, X } from "lucide-react";
+import React, { useState } from "react";
 
 interface JoinModalProps {
   isOpen: boolean;
@@ -14,12 +14,12 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    category: 'student',
-    institution: '',
-    note: '',
+    name: "",
+    email: "",
+    phone: "",
+    category: "student",
+    institution: "",
+    note: "",
   });
 
   if (!isOpen) return null;
@@ -36,17 +36,17 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
   const handleReset = () => {
     setSubmitted(false);
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      category: 'student',
-      institution: '',
-      note: '',
+      name: "",
+      email: "",
+      phone: "",
+      category: "student",
+      institution: "",
+      note: "",
     });
     onClose();
   };
 
-  const isBn = language === 'bn';
+  const isBn = language === "bn";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#000A3C]/70 backdrop-blur-sm animate-fade-in">
@@ -56,7 +56,7 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#48E2E7] animate-pulse"></span>
             <h3 className="font-bold text-lg text-white">
-              {isBn ? 'কমিউনিটিতে যোগ দিন' : 'Join Our Community'}
+              {isBn ? "কমিউনিটিতে যোগ দিন" : "Join Our Community"}
             </h3>
           </div>
           <button
@@ -75,12 +75,14 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                 <CheckCircle className="w-8 h-8 text-[#0C4DEB]" />
               </div>
               <h4 className="text-xl font-bold text-[#000A3C]">
-                {isBn ? 'অভিনন্দন! আপনার আবেদন গৃহীত হয়েছে' : 'Welcome to Startup Kushtia!'}
+                {isBn
+                  ? "অভিনন্দন! আপনার আবেদন গৃহীত হয়েছে"
+                  : "Welcome to Startup Kushtia!"}
               </h4>
               <p className="text-sm text-[#444E69] max-w-sm mx-auto">
                 {isBn
-                  ? 'স্টার্টআপ কুষ্টিয়া পরিবারের সদস্য হওয়ার জন্য ধন্যবাদ। শীঘ্রই আমাদের কমিউনিটি টিম আপনার সাথে হোয়াটসঅ্যাপে যোগাযোগ করবে।'
-                  : 'Thank you for joining our ecosystem. Our team will review your application and contact you via WhatsApp shortly.'}
+                  ? "স্টার্টআপ কুষ্টিয়া পরিবারের সদস্য হওয়ার জন্য ধন্যবাদ। শীঘ্রই আমাদের কমিউনিটি টিম আপনার সাথে হোয়াটসঅ্যাপে যোগাযোগ করবে।"
+                  : "Thank you for joining our ecosystem. Our team will review your application and contact you via WhatsApp shortly."}
               </p>
               <div className="pt-4">
                 <button
@@ -88,7 +90,7 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                   onClick={handleReset}
                   className="px-6 py-2.5 bg-[#0C4DEB] text-white font-semibold rounded-xl btn-hard text-sm"
                 >
-                  {isBn ? 'ঠিক আছে' : 'Done'}
+                  {isBn ? "ঠিক আছে" : "Done"}
                 </button>
               </div>
             </div>
@@ -96,20 +98,22 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
             <form onSubmit={handleSubmit} className="space-y-4 text-left">
               <p className="text-sm text-[#444E69]">
                 {isBn
-                  ? 'কুষ্টিয়া থেকে পরবর্তী প্রজন্মের উদ্যোক্তা ও উদ্ভাবক হিসেবে যুক্ত হতে নিচের তথ্যগুলো দিন (মাত্র ১ মিনিট সময় লাগবে)।'
-                  : 'Fill in your details below to join Kushtia’s premier startup & innovation community.'}
+                  ? "কুষ্টিয়া থেকে পরবর্তী প্রজন্মের উদ্যোক্তা ও উদ্ভাবক হিসেবে যুক্ত হতে নিচের তথ্যগুলো দিন (মাত্র ১ মিনিট সময় লাগবে)।"
+                  : "Fill in your details below to join Kushtia’s premier startup & innovation community."}
               </p>
 
               <div>
                 <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
-                  {isBn ? 'আপনার পূর্ণ নাম *' : 'Full Name *'}
+                  {isBn ? "আপনার পূর্ণ নাম *" : "Full Name *"}
                 </label>
                 <input
                   required
                   type="text"
-                  placeholder={isBn ? 'উদা: মাহির আদনান' : 'e.g. Mahir Adnan'}
+                  placeholder={isBn ? "উদা: মাহির আদনান" : "e.g. Mahir Adnan"}
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C]"
                 />
               </div>
@@ -117,27 +121,31 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
-                    {isBn ? 'ইমেইল ঠিকানা *' : 'Email Address *'}
+                    {isBn ? "ইমেইল ঠিকানা *" : "Email Address *"}
                   </label>
                   <input
                     required
                     type="email"
                     placeholder="name@example.com"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C]"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
-                    {isBn ? 'হোয়াটসঅ্যাপ / ফোন *' : 'WhatsApp / Phone *'}
+                    {isBn ? "হোয়াটসঅ্যাপ / ফোন *" : "WhatsApp / Phone *"}
                   </label>
                   <input
                     required
                     type="tel"
                     placeholder="017XXXXXXXX"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C]"
                   />
                 </div>
@@ -145,43 +153,79 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
 
               <div>
                 <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
-                  {isBn ? 'আপনার ভূমিকা / পরিচয় *' : 'Your Category / Role *'}
+                  {isBn ? "আপনার ভূমিকা / পরিচয় *" : "Your Category / Role *"}
                 </label>
                 <select
                   value={formData.category}
-                  onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, category: e.target.value })
+                  }
                   className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C] bg-white"
                 >
-                  <option value="student">{isBn ? 'আইডিয়াধারী শিক্ষার্থী (Student)' : 'Student with Idea'}</option>
-                  <option value="founder">{isBn ? 'প্রাথমিক পর্যায়ের স্টার্টআপ প্রতিষ্ঠাতা' : 'Early-Stage Startup Founder'}</option>
-                  <option value="sme">{isBn ? 'বিদ্যমান স্থানীয় ক্ষুদ্র/মাঝারি ব্যবসা (SME)' : 'Existing Business / SME'}</option>
-                  <option value="freelancer">{isBn ? 'আইটি পেশাজীবী বা ফ্রিল্যান্সার' : 'Tech Freelancer / Professional'}</option>
-                  <option value="mentor">{isBn ? 'মেন্টর বা বিনিয়োগকারী' : 'Mentor / Investor / Industry Leader'}</option>
+                  <option value="student">
+                    {isBn
+                      ? "আইডিয়াধারী শিক্ষার্থী (Student)"
+                      : "Student with Idea"}
+                  </option>
+                  <option value="founder">
+                    {isBn
+                      ? "প্রাথমিক পর্যায়ের স্টার্টআপ প্রতিষ্ঠাতা"
+                      : "Early-Stage Startup Founder"}
+                  </option>
+                  <option value="sme">
+                    {isBn
+                      ? "বিদ্যমান স্থানীয় ক্ষুদ্র/মাঝারি ব্যবসা (SME)"
+                      : "Existing Business / SME"}
+                  </option>
+                  <option value="freelancer">
+                    {isBn
+                      ? "আইটি পেশাজীবী বা ফ্রিল্যান্সার"
+                      : "Tech Freelancer / Professional"}
+                  </option>
+                  <option value="mentor">
+                    {isBn
+                      ? "মেন্টর বা বিনিয়োগকারী"
+                      : "Mentor / Investor / Industry Leader"}
+                  </option>
                 </select>
               </div>
 
               <div>
                 <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
-                  {isBn ? 'প্রতিষ্ঠান বা ক্যাম্পাস' : 'Organization or Campus'}
+                  {isBn ? "প্রতিষ্ঠান বা ক্যাম্পাস" : "Organization or Campus"}
                 </label>
                 <input
                   type="text"
-                  placeholder={isBn ? 'উদা: ইসলামী বিশ্ববিদ্যালয় (IU) / নিজস্ব প্রতিষ্ঠান' : 'e.g. Islamic University / Your Company'}
+                  placeholder={
+                    isBn
+                      ? "উদা: ইসলামী বিশ্ববিদ্যালয় (IU) / নিজস্ব প্রতিষ্ঠান"
+                      : "e.g. Islamic University / Your Company"
+                  }
                   value={formData.institution}
-                  onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, institution: e.target.value })
+                  }
                   className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C]"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
-                  {isBn ? 'আপনার আইডিয়া বা আগ্রহ সংক্ষেপে লিখুন' : 'Briefly describe your idea or goal'}
+                  {isBn
+                    ? "আপনার আইডিয়া বা আগ্রহ সংক্ষেপে লিখুন"
+                    : "Briefly describe your idea or goal"}
                 </label>
                 <textarea
                   rows={2}
-                  placeholder={isBn ? 'কী সমস্যা সমাধান করতে চান বা কী সাহায্য প্রয়োজন...' : 'What are you building or looking for?'}
+                  placeholder={
+                    isBn
+                      ? "কী সমস্যা সমাধান করতে চান বা কী সাহায্য প্রয়োজন..."
+                      : "What are you building or looking for?"
+                  }
                   value={formData.note}
-                  onChange={(e) => setFormData({ ...formData, note: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, note: e.target.value })
+                  }
                   className="w-full px-3.5 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] focus:ring-1 focus:ring-[#0C4DEB] text-[#000A3C]"
                 />
               </div>
@@ -192,7 +236,7 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                   onClick={onClose}
                   className="px-4 py-2 text-sm text-[#444E69] hover:text-[#000A3C] font-medium"
                 >
-                  {isBn ? 'বাতিল' : 'Cancel'}
+                  {isBn ? "বাতিল" : "Cancel"}
                 </button>
                 <button
                   type="submit"
@@ -200,10 +244,10 @@ export default function JoinModal({ isOpen, onClose }: JoinModalProps) {
                   className="px-6 py-2.5 bg-[#0C4DEB] hover:bg-[#083DB8] text-white font-bold rounded-xl btn-hard text-sm flex items-center gap-2"
                 >
                   {loading ? (
-                    <span>{isBn ? 'জমা হচ্ছে...' : 'Submitting...'}</span>
+                    <span>{isBn ? "জমা হচ্ছে..." : "Submitting..."}</span>
                   ) : (
                     <>
-                      <span>{isBn ? 'যুক্ত হোন' : 'Join Now'}</span>
+                      <span>{isBn ? "যুক্ত হোন" : "Join Now"}</span>
                       <Send className="w-4 h-4" />
                     </>
                   )}

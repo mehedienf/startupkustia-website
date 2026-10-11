@@ -1,7 +1,12 @@
-'use client';
+"use client";
 
-import React, { createContext, useContext, useState, useSyncExternalStore } from 'react';
-import { Language } from '@/types';
+import { Language } from "@/types";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useSyncExternalStore,
+} from "react";
 
 interface LanguageContextType {
   language: Language;
@@ -9,40 +14,46 @@ interface LanguageContextType {
   toggleLanguage: () => void;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined,
+);
 
 function subscribe(callback: () => void) {
-  if (typeof window === 'undefined') return () => {};
-  window.addEventListener('storage', callback);
-  return () => window.removeEventListener('storage', callback);
+  if (typeof window === "undefined") return () => {};
+  window.addEventListener("storage", callback);
+  return () => window.removeEventListener("storage", callback);
 }
 
 function getSnapshot(): Language {
-  if (typeof window === 'undefined') return 'bn';
-  const saved = localStorage.getItem('sk_lang');
-  return saved === 'en' ? 'en' : 'bn';
+  if (typeof window === "undefined") return "bn";
+  const saved = localStorage.getItem("sk_lang");
+  return saved === "en" ? "en" : "bn";
 }
 
 function getServerSnapshot(): Language {
-  return 'bn';
+  return "bn";
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const storeLang = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const storeLang = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot,
+  );
   const [overrideLang, setOverrideLang] = useState<Language | null>(null);
 
   const language = overrideLang ?? storeLang;
 
   const setLanguage = (lang: Language) => {
     setOverrideLang(lang);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('sk_lang', lang);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("sk_lang", lang);
       document.documentElement.lang = lang;
     }
   };
 
   const toggleLanguage = () => {
-    const next = language === 'bn' ? 'en' : 'bn';
+    const next = language === "bn" ? "en" : "bn";
     setLanguage(next);
   };
 
@@ -56,7 +67,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 export function useLanguage() {
   const context = useContext(LanguageContext);
   if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
   return context;
 }

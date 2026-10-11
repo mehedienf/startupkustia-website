@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { X, CheckCircle, Mail, Phone, Send } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
-import { SITE_CONFIG } from '@/data/content';
+import { useLanguage } from "@/context/LanguageContext";
+import { SITE_CONFIG } from "@/data/content";
+import { CheckCircle, Mail, Phone, Send, X } from "lucide-react";
+import React, { useState } from "react";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -15,10 +15,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   if (!isOpen) return null;
@@ -37,7 +37,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
     onClose();
   };
 
-  const isBn = language === 'bn';
+  const isBn = language === "bn";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#000A3C]/70 backdrop-blur-sm animate-fade-in">
@@ -46,7 +46,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           <div className="flex items-center gap-2">
             <Mail className="w-5 h-5 text-[#48E2E7]" />
             <h3 className="font-bold text-lg text-white">
-              {isBn ? 'যোগাযোগ করুন' : 'Contact Startup Kushtia'}
+              {isBn ? "যোগাযোগ করুন" : "Contact Startup Kushtia"}
             </h3>
           </div>
           <button
@@ -65,12 +65,14 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 <CheckCircle className="w-8 h-8 text-[#0C4DEB]" />
               </div>
               <h4 className="text-xl font-bold text-[#000A3C]">
-                {isBn ? 'বার্তাটি সফলভাবে পাঠানো হয়েছে!' : 'Message Sent Successfully!'}
+                {isBn
+                  ? "বার্তাটি সফলভাবে পাঠানো হয়েছে!"
+                  : "Message Sent Successfully!"}
               </h4>
               <p className="text-sm text-[#444E69] max-w-sm mx-auto">
                 {isBn
-                  ? 'আপনার বার্তার জন্য ধন্যবাদ। স্টার্টআপ কুষ্টিয়া টিম খুব শীঘ্রই আপনার সাথে যোগাযোগ করবে।'
-                  : 'Thank you for reaching out. We will get back to you as soon as possible.'}
+                  ? "আপনার বার্তার জন্য ধন্যবাদ। স্টার্টআপ কুষ্টিয়া টিম খুব শীঘ্রই আপনার সাথে যোগাযোগ করবে।"
+                  : "Thank you for reaching out. We will get back to you as soon as possible."}
               </p>
               <div className="pt-4">
                 <button
@@ -78,7 +80,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   onClick={handleReset}
                   className="px-6 py-2.5 bg-[#0C4DEB] text-white font-semibold rounded-xl btn-hard text-sm"
                 >
-                  {isBn ? 'ঠিক আছে' : 'Done'}
+                  {isBn ? "ঠিক আছে" : "Done"}
                 </button>
               </div>
             </div>
@@ -107,56 +109,72 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <form onSubmit={handleSubmit} className="space-y-3 text-left">
                 <div>
                   <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
-                    {isBn ? 'আপনার নাম *' : 'Name *'}
+                    {isBn ? "আপনার নাম *" : "Name *"}
                   </label>
                   <input
                     required
                     type="text"
-                    placeholder={isBn ? 'আপনার নাম' : 'Your Name'}
+                    placeholder={isBn ? "আপনার নাম" : "Your Name"}
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
-                    {isBn ? 'ইমেইল বা ফোন *' : 'Email or Phone *'}
+                    {isBn ? "ইমেইল বা ফোন *" : "Email or Phone *"}
                   </label>
                   <input
                     required
                     type="text"
                     placeholder="email@example.com / 017XXXXXXXX"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
-                    {isBn ? 'বিষয় *' : 'Subject *'}
+                    {isBn ? "বিষয় *" : "Subject *"}
                   </label>
                   <input
                     required
                     type="text"
-                    placeholder={isBn ? 'পার্টনারশিপ / প্রশ্ন / অন্যান্য' : 'Partnership / Query / Other'}
+                    placeholder={
+                      isBn
+                        ? "পার্টনারশিপ / প্রশ্ন / অন্যান্য"
+                        : "Partnership / Query / Other"
+                    }
                     value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, subject: e.target.value })
+                    }
                     className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
                   />
                 </div>
 
                 <div>
                   <label className="block text-xs font-semibold text-[#000A3C] uppercase tracking-wider mb-1">
-                    {isBn ? 'আপনার বার্তা *' : 'Your Message *'}
+                    {isBn ? "আপনার বার্তা *" : "Your Message *"}
                   </label>
                   <textarea
                     required
                     rows={3}
-                    placeholder={isBn ? 'কী বিষয়ে আলোচনা করতে চান...' : 'Type your message here...'}
+                    placeholder={
+                      isBn
+                        ? "কী বিষয়ে আলোচনা করতে চান..."
+                        : "Type your message here..."
+                    }
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
                   />
                 </div>
@@ -167,7 +185,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     onClick={onClose}
                     className="px-4 py-2 text-sm text-[#444E69] hover:text-[#000A3C] font-medium"
                   >
-                    {isBn ? 'বাতিল' : 'Cancel'}
+                    {isBn ? "বাতিল" : "Cancel"}
                   </button>
                   <button
                     type="submit"
@@ -175,10 +193,10 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     className="px-6 py-2.5 bg-[#0C4DEB] hover:bg-[#083DB8] text-white font-bold rounded-xl btn-hard text-sm flex items-center gap-2"
                   >
                     {loading ? (
-                      <span>{isBn ? 'পাঠানো হচ্ছে...' : 'Sending...'}</span>
+                      <span>{isBn ? "পাঠানো হচ্ছে..." : "Sending..."}</span>
                     ) : (
                       <>
-                        <span>{isBn ? 'বার্তা পাঠান' : 'Send Message'}</span>
+                        <span>{isBn ? "বার্তা পাঠান" : "Send Message"}</span>
                         <Send className="w-4 h-4" />
                       </>
                     )}

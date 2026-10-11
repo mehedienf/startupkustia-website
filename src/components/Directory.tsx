@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useState, useMemo } from 'react';
-import { Search, MapPin, User, Plus, ExternalLink } from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
-import { DIRECTORY_ITEMS } from '@/data/content';
+import { useLanguage } from "@/context/LanguageContext";
+import { DIRECTORY_ITEMS } from "@/data/content";
+import { ExternalLink, MapPin, Plus, Search, User } from "lucide-react";
+import { useMemo, useState } from "react";
 
 interface DirectoryProps {
   onOpenListingModal: () => void;
@@ -11,19 +11,23 @@ interface DirectoryProps {
 
 export default function Directory({ onOpenListingModal }: DirectoryProps) {
   const { language } = useLanguage();
-  const isBn = language === 'bn';
+  const isBn = language === "bn";
 
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const categories = useMemo(() => {
     return [
-      { id: 'all', labelBn: 'সব উদ্যোগ', labelEn: 'All Ventures' },
-      { id: 'tech', labelBn: 'সফটওয়্যার ও আইটি', labelEn: 'Software & IT' },
-      { id: 'agro', labelBn: 'এগ্রো ও ফুড-টেক', labelEn: 'Agro & Food' },
-      { id: 'crafts', labelBn: 'হস্তশিল্প ও ফ্যাশন', labelEn: 'Handicrafts & Heritage' },
-      { id: 'logistics', labelBn: 'লজিস্টিকস ও সেবা', labelEn: 'Logistics' },
-      { id: 'education', labelBn: 'শিক্ষা ও এডটেক', labelEn: 'Education' },
+      { id: "all", labelBn: "সব উদ্যোগ", labelEn: "All Ventures" },
+      { id: "tech", labelBn: "সফটওয়্যার ও আইটি", labelEn: "Software & IT" },
+      { id: "agro", labelBn: "এগ্রো ও ফুড-টেক", labelEn: "Agro & Food" },
+      {
+        id: "crafts",
+        labelBn: "হস্তশিল্প ও ফ্যাশন",
+        labelEn: "Handicrafts & Heritage",
+      },
+      { id: "logistics", labelBn: "লজিস্টিকস ও সেবা", labelEn: "Logistics" },
+      { id: "education", labelBn: "শিক্ষা ও এডটেক", labelEn: "Education" },
     ];
   }, []);
 
@@ -31,11 +35,16 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
     return DIRECTORY_ITEMS.filter((item) => {
       // Category match
       let matchesCat = true;
-      if (selectedCategory === 'tech') matchesCat = item.category === 'সফটওয়্যার ও আইটি';
-      else if (selectedCategory === 'agro') matchesCat = item.category === 'এগ্রো ও ফুড-টেক';
-      else if (selectedCategory === 'crafts') matchesCat = item.category === 'হস্তশিল্প ও ফ্যাশন';
-      else if (selectedCategory === 'logistics') matchesCat = item.category === 'লজিস্টিকস ও ডেলিভারি';
-      else if (selectedCategory === 'education') matchesCat = item.category === 'শিক্ষা ও এডটেক';
+      if (selectedCategory === "tech")
+        matchesCat = item.category === "সফটওয়্যার ও আইটি";
+      else if (selectedCategory === "agro")
+        matchesCat = item.category === "এগ্রো ও ফুড-টেক";
+      else if (selectedCategory === "crafts")
+        matchesCat = item.category === "হস্তশিল্প ও ফ্যাশন";
+      else if (selectedCategory === "logistics")
+        matchesCat = item.category === "লজিস্টিকস ও ডেলিভারি";
+      else if (selectedCategory === "education")
+        matchesCat = item.category === "শিক্ষা ও এডটেক";
 
       // Search match
       const q = searchQuery.toLowerCase();
@@ -59,15 +68,17 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
           <div>
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0C4DEB] mb-3">
               <span className="w-6 h-0.5 bg-[#48E2E7]"></span>
-              <span>{isBn ? 'ডিরেক্টরি' : 'Ecosystem Directory'}</span>
+              <span>{isBn ? "ডিরেক্টরি" : "Ecosystem Directory"}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#000A3C] tracking-tight">
-              {isBn ? 'কুষ্টিয়ার স্টার্টআপ ও ব্যবসা খুঁজে নিন।' : 'Explore Kushtia Startups & Businesses.'}
+              {isBn
+                ? "কুষ্টিয়ার স্টার্টআপ ও ব্যবসা খুঁজে নিন।"
+                : "Explore Kushtia Startups & Businesses."}
             </h2>
             <p className="mt-2 text-base text-[#444E69] max-w-xl">
               {isBn
-                ? 'স্থানীয় উদ্ভাবন, সফল স্টার্টআপ এবং প্রতিষ্ঠিত ব্যবসাগুলোকে জানুন ও যুক্ত হোন।'
-                : 'Discover and connect with ventures shaping Kushtia’s economic landscape.'}
+                ? "স্থানীয় উদ্ভাবন, সফল স্টার্টআপ এবং প্রতিষ্ঠিত ব্যবসাগুলোকে জানুন ও যুক্ত হোন।"
+                : "Discover and connect with ventures shaping Kushtia’s economic landscape."}
             </p>
           </div>
 
@@ -78,7 +89,7 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
             className="px-6 py-3.5 rounded-xl bg-[#0C4DEB] hover:bg-[#083DB8] text-white font-bold text-sm btn-hard flex items-center justify-center gap-2 shrink-0 self-start md:self-auto"
           >
             <Plus className="w-4 h-4" />
-            <span>{isBn ? 'তালিকাভুক্ত হোন' : 'List Your Venture'}</span>
+            <span>{isBn ? "তালিকাভুক্ত হোন" : "List Your Venture"}</span>
           </button>
         </div>
 
@@ -93,8 +104,8 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
                   selectedCategory === cat.id
-                    ? 'bg-[#000A3C] text-white shadow-sm'
-                    : 'text-[#444E69] hover:bg-[#F5F7FC]'
+                    ? "bg-[#000A3C] text-white shadow-sm"
+                    : "text-[#444E69] hover:bg-[#F5F7FC]"
                 }`}
               >
                 {isBn ? cat.labelBn : cat.labelEn}
@@ -107,7 +118,11 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
             <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
-              placeholder={isBn ? 'খুঁজুন (নাম, ট্যাগ, এলাকা)...' : 'Search ventures, tags...'}
+              placeholder={
+                isBn
+                  ? "খুঁজুন (নাম, ট্যাগ, এলাকা)..."
+                  : "Search ventures, tags..."
+              }
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full pl-9 pr-4 py-2 text-sm rounded-xl border border-[#E2E7F1] bg-[#F5F7FC] focus:bg-white focus:outline-none focus:border-[#0C4DEB] text-[#000A3C]"
@@ -119,16 +134,18 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
         {filteredItems.length === 0 ? (
           <div className="text-center py-16 bg-white rounded-2xl border border-[#E2E7F1]">
             <p className="text-gray-500 text-sm">
-              {isBn ? 'কোনো ফলাফল পাওয়া যায়নি।' : 'No matching ventures found.'}
+              {isBn
+                ? "কোনো ফলাফল পাওয়া যায়নি।"
+                : "No matching ventures found."}
             </p>
             <button
               onClick={() => {
-                setSelectedCategory('all');
-                setSearchQuery('');
+                setSelectedCategory("all");
+                setSearchQuery("");
               }}
               className="mt-3 text-xs font-semibold text-[#0C4DEB] underline"
             >
-              {isBn ? 'ফিল্টার রিসেট করুন' : 'Reset filters'}
+              {isBn ? "ফিল্টার রিসেট করুন" : "Reset filters"}
             </button>
           </div>
         ) : (
@@ -149,7 +166,9 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-[#000A3C] mb-2">{item.name}</h3>
+                  <h3 className="text-xl font-bold text-[#000A3C] mb-2">
+                    {item.name}
+                  </h3>
 
                   <p className="text-sm text-[#444E69] leading-relaxed mb-4">
                     {isBn ? item.descriptionBn : item.descriptionEn}
@@ -183,11 +202,13 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-[#0C4DEB] hover:text-[#083DB8] font-bold"
                     >
-                      <span>{isBn ? 'ভিজিট করুন' : 'Visit'}</span>
+                      <span>{isBn ? "ভিজিট করুন" : "Visit"}</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   ) : (
-                    <span className="text-gray-400">{isBn ? 'তালিকাভুক্ত' : 'Verified'}</span>
+                    <span className="text-gray-400">
+                      {isBn ? "তালিকাভুক্ত" : "Verified"}
+                    </span>
                   )}
                 </div>
               </div>

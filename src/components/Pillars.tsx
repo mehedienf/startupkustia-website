@@ -1,17 +1,16 @@
-'use client';
+"use client";
 
-import React from 'react';
+import { useLanguage } from "@/context/LanguageContext";
+import { PILLAR_ITEMS } from "@/data/content";
 import {
-  Users,
-  Laptop,
-  UserCheck,
-  Layers,
+  ArrowUpRight,
   BookOpen,
   Cpu,
-  ArrowUpRight,
-} from 'lucide-react';
-import { useLanguage } from '@/context/LanguageContext';
-import { PILLAR_ITEMS } from '@/data/content';
+  Laptop,
+  Layers,
+  UserCheck,
+  Users,
+} from "lucide-react";
 
 interface PillarsProps {
   onOpenJoin: () => void;
@@ -19,21 +18,21 @@ interface PillarsProps {
 
 export default function Pillars({ onOpenJoin }: PillarsProps) {
   const { language } = useLanguage();
-  const isBn = language === 'bn';
+  const isBn = language === "bn";
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Users':
+      case "Users":
         return <Users className="w-6 h-6 text-[#000A3C]" />;
-      case 'Laptop':
+      case "Laptop":
         return <Laptop className="w-6 h-6 text-[#000A3C]" />;
-      case 'UserCheck':
+      case "UserCheck":
         return <UserCheck className="w-6 h-6 text-[#000A3C]" />;
-      case 'Layers':
+      case "Layers":
         return <Layers className="w-6 h-6 text-[#000A3C]" />;
-      case 'BookOpen':
+      case "BookOpen":
         return <BookOpen className="w-6 h-6 text-[#000A3C]" />;
-      case 'Cpu':
+      case "Cpu":
         return <Cpu className="w-6 h-6 text-[#000A3C]" />;
       default:
         return <Laptop className="w-6 h-6 text-[#000A3C]" />;
@@ -41,19 +40,22 @@ export default function Pillars({ onOpenJoin }: PillarsProps) {
   };
 
   return (
-    <section id="pillars" className="py-20 md:py-28 bg-white border-y border-[#E2E7F1] relative">
+    <section
+      id="pillars"
+      className="py-20 md:py-28 bg-white border-y border-[#E2E7F1] relative"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Heading */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0C4DEB] mb-3">
             <span className="w-6 h-0.5 bg-[#48E2E7]"></span>
-            <span>{isBn ? 'আমরা যা করি' : 'What We Do'}</span>
+            <span>{isBn ? "আমরা যা করি" : "What We Do"}</span>
             <span className="w-6 h-0.5 bg-[#48E2E7]"></span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#000A3C] tracking-tight">
             {isBn ? (
               <>
-                ছয়ভাবে আমরা আপনার বিকাশে{' '}
+                ছয়ভাবে আমরা আপনার বিকাশে{" "}
                 <span className="sk-hl">পাশে আছি</span>।
               </>
             ) : (
@@ -64,8 +66,8 @@ export default function Pillars({ onOpenJoin }: PillarsProps) {
           </h2>
           <p className="mt-3 text-base text-[#444E69]">
             {isBn
-              ? 'কুষ্টিয়ার উদ্যোক্তা ইকোসিস্টেমকে সক্রিয় ও স্বয়ংসম্পূর্ণ করে তুলতে আমাদের কার্যকরী উদ্যোগসমূহ।'
-              : 'Actionable programs designed to empower and accelerate entrepreneurs in Kushtia.'}
+              ? "কুষ্টিয়ার উদ্যোক্তা ইকোসিস্টেমকে সক্রিয় ও স্বয়ংসম্পূর্ণ করে তুলতে আমাদের কার্যকরী উদ্যোগসমূহ।"
+              : "Actionable programs designed to empower and accelerate entrepreneurs in Kushtia."}
           </p>
         </div>
 
@@ -99,10 +101,14 @@ export default function Pillars({ onOpenJoin }: PillarsProps) {
               <div className="pt-6 mt-6 border-t border-[#E2E7F1]/70 flex items-center justify-between">
                 <button
                   type="button"
-                  onClick={pillar.id === 'directory' ? () => window.location.hash = 'directory' : onOpenJoin}
+                  onClick={
+                    pillar.id === "directory"
+                      ? () => (window.location.hash = "directory")
+                      : onOpenJoin
+                  }
                   className="text-xs font-bold text-[#0C4DEB] hover:text-[#083DB8] flex items-center gap-1 group"
                 >
-                  <span>{isBn ? 'বিস্তারিত জানুন' : 'Learn More'}</span>
+                  <span>{isBn ? "বিস্তারিত জানুন" : "Learn More"}</span>
                   <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </button>
               </div>
