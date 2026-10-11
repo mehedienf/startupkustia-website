@@ -16,9 +16,11 @@ import Pillars from "@/components/Pillars";
 import PolicyModal from "@/components/PolicyModal";
 import Team from "@/components/Team";
 import Values from "@/components/Values";
+import WelcomeSplash from "@/components/WelcomeSplash";
 import { useState } from "react";
 
 export default function HomePage() {
+  const [showSplash, setShowSplash] = useState(true);
   const [joinModalOpen, setJoinModalOpen] = useState(false);
   const [ambassadorModalOpen, setAmbassadorModalOpen] = useState(false);
   const [directoryModalOpen, setDirectoryModalOpen] = useState(false);
@@ -95,6 +97,9 @@ export default function HomePage() {
         type={policyModalType}
         onClose={() => setPolicyModalType(null)}
       />
+
+      {/* Launch / Welcome Splash Screen (Matches Screenshot) */}
+      {showSplash && <WelcomeSplash onEnterSite={() => setShowSplash(false)} />}
     </div>
   );
 }
