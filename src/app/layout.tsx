@@ -1,7 +1,21 @@
 import { LanguageProvider } from "@/context/LanguageContext";
 import type { Metadata } from "next";
+import { Inter, Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
 
 const tiroBangla = localFont({
   src: [
@@ -50,7 +64,6 @@ export const metadata: Metadata = {
       { url: "/icon.png?v=2", sizes: "192x192", type: "image/png" },
       { url: "/favicon.ico?v=2" },
     ],
-    shortcut: "/favicon.ico",
     shortcut: "/favicon.ico?v=2",
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
@@ -73,7 +86,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="bn" className={`scroll-smooth ${tiroBangla.variable}`}>
+    <html
+      lang="bn"
+      className={`scroll-smooth ${tiroBangla.variable} ${inter.variable} ${montserrat.variable}`}
+    >
       <body className="min-h-screen flex flex-col bg-[var(--sk-shell)] text-[var(--sk-body)] antialiased">
         <LanguageProvider>{children}</LanguageProvider>
       </body>

@@ -20,7 +20,7 @@ export default function Hero({ onOpenJoin }: HeroProps) {
         <div
           className="hero-bg-image absolute inset-0 w-full h-full opacity-88 transition-opacity"
           style={{
-            backgroundImage: "url('/images/hero_image1.jpg')",
+            backgroundImage: "url('/images/hero_image1.webp')",
           }}
         />
         {/* Soft balanced dark overlay: preserves full visibility of Shilaidaha Kuthibari while keeping text crisp */}

@@ -1,23 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap");
 @import "tailwindcss";
-
-@font-face {
-  font-family: "Tiro Bangla";
-  src: url("/fonts/TiroBangla-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  display: swap;
-  unicode-range: U+0980-09FF, U+200C-200D, U+25CC;
-}
-
-@font-face {
-  font-family: "Tiro Bangla";
-  src: url("/fonts/TiroBangla-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
-  display: swap;
-  unicode-range: U+0980-09FF, U+200C-200D, U+25CC;
-}
 
 :root {
   /* ========================================================
@@ -71,15 +52,18 @@
 
   /* Modern typography font stacks */
   --font-sans:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, var(--font-tiro-bangla), "Tiro Bangla", sans-serif;
+    var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, var(--font-tiro-bangla), "Tiro Bangla",
+    sans-serif;
   --font-display:
-    "Montserrat", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, var(--font-tiro-bangla), "Tiro Bangla", sans-serif;
+    var(--font-montserrat), "Montserrat", var(--font-inter), "Inter",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    var(--font-tiro-bangla), "Tiro Bangla", sans-serif;
 }
 
 body {
   font-family:
+    var(--font-inter),
     "Inter",
     -apple-system,
     BlinkMacSystemFont,
@@ -101,6 +85,7 @@ body {
 html[lang="en"],
 html[lang="en"] body {
   font-family:
+    var(--font-inter),
     "Inter",
     -apple-system,
     BlinkMacSystemFont,
@@ -116,7 +101,9 @@ html[lang="en"] h2,
 html[lang="en"] h3,
 html[lang="en"] .font-display {
   font-family:
+    var(--font-montserrat),
     "Montserrat",
+    var(--font-inter),
     "Inter",
     -apple-system,
     BlinkMacSystemFont,
