@@ -40,9 +40,22 @@ export const metadata: Metadata = {
     "Kushtia Startups",
   ],
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png?v=2", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png?v=2", sizes: "16x16", type: "image/png" },
+      { url: "/icon.png?v=2", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.ico?v=2" },
+    ],
+    shortcut: "/favicon.ico",
+    shortcut: "/favicon.ico?v=2",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png?v=2", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: "Startup Kushtia – Building Blocks Connecting Dots",
