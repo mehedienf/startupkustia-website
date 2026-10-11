@@ -45,11 +45,11 @@ export default function DirectoryModal({
   const isBn = language === "bn";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#061C14]/70 backdrop-blur-sm animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-dark/70 backdrop-blur-sm animate-fade-in">
       <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden">
-        <div className="bg-[#061C14] text-white px-6 py-4 flex items-center justify-between border-b-2 border-[#A3E635]">
+        <div className="bg-dark text-white px-6 py-4 flex items-center justify-between border-b-2 border-brand-accent-light">
           <div className="flex items-center gap-2">
-            <Building2 className="w-5 h-5 text-[#A3E635]" />
+            <Building2 className="w-5 h-5 text-brand-accent-light" />
             <h3 className="font-bold text-lg text-white">
               {isBn
                 ? "ডিরেক্টরিতে তালিকাভুক্ত হোন"
@@ -68,10 +68,10 @@ export default function DirectoryModal({
         <div className="p-6">
           {submitted ? (
             <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 bg-[#ECFCCB] text-[#65A30D] rounded-full flex items-center justify-center mx-auto border-2 border-[#A3E635]">
-                <CheckCircle className="w-8 h-8 text-[#65A30D]" />
+              <div className="w-16 h-16 bg-brand-soft2 text-brand rounded-full flex items-center justify-center mx-auto border-2 border-brand-accent-light">
+                <CheckCircle className="w-8 h-8 text-brand" />
               </div>
-              <h4 className="text-xl font-bold text-[#061C14]">
+              <h4 className="text-xl font-bold text-heading">
                 {isBn
                   ? "আবেদনটি সফলভাবে জমা হয়েছে!"
                   : "Listing Submission Received!"}
@@ -85,7 +85,7 @@ export default function DirectoryModal({
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-6 py-2.5 bg-[#84CC16] hover:bg-[#65A30D] text-white font-semibold rounded-full btn-hard text-sm"
+                  className="px-6 py-2.5 bg-brand hover:bg-brand-hover text-white font-semibold rounded-full btn-hard text-sm"
                 >
                   {isBn ? "ধন্যবাদ" : "Done"}
                 </button>
@@ -101,7 +101,7 @@ export default function DirectoryModal({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-heading uppercase tracking-wider mb-1">
                     {isBn ? "উদ্যোগের নাম *" : "Venture / Business Name *"}
                   </label>
                   <input
@@ -116,11 +116,11 @@ export default function DirectoryModal({
                     onChange={(e) =>
                       setFormData({ ...formData, businessName: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-heading uppercase tracking-wider mb-1">
                     {isBn
                       ? "প্রতিষ্ঠাতা / উদ্যোক্তা *"
                       : "Founder / Owner Name *"}
@@ -133,14 +133,14 @@ export default function DirectoryModal({
                     onChange={(e) =>
                       setFormData({ ...formData, founderName: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-heading uppercase tracking-wider mb-1">
                     {isBn ? "সেক্টর / ক্যাটাগরি *" : "Industry Category *"}
                   </label>
                   <select
@@ -148,7 +148,7 @@ export default function DirectoryModal({
                     onChange={(e) =>
                       setFormData({ ...formData, category: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] bg-white"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading bg-white"
                   >
                     <option value="সফটওয়্যার ও আইটি">
                       {isBn ? "সফটওয়্যার ও আইটি" : "Software & IT"}
@@ -171,7 +171,7 @@ export default function DirectoryModal({
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-heading uppercase tracking-wider mb-1">
                     {isBn
                       ? "কুষ্টিয়ায় অবস্থান / ঠিকানা *"
                       : "Location in Kushtia *"}
@@ -188,14 +188,14 @@ export default function DirectoryModal({
                     onChange={(e) =>
                       setFormData({ ...formData, location: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-heading uppercase tracking-wider mb-1">
                     {isBn ? "মোবাইল / হোয়াটসঅ্যাপ *" : "Contact / WhatsApp *"}
                   </label>
                   <input
@@ -206,11 +206,11 @@ export default function DirectoryModal({
                     onChange={(e) =>
                       setFormData({ ...formData, contact: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-semibold text-heading uppercase tracking-wider mb-1">
                     {isBn
                       ? "ওয়েবসাইট বা ফেসবুক পেজ"
                       : "Website or Social Link"}
@@ -222,13 +222,13 @@ export default function DirectoryModal({
                     onChange={(e) =>
                       setFormData({ ...formData, website: e.target.value })
                     }
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#061C14] uppercase tracking-wider mb-1">
+                <label className="block text-xs font-semibold text-heading uppercase tracking-wider mb-1">
                   {isBn
                     ? "উদ্যোগ সম্পর্কে বিবরণ (১-২ বাক্য)"
                     : "Venture Description"}
@@ -244,7 +244,7 @@ export default function DirectoryModal({
                   onChange={(e) =>
                     setFormData({ ...formData, description: e.target.value })
                   }
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14]"
+                  className="w-full px-3 py-2 text-sm rounded-lg border border-[#E2E7F1] focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading"
                 />
               </div>
 
@@ -252,14 +252,14 @@ export default function DirectoryModal({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 text-sm text-[#444E69] hover:text-[#061C14] font-medium rounded-full hover:bg-slate-100 transition-colors"
+                  className="px-4 py-2 text-sm text-[#444E69] hover:text-heading font-medium rounded-full hover:bg-slate-100 transition-colors"
                 >
                   {isBn ? "বাতিল" : "Cancel"}
                 </button>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="px-6 py-2.5 bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold rounded-full btn-hard text-sm flex items-center gap-2"
+                  className="px-6 py-2.5 bg-brand hover:bg-brand-hover text-white font-bold rounded-full btn-hard text-sm flex items-center gap-2"
                 >
                   {loading ? (
                     <span>{isBn ? "জমা হচ্ছে..." : "Submitting..."}</span>

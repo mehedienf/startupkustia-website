@@ -9,16 +9,16 @@ export default function Team() {
   const isBn = language === "bn";
 
   return (
-    <section id="team" className="py-20 md:py-28 bg-[#F7FEE7] relative">
+    <section id="team" className="py-20 md:py-28 bg-brand-soft relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Heading */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#65A30D] mb-3">
-            <span className="w-6 h-0.5 bg-[#A3E635]"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand mb-3">
+            <span className="w-6 h-0.5 bg-brand-accent"></span>
             <span>{isBn ? "কোর টিম" : "Core Leadership"}</span>
-            <span className="w-6 h-0.5 bg-[#A3E635]"></span>
+            <span className="w-6 h-0.5 bg-brand-accent"></span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#061C14] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-heading tracking-tight">
             {isBn ? "যাঁদের হাত ধরে শুরু" : "Meet the Founding Team"}
           </h2>
           <p className="mt-3 text-base text-[#444E69]">
@@ -39,18 +39,18 @@ export default function Team() {
             >
               <div>
                 {/* Avatar with initial */}
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#061C14] to-[#0D2A20] text-white flex items-center justify-center font-bold text-xl mb-5 shadow-xs">
-                  <span className="text-[#A3E635]">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-dark to-dark-surface text-white flex items-center justify-center font-bold text-xl mb-5 shadow-xs">
+                  <span className="text-brand-accent-light">
                     {member.nameEn.split(" ")[0][0]}
                   </span>
                   <span>{member.nameEn.split(" ")[1]?.[0] || ""}</span>
                 </div>
 
-                <div className="text-[11px] font-bold text-[#65A30D] uppercase tracking-wider mb-1">
+                <div className="text-[11px] font-bold text-brand uppercase tracking-wider mb-1">
                   {isBn ? member.roleBn : member.roleEn}
                 </div>
 
-                <h3 className="text-lg font-bold text-[#061C14] mb-1">
+                <h3 className="text-lg font-bold text-heading mb-1">
                   {isBn ? member.nameBn : member.nameEn}
                 </h3>
 
@@ -67,7 +67,7 @@ export default function Team() {
                   <a
                     href="mailto:startupkushtia@gmail.com"
                     aria-label={`Email ${member.nameEn}`}
-                    className="hover:text-[#65A30D] transition-colors"
+                    className="hover:text-brand transition-colors"
                   >
                     <Mail className="w-3.5 h-3.5" />
                   </a>
@@ -76,7 +76,7 @@ export default function Team() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`LinkedIn for ${member.nameEn}`}
-                    className="hover:text-[#65A30D] transition-colors"
+                    className="hover:text-brand transition-colors"
                   >
                     <Globe className="w-3.5 h-3.5" />
                   </a>

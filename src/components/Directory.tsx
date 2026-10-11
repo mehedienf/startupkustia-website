@@ -13,64 +13,51 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
   const { language } = useLanguage();
   const isBn = language === "bn";
 
-  const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const categories = useMemo(() => {
-    return [
-      { id: "all", labelBn: "সব উদ্যোগ", labelEn: "All Ventures" },
-      { id: "tech", labelBn: "সফটওয়্যার ও আইটি", labelEn: "Software & IT" },
-      { id: "agro", labelBn: "এগ্রো ও ফুড-টেক", labelEn: "Agro & Food" },
-      {
-        id: "crafts",
-        labelBn: "হস্তশিল্প ও ফ্যাশন",
-        labelEn: "Handicrafts & Heritage",
-      },
-      { id: "logistics", labelBn: "লজিস্টিকস ও সেবা", labelEn: "Logistics" },
-      { id: "education", labelBn: "শিক্ষা ও এডটেক", labelEn: "Education" },
-    ];
-  }, []);
+  const categories = [
+    { id: "all", labelBn: "সকল উদ্যোগ", labelEn: "All Ventures" },
+    { id: "startup", labelBn: "স্টার্টআপ", labelEn: "Startups" },
+    { id: "agency", labelBn: "এজেন্সি ও আইটি", labelEn: "Agencies & IT" },
+    { id: "sme", labelBn: "ব্যবসা ও এসএমই", labelEn: "SMEs & Retail" },
+    { id: "community", labelBn: "কমিউনিটি", labelEn: "Communities" },
+  ];
 
   const filteredItems = useMemo(() => {
     return DIRECTORY_ITEMS.filter((item) => {
-      // Category match
-      let matchesCat = true;
-      if (selectedCategory === "tech")
-        matchesCat = item.category === "সফটওয়্যার ও আইটি";
-      else if (selectedCategory === "agro")
-        matchesCat = item.category === "এগ্রো ও ফুড-টেক";
-      else if (selectedCategory === "crafts")
-        matchesCat = item.category === "হস্তশিল্প ও ফ্যাশন";
-      else if (selectedCategory === "logistics")
-        matchesCat = item.category === "লজিস্টিকস ও ডেলিভারি";
-      else if (selectedCategory === "education")
-        matchesCat = item.category === "শিক্ষা ও এডটেক";
+      const matchCat =
+        selectedCategory === "all" || item.category === selectedCategory;
 
-      // Search match
-      const q = searchQuery.toLowerCase();
-      const matchesSearch =
-        !q ||
-        item.name.toLowerCase().includes(q) ||
-        item.descriptionBn.toLowerCase().includes(q) ||
-        item.descriptionEn.toLowerCase().includes(q) ||
+      const q = searchQuery.toLowerCase().trim();
+      if (!q) return matchCat;
+
+      const matchName = item.name.toLowerCase().includes(q);
+      const matchDescBn = item.descriptionBn.toLowerCase().includes(q);
+      const matchDescEn = item.descriptionEn.toLowerCase().includes(q);
+      const matchTags = item.tags.some((t) => t.toLowerCase().includes(q));
+      const matchLoc =
         item.location.toLowerCase().includes(q) ||
-        item.tags.some((t) => t.toLowerCase().includes(q));
+        item.locationEn.toLowerCase().includes(q);
 
-      return matchesCat && matchesSearch;
+      return (
+        matchCat &&
+        (matchName || matchDescBn || matchDescEn || matchTags || matchLoc)
+      );
     });
   }, [selectedCategory, searchQuery]);
 
   return (
-    <section id="directory" className="py-20 md:py-28 bg-[#F7FEE7] relative">
+    <section id="directory" className="py-20 md:py-28 bg-brand-soft relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#65A30D] mb-3">
-              <span className="w-6 h-0.5 bg-[#A3E635]"></span>
+            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand mb-3">
+              <span className="w-6 h-0.5 bg-brand-accent"></span>
               <span>{isBn ? "ডিরেক্টরি" : "Ecosystem Directory"}</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#061C14] tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-heading tracking-tight">
               {isBn
                 ? "কুষ্টিয়ার স্টার্টআপ ও ব্যবসা খুঁজে নিন।"
                 : "Explore Kushtia Startups & Businesses."}
@@ -86,7 +73,7 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
           <button
             type="button"
             onClick={onOpenListingModal}
-            className="px-6 py-3.5 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-sm btn-hard flex items-center justify-center gap-2 shrink-0 self-start md:self-auto"
+            className="px-6 py-3.5 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-sm btn-hard flex items-center justify-center gap-2 shrink-0 self-start md:self-auto shadow-md"
           >
             <Plus className="w-4 h-4" />
             <span>{isBn ? "তালিকাভুক্ত হোন" : "List Your Venture"}</span>
@@ -104,8 +91,8 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all ${
                   selectedCategory === cat.id
-                    ? "bg-[#061C14] text-white shadow-sm"
-                    : "text-[#444E69] hover:bg-[#F7FEE7]"
+                    ? "bg-heading text-white shadow-sm"
+                    : "text-[#444E69] hover:bg-brand-soft"
                 }`}
               >
                 {isBn ? cat.labelBn : cat.labelEn}
@@ -125,7 +112,7 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
               }
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2 text-sm rounded-xl border border-[#E2E7F1] bg-[#F7FEE7] focus:bg-white focus:outline-none focus:border-[#84CC16] text-[#061C14]"
+              className="w-full pl-9 pr-4 py-2 text-sm rounded-xl border border-[#E2E7F1] bg-brand-soft focus:bg-white focus:outline-none focus:border-brand text-heading"
             />
           </div>
         </div>
@@ -143,7 +130,7 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
                 setSelectedCategory("all");
                 setSearchQuery("");
               }}
-              className="mt-3 text-xs font-semibold text-[#65A30D] underline"
+              className="mt-3 text-xs font-semibold text-brand underline"
             >
               {isBn ? "ফিল্টার রিসেট করুন" : "Reset filters"}
             </button>
@@ -157,16 +144,16 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
               >
                 <div>
                   <div className="flex items-start justify-between gap-3 mb-3">
-                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-[#ECFCCB] text-[#061C14]">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-brand-soft2 text-heading">
                       {isBn ? item.badge : item.badgeEn}
                     </span>
                     <div className="flex items-center gap-1 text-[11px] text-[#6B7591]">
-                      <MapPin className="w-3 h-3 text-[#65A30D]" />
+                      <MapPin className="w-3 h-3 text-brand" />
                       <span>{isBn ? item.location : item.locationEn}</span>
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-bold text-[#061C14] mb-2">
+                  <h3 className="text-xl font-bold text-heading mb-2">
                     {item.name}
                   </h3>
 
@@ -179,7 +166,7 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
                     {item.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-0.5 rounded text-[11px] bg-[#F7FEE7] text-[#4D7C0F] font-medium"
+                        className="px-2 py-0.5 rounded text-[11px] bg-brand-soft text-brand-hover font-medium"
                       >
                         #{tag}
                       </span>
@@ -200,7 +187,7 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
                       href={item.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[#65A30D] hover:text-[#4D7C0F] font-bold"
+                      className="inline-flex items-center gap-1 text-brand hover:text-brand-hover font-bold"
                     >
                       <span>{isBn ? "ভিজিট করুন" : "Visit"}</span>
                       <ExternalLink className="w-3 h-3" />

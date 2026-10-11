@@ -197,11 +197,11 @@ function ContactPageInner() {
           <div className="mb-10 text-center sm:text-left">
             {/* Breadcrumb */}
             <div className="flex items-center justify-center sm:justify-start gap-2 text-xs font-semibold text-slate-500 mb-3">
-              <Link href="/" className="hover:text-[#65A30D] transition-colors">
+              <Link href="/" className="hover:text-brand transition-colors">
                 {isBn ? "হোম" : "Home"}
               </Link>
               <span>/</span>
-              <span className="text-[#061C14]">
+              <span className="text-heading">
                 {isBn
                   ? "যোগাযোগ ও আবেদন কেন্দ্র"
                   : "Connect & Applications Hub"}
@@ -209,8 +209,8 @@ function ContactPageInner() {
             </div>
 
             {/* Status Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#ECFCCB] text-[#4D7C0F] text-xs font-bold mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#84CC16] animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft2 text-brand-hover text-xs font-bold mb-4">
+              <span className="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
               <span>
                 {isBn
                   ? "একটিমাত্র প্ল্যাটফর্মে সব সুবিধা"
@@ -218,7 +218,7 @@ function ContactPageInner() {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#061C14] tracking-tight mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-heading tracking-tight mb-4">
               {isBn ? "যোগাযোগ ও আবেদন কেন্দ্র" : "Connect & Applications Hub"}
             </h1>
 
@@ -238,8 +238,8 @@ function ContactPageInner() {
                 onClick={() => handleTabChange("community")}
                 className={`flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-full text-xs sm:text-sm font-bold transition-all text-center ${
                   activeTab === "community"
-                    ? "bg-[#84CC16] text-white shadow-sm"
-                    : "bg-slate-50/80 text-slate-700 hover:bg-[#F7FEE7] hover:text-[#65A30D]"
+                    ? "bg-brand text-white shadow-sm"
+                    : "bg-slate-50/80 text-slate-700 hover:bg-brand-soft hover:text-brand"
                 }`}
               >
                 <Users className="w-4 h-4 shrink-0" />
@@ -252,8 +252,8 @@ function ContactPageInner() {
                 onClick={() => handleTabChange("ambassador")}
                 className={`flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-full text-xs sm:text-sm font-bold transition-all text-center ${
                   activeTab === "ambassador"
-                    ? "bg-[#84CC16] text-white shadow-sm"
-                    : "bg-slate-50/80 text-slate-700 hover:bg-[#F7FEE7] hover:text-[#65A30D]"
+                    ? "bg-brand text-white shadow-sm"
+                    : "bg-slate-50/80 text-slate-700 hover:bg-brand-soft hover:text-brand"
                 }`}
               >
                 <GraduationCap className="w-4 h-4 shrink-0" />
@@ -268,8 +268,8 @@ function ContactPageInner() {
                 onClick={() => handleTabChange("directory")}
                 className={`flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-full text-xs sm:text-sm font-bold transition-all text-center ${
                   activeTab === "directory"
-                    ? "bg-[#84CC16] text-white shadow-sm"
-                    : "bg-slate-50/80 text-slate-700 hover:bg-[#F7FEE7] hover:text-[#65A30D]"
+                    ? "bg-brand text-white shadow-sm"
+                    : "bg-slate-50/80 text-slate-700 hover:bg-brand-soft hover:text-brand"
                 }`}
               >
                 <Building2 className="w-4 h-4 shrink-0" />
@@ -284,8 +284,8 @@ function ContactPageInner() {
                 onClick={() => handleTabChange("contact")}
                 className={`flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-full text-xs sm:text-sm font-bold transition-all text-center ${
                   activeTab === "contact"
-                    ? "bg-[#84CC16] text-white shadow-sm"
-                    : "bg-slate-50/80 text-slate-700 hover:bg-[#F7FEE7] hover:text-[#65A30D]"
+                    ? "bg-brand text-white shadow-sm"
+                    : "bg-slate-50/80 text-slate-700 hover:bg-brand-soft hover:text-brand"
                 }`}
               >
                 <MessageSquare className="w-4 h-4 shrink-0" />
@@ -302,11 +302,11 @@ function ContactPageInner() {
               {activeTab === "community" && (
                 <div>
                   <div className="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
-                    <div className="w-12 h-12 rounded-2xl bg-[#ECFCCB] text-[#65A30D] flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-soft2 text-brand flex items-center justify-center shrink-0">
                       <Users className="w-6 h-6" />
                     </div>
                     <div>
-                      <h2 className="text-xl sm:text-2xl font-black text-[#061C14]">
+                      <h2 className="text-xl sm:text-2xl font-black text-heading">
                         {isBn
                           ? "স্টার্টআপ কুষ্টিয়া কমিউনিটিতে যোগ দিন"
                           : "Join Startup Kushtia Community"}
@@ -321,10 +321,10 @@ function ContactPageInner() {
 
                   {commSubmitted ? (
                     <div className="py-12 text-center space-y-5 animate-fade-in">
-                      <div className="w-16 h-16 bg-[#ECFCCB] text-[#65A30D] rounded-full flex items-center justify-center mx-auto shadow-sm">
+                      <div className="w-16 h-16 bg-brand-soft2 text-brand rounded-full flex items-center justify-center mx-auto shadow-sm">
                         <CheckCircle className="w-9 h-9" />
                       </div>
-                      <h3 className="text-2xl font-black text-[#061C14]">
+                      <h3 className="text-2xl font-black text-heading">
                         {isBn
                           ? "অভিনন্দন! আপনার আবেদন সফলভাবে গৃহীত হয়েছে"
                           : "Welcome to Startup Kushtia!"}
@@ -356,7 +356,7 @@ function ContactPageInner() {
                           href={SITE_CONFIG.whatsappUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="px-6 py-2.5 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-xs btn-hard flex items-center gap-2"
+                          className="px-6 py-2.5 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs btn-hard flex items-center gap-2"
                         >
                           <MessageCircle className="w-4 h-4" />
                           <span>
@@ -370,7 +370,7 @@ function ContactPageInner() {
                   ) : (
                     <form onSubmit={handleCommSubmit} className="space-y-5">
                       <div>
-                        <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                        <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                           {isBn ? "আপনার পূর্ণ নাম *" : "Full Name *"}
                         </label>
                         <input
@@ -383,13 +383,13 @@ function ContactPageInner() {
                           onChange={(e) =>
                             setCommData({ ...commData, name: e.target.value })
                           }
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                         />
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn ? "ইমেইল ঠিকানা *" : "Email Address *"}
                           </label>
                           <input
@@ -403,11 +403,11 @@ function ContactPageInner() {
                                 email: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn
                               ? "হোয়াটসঅ্যাপ / ফোন নম্বর *"
                               : "WhatsApp / Phone *"}
@@ -423,14 +423,14 @@ function ContactPageInner() {
                                 phone: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn
                               ? "আপনার ভূমিকা / ক্যাটাগরি *"
                               : "Role / Category *"}
@@ -443,7 +443,7 @@ function ContactPageInner() {
                                 category: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           >
                             <option value="student">
                               {isBn
@@ -474,7 +474,7 @@ function ContactPageInner() {
                         </div>
 
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn
                               ? "শিক্ষা প্রতিষ্ঠান বা কোম্পানি"
                               : "Institution or Company"}
@@ -493,13 +493,13 @@ function ContactPageInner() {
                                 institution: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                        <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                           {isBn
                             ? "আপনার আইডিয়া বা আগ্রহ সংক্ষেপে লিখুন"
                             : "Briefly describe your idea or goal"}
@@ -515,7 +515,7 @@ function ContactPageInner() {
                           onChange={(e) =>
                             setCommData({ ...commData, note: e.target.value })
                           }
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                         />
                       </div>
 
@@ -523,7 +523,7 @@ function ContactPageInner() {
                         <button
                           type="submit"
                           disabled={commSubmitting}
-                          className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-sm btn-hard flex items-center justify-center gap-2"
+                          className="w-full sm:w-auto px-8 py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-sm btn-hard flex items-center justify-center gap-2"
                         >
                           {commSubmitting ? (
                             <span>
@@ -550,11 +550,11 @@ function ContactPageInner() {
               {activeTab === "ambassador" && (
                 <div>
                   <div className="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
-                    <div className="w-12 h-12 rounded-2xl bg-[#ECFCCB] text-[#65A30D] flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-soft2 text-brand flex items-center justify-center shrink-0">
                       <GraduationCap className="w-6 h-6" />
                     </div>
                     <div>
-                      <h2 className="text-xl sm:text-2xl font-black text-[#061C14]">
+                      <h2 className="text-xl sm:text-2xl font-black text-heading">
                         {isBn
                           ? "ক্যাম্পাস অ্যাম্বাসেডর আবেদন ফরম"
                           : "Campus Ambassador Application"}
@@ -569,10 +569,10 @@ function ContactPageInner() {
 
                   {ambSubmitted ? (
                     <div className="py-12 text-center space-y-5 animate-fade-in">
-                      <div className="w-16 h-16 bg-[#ECFCCB] text-[#65A30D] rounded-full flex items-center justify-center mx-auto shadow-sm">
+                      <div className="w-16 h-16 bg-brand-soft2 text-brand rounded-full flex items-center justify-center mx-auto shadow-sm">
                         <CheckCircle className="w-9 h-9" />
                       </div>
-                      <h3 className="text-2xl font-black text-[#061C14]">
+                      <h3 className="text-2xl font-black text-heading">
                         {isBn
                           ? "আবেদনটি সফলভাবে জমা হয়েছে!"
                           : "Application Submitted Successfully!"}
@@ -606,7 +606,7 @@ function ContactPageInner() {
                   ) : (
                     <form onSubmit={handleAmbSubmit} className="space-y-5">
                       <div>
-                        <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                        <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                           {isBn ? "আপনার নাম *" : "Your Name *"}
                         </label>
                         <input
@@ -619,13 +619,13 @@ function ContactPageInner() {
                           onChange={(e) =>
                             setAmbData({ ...ambData, name: e.target.value })
                           }
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                         />
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn ? "ইমেইল *" : "Email Address *"}
                           </label>
                           <input
@@ -636,11 +636,11 @@ function ContactPageInner() {
                             onChange={(e) =>
                               setAmbData({ ...ambData, email: e.target.value })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn
                               ? "হোয়াটসঅ্যাপ / ফোন *"
                               : "WhatsApp / Phone *"}
@@ -653,13 +653,13 @@ function ContactPageInner() {
                             onChange={(e) =>
                               setAmbData({ ...ambData, phone: e.target.value })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                        <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                           {isBn
                             ? "ক্যাম্পাস / শিক্ষা প্রতিষ্ঠান *"
                             : "Campus / Institution *"}
@@ -669,7 +669,7 @@ function ContactPageInner() {
                           onChange={(e) =>
                             setAmbData({ ...ambData, campus: e.target.value })
                           }
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                         >
                           <option value="Islamic University (IU), Kushtia">
                             {isBn
@@ -706,7 +706,7 @@ function ContactPageInner() {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn ? "বিভাগ / বিষয় *" : "Department / Field *"}
                           </label>
                           <input
@@ -724,11 +724,11 @@ function ContactPageInner() {
                                 department: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn ? "বর্ষ / সেমিস্টার *" : "Academic Year *"}
                           </label>
                           <input
@@ -741,13 +741,13 @@ function ContactPageInner() {
                             onChange={(e) =>
                               setAmbData({ ...ambData, year: e.target.value })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                        <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                           {isBn
                             ? "কেন ক্যাম্পাস অ্যাম্বাসেডর হতে চান?"
                             : "Why do you want to be an Ambassador?"}
@@ -766,7 +766,7 @@ function ContactPageInner() {
                               motivation: e.target.value,
                             })
                           }
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                         />
                       </div>
 
@@ -774,7 +774,7 @@ function ContactPageInner() {
                         <button
                           type="submit"
                           disabled={ambSubmitting}
-                          className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-sm btn-hard flex items-center justify-center gap-2"
+                          className="w-full sm:w-auto px-8 py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-sm btn-hard flex items-center justify-center gap-2"
                         >
                           {ambSubmitting ? (
                             <span>
@@ -801,11 +801,11 @@ function ContactPageInner() {
               {activeTab === "directory" && (
                 <div>
                   <div className="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
-                    <div className="w-12 h-12 rounded-2xl bg-[#ECFCCB] text-[#65A30D] flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-soft2 text-brand flex items-center justify-center shrink-0">
                       <Building2 className="w-6 h-6" />
                     </div>
                     <div>
-                      <h2 className="text-xl sm:text-2xl font-black text-[#061C14]">
+                      <h2 className="text-xl sm:text-2xl font-black text-heading">
                         {isBn
                           ? "কুষ্টিয়ার ডিরেক্টরিতে তালিকাভুক্তি"
                           : "List Your Venture in Directory"}
@@ -820,10 +820,10 @@ function ContactPageInner() {
 
                   {dirSubmitted ? (
                     <div className="py-12 text-center space-y-5 animate-fade-in">
-                      <div className="w-16 h-16 bg-[#ECFCCB] text-[#65A30D] rounded-full flex items-center justify-center mx-auto shadow-sm">
+                      <div className="w-16 h-16 bg-brand-soft2 text-brand rounded-full flex items-center justify-center mx-auto shadow-sm">
                         <CheckCircle className="w-9 h-9" />
                       </div>
-                      <h3 className="text-2xl font-black text-[#061C14]">
+                      <h3 className="text-2xl font-black text-heading">
                         {isBn
                           ? "তালিকাভুক্তির আবেদন জমা হয়েছে!"
                           : "Listing Request Received!"}
@@ -858,7 +858,7 @@ function ContactPageInner() {
                     <form onSubmit={handleDirSubmit} className="space-y-5">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn
                               ? "উদ্যোগ / ব্যবসার নাম *"
                               : "Business / Venture Name *"}
@@ -878,11 +878,11 @@ function ContactPageInner() {
                                 businessName: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn
                               ? "প্রতিষ্ঠাতা / মালিকের নাম *"
                               : "Founder / Owner Name *"}
@@ -898,14 +898,14 @@ function ContactPageInner() {
                                 founderName: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn
                               ? "ইন্ডাস্ট্রি / ক্যাটাগরি *"
                               : "Industry Category *"}
@@ -918,7 +918,7 @@ function ContactPageInner() {
                                 category: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           >
                             <option value="সফটওয়্যার ও আইটি">
                               {isBn ? "সফটওয়্যার ও আইটি" : "Software & IT"}
@@ -947,7 +947,7 @@ function ContactPageInner() {
                           </select>
                         </div>
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn
                               ? "কুষ্টিয়ায় অবস্থান / ঠিকানা *"
                               : "Location in Kushtia *"}
@@ -967,14 +967,14 @@ function ContactPageInner() {
                                 location: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn
                               ? "যোগাযোগ / হোয়াটসঅ্যাপ *"
                               : "Contact / WhatsApp *"}
@@ -990,11 +990,11 @@ function ContactPageInner() {
                                 contact: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn
                               ? "ওয়েবসাইট বা ফেসবুক পেজ লিংক"
                               : "Website or Social Page"}
@@ -1009,13 +1009,13 @@ function ContactPageInner() {
                                 website: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                        <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                           {isBn
                             ? "উদ্যোগের বিবরণ (১-২ বাক্য) *"
                             : "Venture Description (1-2 lines) *"}
@@ -1035,7 +1035,7 @@ function ContactPageInner() {
                               description: e.target.value,
                             })
                           }
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                         />
                       </div>
 
@@ -1043,7 +1043,7 @@ function ContactPageInner() {
                         <button
                           type="submit"
                           disabled={dirSubmitting}
-                          className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-sm btn-hard flex items-center justify-center gap-2"
+                          className="w-full sm:w-auto px-8 py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-sm btn-hard flex items-center justify-center gap-2"
                         >
                           {dirSubmitting ? (
                             <span>
@@ -1070,11 +1070,11 @@ function ContactPageInner() {
               {activeTab === "contact" && (
                 <div>
                   <div className="flex items-center gap-3 mb-6 pb-6 border-b border-slate-100">
-                    <div className="w-12 h-12 rounded-2xl bg-[#ECFCCB] text-[#65A30D] flex items-center justify-center shrink-0">
+                    <div className="w-12 h-12 rounded-2xl bg-brand-soft2 text-brand flex items-center justify-center shrink-0">
                       <MessageSquare className="w-6 h-6" />
                     </div>
                     <div>
-                      <h2 className="text-xl sm:text-2xl font-black text-[#061C14]">
+                      <h2 className="text-xl sm:text-2xl font-black text-heading">
                         {isBn
                           ? "সরাসরি যোগাযোগ ও অংশীদারিত্ব"
                           : "Direct Contact & Partnership"}
@@ -1089,10 +1089,10 @@ function ContactPageInner() {
 
                   {contactSubmitted ? (
                     <div className="py-12 text-center space-y-5 animate-fade-in">
-                      <div className="w-16 h-16 bg-[#ECFCCB] text-[#65A30D] rounded-full flex items-center justify-center mx-auto shadow-sm">
+                      <div className="w-16 h-16 bg-brand-soft2 text-brand rounded-full flex items-center justify-center mx-auto shadow-sm">
                         <CheckCircle className="w-9 h-9" />
                       </div>
-                      <h3 className="text-2xl font-black text-[#061C14]">
+                      <h3 className="text-2xl font-black text-heading">
                         {isBn
                           ? "বার্তাটি সফলভাবে পাঠানো হয়েছে!"
                           : "Message Sent Successfully!"}
@@ -1125,7 +1125,7 @@ function ContactPageInner() {
                     <form onSubmit={handleContactSubmit} className="space-y-5">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn ? "আপনার নাম *" : "Your Name *"}
                           </label>
                           <input
@@ -1139,11 +1139,11 @@ function ContactPageInner() {
                                 name: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn ? "ইমেইল বা ফোন নম্বর *" : "Email or Phone *"}
                           </label>
                           <input
@@ -1157,14 +1157,14 @@ function ContactPageInner() {
                                 emailOrPhone: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn
                               ? "যোগাযোগের উদ্দেশ্য *"
                               : "Inquiry Purpose *"}
@@ -1177,7 +1177,7 @@ function ContactPageInner() {
                                 purpose: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           >
                             <option value="partnership">
                               {isBn
@@ -1207,7 +1207,7 @@ function ContactPageInner() {
                           </select>
                         </div>
                         <div>
-                          <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                          <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                             {isBn ? "বিষয় *" : "Subject *"}
                           </label>
                           <input
@@ -1225,13 +1225,13 @@ function ContactPageInner() {
                                 subject: e.target.value,
                               })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-xs font-bold text-[#061C14] uppercase tracking-wider mb-2">
+                        <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                           {isBn ? "আপনার বিস্তারিত বার্তা *" : "Your Message *"}
                         </label>
                         <textarea
@@ -1249,7 +1249,7 @@ function ContactPageInner() {
                               message: e.target.value,
                             })
                           }
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-[#84CC16] focus:ring-1 focus:ring-[#84CC16] text-[#061C14] text-sm bg-white"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white"
                         />
                       </div>
 
@@ -1257,7 +1257,7 @@ function ContactPageInner() {
                         <button
                           type="submit"
                           disabled={contactSubmitting}
-                          className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-sm btn-hard flex items-center justify-center gap-2"
+                          className="w-full sm:w-auto px-8 py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-sm btn-hard flex items-center justify-center gap-2"
                         >
                           {contactSubmitting ? (
                             <span>
@@ -1282,13 +1282,13 @@ function ContactPageInner() {
             {/* Right Column: Direct Channels & Hub Info (4 Cols) */}
             <div className="lg:col-span-4 space-y-6">
               {/* WhatsApp Fast Channel Card */}
-              <div className="bg-[#061C14] text-white rounded-3xl p-6 sm:p-7 shadow-sm">
+              <div className="bg-dark text-white rounded-3xl p-6 sm:p-7 shadow-sm">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-[#A3E635]">
+                  <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-brand-accent-light">
                     <MessageCircle className="w-6 h-6" />
                   </div>
-                  <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#A3E635]/15 text-[#A3E635] text-xs font-bold">
-                    <span className="w-2 h-2 rounded-full bg-[#A3E635] animate-pulse"></span>
+                  <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-accent-light/15 text-brand-accent-light text-xs font-bold">
+                    <span className="w-2 h-2 rounded-full bg-brand-accent-light animate-pulse"></span>
                     <span>{isBn ? "লাইভ রেসপন্স" : "Live Hotline"}</span>
                   </span>
                 </div>
@@ -1303,7 +1303,7 @@ function ContactPageInner() {
                     : "For rapid replies and live support, reach out to our official WhatsApp helpline directly."}
                 </p>
 
-                <div className="text-sm font-black text-[#A3E635] mb-5 tracking-wide">
+                <div className="text-sm font-black text-brand-accent-light mb-5 tracking-wide">
                   {SITE_CONFIG.whatsapp}
                 </div>
 
@@ -1311,7 +1311,7 @@ function ContactPageInner() {
                   href={SITE_CONFIG.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3 px-4 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-xs btn-hard flex items-center justify-center gap-2 transition-all"
+                  className="w-full py-3 px-4 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs btn-hard flex items-center justify-center gap-2 transition-all"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>
@@ -1323,13 +1323,13 @@ function ContactPageInner() {
 
               {/* Direct Info Card: Email & Location */}
               <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-sm space-y-5">
-                <h3 className="text-base font-black text-[#061C14] uppercase tracking-wider">
+                <h3 className="text-base font-black text-heading uppercase tracking-wider">
                   {isBn ? "অফিশিয়াল চ্যানেলসমূহ" : "Official Channels"}
                 </h3>
 
                 {/* Email Item */}
                 <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-[#F7FEE7] text-[#65A30D] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-brand-soft text-brand flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
@@ -1338,7 +1338,7 @@ function ContactPageInner() {
                     </div>
                     <a
                       href={`mailto:${SITE_CONFIG.email}`}
-                      className="text-sm font-bold text-[#061C14] hover:text-[#65A30D] transition-colors break-all"
+                      className="text-sm font-bold text-heading hover:text-brand transition-colors break-all"
                     >
                       {SITE_CONFIG.email}
                     </a>
@@ -1347,14 +1347,14 @@ function ContactPageInner() {
 
                 {/* Phone Item */}
                 <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-[#F7FEE7] text-[#65A30D] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-brand-soft text-brand flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
                     <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                       {isBn ? "ফোন / হেল্পলাইন" : "Phone / Helpline"}
                     </div>
-                    <div className="text-sm font-bold text-[#061C14]">
+                    <div className="text-sm font-bold text-heading">
                       {SITE_CONFIG.whatsapp}
                     </div>
                   </div>
@@ -1362,14 +1362,14 @@ function ContactPageInner() {
 
                 {/* Location Item */}
                 <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-xl bg-[#F7FEE7] text-[#65A30D] flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-brand-soft text-brand flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
                     <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                       {isBn ? "ভৌগোলিক কেন্দ্র" : "Hub Location"}
                     </div>
-                    <div className="text-sm font-bold text-[#061C14]">
+                    <div className="text-sm font-bold text-heading">
                       {isBn
                         ? "কুষ্টিয়া সদর, কুষ্টিয়া, বাংলাদেশ"
                         : "Kushtia Sadar, Kushtia, Bangladesh"}
@@ -1379,7 +1379,7 @@ function ContactPageInner() {
 
                 {/* Response Guarantee */}
                 <div className="pt-4 border-t border-slate-100 flex items-center gap-3 text-xs text-slate-600">
-                  <Clock className="w-4 h-4 text-[#65A30D] shrink-0" />
+                  <Clock className="w-4 h-4 text-brand shrink-0" />
                   <span>
                     {isBn
                       ? "সাধারণত ২৪ ঘণ্টার মধ্যে প্রতিটি বার্তার উত্তর দেওয়া হয়।"
@@ -1389,9 +1389,9 @@ function ContactPageInner() {
               </div>
 
               {/* Ecosystem Callout Card */}
-              <div className="bg-[#F7FEE7] rounded-3xl p-6 shadow-sm">
-                <div className="flex items-center gap-2 text-[#4D7C0F] font-bold text-xs uppercase tracking-wider mb-2">
-                  <Sparkles className="w-4 h-4 text-[#65A30D]" />
+              <div className="bg-brand-soft rounded-3xl p-6 shadow-sm">
+                <div className="flex items-center gap-2 text-brand-hover font-bold text-xs uppercase tracking-wider mb-2">
+                  <Sparkles className="w-4 h-4 text-brand" />
                   <span>{isBn ? "আমাদের অঙ্গীকার" : "Our Commitment"}</span>
                 </div>
                 <p className="text-xs text-slate-700 leading-relaxed">
@@ -1406,11 +1406,11 @@ function ContactPageInner() {
           {/* Bottom Accordion FAQ Section */}
           <div className="mt-16 bg-white rounded-3xl p-6 sm:p-10 shadow-sm">
             <div className="text-center max-w-2xl mx-auto mb-8">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#ECFCCB] text-[#4D7C0F] text-xs font-bold mb-3">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-soft2 text-brand-hover text-xs font-bold mb-3">
                 <HelpCircle className="w-3.5 h-3.5" />
                 <span>{isBn ? "প্রশ্নোত্তর" : "FAQ"}</span>
               </div>
-              <h3 className="text-2xl font-black text-[#061C14]">
+              <h3 className="text-2xl font-black text-heading">
                 {isBn
                   ? "আবেদন ও যোগাযোগ সম্পর্কিত সাধারণ প্রশ্ন"
                   : "Frequently Asked Questions"}
@@ -1428,12 +1428,12 @@ function ContactPageInner() {
                     <button
                       type="button"
                       onClick={() => setOpenFaq(isOpen ? null : index)}
-                      className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-sm text-[#061C14] hover:text-[#65A30D] transition-colors"
+                      className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-bold text-sm text-heading hover:text-brand transition-colors"
                     >
                       <span>{isBn ? faq.qBn : faq.qEn}</span>
                       <ChevronDown
                         className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200 ${
-                          isOpen ? "rotate-180 text-[#65A30D]" : ""
+                          isOpen ? "rotate-180 text-brand" : ""
                         }`}
                       />
                     </button>
@@ -1466,10 +1466,10 @@ export default function ContactPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen flex items-center justify-center bg-[#F5F7FC] text-[#84CC16]">
+        <div className="min-h-screen flex items-center justify-center bg-[#F5F7FC] text-brand">
           <div className="flex items-center gap-3">
-            <span className="w-3 h-3 rounded-full bg-[#84CC16] animate-ping"></span>
-            <span className="text-sm font-bold text-[#061C14]">
+            <span className="w-3 h-3 rounded-full bg-brand animate-ping"></span>
+            <span className="text-sm font-bold text-heading">
               লোড হচ্ছে...
             </span>
           </div>

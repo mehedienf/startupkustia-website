@@ -67,7 +67,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
     >
       {/* Top subtle notification ribbon - visible only at the top */}
       {!isScrolled && (
-        <div className="bg-[#061C14] text-slate-300 text-[11px] py-1.5 px-4 sm:px-8 border-b border-[#0D2B20] transition-all">
+        <div className="bg-dark text-slate-300 text-[11px] py-1.5 px-4 sm:px-8 border-b border-[var(--sk-dark-border)] transition-all">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="sk-status-dot"></span>
@@ -89,7 +89,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
                 href={SITE_CONFIG.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-[#A3E635] hover:text-white transition-colors text-[11px] font-medium"
+                className="flex items-center gap-1.5 text-brand-accent-light hover:text-white transition-colors text-[11px] font-medium"
               >
                 <MessageCircle className="w-3 h-3" />
                 <span>{isBn ? "হোয়াটসঅ্যাপে যোগাযোগ" : "WhatsApp Us"}</span>
@@ -124,37 +124,37 @@ export default function Header({ onOpenJoin }: HeaderProps) {
           <div className="hidden lg:flex items-center gap-1 xl:gap-2 text-[14px] font-semibold text-[#334155]">
             <Link
               href="/#audience"
-              className="px-3 py-1.5 rounded-lg hover:text-[#65A30D] hover:bg-slate-100/70 transition-all"
+              className="px-3 py-1.5 rounded-lg hover:text-brand hover:bg-slate-100/70 transition-all"
             >
               {isBn ? "পরিচিতি" : "About"}
             </Link>
             <Link
               href="/#pillars"
-              className="px-3 py-1.5 rounded-lg hover:text-[#65A30D] hover:bg-slate-100/70 transition-all"
+              className="px-3 py-1.5 rounded-lg hover:text-brand hover:bg-slate-100/70 transition-all"
             >
               {isBn ? "প্রোগ্রাম" : "Programs"}
             </Link>
             <Link
               href="/#directory"
-              className="px-3 py-1.5 rounded-lg hover:text-[#65A30D] hover:bg-slate-100/70 transition-all"
+              className="px-3 py-1.5 rounded-lg hover:text-brand hover:bg-slate-100/70 transition-all"
             >
               {isBn ? "ডিরেক্টরি" : "Directory"}
             </Link>
             <Link
               href="/#ambassadors"
-              className="px-3 py-1.5 rounded-lg hover:text-[#65A30D] hover:bg-slate-100/70 transition-all"
+              className="px-3 py-1.5 rounded-lg hover:text-brand hover:bg-slate-100/70 transition-all"
             >
               {isBn ? "ক্যাম্পাস অ্যাম্বাসেডর" : "Ambassadors"}
             </Link>
             <Link
               href="/#team"
-              className="px-3 py-1.5 rounded-lg hover:text-[#65A30D] hover:bg-slate-100/70 transition-all"
+              className="px-3 py-1.5 rounded-lg hover:text-brand hover:bg-slate-100/70 transition-all"
             >
               {isBn ? "টিম" : "Team"}
             </Link>
             <Link
               href="/#faq"
-              className="px-3 py-1.5 rounded-lg hover:text-[#65A30D] hover:bg-slate-100/70 transition-all"
+              className="px-3 py-1.5 rounded-lg hover:text-brand hover:bg-slate-100/70 transition-all"
             >
               {isBn ? "প্রশ্নোত্তর" : "FAQ"}
             </Link>
@@ -169,7 +169,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
                 onClick={() => setLanguage("bn")}
                 className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${
                   isBn
-                    ? "bg-white text-[#061C14] shadow-xs"
+                    ? "bg-white text-heading shadow-xs"
                     : "text-slate-500 hover:text-slate-900"
                 }`}
               >
@@ -180,7 +180,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
                 onClick={() => setLanguage("en")}
                 className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all ${
                   !isBn
-                    ? "bg-white text-[#061C14] shadow-xs"
+                    ? "bg-white text-heading shadow-xs"
                     : "text-slate-500 hover:text-slate-900"
                 }`}
               >
@@ -192,7 +192,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
             <Link
               href="/contact"
               onClick={onOpenJoin}
-              className="px-5 py-2.5 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-xs sm:text-sm btn-hard flex items-center gap-1.5"
+              className="px-5 py-2.5 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs sm:text-sm btn-hard flex items-center gap-1.5"
             >
               <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join Community"}</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -205,7 +205,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
             <button
               type="button"
               onClick={() => setLanguage(isBn ? "en" : "bn")}
-              className="px-2.5 py-1 rounded-full bg-slate-100 text-[#061C14] font-bold text-xs border border-slate-200"
+              className="px-2.5 py-1 rounded-full bg-slate-100 text-heading font-bold text-xs border border-slate-200"
             >
               {isBn ? "EN" : "বাং"}
             </button>
@@ -215,14 +215,14 @@ export default function Header({ onOpenJoin }: HeaderProps) {
               onClick={() => {
                 if (onOpenJoin) onOpenJoin();
               }}
-              className="px-3 py-1.5 rounded-full bg-[#84CC16] text-white font-bold text-xs btn-hard sm:hidden"
+              className="px-3 py-1.5 rounded-full bg-brand text-white font-bold text-xs btn-hard sm:hidden"
             >
               {isBn ? "যুক্ত হোন" : "Join"}
             </Link>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-[#061C14] hover:bg-slate-100 rounded-full transition-colors"
+              className="p-2 text-heading hover:bg-slate-100 rounded-full transition-colors"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? (
@@ -237,46 +237,46 @@ export default function Header({ onOpenJoin }: HeaderProps) {
         {/* Mobile Slide-down Drawer */}
         {mobileMenuOpen && (
           <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-5 space-y-3 shadow-xl animate-fade-in">
-            <div className="flex flex-col space-y-2 text-sm font-semibold text-[#061C14]">
+            <div className="flex flex-col space-y-2 text-sm font-semibold text-heading">
               <Link
                 href="/#audience"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-[#65A30D] transition-colors"
+                className="py-1.5 hover:text-brand transition-colors"
               >
                 {isBn ? "পরিচিতি" : "About"}
               </Link>
               <Link
                 href="/#pillars"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-[#65A30D] transition-colors"
+                className="py-1.5 hover:text-brand transition-colors"
               >
                 {isBn ? "প্রোগ্রাম ও উদ্যোগ" : "Programs"}
               </Link>
               <Link
                 href="/#directory"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-[#65A30D] transition-colors"
+                className="py-1.5 hover:text-brand transition-colors"
               >
                 {isBn ? "কুষ্টিয়ার ডিরেক্টরি" : "Directory"}
               </Link>
               <Link
                 href="/#ambassadors"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-[#65A30D] transition-colors"
+                className="py-1.5 hover:text-brand transition-colors"
               >
                 {isBn ? "ক্যাম্পাস অ্যাম্বাসেডর" : "Campus Ambassadors"}
               </Link>
               <Link
                 href="/#team"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-[#65A30D] transition-colors"
+                className="py-1.5 hover:text-brand transition-colors"
               >
                 {isBn ? "টিম" : "Team"}
               </Link>
               <Link
                 href="/#faq"
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-[#65A30D] transition-colors"
+                className="py-1.5 hover:text-brand transition-colors"
               >
                 {isBn ? "প্রশ্নোত্তর" : "FAQ"}
               </Link>
@@ -289,7 +289,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
                   setMobileMenuOpen(false);
                   if (onOpenJoin) onOpenJoin();
                 }}
-                className="w-full py-2.5 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-center btn-hard flex items-center justify-center gap-1.5 text-sm"
+                className="w-full py-2.5 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-center btn-hard flex items-center justify-center gap-1.5 text-sm"
               >
                 <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join Community"}</span>
                 <ArrowUpRight className="w-4 h-4" />

@@ -19,7 +19,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
   };
 
   return (
-    <footer className="bg-[#03140E] text-[#C9D2EA] border-t border-white/10 pt-16 pb-12">
+    <footer className="bg-dark text-[#C9D2EA] border-t border-white/10 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Brand Column */}
@@ -45,7 +45,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
             <div className="pt-2">
               <Link
                 href="/contact?tab=community"
-                className="inline-block px-5 py-2.5 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-xs btn-hard"
+                className="inline-block px-5 py-2.5 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs btn-hard"
               >
                 {isBn ? "কমিউনিটিতে যোগ দিন" : "Join Community"}
               </Link>
@@ -61,7 +61,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/#audience"
-                  className="hover:text-[#A3E635] transition-colors"
+                  className="hover:text-brand-accent-light transition-colors"
                 >
                   {isBn ? "স্টার্টআপ কুষ্টিয়া সম্পর্কে" : "About Platform"}
                 </Link>
@@ -69,7 +69,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/#values"
-                  className="hover:text-[#A3E635] transition-colors"
+                  className="hover:text-brand-accent-light transition-colors"
                 >
                   {isBn ? "ভিশন ও মিশন" : "Vision & Mission"}
                 </Link>
@@ -77,7 +77,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/#values"
-                  className="hover:text-[#A3E635] transition-colors"
+                  className="hover:text-brand-accent-light transition-colors"
                 >
                   {isBn ? "আমাদের মূল্যবোধ" : "Our Values"}
                 </Link>
@@ -85,7 +85,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/#team"
-                  className="hover:text-[#A3E635] transition-colors"
+                  className="hover:text-brand-accent-light transition-colors"
                 >
                   {isBn ? "ফাউন্ডিং টিম" : "Founding Team"}
                 </Link>
@@ -93,7 +93,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/#pillars"
-                  className="hover:text-[#A3E635] transition-colors"
+                  className="hover:text-brand-accent-light transition-colors"
                 >
                   {isBn ? "প্রোগ্রাম ও উদ্যোগ" : "Programs"}
                 </Link>
@@ -110,7 +110,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/contact?tab=community"
-                  className="hover:text-[#A3E635] transition-colors text-left block"
+                  className="hover:text-brand-accent-light transition-colors text-left block"
                 >
                   {isBn ? "সদস্য হোন" : "Become a Member"}
                 </Link>
@@ -118,7 +118,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/contact?tab=ambassador"
-                  className="hover:text-[#A3E635] transition-colors text-left block"
+                  className="hover:text-brand-accent-light transition-colors text-left block"
                 >
                   {isBn ? "ক্যাম্পাস অ্যাম্বাসেডর" : "Campus Ambassador"}
                 </Link>
@@ -126,7 +126,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/#directory"
-                  className="hover:text-[#A3E635] transition-colors block"
+                  className="hover:text-brand-accent-light transition-colors block"
                 >
                   {isBn ? "ব্যবসার ডিরেক্টরি" : "Business Directory"}
                 </Link>
@@ -134,7 +134,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/contact?tab=community"
-                  className="hover:text-[#A3E635] transition-colors text-left block"
+                  className="hover:text-brand-accent-light transition-colors text-left block"
                 >
                   {isBn ? "মেন্টর হোন" : "Become a Mentor"}
                 </Link>
@@ -142,7 +142,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/contact?tab=contact"
-                  className="hover:text-[#A3E635] transition-colors text-left block"
+                  className="hover:text-brand-accent-light transition-colors text-left block"
                 >
                   {isBn ? "পৃষ্ঠপোষক ও পার্টনার" : "Partner & Sponsor"}
                 </Link>
@@ -157,7 +157,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
             </h4>
             <ul className="space-y-2.5 text-sm text-gray-400">
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#A3E635] shrink-0" />
+                <Mail className="w-4 h-4 text-brand-accent-light shrink-0" />
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
                   className="hover:text-white transition-colors"
@@ -166,7 +166,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#A3E635] shrink-0" />
+                <Phone className="w-4 h-4 text-brand-accent-light shrink-0" />
                 <a
                   href={SITE_CONFIG.whatsappUrl}
                   target="_blank"
@@ -177,7 +177,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#A3E635] shrink-0" />
+                <MapPin className="w-4 h-4 text-brand-accent-light shrink-0" />
                 <span>
                   {isBn ? "কুষ্টিয়া, বাংলাদেশ" : "Kushtia, Bangladesh"}
                 </span>
@@ -185,7 +185,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li className="pt-2">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-1.5 text-xs text-[#A3E635] hover:text-white transition-colors font-semibold"
+                  className="inline-flex items-center gap-1.5 text-xs text-brand-accent-light hover:text-white transition-colors font-semibold"
                 >
                   <span>
                     {isBn

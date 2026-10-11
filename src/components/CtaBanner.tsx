@@ -16,12 +16,12 @@ export default function CtaBanner({
   const isBn = language === "bn";
 
   return (
-    <section className="py-20 md:py-24 bg-[#061C14] relative overflow-hidden text-white">
+    <section className="py-20 md:py-24 bg-dark relative overflow-hidden text-white">
       {/* Background glow effects */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#84CC16]/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand/20 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-8 text-center relative z-10 space-y-6">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#A3E635]/15 text-[#A3E635] text-xs font-bold uppercase tracking-wider">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-accent-light/15 text-brand-accent-light text-xs font-bold uppercase tracking-wider">
           <Sparkles className="w-3.5 h-3.5" />
           <span>{isBn ? "শুরু হোক আজই" : "Start Today"}</span>
         </div>
@@ -30,12 +30,12 @@ export default function CtaBanner({
           {isBn ? (
             <>
               কুষ্টিয়া থেকে গড়ে তুলতে{" "}
-              <span className="text-[#A3E635]">প্রস্তুত?</span>
+              <span className="text-brand-accent-light">প্রস্তুত?</span>
             </>
           ) : (
             <>
               Ready to Build from{" "}
-              <span className="text-[#A3E635]">Kushtia?</span>
+              <span className="text-brand-accent-light">Kushtia?</span>
             </>
           )}
         </h2>
@@ -50,7 +50,7 @@ export default function CtaBanner({
           <button
             type="button"
             onClick={onOpenJoin}
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#84CC16] hover:bg-[#65A30D] text-white font-bold text-base btn-hard flex items-center justify-center gap-2 group"
+            className="w-full sm:w-auto px-8 py-4 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-base btn-hard flex items-center justify-center gap-2 group shadow-lg"
           >
             <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join the Community"}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

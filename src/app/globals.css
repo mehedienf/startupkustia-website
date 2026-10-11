@@ -18,17 +18,52 @@
 }
 
 :root {
-  --sk-navy: #061c14;
-  --sk-navy2: #0d2a20;
-  --sk-lime: #84cc16;
-  --sk-limedeep: #65a30d;
-  --sk-limeaccent: #a3e635;
-  --sk-limesoft: #f7fee7;
-  --sk-limesoft2: #ecfccb;
-  --sk-shell: #f8faf9;
-  --sk-text: #374151;
+  /* ========================================================
+     BRAND COLOR PALETTE - GERUA (গেরুয়া) & WARM HERITAGE
+     সব কমন কালার এই এক জায়গা থেকেই পরিবর্তন করা যাবে।
+     ======================================================== */
+  --sk-brand: #ea580c; /* মূল গেরুয়া কালার (Primary Gerua) */
+  --sk-brand-hover: #c2410c; /* বাটন ও হোভারের জন্য গাঢ় গেরুয়া */
+  --sk-brand-accent: #f97316; /* উজ্জ্বল গেরুয়া অ্যাকসেন্ট */
+  --sk-brand-accent-light: #fb923c; /* ডার্ক ব্যাকগ্রাউন্ডের জন্য লাইট গেরুয়া টেক্সট/আইকন */
+  --sk-brand-soft: #fff7ed; /* হালকা সফট গেরুয়া কার্ড ব্যাকগ্রাউন্ড */
+  --sk-brand-soft2: #ffedd5; /* সফট গেরুয়া হাইলাইট কার্ড ব্যাকগ্রাউন্ড */
+  --sk-brand-border: #fed7aa; /* গেরুয়া বর্ডার ও রিং */
+
+  /* ডার্ক থিম ও হিরো সেকশন ব্যাকগ্রাউন্ড (ওয়ার্ম এসপ্রেসো ডার্ক যা গেরুয়ার সাথে পারফেক্ট) */
+  --sk-dark: #180d08; /* ডিপ ওয়ার্ম এসপ্রেসো ডার্ক ব্যাকগ্রাউন্ড */
+  --sk-dark-surface: #24140c; /* ডার্ক কার্ড ও টপ রিবন সারফেস */
+  --sk-dark-border: rgba(255, 237, 213, 0.12);
+
+  /* টেক্সট ও নিউট্রাল */
+  --sk-heading: #180d08; /* শিরোনাম ও হেডলাইন টেক্সট */
+  --sk-body: #475569; /* মূল প্যারাগ্রাফ টেক্সট */
+  --sk-muted: #6b7280; /* হালকা টেক্সট */
+  --sk-shell: #faf8f5; /* পুরো সাইটের ওয়ার্ম ব্যাকগ্রাউন্ড */
   --sk-hair: #e5e7eb;
-  --sk-muted: #6b7280;
+
+  /* Backward Compatibility Aliases */
+  --sk-navy: var(--sk-dark);
+  --sk-navy2: var(--sk-dark-surface);
+  --sk-lime: var(--sk-brand);
+  --sk-limedeep: var(--sk-brand-hover);
+  --sk-limeaccent: var(--sk-brand-accent-light);
+  --sk-limesoft: var(--sk-brand-soft);
+  --sk-limesoft2: var(--sk-brand-soft2);
+  --sk-text: var(--sk-body);
+}
+
+@theme {
+  --color-brand: var(--sk-brand);
+  --color-brand-hover: var(--sk-brand-hover);
+  --color-brand-accent: var(--sk-brand-accent);
+  --color-brand-accent-light: var(--sk-brand-accent-light);
+  --color-brand-soft: var(--sk-brand-soft);
+  --color-brand-soft2: var(--sk-brand-soft2);
+  --color-brand-border: var(--sk-brand-border);
+  --color-dark: var(--sk-dark);
+  --color-dark-surface: var(--sk-dark-surface);
+  --color-heading: var(--sk-heading);
 }
 
 body {
@@ -71,12 +106,12 @@ body {
   box-shadow: none !important;
 }
 
-/* Lime Green highlighter text */
+/* Gerua highlighter text */
 .sk-hl {
   background: linear-gradient(
     transparent 52%,
-    #bef264 52%,
-    #bef264 92%,
+    var(--sk-brand-soft2) 52%,
+    var(--sk-brand-soft2) 92%,
     transparent 92%
   );
   padding: 0 0.12em;
@@ -85,8 +120,8 @@ body {
 }
 
 .sk-hl-dark {
-  background: #a3e635;
-  color: #061c14;
+  background: var(--sk-brand);
+  color: #ffffff;
   padding: 0 0.2em;
   border-radius: 2px;
   box-decoration-break: clone;
@@ -99,18 +134,18 @@ body {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #a3e635;
-  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.28);
+  background-color: var(--sk-brand);
+  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.28);
   animation: pulse-dot 2s infinite ease-in-out;
 }
 
 @keyframes pulse-dot {
   0%,
   100% {
-    box-shadow: 0 0 0 2px rgba(163, 230, 53, 0.2);
+    box-shadow: 0 0 0 2px rgba(234, 88, 12, 0.2);
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(163, 230, 53, 0.4);
+    box-shadow: 0 0 0 6px rgba(234, 88, 12, 0.4);
   }
 }
 
@@ -124,12 +159,12 @@ body {
 
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 28px -10px rgba(6, 28, 20, 0.12);
+  box-shadow: 0 14px 28px -10px rgba(24, 13, 8, 0.12);
 }
 
 ::selection {
-  background-color: #bef264;
-  color: #061c14;
+  background-color: var(--sk-brand-soft2);
+  color: var(--sk-heading);
 }
 
 /* Custom scrollbar */
@@ -145,4 +180,17 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+/* Hero background image: full screen width on laptops with 0% horizontal crop */
+.hero-bg-image {
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .hero-bg-image {
+    background-size: 100% auto;
+  }
 }

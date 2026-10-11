@@ -26,14 +26,14 @@ export default function Faq({ onOpenContact }: FaqProps) {
       <div className="max-w-4xl mx-auto px-4 sm:px-8">
         {/* Section Heading */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#65A30D] mb-3">
-            <span className="w-6 h-0.5 bg-[#A3E635]"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand mb-3">
+            <span className="w-6 h-0.5 bg-brand-accent"></span>
             <span>
               {isBn ? "সচরাচর জিজ্ঞাসা" : "Frequently Asked Questions"}
             </span>
-            <span className="w-6 h-0.5 bg-[#A3E635]"></span>
+            <span className="w-6 h-0.5 bg-brand-accent"></span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#061C14] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-heading tracking-tight">
             {isBn ? "দ্রুত উত্তর।" : "Quick Answers."}
           </h2>
           <p className="mt-3 text-base text-[#444E69]">
@@ -52,22 +52,22 @@ export default function Faq({ onOpenContact }: FaqProps) {
                 key={item.id}
                 className={`rounded-2xl transition-all overflow-hidden ${
                   isOpen
-                    ? "bg-[#F7FEE7] shadow-sm"
-                    : "bg-[#FAFCFF] hover:bg-[#F7FEE7] shadow-xs"
+                    ? "bg-brand-soft shadow-sm"
+                    : "bg-[#FAFCFF] hover:bg-brand-soft shadow-xs"
                 }`}
               >
                 <button
                   type="button"
                   onClick={() => toggleAccordion(item.id)}
-                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-[#061C14]"
+                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-heading"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="text-[#65A30D] text-sm">✦</span>
+                    <span className="text-brand text-sm">✦</span>
                     <span>{isBn ? item.questionBn : item.questionEn}</span>
                   </span>
                   <ChevronDown
                     className={`w-5 h-5 text-gray-500 shrink-0 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-[#65A30D]" : ""
+                      isOpen ? "rotate-180 text-brand" : ""
                     }`}
                   />
                 </button>
@@ -85,9 +85,9 @@ export default function Faq({ onOpenContact }: FaqProps) {
         </div>
 
         {/* Additional help footer */}
-        <div className="mt-12 p-6 rounded-2xl bg-[#ECFCCB] text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+        <div className="mt-12 p-6 rounded-2xl bg-brand-soft2 text-center flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
           <div className="text-left">
-            <h4 className="font-bold text-[#061C14] text-base">
+            <h4 className="font-bold text-heading text-base">
               {isBn ? "আরও কোনো প্রশ্ন আছে?" : "Have more questions?"}
             </h4>
             <p className="text-xs text-[#444E69] mt-0.5">
@@ -100,7 +100,7 @@ export default function Faq({ onOpenContact }: FaqProps) {
           <button
             type="button"
             onClick={onOpenContact}
-            className="px-5 py-2.5 rounded-full bg-[#061C14] hover:bg-[#84CC16] text-white font-bold text-xs btn-hard shrink-0"
+            className="px-5 py-2.5 rounded-full bg-heading hover:bg-brand text-white font-bold text-xs btn-hard shrink-0"
           >
             {isBn ? "আমাদের লিখুন" : "Contact Us"}
           </button>

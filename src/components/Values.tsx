@@ -18,19 +18,19 @@ export default function Values() {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case "Lightbulb":
-        return <Lightbulb className="w-5 h-5 text-[#65A30D]" />;
+        return <Lightbulb className="w-5 h-5 text-brand" />;
       case "HeartHandshake":
-        return <HeartHandshake className="w-5 h-5 text-[#65A30D]" />;
+        return <HeartHandshake className="w-5 h-5 text-brand" />;
       case "ShieldCheck":
-        return <ShieldCheck className="w-5 h-5 text-[#65A30D]" />;
+        return <ShieldCheck className="w-5 h-5 text-brand" />;
       case "Zap":
-        return <Zap className="w-5 h-5 text-[#65A30D]" />;
+        return <Zap className="w-5 h-5 text-brand" />;
       case "Scale":
-        return <Scale className="w-5 h-5 text-[#65A30D]" />;
+        return <Scale className="w-5 h-5 text-brand" />;
       case "TrendingUp":
-        return <TrendingUp className="w-5 h-5 text-[#65A30D]" />;
+        return <TrendingUp className="w-5 h-5 text-brand" />;
       default:
-        return <Lightbulb className="w-5 h-5 text-[#65A30D]" />;
+        return <Lightbulb className="w-5 h-5 text-brand" />;
     }
   };
 
@@ -42,12 +42,12 @@ export default function Values() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Heading */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#65A30D] mb-3">
-            <span className="w-6 h-0.5 bg-[#A3E635]"></span>
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand mb-3">
+            <span className="w-6 h-0.5 bg-brand-accent"></span>
             <span>{isBn ? "আমাদের মূল্যবোধ" : "Our Core Values"}</span>
-            <span className="w-6 h-0.5 bg-[#A3E635]"></span>
+            <span className="w-6 h-0.5 bg-brand-accent"></span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#061C14] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-heading tracking-tight">
             {isBn ? "আমরা যা বিশ্বাস করি।" : "What We Stand For."}
           </h2>
           <p className="mt-3 text-base text-[#444E69]">
@@ -62,13 +62,13 @@ export default function Values() {
           {VALUES_ITEMS.map((val) => (
             <div
               key={val.id}
-              className="p-7 rounded-2xl bg-[#F7FEE7] card-hover flex flex-col justify-between"
+              className="p-7 rounded-2xl bg-brand-soft card-hover flex flex-col justify-between"
             >
               <div>
                 <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-4 shadow-xs">
                   {getIcon(val.iconName)}
                 </div>
-                <h3 className="text-xl font-bold text-[#061C14] mb-2">
+                <h3 className="text-xl font-bold text-heading mb-2">
                   {isBn ? val.titleBn : val.titleEn}
                 </h3>
                 <p className="text-sm text-[#444E69] leading-relaxed">
