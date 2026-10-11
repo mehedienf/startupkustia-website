@@ -34,22 +34,6 @@ export default function Hero({ onOpenJoin }: HeroProps) {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-8 text-center flex flex-col items-center z-10">
-        {/* Floating Accent Pill - Left (Desktop) */}
-        <div className="hidden xl:flex items-center gap-2 absolute left-4 top-1/4 px-4 py-2 rounded-2xl bg-dark/85 backdrop-blur-md border border-white/10 shadow-xl text-xs font-bold text-white animate-bounce [animation-duration:5s]">
-          <span className="w-2 h-2 rounded-full bg-brand"></span>
-          <span>
-            {isBn ? "💡 আইডিয়া থেকে স্টার্টআপ" : "💡 Idea to Startup"}
-          </span>
-        </div>
-
-        {/* Floating Accent Pill - Right (Desktop) */}
-        <div className="hidden xl:flex items-center gap-2 absolute right-4 top-1/3 px-4 py-2 rounded-2xl bg-dark/85 backdrop-blur-md border border-white/10 shadow-xl text-xs font-bold text-white animate-bounce [animation-duration:6s]">
-          <span className="w-2 h-2 rounded-full bg-brand-accent-light"></span>
-          <span>
-            {isBn ? "🚀 ক্যাম্পাস ইনোভেশন হাব" : "🚀 Campus Innovation Hub"}
-          </span>
-        </div>
-
         {/* Eyebrow badge */}
         <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-brand-accent-light text-xs font-bold mb-6 backdrop-blur-md shadow-sm">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-accent-light ring-4 ring-brand-accent-light/25 animate-pulse"></span>
