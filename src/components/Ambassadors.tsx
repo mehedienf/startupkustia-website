@@ -26,8 +26,9 @@ export default function Ambassadors({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left content */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-brand-accent-light/30 text-brand-accent-light text-xs font-bold uppercase tracking-wider">
-              <GraduationCap className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-brand-accent-light text-xs font-bold backdrop-blur-md shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent-light ring-4 ring-brand-accent-light/25 animate-pulse"></span>
+              <GraduationCap className="w-3.5 h-3.5" />
               <span>
                 {isBn ? "উন্মুক্ত আহ্বান · শিক্ষার্থী" : "Open Call · Students"}
               </span>

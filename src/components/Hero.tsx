@@ -13,7 +13,7 @@ export default function Hero({ onOpenJoin }: HeroProps) {
   const isBn = language === "bn";
 
   return (
-    <section className="relative w-full overflow-hidden bg-dark text-white pt-28 pb-16 md:pt-32 md:pb-20 border-b border-white/10">
+    <section className="relative w-full overflow-hidden bg-dark text-white pt-28 pb-20 md:pt-36 md:pb-28 border-b border-white/10">
       {/* Background Image of Shilaidaha Kuthibari spanning exact 100% laptop screen width with 0% horizontal crop */}
       <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
         <div
@@ -27,7 +27,7 @@ export default function Hero({ onOpenJoin }: HeroProps) {
           className="absolute inset-0 w-full h-full"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(24, 13, 8, 0.45) 0%, rgba(0, 0, 0, 0.20) 20%, rgba(24, 13, 8, 0.60) 65%, var(--sk-dark) 95%)",
+              "linear-gradient(to bottom, rgba(25, 10, 15, 0.45) 0%, rgba(0, 0, 0, 0.20) 20%, rgba(25, 10, 15, 0.60) 65%, var(--sk-dark) 95%)",
           }}
         />
       </div>
@@ -50,11 +50,11 @@ export default function Hero({ onOpenJoin }: HeroProps) {
         </div>
 
         {/* Eyebrow badge */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/40 border border-white/20 text-brand-accent-light text-xs font-bold uppercase tracking-wider mb-6 backdrop-blur-md shadow-md">
-          <span className="w-2 h-2 rounded-full bg-brand-accent-light ring-4 ring-brand/30 animate-pulse"></span>
+        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-brand-accent-light text-xs font-bold mb-6 backdrop-blur-md shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-accent-light ring-4 ring-brand-accent-light/25 animate-pulse"></span>
           <span>{isBn ? SITE_CONFIG.locationBn : SITE_CONFIG.locationEn}</span>
           <span className="text-white/30">|</span>
-          <span className="text-white/90 font-medium normal-case">
+          <span className="text-white/90 font-medium">
             {isBn ? "উদ্যোক্তা প্ল্যাটফর্ম" : "Entrepreneurship Platform"}
           </span>
         </div>
@@ -86,7 +86,7 @@ export default function Hero({ onOpenJoin }: HeroProps) {
         </p>
 
         {/* Call to Actions */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto justify-center mb-12 sm:mb-14">
+        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto justify-center">
           <button
             type="button"
             onClick={onOpenJoin}
@@ -102,45 +102,6 @@ export default function Hero({ onOpenJoin }: HeroProps) {
           >
             {isBn ? "ডিরেক্টরি দেখুন" : "Explore Directory"}
           </a>
-        </div>
-
-        {/* Metrics Bar - High Quality Dark Glassmorphic Card (Borderless) */}
-        <div className="w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-4 p-6 sm:p-7 rounded-2xl bg-dark/85 backdrop-blur-md border border-white/10 shadow-2xl">
-          <div className="text-center p-2 sm:p-3 border-r border-white/10 last:border-r-0">
-            <div className="text-2xl sm:text-3xl font-extrabold text-brand-accent-light font-display">
-              {isBn ? "৫০০+" : "500+"}
-            </div>
-            <div className="text-xs sm:text-sm text-slate-300 font-semibold mt-1">
-              {isBn ? "কমিউনিটি মেম্বার" : "Community Members"}
-            </div>
-          </div>
-
-          <div className="text-center p-2 sm:p-3 md:border-r border-white/10 last:border-r-0">
-            <div className="text-2xl sm:text-3xl font-extrabold text-brand-accent-light font-display">
-              {isBn ? "৫০+" : "50+"}
-            </div>
-            <div className="text-xs sm:text-sm text-slate-300 font-semibold mt-1">
-              {isBn ? "স্টার্টআপ ও ব্যবসা" : "Startups & Ventures"}
-            </div>
-          </div>
-
-          <div className="text-center p-2 sm:p-3 border-r border-white/10 last:border-r-0">
-            <div className="text-2xl sm:text-3xl font-extrabold text-brand-accent-light font-display">
-              {isBn ? "১২+" : "12+"}
-            </div>
-            <div className="text-xs sm:text-sm text-slate-300 font-semibold mt-1">
-              {isBn ? "ক্যাম্পাস পার্টনার" : "Campus Partners"}
-            </div>
-          </div>
-
-          <div className="text-center p-2 sm:p-3">
-            <div className="text-2xl sm:text-3xl font-extrabold text-brand-accent-light font-display">
-              {isBn ? "২০+" : "20+"}
-            </div>
-            <div className="text-xs sm:text-sm text-slate-300 font-semibold mt-1">
-              {isBn ? "মেন্টর ও বিশেষজ্ঞ" : "Mentors & Advisors"}
-            </div>
-          </div>
         </div>
       </div>
     </section>

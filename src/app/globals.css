@@ -6,7 +6,7 @@
   src: url("/fonts/TiroBangla-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  display: swap;
 }
 
 @font-face {
@@ -14,32 +14,34 @@
   src: url("/fonts/TiroBangla-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
-  font-display: swap;
+  display: swap;
 }
 
 :root {
   /* ========================================================
-     BRAND COLOR PALETTE - GERUA (গেরুয়া) & WARM HERITAGE
+     BRAND COLOR PALETTE - RASPBERRY CRIMSON rgb(217 38 86)
      সব কমন কালার এই এক জায়গা থেকেই পরিবর্তন করা যাবে।
      ======================================================== */
-  --sk-brand: #ea580c; /* মূল গেরুয়া কালার (Primary Gerua) */
-  --sk-brand-hover: #c2410c; /* বাটন ও হোভারের জন্য গাঢ় গেরুয়া */
-  --sk-brand-accent: #f97316; /* উজ্জ্বল গেরুয়া অ্যাকসেন্ট */
-  --sk-brand-accent-light: #fb923c; /* ডার্ক ব্যাকগ্রাউন্ডের জন্য লাইট গেরুয়া টেক্সট/আইকন */
-  --sk-brand-soft: #fff7ed; /* হালকা সফট গেরুয়া কার্ড ব্যাকগ্রাউন্ড */
-  --sk-brand-soft2: #ffedd5; /* সফট গেরুয়া হাইলাইট কার্ড ব্যাকগ্রাউন্ড */
-  --sk-brand-border: #fed7aa; /* গেরুয়া বর্ডার ও রিং */
+  --sk-brand: rgb(
+    217 38 86
+  ); /* মূল কালার #d92656 (Primary Raspberry Crimson) */
+  --sk-brand-hover: #b81a44; /* বাটন ও হোভারের জন্য ডিপ শেড */
+  --sk-brand-accent: #e63968; /* উজ্জ্বল অ্যাকসেন্ট কালার */
+  --sk-brand-accent-light: #fb7185; /* ডার্ক ব্যাকগ্রাউন্ডের জন্য লাইট অ্যাকসেন্ট */
+  --sk-brand-soft: #fff1f2; /* হালকা সফট কার্ড ব্যাকগ্রাউন্ড */
+  --sk-brand-soft2: #ffe4e6; /* সফট হাইলাইট কার্ড ব্যাকগ্রাউন্ড */
+  --sk-brand-border: #fecdd3; /* বর্ডার ও ডিভাইডার */
 
-  /* ডার্ক থিম ও হিরো সেকশন ব্যাকগ্রাউন্ড (ওয়ার্ম এসপ্রেসো ডার্ক যা গেরুয়ার সাথে পারফেক্ট) */
-  --sk-dark: #180d08; /* ডিপ ওয়ার্ম এসপ্রেসো ডার্ক ব্যাকগ্রাউন্ড */
-  --sk-dark-surface: #24140c; /* ডার্ক কার্ড ও টপ রিবন সারফেস */
-  --sk-dark-border: rgba(255, 237, 213, 0.12);
+  /* ডার্ক থিম ও হিরো সেকশন ব্যাকগ্রাউন্ড */
+  --sk-dark: #190a0f; /* ডিপ ডার্ক বেরি-এসপ্রেসো ব্যাকগ্রাউন্ড */
+  --sk-dark-surface: #261017; /* ডার্ক কার্ড ও টপ রিবন সারফেস */
+  --sk-dark-border: rgba(254, 226, 226, 0.12);
 
   /* টেক্সট ও নিউট্রাল */
-  --sk-heading: #180d08; /* শিরোনাম ও হেডলাইন টেক্সট */
+  --sk-heading: #190a0f; /* শিরোনাম ও হেডলাইন টেক্সট */
   --sk-body: #475569; /* মূল প্যারাগ্রাফ টেক্সট */
   --sk-muted: #6b7280; /* হালকা টেক্সট */
-  --sk-shell: #faf8f5; /* পুরো সাইটের ওয়ার্ম ব্যাকগ্রাউন্ড */
+  --sk-shell: #faf8f9; /* পুরো সাইটের ওয়ার্ম ব্যাকগ্রাউন্ড */
   --sk-hair: #e5e7eb;
 
   /* Backward Compatibility Aliases */
@@ -106,7 +108,7 @@ body {
   box-shadow: none !important;
 }
 
-/* Gerua highlighter text */
+/* Crimson highlighter text */
 .sk-hl {
   background: linear-gradient(
     transparent 52%,
@@ -135,17 +137,17 @@ body {
   height: 8px;
   border-radius: 50%;
   background-color: var(--sk-brand);
-  box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.28);
+  box-shadow: 0 0 0 3px rgba(217, 38, 86, 0.28);
   animation: pulse-dot 2s infinite ease-in-out;
 }
 
 @keyframes pulse-dot {
   0%,
   100% {
-    box-shadow: 0 0 0 2px rgba(234, 88, 12, 0.2);
+    box-shadow: 0 0 0 2px rgba(217, 38, 86, 0.2);
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(234, 88, 12, 0.4);
+    box-shadow: 0 0 0 6px rgba(217, 38, 86, 0.4);
   }
 }
 
@@ -159,7 +161,7 @@ body {
 
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 28px -10px rgba(24, 13, 8, 0.12);
+  box-shadow: 0 14px 28px -10px rgba(25, 10, 15, 0.12);
 }
 
 ::selection {

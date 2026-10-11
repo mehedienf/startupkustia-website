@@ -53,8 +53,8 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand mb-3">
-              <span className="w-6 h-0.5 bg-brand-accent"></span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand ring-4 ring-brand/15 animate-pulse"></span>
               <span>{isBn ? "ডিরেক্টরি" : "Ecosystem Directory"}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-heading tracking-tight">

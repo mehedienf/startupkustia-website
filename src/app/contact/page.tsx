@@ -209,8 +209,8 @@ function ContactPageInner() {
             </div>
 
             {/* Status Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft2 text-brand-hover text-xs font-bold mb-4">
-              <span className="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand ring-4 ring-brand/15 animate-pulse"></span>
               <span>
                 {isBn
                   ? "একটিমাত্র প্ল্যাটফর্মে সব সুবিধা"
@@ -1469,9 +1469,7 @@ export default function ContactPage() {
         <div className="min-h-screen flex items-center justify-center bg-[#F5F7FC] text-brand">
           <div className="flex items-center gap-3">
             <span className="w-3 h-3 rounded-full bg-brand animate-ping"></span>
-            <span className="text-sm font-bold text-heading">
-              লোড হচ্ছে...
-            </span>
+            <span className="text-sm font-bold text-heading">লোড হচ্ছে...</span>
           </div>
         </div>
       }
