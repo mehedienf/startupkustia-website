@@ -4,12 +4,9 @@ import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
 import { SITE_CONFIG } from "@/data/content";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
-interface HeroProps {
-  onOpenJoin: () => void;
-}
-
-export default function Hero({ onOpenJoin }: HeroProps) {
+export default function Hero() {
   const { language } = useLanguage();
   const isBn = language === "bn";
 
@@ -72,14 +69,13 @@ export default function Hero({ onOpenJoin }: HeroProps) {
 
         {/* Call to Actions */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto justify-center">
-          <button
-            type="button"
-            onClick={onOpenJoin}
+          <Link
+            href="/contact?tab=community"
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-base btn-hard flex items-center justify-center gap-2.5 group shadow-lg"
           >
             <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join the Community"}</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
 
           <a
             href="#directory"

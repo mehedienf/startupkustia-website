@@ -37,7 +37,7 @@ export default function HomePage() {
       {/* Main Content */}
       <main className="flex-1">
         {/* Hero Section */}
-        <Hero onOpenJoin={() => setJoinModalOpen(true)} />
+        <Hero />
 
         {/* For Who / Audience Section */}
         <Audience onSelectCategory={() => setJoinModalOpen(true)} />
