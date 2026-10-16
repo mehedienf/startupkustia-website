@@ -70,7 +70,7 @@ export default function Hero() {
         {/* Call to Actions */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto justify-center">
           <Link
-            href="/contact?tab=community"
+            href="/connect"
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-base btn-hard flex items-center justify-center gap-2.5 group shadow-lg"
           >
             <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join the Community"}</span>

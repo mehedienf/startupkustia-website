@@ -45,7 +45,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
 
             <div className="pt-2 flex flex-wrap items-center gap-2.5">
               <Link
-                href="/contact?tab=community"
+                href="/connect"
                 className="inline-block px-5 py-2.5 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs btn-hard"
               >
                 {isBn ? "কমিউনিটিতে যোগ দিন" : "Join Community"}
@@ -130,7 +130,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
                 <Link
-                  href="/contact?tab=community"
+                  href="/connect"
                   className="hover:text-brand-accent-light transition-colors text-left block"
                 >
                   {isBn ? "সদস্য হোন" : "Become a Member"}
@@ -138,7 +138,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               </li>
               <li>
                 <Link
-                  href="/contact?tab=ambassador"
+                  href="/connect"
                   className="hover:text-brand-accent-light transition-colors text-left block"
                 >
                   {isBn ? "ক্যাম্পাস অ্যাম্বাসেডর" : "Campus Ambassador"}
@@ -154,7 +154,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               </li>
               <li>
                 <Link
-                  href="/contact?tab=community"
+                  href="/connect"
                   className="hover:text-brand-accent-light transition-colors text-left block"
                 >
                   {isBn ? "মেন্টর হোন" : "Become a Mentor"}
@@ -162,7 +162,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               </li>
               <li>
                 <Link
-                  href="/contact?tab=contact"
+                  href="/connect"
                   className="hover:text-brand-accent-light transition-colors text-left block"
                 >
                   {isBn ? "পৃষ্ঠপোষক ও পার্টনার" : "Partner & Sponsor"}
@@ -227,13 +227,13 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               </li>
               <li className="pt-2">
                 <Link
-                  href="/contact"
+                  href="/connect"
                   className="inline-flex items-center gap-1.5 text-xs text-brand-accent-light hover:text-white transition-colors font-semibold"
                 >
                   <span>
                     {isBn
-                      ? "যোগাযোগ ও আবেদন কেন্দ্র →"
-                      : "Connect & Apply Hub →"}
+                      ? "কানেক্ট ও মেম্বার রেজিস্ট্রেশন →"
+                      : "Connect & Member Hub →"}
                   </span>
                 </Link>
               </li>

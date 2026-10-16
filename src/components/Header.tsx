@@ -81,10 +81,10 @@ export default function Header({ onOpenJoin }: HeaderProps) {
 
             <div className="flex items-center gap-4">
               <Link
-                href="/contact"
+                href="/connect"
                 className="text-slate-300 hover:text-white transition-colors text-xs font-medium hidden sm:inline-block"
               >
-                {isBn ? "যোগাযোগ ও আবেদন কেন্দ্র" : "Connect & Apply Hub"}
+                {isBn ? "কানেক্ট ও মেম্বারশিপ" : "Connect & Membership"}
               </Link>
               <a
                 href={SITE_CONFIG.whatsappUrl}
@@ -189,9 +189,9 @@ export default function Header({ onOpenJoin }: HeaderProps) {
               </button>
             </div>
 
-            {/* Primary CTA Button - Redirects directly to Contact & Applications Hub */}
+            {/* Primary CTA Button - Redirects directly to Connect Hub */}
             <Link
-              href="/contact"
+              href="/connect"
               onClick={onOpenJoin}
               className="px-6 py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-sm sm:text-[15px] btn-hard flex items-center gap-2 shadow-sm"
             >
@@ -212,7 +212,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
             </button>
 
             <Link
-              href="/contact"
+              href="/connect"
               onClick={() => {
                 if (onOpenJoin) onOpenJoin();
               }}
@@ -285,7 +285,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
 
             <div className="pt-3 border-t border-slate-100 flex flex-col gap-2.5">
               <Link
-                href="/contact"
+                href="/connect"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   if (onOpenJoin) onOpenJoin();

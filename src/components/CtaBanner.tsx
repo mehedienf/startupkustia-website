@@ -53,7 +53,7 @@ export default function CtaBanner({ onOpenContact }: CtaBannerProps) {
 
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            href="/contact"
+            href="/connect"
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-base btn-hard flex items-center justify-center gap-2 group shadow-lg"
           >
             <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join the Community"}</span>
