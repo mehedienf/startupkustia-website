@@ -2,9 +2,10 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import { SITE_CONFIG } from "@/data/content";
-import { ArrowUp, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUp, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Facebook, Whatsapp } from "react-bootstrap-icons";
 
 interface FooterProps {
   onOpenPolicy: (type: "privacy" | "terms") => void;
@@ -42,13 +43,33 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
                 : "An entrepreneurship and innovation platform fostering a sustainable business ecosystem from Kushtia, Bangladesh."}
             </p>
 
-            <div className="pt-2">
+            <div className="pt-2 flex flex-wrap items-center gap-2.5">
               <Link
                 href="/contact?tab=community"
                 className="inline-block px-5 py-2.5 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs btn-hard"
               >
                 {isBn ? "কমিউনিটিতে যোগ দিন" : "Join Community"}
               </Link>
+              <a
+                href={SITE_CONFIG.whatsappChannelUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-full bg-white/10 hover:bg-emerald-600 text-white transition-all shadow-sm flex items-center justify-center"
+                title={isBn ? "হোয়াটসঅ্যাপ চ্যানেল" : "WhatsApp Channel"}
+                aria-label="WhatsApp Channel"
+              >
+                <Whatsapp className="w-4 h-4" />
+              </a>
+              <a
+                href={SITE_CONFIG.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-full bg-white/10 hover:bg-[#1877F2] text-white transition-all shadow-sm flex items-center justify-center"
+                title={isBn ? "ফেসবুক পেজ" : "Facebook Page"}
+                aria-label="Facebook Page"
+              >
+                <Facebook className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
@@ -166,7 +187,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-brand-accent-light shrink-0" />
+                <Whatsapp className="w-4 h-4 text-brand-accent-light shrink-0" />
                 <a
                   href={SITE_CONFIG.whatsappUrl}
                   target="_blank"
@@ -181,6 +202,28 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
                 <span>
                   {isBn ? "কুষ্টিয়া, বাংলাদেশ" : "Kushtia, Bangladesh"}
                 </span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Whatsapp className="w-4 h-4 text-brand-accent-light shrink-0" />
+                <a
+                  href={SITE_CONFIG.whatsappChannelUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  {isBn ? "হোয়াটসঅ্যাপ চ্যানেল" : "WhatsApp Channel"}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Facebook className="w-4 h-4 text-brand-accent-light shrink-0" />
+                <a
+                  href={SITE_CONFIG.facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  {isBn ? "অফিসিয়াল ফেসবুক পেজ" : "Official Facebook Page"}
+                </a>
               </li>
               <li className="pt-2">
                 <Link

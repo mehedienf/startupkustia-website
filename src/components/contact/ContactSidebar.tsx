@@ -6,10 +6,10 @@ import {
   ExternalLink,
   Mail,
   MapPin,
-  MessageCircle,
   Phone,
   Sparkles,
 } from "lucide-react";
+import { Facebook, Whatsapp } from "react-bootstrap-icons";
 
 interface ContactSidebarProps {
   isBn: boolean;
@@ -22,7 +22,7 @@ export default function ContactSidebar({ isBn }: ContactSidebarProps) {
       <div className="bg-dark text-white rounded-3xl p-6 sm:p-7 shadow-sm">
         <div className="flex items-center justify-between mb-4">
           <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-brand-accent-light">
-            <MessageCircle className="w-6 h-6" />
+            <Whatsapp className="w-6 h-6" />
           </div>
           <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-accent-light/15 text-brand-accent-light text-xs font-bold">
             <span className="w-2 h-2 rounded-full bg-brand-accent-light animate-pulse"></span>
@@ -50,7 +50,7 @@ export default function ContactSidebar({ isBn }: ContactSidebarProps) {
           rel="noopener noreferrer"
           className="w-full py-3 px-4 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs btn-hard flex items-center justify-center gap-2 transition-all"
         >
-          <MessageCircle className="w-4 h-4" />
+          <Whatsapp className="w-4 h-4" />
           <span>
             {isBn ? "হোয়াটসঅ্যাপে চ্যাট করুন" : "Start WhatsApp Chat"}
           </span>
@@ -111,6 +111,48 @@ export default function ContactSidebar({ isBn }: ContactSidebarProps) {
                 ? "কুষ্টিয়া সদর, কুষ্টিয়া, বাংলাদেশ"
                 : "Kushtia Sadar, Kushtia, Bangladesh"}
             </div>
+          </div>
+        </div>
+
+        {/* Facebook Page Item */}
+        <div className="flex items-start gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-[#1877F2]/10 text-[#1877F2] flex items-center justify-center shrink-0">
+            <Facebook className="w-5 h-5" />
+          </div>
+          <div className="min-w-0">
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+              {isBn ? "অফিশিয়াল ফেসবুক পেজ" : "Official Facebook Page"}
+            </div>
+            <a
+              href={SITE_CONFIG.facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-bold text-heading hover:text-brand transition-colors inline-flex items-center gap-1.5"
+            >
+              <span>facebook.com/startupkushtia</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+
+        {/* WhatsApp Channel Item */}
+        <div className="flex items-start gap-3.5">
+          <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+            <Whatsapp className="w-5 h-5" />
+          </div>
+          <div className="min-w-0">
+            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+              {isBn ? "হোয়াটসঅ্যাপ চ্যানেল" : "WhatsApp Channel"}
+            </div>
+            <a
+              href={SITE_CONFIG.whatsappChannelUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-bold text-heading hover:text-brand transition-colors inline-flex items-center gap-1.5"
+            >
+              <span>{isBn ? "চ্যানেলে যুক্ত হোন" : "Join Channel"}</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
 

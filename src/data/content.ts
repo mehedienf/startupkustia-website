@@ -27,6 +27,9 @@ export const SITE_CONFIG = {
   email: "startupkushtia@gmail.com",
   whatsapp: "+880 1710-590259",
   whatsappUrl: "https://wa.me/8801710590259",
+  whatsappChannelUrl:
+    "https://chat.whatsapp.com/CA9Exy8MAMm4n7SNnSKsdm?s=cl&p=a&mlu=4&ilr=4",
+  facebookUrl: "https://facebook.com/startupkushtia",
 };
 
 export const AUDIENCE_ITEMS: AudienceItem[] = [

@@ -2,8 +2,9 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import { SITE_CONFIG } from "@/data/content";
-import { CheckCircle, Mail, Phone, Send, X } from "lucide-react";
+import { CheckCircle, Mail, Send, X } from "lucide-react";
 import React, { useState } from "react";
+import { Whatsapp } from "react-bootstrap-icons";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -101,7 +102,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-brand transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-brand" />
+                  <Whatsapp className="w-4 h-4 text-brand" />
                   <span>{SITE_CONFIG.whatsapp} (WhatsApp)</span>
                 </a>
               </div>

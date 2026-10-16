@@ -1,8 +1,9 @@
 "use client";
 
 import { SITE_CONFIG } from "@/data/content";
-import { CheckCircle, MessageCircle, Send, Users } from "lucide-react";
+import { CheckCircle, Send, Users } from "lucide-react";
 import React, { useState } from "react";
+import { Whatsapp } from "react-bootstrap-icons";
 
 interface CommunityTabProps {
   isBn: boolean;
@@ -83,14 +84,14 @@ export default function CommunityTab({ isBn }: CommunityTabProps) {
               {isBn ? "অন্য আবেদন করুন" : "Submit Another"}
             </button>
             <a
-              href={SITE_CONFIG.whatsappUrl}
+              href={SITE_CONFIG.whatsappChannelUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs btn-hard flex items-center gap-2"
+              className="px-6 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs btn-hard flex items-center gap-2"
             >
-              <MessageCircle className="w-4 h-4" />
+              <Whatsapp className="w-4 h-4" />
               <span>
-                {isBn ? "হোয়াটসঅ্যাপে চ্যাট করুন" : "Chat on WhatsApp"}
+                {isBn ? "WhatsApp চ্যানেলে যুক্ত হোন" : "Join WhatsApp Channel"}
               </span>
             </a>
           </div>

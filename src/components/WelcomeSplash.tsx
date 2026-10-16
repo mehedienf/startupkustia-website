@@ -6,6 +6,7 @@ import { ArrowRight, Globe } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Facebook, Whatsapp } from "react-bootstrap-icons";
 
 interface WelcomeSplashProps {
   onEnterSite?: () => void;
@@ -129,35 +130,23 @@ export default function WelcomeSplash({
 
           {/* Button 2: WhatsApp Channel */}
           <a
-            href={SITE_CONFIG.whatsappUrl}
+            href={SITE_CONFIG.whatsappChannelUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 min-w-[160px] sm:min-w-0 px-5 sm:px-6 py-2.5 sm:py-3.5 rounded-full bg-brand hover:bg-brand-hover text-white font-black text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(217,38,86,0.4)] hover:shadow-[0_6px_25px_rgba(217,38,86,0.6)] active:scale-95 flex items-center justify-center gap-2"
           >
-            <svg
-              className="w-4 h-4 fill-current shrink-0"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.81 13.47 3.81 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.35C9.36 7.35 9.08 7.41 8.84 7.67C8.6 7.93 7.92 8.57 7.92 9.87C7.92 11.17 8.87 12.43 9 12.6C9.13 12.77 10.87 15.46 13.53 16.61C14.16 16.88 14.66 17.05 15.04 17.17C15.68 17.37 16.26 17.34 16.72 17.27C17.23 17.2 18.29 16.63 18.51 16.01C18.73 15.39 18.73 14.86 18.66 14.75C18.6 14.63 18.42 14.56 18.16 14.43C17.9 14.3 16.62 13.67 16.38 13.58C16.15 13.5 15.98 13.45 15.81 13.71C15.15 14.56 15 14.73C14.85 14.9 14.7 14.92 14.44 14.79C14.18 14.66 13.34 14.39 12.35 13.5C11.58 12.81 11.06 11.96 10.91 11.7C10.76 11.44 10.89 11.3 11.02 11.17C11.14 11.05 11.28 10.86 11.41 10.71C11.54 10.56 11.58 10.45 11.67 10.28C11.76 10.11 11.71 9.96 11.65 9.83C11.58 9.7 11.09 8.5 10.89 8C10.69 7.53 10.48 7.59 10.33 7.58C10.19 7.58 10.02 7.57 9.85 7.57L9.53 7.35Z" />
-            </svg>
+            <Whatsapp className="w-4 h-4 shrink-0" />
             <span>{isBn ? "WhatsApp চ্যানেল" : "WhatsApp"}</span>
           </a>
 
           {/* Button 3: Facebook */}
           <a
-            href="https://facebook.com"
+            href={SITE_CONFIG.facebookUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 sm:px-6 py-2.5 sm:py-3.5 rounded-full bg-dark-surface hover:bg-white/10 border border-white/20 hover:border-brand-accent-light/60 text-white font-black text-xs sm:text-sm transition-all shadow-md active:scale-95 flex items-center justify-center gap-2"
           >
-            <svg
-              className="w-4 h-4 fill-current shrink-0 text-[#1877F2]"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-            </svg>
+            <Facebook className="w-4 h-4 shrink-0 text-[#1877F2]" />
             <span>Facebook</span>
           </a>
         </div>

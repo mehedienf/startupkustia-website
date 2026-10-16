@@ -2,10 +2,11 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import { SITE_CONFIG } from "@/data/content";
-import { ArrowUpRight, Menu, MessageCircle, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { Whatsapp } from "react-bootstrap-icons";
 
 interface HeaderProps {
   onOpenJoin?: () => void;
@@ -91,7 +92,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 text-brand-accent-light hover:text-white transition-colors text-xs font-medium"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
+                <Whatsapp className="w-3.5 h-3.5" />
                 <span>{isBn ? "হোয়াটসঅ্যাপে যোগাযোগ" : "WhatsApp Us"}</span>
               </a>
             </div>
