@@ -310,3 +310,36 @@ html[lang="en"] .font-display {
 .animate-hero-glow-pulse {
   animation: hero-glow-pulse 8s ease-in-out infinite;
 }
+
+/* ========================================================
+   Hero Animated Colorful Aura Sweep (Ping-Pong Loop)
+   ======================================================== */
+@keyframes aura-sweep-text {
+  0% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-aura-text {
+  background: linear-gradient(
+    90deg,
+    #fda4af 0%,
+    #fb7185 18%,
+    #fcd34d 36%,
+    #ffffff 50%,
+    #f472b6 65%,
+    #e11d48 82%,
+    #fda4af 100%
+  );
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: aura-sweep-text 8.5s ease-in-out infinite;
+}

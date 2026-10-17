@@ -2,14 +2,7 @@
 
 import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
-import {
-  ArrowRight,
-  Compass,
-  Lightbulb,
-  Rocket,
-  Sparkles,
-  Users,
-} from "lucide-react";
+import { ArrowRight, Compass, Rocket } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -43,8 +36,8 @@ export default function Hero() {
       setTimeout(() => {
         setWordIndex((prev) => (prev + 1) % words.length);
         setFadeAnim(true);
-      }, 300);
-    }, 3000);
+      }, 400);
+    }, 4500);
 
     return () => clearInterval(interval);
   }, [words.length]);
@@ -81,37 +74,6 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-8 text-center flex flex-col items-center z-10">
-        {/* Floating Interactive Badge (Left - Desktop/Tablet) */}
-        <div className="hidden lg:flex absolute left-2 xl:left-8 top-16 items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl animate-hero-float-slow pointer-events-none">
-          <div className="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center shrink-0 shadow-md">
-            <Lightbulb className="w-5 h-5 text-amber-300" />
-          </div>
-          <div className="text-left">
-            <div className="text-xs font-bold text-white flex items-center gap-1.5">
-              <span>{isBn ? "আইডিয়া যাচাই" : "Idea Validation"}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-            </div>
-            <div className="text-[11px] text-slate-300">
-              {isBn ? "মেন্টরশিপ ও রোডম্যাপ" : "Mentorship & Guidance"}
-            </div>
-          </div>
-        </div>
-
-        {/* Floating Interactive Badge (Right - Desktop/Tablet) */}
-        <div className="hidden lg:flex absolute right-2 xl:right-8 top-28 items-center gap-3 px-4 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl animate-hero-float-reverse pointer-events-none">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-500 to-brand text-white flex items-center justify-center shrink-0 shadow-md">
-            <Users className="w-5 h-5" />
-          </div>
-          <div className="text-left">
-            <div className="text-xs font-bold text-white">
-              {isBn ? "ঐক্যবদ্ধ ইকোসিস্টেম" : "United Ecosystem"}
-            </div>
-            <div className="text-[11px] text-brand-accent-light font-semibold">
-              {isBn ? "১০০০+ মেম্বার কানেকশন" : "1,000+ Connections"}
-            </div>
-          </div>
-        </div>
-
         {/* Eyebrow badge with glowing pulse */}
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/12 border border-white/20 text-brand-accent-light text-xs font-bold mb-6 backdrop-blur-md shadow-lg transition-transform hover:scale-105 duration-200">
           <span className="flex h-2 w-2 relative">
@@ -135,12 +97,13 @@ export default function Hero() {
           {isBn ? (
             <>
               কুষ্টিয়া থেকে গড়ে তুলুন আগামীর{" "}
-              <span className="inline-block relative">
+              <span className="relative inline-block align-baseline mx-1">
+                {/* Animated text with colorful shimmering internal gradient light */}
                 <span
-                  className={`inline-block bg-gradient-to-r from-rose-300 via-pink-200 to-rose-400 bg-clip-text text-transparent underline decoration-brand decoration-wavy underline-offset-8 transition-all duration-300 ease-out ${
+                  className={`inline-block animate-aura-text font-black transition-all duration-400 ease-out drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] ${
                     fadeAnim
                       ? "opacity-100 translate-y-0 scale-100"
-                      : "opacity-0 -translate-y-3 scale-95"
+                      : "opacity-0 -translate-y-2 scale-95"
                   }`}
                 >
                   {words[wordIndex]}
@@ -149,13 +112,14 @@ export default function Hero() {
             </>
           ) : (
             <>
-              Empowering Kushtia’s Next-Gen{" "}
-              <span className="inline-block relative">
+              Empowering Kushtia’s{" "}
+              <span className="relative inline-block align-baseline mx-1">
+                {/* Animated text with colorful shimmering internal gradient light */}
                 <span
-                  className={`inline-block bg-gradient-to-r from-rose-300 via-pink-200 to-rose-400 bg-clip-text text-transparent underline decoration-brand decoration-wavy underline-offset-8 transition-all duration-300 ease-out ${
+                  className={`inline-block animate-aura-text font-black transition-all duration-400 ease-out drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] ${
                     fadeAnim
                       ? "opacity-100 translate-y-0 scale-100"
-                      : "opacity-0 -translate-y-3 scale-95"
+                      : "opacity-0 -translate-y-2 scale-95"
                   }`}
                 >
                   {words[wordIndex]}
@@ -178,18 +142,27 @@ export default function Hero() {
             href="/connect"
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-base btn-hard flex items-center justify-center gap-2.5 group shadow-lg shadow-brand/30 hover:shadow-brand/50 hover:scale-102 active:scale-98 transition-all duration-200"
           >
-            <Sparkles className="w-5 h-5 text-amber-200 group-hover:rotate-12 transition-transform duration-300" />
             <span>{isBn ? "কমিউনিটিতে যোগ দিন" : "Join the Community"}</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-200" />
           </Link>
 
-          <a
-            href="#directory"
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-base backdrop-blur-md border border-white/25 hover:border-white/50 hover:scale-102 active:scale-98 transition-all duration-200 text-center shadow-md flex items-center justify-center gap-2"
+          <Link
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.getElementById("directory");
+              if (el) {
+                const navHeight = 85;
+                const pos =
+                  el.getBoundingClientRect().top + window.scrollY - navHeight;
+                window.scrollTo({ top: pos, behavior: "smooth" });
+              }
+            }}
+            className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-base backdrop-blur-md border border-white/25 hover:border-white/50 hover:scale-102 active:scale-98 transition-all duration-200 text-center shadow-md flex items-center justify-center gap-2 cursor-pointer"
           >
             <Compass className="w-5 h-5 text-slate-300" />
             <span>{isBn ? "ডিরেক্টরি দেখুন" : "Explore Directory"}</span>
-          </a>
+          </Link>
         </div>
 
         {/* Micro Credibility Tagline under Buttons */}

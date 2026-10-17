@@ -5,6 +5,7 @@ import { SITE_CONFIG } from "@/data/content";
 import { ArrowUp, Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { Facebook, Whatsapp } from "react-bootstrap-icons";
 
 interface FooterProps {
@@ -14,9 +15,34 @@ interface FooterProps {
 export default function Footer({ onOpenPolicy }: FooterProps) {
   const { language } = useLanguage();
   const isBn = language === "bn";
+  const pathname = usePathname();
+  const router = useRouter();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const scrollToSection = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    if (pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navHeight = 85;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    } else {
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("sk_scroll_target", sectionId);
+      }
+      router.push("/");
+    }
   };
 
   return (
@@ -81,40 +107,45 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
                 <Link
-                  href="/#audience"
-                  className="hover:text-brand-accent-light transition-colors"
+                  href="/"
+                  onClick={(e) => scrollToSection(e, "audience")}
+                  className="hover:text-brand-accent-light transition-colors cursor-pointer"
                 >
                   {isBn ? "স্টার্টআপ কুষ্টিয়া সম্পর্কে" : "About Platform"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/#values"
-                  className="hover:text-brand-accent-light transition-colors"
+                  href="/"
+                  onClick={(e) => scrollToSection(e, "values")}
+                  className="hover:text-brand-accent-light transition-colors cursor-pointer"
                 >
                   {isBn ? "ভিশন ও মিশন" : "Vision & Mission"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/#values"
-                  className="hover:text-brand-accent-light transition-colors"
+                  href="/"
+                  onClick={(e) => scrollToSection(e, "values")}
+                  className="hover:text-brand-accent-light transition-colors cursor-pointer"
                 >
                   {isBn ? "আমাদের মূল্যবোধ" : "Our Values"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/#team"
-                  className="hover:text-brand-accent-light transition-colors"
+                  href="/"
+                  onClick={(e) => scrollToSection(e, "team")}
+                  className="hover:text-brand-accent-light transition-colors cursor-pointer"
                 >
                   {isBn ? "ফাউন্ডিং টিম" : "Founding Team"}
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/#pillars"
-                  className="hover:text-brand-accent-light transition-colors"
+                  href="/"
+                  onClick={(e) => scrollToSection(e, "pillars")}
+                  className="hover:text-brand-accent-light transition-colors cursor-pointer"
                 >
                   {isBn ? "প্রোগ্রাম ও উদ্যোগ" : "Programs"}
                 </Link>
@@ -146,8 +177,9 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               </li>
               <li>
                 <Link
-                  href="/#directory"
-                  className="hover:text-brand-accent-light transition-colors block"
+                  href="/"
+                  onClick={(e) => scrollToSection(e, "directory")}
+                  className="hover:text-brand-accent-light transition-colors block cursor-pointer"
                 >
                   {isBn ? "ব্যবসার ডিরেক্টরি" : "Business Directory"}
                 </Link>

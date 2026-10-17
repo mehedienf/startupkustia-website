@@ -5,6 +5,7 @@ import { SITE_CONFIG } from "@/data/content";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Whatsapp } from "react-bootstrap-icons";
 
@@ -19,7 +20,46 @@ export default function Header({ onOpenJoin }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const prevScrollYRef = useRef(0);
 
+  const pathname = usePathname();
+  const router = useRouter();
+
   const isBn = language === "bn";
+
+  const handleHomeClick = (e: React.MouseEvent) => {
+    setMobileMenuOpen(false);
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollToSection = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    if (pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const navHeight = 85;
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    } else {
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("sk_scroll_target", sectionId);
+      }
+      router.push("/");
+    }
+  };
 
   useEffect(() => {
     prevScrollYRef.current = window.scrollY;
@@ -110,7 +150,11 @@ export default function Header({ onOpenJoin }: HeaderProps) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between gap-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group shrink-0">
+          <Link
+            href="/"
+            onClick={handleHomeClick}
+            className="flex items-center gap-2 group shrink-0"
+          >
             <Image
               src="/logo.png"
               alt="Startup Kushtia"
@@ -125,37 +169,43 @@ export default function Header({ onOpenJoin }: HeaderProps) {
           <div className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 text-[15px] font-semibold text-[#334155]">
             <Link
               href="/"
-              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all"
+              onClick={handleHomeClick}
+              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all cursor-pointer"
             >
               {isBn ? "হোম" : "Home"}
             </Link>
             <Link
-              href="/#audience"
-              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all"
+              href="/"
+              onClick={(e) => scrollToSection(e, "audience")}
+              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all cursor-pointer text-left"
             >
               {isBn ? "পরিচিতি" : "About"}
             </Link>
             <Link
-              href="/#pillars"
-              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all"
+              href="/"
+              onClick={(e) => scrollToSection(e, "pillars")}
+              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all cursor-pointer text-left"
             >
               {isBn ? "প্রোগ্রাম" : "Programs"}
             </Link>
             <Link
-              href="/#directory"
-              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all"
+              href="/"
+              onClick={(e) => scrollToSection(e, "directory")}
+              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all cursor-pointer text-left"
             >
               {isBn ? "ডিরেক্টরি" : "Directory"}
             </Link>
             <Link
-              href="/#ambassadors"
-              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all"
+              href="/"
+              onClick={(e) => scrollToSection(e, "ambassadors")}
+              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all cursor-pointer text-left"
             >
               {isBn ? "ক্যাম্পাস অ্যাম্বাসেডর" : "Ambassadors"}
             </Link>
             <Link
-              href="/#team"
-              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all"
+              href="/"
+              onClick={(e) => scrollToSection(e, "team")}
+              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all cursor-pointer text-left"
             >
               {isBn ? "টিম" : "Team"}
             </Link>
@@ -241,43 +291,43 @@ export default function Header({ onOpenJoin }: HeaderProps) {
             <div className="flex flex-col space-y-2 text-sm font-semibold text-heading">
               <Link
                 href="/"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-brand transition-colors"
+                onClick={handleHomeClick}
+                className="py-1.5 hover:text-brand transition-colors text-left"
               >
                 {isBn ? "হোম" : "Home"}
               </Link>
               <Link
-                href="/#audience"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-brand transition-colors"
+                href="/"
+                onClick={(e) => scrollToSection(e, "audience")}
+                className="py-1.5 hover:text-brand transition-colors text-left"
               >
                 {isBn ? "পরিচিতি" : "About"}
               </Link>
               <Link
-                href="/#pillars"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-brand transition-colors"
+                href="/"
+                onClick={(e) => scrollToSection(e, "pillars")}
+                className="py-1.5 hover:text-brand transition-colors text-left"
               >
                 {isBn ? "প্রোগ্রাম ও উদ্যোগ" : "Programs"}
               </Link>
               <Link
-                href="/#directory"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-brand transition-colors"
+                href="/"
+                onClick={(e) => scrollToSection(e, "directory")}
+                className="py-1.5 hover:text-brand transition-colors text-left"
               >
                 {isBn ? "কুষ্টিয়ার ডিরেক্টরি" : "Directory"}
               </Link>
               <Link
-                href="/#ambassadors"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-brand transition-colors"
+                href="/"
+                onClick={(e) => scrollToSection(e, "ambassadors")}
+                className="py-1.5 hover:text-brand transition-colors text-left"
               >
                 {isBn ? "ক্যাম্পাস অ্যাম্বাসেডর" : "Campus Ambassadors"}
               </Link>
               <Link
-                href="/#team"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-brand transition-colors"
+                href="/"
+                onClick={(e) => scrollToSection(e, "team")}
+                className="py-1.5 hover:text-brand transition-colors text-left"
               >
                 {isBn ? "টিম" : "Team"}
               </Link>

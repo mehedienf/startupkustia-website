@@ -17,7 +17,7 @@ import PolicyModal from "@/components/PolicyModal";
 import Team from "@/components/Team";
 import Values from "@/components/Values";
 import WelcomeSplash from "@/components/WelcomeSplash";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
   const [showSplash, setShowSplash] = useState(true);
@@ -28,6 +28,41 @@ export default function HomePage() {
   const [policyModalType, setPolicyModalType] = useState<
     "privacy" | "terms" | null
   >(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // If user lands with a hash, remove it immediately to keep URL clean, then smooth scroll to the section
+      const hash = window.location.hash;
+      if (hash) {
+        const sectionId = hash.replace("#", "");
+        window.history.replaceState(null, "", window.location.pathname);
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) {
+            const navHeight = 85;
+            const pos =
+              el.getBoundingClientRect().top + window.scrollY - navHeight;
+            window.scrollTo({ top: pos, behavior: "smooth" });
+          }
+        }, 100);
+      }
+
+      // Handle cross-page section navigation queued via sessionStorage
+      const target = sessionStorage.getItem("sk_scroll_target");
+      if (target) {
+        sessionStorage.removeItem("sk_scroll_target");
+        setTimeout(() => {
+          const el = document.getElementById(target);
+          if (el) {
+            const navHeight = 85;
+            const pos =
+              el.getBoundingClientRect().top + window.scrollY - navHeight;
+            window.scrollTo({ top: pos, behavior: "smooth" });
+          }
+        }, 100);
+      }
+    }
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--sk-shell)] text-[#444E69]">
