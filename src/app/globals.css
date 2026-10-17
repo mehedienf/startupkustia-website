@@ -263,3 +263,50 @@ html[lang="en"] .font-display {
     transparent 100%
   );
 }
+
+/* ========================================================
+   Hero Section Animations
+   ======================================================== */
+@keyframes hero-float-slow {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(1deg);
+  }
+}
+
+@keyframes hero-float-reverse {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(9px) rotate(-1deg);
+  }
+}
+
+@keyframes hero-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.22;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.48;
+    transform: scale(1.12);
+  }
+}
+
+.animate-hero-float-slow {
+  animation: hero-float-slow 6s ease-in-out infinite;
+}
+
+.animate-hero-float-reverse {
+  animation: hero-float-reverse 7s ease-in-out infinite;
+}
+
+.animate-hero-glow-pulse {
+  animation: hero-glow-pulse 8s ease-in-out infinite;
+}

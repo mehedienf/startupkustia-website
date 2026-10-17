@@ -124,6 +124,12 @@ export default function Header({ onOpenJoin }: HeaderProps) {
           {/* Desktop Nav Items - Clean, uncluttered, nicely spaced */}
           <div className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 text-[15px] font-semibold text-[#334155]">
             <Link
+              href="/"
+              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all"
+            >
+              {isBn ? "হোম" : "Home"}
+            </Link>
+            <Link
               href="/#audience"
               className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all"
             >
@@ -152,12 +158,6 @@ export default function Header({ onOpenJoin }: HeaderProps) {
               className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all"
             >
               {isBn ? "টিম" : "Team"}
-            </Link>
-            <Link
-              href="/#faq"
-              className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all"
-            >
-              {isBn ? "প্রশ্নোত্তর" : "FAQ"}
             </Link>
           </div>
 
@@ -240,6 +240,13 @@ export default function Header({ onOpenJoin }: HeaderProps) {
           <div className="lg:hidden border-t border-slate-200 bg-white px-6 py-5 space-y-3 shadow-xl animate-fade-in">
             <div className="flex flex-col space-y-2 text-sm font-semibold text-heading">
               <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1.5 hover:text-brand transition-colors"
+              >
+                {isBn ? "হোম" : "Home"}
+              </Link>
+              <Link
                 href="/#audience"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-1.5 hover:text-brand transition-colors"
@@ -273,13 +280,6 @@ export default function Header({ onOpenJoin }: HeaderProps) {
                 className="py-1.5 hover:text-brand transition-colors"
               >
                 {isBn ? "টিম" : "Team"}
-              </Link>
-              <Link
-                href="/#faq"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-1.5 hover:text-brand transition-colors"
-              >
-                {isBn ? "প্রশ্নোত্তর" : "FAQ"}
               </Link>
             </div>
 
