@@ -1,7 +1,7 @@
 "use client";
 
 import { SITE_CONFIG } from "@/data/content";
-import { CheckCircle, Info, Send, UserCheck } from "lucide-react";
+import { CheckCircle, Info, Send, UserCheck, AlertCircle } from "lucide-react";
 import React, { useState } from "react";
 import { Whatsapp } from "react-bootstrap-icons";
 
@@ -10,6 +10,9 @@ interface ConnectProps {
 }
 
 export default function Connect({ isBn }: ConnectProps) {
+  // Apnar Apps Script er Web App URL ekhane boshate hobe
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxwbg6JhZLsYHi6Lgn7rQwby-290tOOYBOboCvC70nWXIKMuY451AsJLiZ1plwG2gJDsg/exec";
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,18 +27,49 @@ export default function Connect({ isBn }: ConnectProps) {
 
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
+    setErrorMessage("");
+
+    try {
+      // CORS issue thekate text/plain babohar kora hoyeche
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const resData = await response.json();
+
+      if (resData.status === "success") {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(
+          isBn
+            ? "দুঃখিত, তথ্য জমা দেওয়া যায়নি। আবার চেষ্টা করুন।"
+            : "Failed to submit. Please try again."
+        );
+      }
+    } catch (err) {
+      console.error("Form Submission Error:", err);
+      setErrorMessage(
+        isBn
+          ? "সার্ভারে যোগাযোগ করা যায়নি। ইন্টারনেট কানেকশন চেক করে আবার চেষ্টা করুন।"
+          : "Could not connect to server. Check your connection and try again."
+      );
+    } finally {
       setSubmitting(false);
-      setSubmitted(true);
-    }, 600);
+    }
   };
 
   const handleReset = () => {
     setSubmitted(false);
+    setErrorMessage("");
     setFormData({
       name: "",
       email: "",
@@ -108,6 +142,14 @@ export default function Connect({ isBn }: ConnectProps) {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Error Message Box */}
+          {errorMessage && (
+            <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold flex items-center gap-2">
+              <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
+              <span>{errorMessage}</span>
+            </div>
+          )}
+
           {/* Field 0: Your Name */}
           <div>
             <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
@@ -127,7 +169,6 @@ export default function Connect({ isBn }: ConnectProps) {
 
           {/* Field 1 & 2: Email & Phone Number */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Field 1: Email */}
             <div>
               <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                 {isBn ? "আপনার ইমেইল (Your Email) *" : "Your Email *"}
@@ -152,7 +193,6 @@ export default function Connect({ isBn }: ConnectProps) {
               </p>
             </div>
 
-            {/* Field 2: Phone Number */}
             <div>
               <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                 {isBn
@@ -215,7 +255,7 @@ export default function Connect({ isBn }: ConnectProps) {
             </select>
           </div>
 
-          {/* Field 4: Education Institution Name (former/current) */}
+          {/* Field 4: Education Institution Name */}
           <div>
             <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
               {isBn
@@ -239,7 +279,6 @@ export default function Connect({ isBn }: ConnectProps) {
 
           {/* Field 5 & 6: Organization & Designation */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Field 5: Organization */}
             <div>
               <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                 {isBn
@@ -264,7 +303,6 @@ export default function Connect({ isBn }: ConnectProps) {
               />
             </div>
 
-            {/* Field 6: Designation */}
             <div>
               <label className="block text-xs font-bold text-heading uppercase tracking-wider mb-2">
                 {isBn
@@ -357,7 +395,7 @@ export default function Connect({ isBn }: ConnectProps) {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-sm btn-hard flex items-center justify-center gap-2 shadow-sm transition-all"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-sm btn-hard flex items-center justify-center gap-2 shadow-sm transition-all disabled:opacity-60 cursor-pointer"
             >
               {submitting ? (
                 <span>{isBn ? "জমা হচ্ছে..." : "Submitting..."}</span>
