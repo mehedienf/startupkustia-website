@@ -167,31 +167,25 @@ export default function GeneralInquiry({ isBn }: GeneralInquiryProps) {
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand text-heading text-sm bg-white cursor-pointer"
               >
                 <option value="general">
-                  {isBn
-                    ? "সাধারণ জিজ্ঞাসা (General Inquiry)"
-                    : "General Inquiry"}
+                  {isBn ? "সাধারণ জিজ্ঞাসা" : "General Inquiry"}
                 </option>
                 <option value="partnership">
                   {isBn
-                    ? "প্রাতিষ্ঠানিক অংশীদারিত্ব (Partnership)"
+                    ? "প্রাতিষ্ঠানিক অংশীদারিত্ব"
                     : "Institutional Partnership"}
                 </option>
                 <option value="sponsor">
-                  {isBn
-                    ? "স্পনসরশিপ ও সহযোগিতা (Sponsorship)"
-                    : "Sponsorship & Support"}
+                  {isBn ? "স্পনসরশিপ ও সহযোগিতা" : "Sponsorship & Support"}
                 </option>
                 <option value="speaker">
                   {isBn
-                    ? "মেন্টরিং বা স্পিকার প্রস্তাব (Mentorship / Speaking)"
+                    ? "মেন্টরিং বা স্পিকার প্রস্তাব"
                     : "Mentorship / Speaking Offer"}
                 </option>
                 <option value="press">
-                  {isBn ? "মিডিয়া ও প্রেস (Media & Press)" : "Media & Press"}
+                  {isBn ? "মিডিয়া ও প্রেস" : "Media & Press"}
                 </option>
-                <option value="other">
-                  {isBn ? "অন্যান্য (Other)" : "Other"}
-                </option>
+                <option value="other">{isBn ? "অন্যান্য" : "Other"}</option>
               </select>
             </div>
           </div>
