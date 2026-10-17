@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { Whatsapp } from "react-bootstrap-icons";
+import { Facebook, Whatsapp } from "react-bootstrap-icons";
 
 interface HeaderProps {
   onOpenJoin?: () => void;
@@ -119,21 +119,33 @@ export default function Header({ onOpenJoin }: HeaderProps) {
               </span>
             </div>
 
-            <div className="flex items-center gap-4">
-              <Link
-                href="/connect"
-                className="text-slate-300 hover:text-white transition-colors text-xs font-medium hidden sm:inline-block"
-              >
-                {isBn ? "কানেক্ট ও মেম্বারশিপ" : "Connect & Membership"}
-              </Link>
+            <div className="flex items-center gap-3 sm:gap-4 shrink-0">
               <a
-                href={SITE_CONFIG.whatsappUrl}
+                href={SITE_CONFIG.whatsappChannelUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-brand-accent-light hover:text-white transition-colors text-xs font-medium"
+                className="flex items-center gap-1.5 text-slate-300 hover:text-emerald-400 transition-colors text-xs font-medium"
+                title={isBn ? "হোয়াটসঅ্যাপ চ্যানেল" : "WhatsApp Channel"}
+                aria-label="WhatsApp Channel"
               >
-                <Whatsapp className="w-3.5 h-3.5" />
-                <span>{isBn ? "হোয়াটসঅ্যাপে যোগাযোগ" : "WhatsApp Us"}</span>
+                <Whatsapp className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span className="hidden sm:inline">
+                  {isBn ? "হোয়াটসঅ্যাপ চ্যানেল" : "WhatsApp Channel"}
+                </span>
+              </a>
+              <span className="text-white/20">|</span>
+              <a
+                href={SITE_CONFIG.facebookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-slate-300 hover:text-[#1877F2] transition-colors text-xs font-medium"
+                title={isBn ? "ফেসবুক পেজ" : "Facebook Page"}
+                aria-label="Facebook Page"
+              >
+                <Facebook className="w-3.5 h-3.5 text-[#1877F2] shrink-0" />
+                <span className="hidden sm:inline">
+                  {isBn ? "ফেসবুক পেজ" : "Facebook Page"}
+                </span>
               </a>
             </div>
           </div>
