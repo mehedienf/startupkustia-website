@@ -79,7 +79,7 @@ function ConnectPageInner() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-heading tracking-tight mb-4">
-              {isBn ? "কানেক্ট ও মেম্বার হাব" : "Connect & Member Hub"}
+              {isBn ? "কানেক্ট ও ইনকোয়ারি হাব" : "Connect & Inquiry Hub"}
             </h1>
 
             <p className="text-base sm:text-lg text-[#444E69] max-w-3xl leading-relaxed">
