@@ -31,6 +31,8 @@ export default function Connect({ isBn }: ConnectProps) {
   const GOOGLE_SCRIPT_URL =
     "https://script.google.com/macros/s/AKfycbyDO4rVzH-szFeuOV3p3Bqn3iB-x07IDrwZ4Vsu_vg4oW_e-hVgJCPnZXvqUbbNWvJ8zw/exec";
 
+  const [formLoadTime] = useState(() => Date.now());
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -41,6 +43,7 @@ export default function Connect({ isBn }: ConnectProps) {
     designation: "",
     fromKushtia: "yes",
     message: "",
+    website_url: "",
   });
 
   const [submitting, setSubmitting] = useState(false);
@@ -49,6 +52,34 @@ export default function Connect({ isBn }: ConnectProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // 1. Honeypot Check: if filled by a bot, silently fake success
+    if (formData.website_url !== "") {
+      setSubmitted(true);
+      return;
+    }
+
+    // 2. Time-Trap Check: minimum 3 seconds needed to fill out form
+    if (Date.now() - formLoadTime < 3000) {
+      setErrorMessage(
+        isBn
+          ? "অনুগ্রহ করে তাড়াহুড়ো না করে ফর্মটি সঠিকভাবে পূরণ করুন।"
+          : "Please take a moment to fill out the form properly.",
+      );
+      return;
+    }
+
+    // 3. Rate Limit / Cooldown Check: 2 minutes cooldown
+    const lastSubmit = localStorage.getItem("sk_last_submit_time");
+    if (lastSubmit && Date.now() - parseInt(lastSubmit) < 120000) {
+      setErrorMessage(
+        isBn
+          ? "আপনি কিছুক্ষণ আগেই রেজিস্ট্রেশন করেছেন। অনুগ্রহ করে ২ মিনিট পর আবার চেষ্টা করুন।"
+          : "You just submitted recently. Please wait 2 minutes before trying again.",
+      );
+      return;
+    }
+
     setSubmitting(true);
     setErrorMessage("");
 
@@ -65,7 +96,14 @@ export default function Connect({ isBn }: ConnectProps) {
       const resData = await response.json();
 
       if (resData.status === "success") {
+        localStorage.setItem("sk_last_submit_time", Date.now().toString());
         setSubmitted(true);
+      } else if (resData.status === "duplicate") {
+        setErrorMessage(
+          isBn
+            ? "এই ইমেইল বা ফোন নম্বর দিয়ে ইতিমধ্যে রেজিস্ট্রেশন করা হয়েছে!"
+            : "This email or phone number is already registered!",
+        );
       } else {
         setErrorMessage(
           isBn
@@ -98,6 +136,7 @@ export default function Connect({ isBn }: ConnectProps) {
       designation: "",
       fromKushtia: "yes",
       message: "",
+      website_url: "",
     });
   };
 
@@ -109,7 +148,6 @@ export default function Connect({ isBn }: ConnectProps) {
           <UserCheck className="w-6 h-6" />
         </div>
         <div>
-          
           <h2 className="text-xl sm:text-2xl font-black text-heading">
             {isBn
               ? "স্টার্টআপ কুষ্টিয়া মেম্বার রেজিস্ট্রেশন"
@@ -201,6 +239,22 @@ export default function Connect({ isBn }: ConnectProps) {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-8">
+          {/* Honeypot hidden input */}
+          <div className="opacity-0 absolute -z-10 w-0 h-0 overflow-hidden pointer-events-none">
+            <label htmlFor="website_url">Website</label>
+            <input
+              id="website_url"
+              name="website_url"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={formData.website_url}
+              onChange={(e) =>
+                setFormData({ ...formData, website_url: e.target.value })
+              }
+            />
+          </div>
+
           {/* Error Message Box */}
           {errorMessage && (
             <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold flex items-center gap-3 animate-fade-in shadow-xs">
