@@ -49,6 +49,13 @@ export default function Connect({ isBn }: ConnectProps) {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const errorRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    if (errorMessage && errorRef.current) {
+      errorRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [errorMessage]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -254,14 +261,6 @@ export default function Connect({ isBn }: ConnectProps) {
               }
             />
           </div>
-
-          {/* Error Message Box */}
-          {errorMessage && (
-            <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold flex items-center gap-3 animate-fade-in shadow-xs">
-              <AlertCircle className="w-5 h-5 shrink-0 text-rose-600" />
-              <div className="flex-1">{errorMessage}</div>
-            </div>
-          )}
 
           {/* ============================================================ */}
           {/* SECTION 1: Personal & Contact Information */}
@@ -660,6 +659,17 @@ export default function Connect({ isBn }: ConnectProps) {
               />
             </div>
           </div>
+
+          {/* Error Message Box (Placed right above submit button so it's instantly visible) */}
+          {errorMessage && (
+            <div
+              ref={errorRef}
+              className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs sm:text-sm font-semibold flex items-center gap-3 animate-fade-in shadow-xs"
+            >
+              <AlertCircle className="w-5 h-5 shrink-0 text-rose-600" />
+              <div className="flex-1 leading-relaxed">{errorMessage}</div>
+            </div>
+          )}
 
           {/* ============================================================ */}
           {/* Submit Actions & Security Guarantee */}
