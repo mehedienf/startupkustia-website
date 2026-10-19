@@ -49,14 +49,21 @@ export default function Events({ onOpenJoin }: EventsProps) {
   }, []);
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : carouselItems.length - 2));
+    setCurrentIndex((prev) =>
+      prev > 0 ? prev - 1 : Math.max(0, carouselItems.length - 3)
+    );
   };
 
   const handleNext = () => {
     setCurrentIndex((prev) =>
-      prev < carouselItems.length - 2 ? prev + 1 : 0
+      prev < Math.max(0, carouselItems.length - 3) ? prev + 1 : 0
     );
   };
+
+  const visibleCarouselItems = useMemo(() => {
+    if (carouselItems.length <= 3) return carouselItems;
+    return carouselItems.slice(currentIndex, currentIndex + 3);
+  }, [carouselItems, currentIndex]);
 
   const handleOpenEventModal = (event: EventItem) => {
     setSelectedEvent(event);
@@ -81,257 +88,267 @@ export default function Events({ onOpenJoin }: EventsProps) {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
-        {/* Section Top Header Pill */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-brand-accent-light text-xs font-bold backdrop-blur-md shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-accent-light ring-4 ring-brand-accent-light/25 animate-pulse" />
-            <span>{isBn ? "ইভেন্টস ও সেশন" : "Events & Sessions"}</span>
+        {/* Section Top Header: Pill + Title/Subtitle on Top Left, SEE ALL on Top Right */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-6">
+          <div className="max-w-3xl">
+            {/* Section Pill */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-brand-accent-light text-xs font-bold backdrop-blur-md shadow-sm mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent-light ring-4 ring-brand-accent-light/25 animate-pulse" />
+              <span>{isBn ? "ইভেন্টস ও সেশন" : "Events & Sessions"}</span>
+            </div>
+
+            {/* Title */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              {isBn ? (
+                <>
+                  আসন্ন <span className="text-brand-accent-light italic">ইভেন্টস</span>
+                </>
+              ) : (
+                <>
+                  Upcoming <span className="text-brand-accent-light italic">Events</span>
+                </>
+              )}
+            </h2>
+
+            {/* Subtitle */}
+            <p className="text-base text-slate-300 leading-relaxed mt-3">
+              {isBn
+                ? "কুষ্টিয়ার তরুণ উদ্যোক্তা, ফ্রিল্যান্সার ও প্রযুক্তিপ্রেমীদের জন্য আয়োজিত নিয়মিত মিটআপ, ওয়ার্কশপ ও ইনোভেশন বুটক্যাম্প। নেটওয়ার্ক গড়ুন ও আপনার ধারণাকে এগিয়ে নিন।"
+                : "Regular meetups, workshops, and startup bootcamps designed to connect Kushtia's founders, tech builders, and innovators with growth opportunities."}
+            </p>
           </div>
 
-          {/* Filter Pills if in Expanded View */}
-          {isExpandedView && (
-            <div className="flex items-center gap-1.5 p-1 bg-white/10 backdrop-blur-md rounded-full border border-white/15 shadow-sm text-xs font-medium">
+          {/* Right Side of Title Row: SEE ALL Button (or Filter Tabs if expanded) */}
+          <div className="shrink-0 flex items-center">
+            {!isExpandedView ? (
               <button
-                onClick={() => setActiveTab("upcoming")}
-                className={`px-3 py-1 rounded-full transition-colors ${
-                  activeTab === "upcoming"
-                    ? "bg-brand text-white font-bold shadow-xs"
-                    : "text-slate-300 hover:text-white"
-                }`}
+                type="button"
+                onClick={() => setIsExpandedView(true)}
+                className="inline-flex items-center gap-3 text-brand-accent-light hover:text-white font-bold text-sm tracking-wider uppercase group transition-colors py-2"
               >
-                {isBn ? "আসন্ন" : "Upcoming"}
+                <span>{isBn ? "সবগুলো দেখুন" : "SEE ALL"}</span>
+                <span className="w-9 h-9 rounded-full border-2 border-brand-accent-light/40 group-hover:border-brand-accent-light flex items-center justify-center transition-all group-hover:translate-x-1">
+                  <ArrowRight className="w-4 h-4 text-brand-accent-light group-hover:text-white" />
+                </span>
               </button>
-              <button
-                onClick={() => setActiveTab("latest")}
-                className={`px-3 py-1 rounded-full transition-colors ${
-                  activeTab === "latest"
-                    ? "bg-brand text-white font-bold shadow-xs"
-                    : "text-slate-300 hover:text-white"
-                }`}
-              >
-                {isBn ? "পূর্ববর্তী / সর্বশেষ" : "Latest"}
-              </button>
-              <button
-                onClick={() => setActiveTab("all")}
-                className={`px-3 py-1 rounded-full transition-colors ${
-                  activeTab === "all"
-                    ? "bg-brand text-white font-bold shadow-xs"
-                    : "text-slate-300 hover:text-white"
-                }`}
-              >
-                {isBn ? "সবগুলো" : "All"}
-              </button>
-            </div>
-          )}
+            ) : (
+              <div className="flex items-center gap-1.5 p-1 bg-white/10 backdrop-blur-md rounded-full border border-white/15 shadow-sm text-xs font-medium">
+                <button
+                  onClick={() => setActiveTab("upcoming")}
+                  className={`px-3 py-1 rounded-full transition-colors ${
+                    activeTab === "upcoming"
+                      ? "bg-brand text-white font-bold shadow-xs"
+                      : "text-slate-300 hover:text-white"
+                  }`}
+                >
+                  {isBn ? "আসন্ন" : "Upcoming"}
+                </button>
+                <button
+                  onClick={() => setActiveTab("latest")}
+                  className={`px-3 py-1 rounded-full transition-colors ${
+                    activeTab === "latest"
+                      ? "bg-brand text-white font-bold shadow-xs"
+                      : "text-slate-300 hover:text-white"
+                  }`}
+                >
+                  {isBn ? "পূর্ববর্তী / সর্বশেষ" : "Latest"}
+                </button>
+                <button
+                  onClick={() => setActiveTab("all")}
+                  className={`px-3 py-1 rounded-full transition-colors ${
+                    activeTab === "all"
+                      ? "bg-brand text-white font-bold shadow-xs"
+                      : "text-slate-300 hover:text-white"
+                  }`}
+                >
+                  {isBn ? "সবগুলো" : "All"}
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
         {!isExpandedView ? (
           /* ========================================================
-             DEFAULT VIEW (Exact Match to eeee.webp Reference Design)
-             Left: Carousel cards with pinned date badge & bottom + icon
-             Right: Stylized "Upcoming Events", copy, and "SEE ALL" link
+             DEFAULT VIEW (Full Width 3-Column Cards Grid)
              ======================================================== */
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* LEFT COLUMN: CAROUSEL CARDS & CONTROLS (cols 1 to 7) */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
-              {/* Cards Container (Shows 2 cards side by side on md+, 1 on mobile) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-                {carouselItems
-                  .slice(currentIndex, currentIndex + 2)
-                  .map((event) => (
-                    <div
-                      key={event.id}
-                      onClick={() => handleOpenEventModal(event)}
-                      className="group cursor-pointer bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 border border-white/15 hover:border-brand-accent-light/50 flex flex-col relative"
-                    >
-                      {/* Event Image */}
-                      <div className="relative w-full aspect-[4/3.5] bg-dark/10 overflow-hidden">
-                        <Image
-                          src={event.image}
-                          alt={isBn ? event.titleBn : event.titleEn}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 opacity-60 group-hover:opacity-40 transition-opacity" />
+          <div className="space-y-8">
+            {/* Event Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+              {visibleCarouselItems.map((event) => (
+                <div
+                  key={event.id}
+                  onClick={() => handleOpenEventModal(event)}
+                  className="group cursor-pointer bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-brand/20 transition-all duration-300 border border-white/15 hover:border-brand-accent-light/50 flex flex-col justify-between relative"
+                >
+                  <div>
+                    {/* Event Image */}
+                    <div className="relative w-full aspect-[16/10] bg-dark/10 overflow-hidden">
+                      <Image
+                        src={event.image}
+                        alt={isBn ? event.titleBn : event.titleEn}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity" />
 
-                        {/* PINNED DATE BADGE (Top-Right as in eeee.webp) */}
-                        <div className="absolute top-0 right-3 z-10 bg-brand text-white text-center rounded-b-xl px-3 py-2 shadow-md border-b-2 border-brand-accent-light/60 min-w-[52px]">
-                          <div className="text-[10px] font-extrabold uppercase tracking-wider text-white/90">
-                            {isBn ? event.dayOfWeekBn : event.dayOfWeekEn}
-                          </div>
-                          <div className="text-xl sm:text-2xl font-black leading-none mt-0.5">
-                            {event.dayNumber}
-                          </div>
+                      {/* PINNED DATE BADGE (Top-Right) */}
+                      <div className="absolute top-0 right-3 z-10 bg-brand text-white text-center rounded-b-xl px-3 py-2 shadow-md border-b-2 border-brand-accent-light/60 min-w-[52px]">
+                        <div className="text-[10px] font-extrabold uppercase tracking-wider text-white/90">
+                          {isBn ? event.dayOfWeekBn : event.dayOfWeekEn}
                         </div>
+                        <div className="text-xl sm:text-2xl font-black leading-none mt-0.5">
+                          {event.dayNumber}
+                        </div>
+                      </div>
 
-                        {/* Category Tag (Top-Left) */}
-                        <div className="absolute top-3 left-3 z-10">
-                          <span className="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-black/60 text-white backdrop-blur-xs border border-white/10">
-                            {isBn ? event.categoryBn : event.categoryEn}
+                      {/* Category Tag (Top-Left) */}
+                      <div className="absolute top-3 left-3 z-10">
+                        <span className="px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider bg-black/60 text-white backdrop-blur-xs border border-white/10">
+                          {isBn ? event.categoryBn : event.categoryEn}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-5">
+                      <h3 className="font-bold text-base text-white group-hover:text-brand-accent-light transition-colors line-clamp-1 mb-2">
+                        {isBn ? event.titleBn : event.titleEn}
+                      </h3>
+                      <p className="text-xs text-slate-300 line-clamp-2 leading-relaxed mb-4">
+                        {isBn ? event.descBn : event.descEn}
+                      </p>
+
+                      <div className="space-y-1.5 text-xs text-slate-300">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-3.5 h-3.5 text-brand-accent-light shrink-0" />
+                          <span>
+                            {isBn ? event.monthBn : event.monthEn} {event.dayNumber},{" "}
+                            {event.date.split("-")[0]} · {isBn ? event.timeBn : event.timeEn}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-3.5 h-3.5 text-brand-accent-light shrink-0" />
+                          <span className="truncate">
+                            {isBn ? event.locationBn : event.locationEn}
                           </span>
                         </div>
                       </div>
-
-                      {/* Bottom Footer Bar: Event Name + Action Plus Button */}
-                      <div className="p-4 sm:p-5 bg-white/[0.04] backdrop-blur-md flex items-center justify-between gap-3 border-t border-white/10">
-                        <div className="min-w-0 pr-2">
-                          <h3 className="font-bold text-sm sm:text-base text-white group-hover:text-brand-accent-light transition-colors truncate">
-                            {isBn ? event.titleBn : event.titleEn}
-                          </h3>
-                          <div className="flex items-center gap-2 mt-1 text-xs text-slate-300">
-                            <span className="truncate">
-                              {isBn ? event.locationBn : event.locationEn}
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* Interactive Plus Button */}
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleOpenEventModal(event);
-                          }}
-                          className="w-8 h-8 rounded-full bg-white/10 hover:bg-brand text-brand-accent-light hover:text-white border border-white/15 flex items-center justify-center flex-shrink-0 transition-all shadow-sm group-hover:scale-110"
-                          aria-label={
-                            isBn
-                              ? "ইভেন্টের বিস্তারিত দেখুন"
-                              : "View event details"
-                          }
-                        >
-                          <Plus className="w-4 h-4 stroke-[2.5]" />
-                        </button>
-                      </div>
                     </div>
-                  ))}
-              </div>
+                  </div>
 
-              {/* Slider Bottom Controls: Left Pagination Dots & Right Arrows */}
-              <div className="mt-8 flex items-center justify-between pt-2">
-                {/* Dots indicator */}
-                <div className="flex items-center gap-2">
-                  {Array.from({
-                    length: Math.max(1, carouselItems.length - 1),
-                  }).map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentIndex(idx)}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        currentIndex === idx
-                          ? "w-7 bg-brand-accent-light"
-                          : "w-2 bg-white/30 hover:bg-white/50"
-                      }`}
-                      aria-label={`Go to slide ${idx + 1}`}
-                    />
-                  ))}
-                </div>
-
-                {/* Arrow Navigation Buttons */}
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={handlePrev}
-                    className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 hover:border-brand-accent-light/40 text-white hover:text-brand-accent-light flex items-center justify-center transition-all shadow-sm disabled:opacity-40"
-                    aria-label="Previous events"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={handleNext}
-                    className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 hover:border-brand-accent-light/40 text-white hover:text-brand-accent-light flex items-center justify-center transition-all shadow-sm"
-                    aria-label="Next events"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN: SECTION INFO & "SEE ALL" LINK WITH ARCHITECTURAL OUTLINE (cols 8 to 12) */}
-            <div className="lg:col-span-5 relative">
-              {/* Subtle Architectural Framing Line behind the content box */}
-              <div
-                className="hidden lg:block absolute -top-8 -bottom-8 -left-6 -right-6 rounded-3xl border border-white/10 pointer-events-none"
-                style={{
-                  clipPath:
-                    "polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%, 0 0)",
-                }}
-              />
-
-              <div className="relative z-10 lg:pl-6 space-y-5">
-                {/* Stylized Eyebrow / Headline */}
-                <div>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                    {isBn ? (
-                      <>
-                        আসন্ন <span className="text-brand-accent-light italic">ইভেন্টস</span>
-                      </>
-                    ) : (
-                      <>
-                        Upcoming <span className="text-brand-accent-light italic">Events</span>
-                      </>
-                    )}
-                  </h2>
-                </div>
-
-                {/* Subtitle Description */}
-                <p className="text-base text-slate-300 leading-relaxed">
-                  {isBn
-                    ? "কুষ্টিয়ার তরুণ উদ্যোক্তা, ফ্রিল্যান্সার ও প্রযুক্তিপ্রেমীদের জন্য আয়োজিত নিয়মিত মিটআপ, ওয়ার্কশপ ও ইনোভেশন বুটক্যাম্প। নেটওয়ার্ক গড়ুন ও আপনার ধারণাকে এগিয়ে নিন।"
-                    : "Regular meetups, workshops, and startup bootcamps designed to connect Kushtia's founders, tech builders, and innovators with growth opportunities."}
-                </p>
-
-                {/* SEE ALL Button with Circled Arrow */}
-                <div className="pt-2">
-                  <button
-                    type="button"
-                    onClick={() => setIsExpandedView(true)}
-                    className="inline-flex items-center gap-3 text-brand-accent-light hover:text-white font-bold text-sm tracking-wider uppercase group transition-colors"
-                  >
-                    <span>{isBn ? "সবগুলো দেখুন" : "SEE ALL"}</span>
-                    <span className="w-8 h-8 rounded-full border-2 border-brand-accent-light/40 group-hover:border-brand-accent-light flex items-center justify-center transition-all group-hover:translate-x-1">
-                      <ArrowRight className="w-4 h-4 text-brand-accent-light group-hover:text-white" />
+                  {/* Card Bottom Bar */}
+                  <div className="p-4 sm:px-5 bg-white/[0.04] backdrop-blur-md flex items-center justify-between gap-3 border-t border-white/10">
+                    <span className="text-xs font-semibold text-brand-accent-light group-hover:underline">
+                      {isBn ? "বিস্তারিত দেখুন" : "View Details"}
                     </span>
-                  </button>
-                </div>
 
-                {/* Community Fast Join Box */}
-                <div className="pt-4">
-                  <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-sm flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-white/10 text-brand-accent-light flex items-center justify-center flex-shrink-0 border border-white/10">
-                        <Sparkles className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold text-white">
-                          {isBn ? "নতুন ইভেন্টের আপডেট চান?" : "Want Next Event Updates?"}
-                        </p>
-                        <p className="text-[11px] text-slate-300">
-                          {isBn
-                            ? "হোয়াটসঅ্যাপ চ্যানেলে সবার আগে জানুন"
-                            : "Get direct invites via WhatsApp Channel"}
-                        </p>
-                      </div>
-                    </div>
-                    {onOpenJoin ? (
-                      <button
-                        type="button"
-                        onClick={onOpenJoin}
-                        className="px-3.5 py-1.5 rounded-xl bg-brand hover:bg-brand-hover text-white text-xs font-bold transition-all shadow-sm flex-shrink-0 hover:scale-105"
-                      >
-                        {isBn ? "যুক্ত হোন" : "Join"}
-                      </button>
-                    ) : (
-                      <a
-                        href="https://chat.whatsapp.com/CA9Exy8MAMm4n7SNnSKsdm"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-3.5 py-1.5 rounded-xl bg-brand hover:bg-brand-hover text-white text-xs font-bold transition-all shadow-sm flex-shrink-0 hover:scale-105"
-                      >
-                        {isBn ? "যুক্ত হোন" : "Join"}
-                      </a>
-                    )}
+                    {/* Interactive Plus Button */}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleOpenEventModal(event);
+                      }}
+                      className="w-8 h-8 rounded-full bg-white/10 hover:bg-brand text-brand-accent-light hover:text-white border border-white/15 flex items-center justify-center shrink-0 transition-all shadow-sm group-hover:scale-110"
+                      aria-label={
+                        isBn
+                          ? "ইভেন্টের বিস্তারিত দেখুন"
+                          : "View event details"
+                      }
+                    >
+                      <Plus className="w-4 h-4 stroke-[2.5]" />
+                    </button>
                   </div>
                 </div>
+              ))}
+            </div>
+
+            {/* Bottom Bar: Slider Navigation (if > 3 items) & Fast Join WhatsApp Banner */}
+            <div className="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              {/* Pagination Controls or Status Counter */}
+              {carouselItems.length > 3 ? (
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2">
+                    {Array.from({
+                      length: Math.max(1, carouselItems.length - 2),
+                    }).map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentIndex(idx)}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          currentIndex === idx
+                            ? "w-7 bg-brand-accent-light"
+                            : "w-2 bg-white/30 hover:bg-white/50"
+                        }`}
+                        aria-label={`Go to slide ${idx + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handlePrev}
+                      className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 hover:border-brand-accent-light/40 text-white hover:text-brand-accent-light flex items-center justify-center transition-all shadow-sm disabled:opacity-40"
+                      aria-label="Previous events"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <button
+                      onClick={handleNext}
+                      className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 hover:border-brand-accent-light/40 text-white hover:text-brand-accent-light flex items-center justify-center transition-all shadow-sm"
+                      aria-label="Next events"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2.5 text-xs text-slate-300">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>
+                    {isBn
+                      ? "আসন্ন সকল সেশনের উন্মুক্ত রেজিস্ট্রেশন চলছে"
+                      : "Upcoming sessions are open for registration"}
+                  </span>
+                </div>
+              )}
+
+              {/* Community Fast Join Box */}
+              <div className="p-3 sm:px-4 sm:py-2.5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-sm flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-white/10 text-brand-accent-light flex items-center justify-center shrink-0 border border-white/10">
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-white">
+                      {isBn ? "নতুন ইভেন্টের আপডেট চান?" : "Want Next Event Updates?"}
+                    </p>
+                    <p className="text-[11px] text-slate-300">
+                      {isBn
+                        ? "হোয়াটসঅ্যাপ চ্যানেলে সবার আগে জানুন"
+                        : "Get direct invites via WhatsApp Channel"}
+                    </p>
+                  </div>
+                </div>
+                {onOpenJoin ? (
+                  <button
+                    type="button"
+                    onClick={onOpenJoin}
+                    className="px-3.5 py-1.5 rounded-xl bg-brand hover:bg-brand-hover text-white text-xs font-bold transition-all shadow-sm shrink-0 hover:scale-105"
+                  >
+                    {isBn ? "যুক্ত হোন" : "Join"}
+                  </button>
+                ) : (
+                  <a
+                    href="https://chat.whatsapp.com/CA9Exy8MAMm4n7SNnSKsdm"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3.5 py-1.5 rounded-xl bg-brand hover:bg-brand-hover text-white text-xs font-bold transition-all shadow-sm shrink-0 hover:scale-105"
+                  >
+                    {isBn ? "যুক্ত হোন" : "Join"}
+                  </a>
+                )}
               </div>
             </div>
           </div>
