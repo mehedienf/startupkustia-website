@@ -2,8 +2,15 @@
 
 import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowRight, Heart, Play } from "lucide-react";
-import Image from "next/image";
+import {
+  ArrowRight,
+  Code2,
+  GraduationCap,
+  Heart,
+  Rocket,
+  Sparkles,
+  Users,
+} from "lucide-react";
 
 interface AudienceProps {
   onSelectCategory: () => void;
@@ -27,7 +34,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Heading */}
         <div className="max-w-2xl mx-auto text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/70 border border-brand-border/60 text-brand text-xs font-bold shadow-2xs mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-brand ring-4 ring-brand/15 animate-pulse" />
             <span>{isBn ? "পরিচিতি ও ইকোসিস্টেম" : "About Ecosystem"}</span>
           </div>
@@ -43,21 +50,30 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
           </p>
         </div>
 
-        {/* Modern Bento Grid — 100% Relatable to Startup Kushtia */}
+        {/* Modern Bento Grid — 100% Relatable to Startup Kushtia (No Photo Images) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {/* ========================================================
               COLUMN 1 (Left): Campus Innovations + Gorai Tech Builders
              ======================================================== */}
           <div className="flex flex-col gap-4 sm:gap-5 h-full">
-            {/* Card 1A: Islamic University & Campus Innovations (Pink Blush Card) */}
+            {/* Card 1A: Islamic University & Campus Innovations */}
             <div
               onClick={onSelectCategory}
-              className="bg-[#FDECEF] rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 cursor-pointer flex-1 min-h-[310px]"
+              className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer flex-1 min-h-[310px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
             >
               <div>
-                <p className="text-xs font-bold text-slate-800 tracking-tight text-center uppercase">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-9 h-9 rounded-xl bg-white/75 border border-white/80 text-brand flex items-center justify-center shadow-2xs">
+                    <GraduationCap className="w-4 h-4" />
+                  </div>
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+                    {isBn ? "ক্যাম্পাস ইনোভেশন" : "Campus Hub"}
+                  </span>
+                </div>
+
+                <p className="text-xs font-bold text-slate-800 tracking-tight uppercase">
                   {isBn
-                    ? "ক্যাম্পাস ইনোভেশন ও তরুণ মেধা"
+                    ? "ইসলামী বিশ্ববিদ্যালয় ও তরুণ মেধা"
                     : "IU Campus & Youth Hub"}
                 </p>
 
@@ -109,68 +125,63 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                     : "Islamic University & Kushtia Colleges"}
                 </p>
                 <div className="flex items-center justify-center gap-1.5 mt-2.5 flex-wrap">
-                  <span className="text-[10px] font-semibold bg-white/70 px-2 py-0.5 rounded-md text-slate-700">
+                  <span className="text-[10px] font-semibold bg-white/80 px-2 py-0.5 rounded-md text-slate-700 border border-white/60">
                     IU Campus
                   </span>
-                  <span className="text-[10px] font-semibold bg-white/70 px-2 py-0.5 rounded-md text-slate-700">
+                  <span className="text-[10px] font-semibold bg-white/80 px-2 py-0.5 rounded-md text-slate-700 border border-white/60">
                     {isBn ? "পলিটেকনিক" : "Polytechnic"}
                   </span>
-                  <span className="text-[10px] font-semibold bg-white/70 px-2 py-0.5 rounded-md text-slate-700">
+                  <span className="text-[10px] font-semibold bg-white/80 px-2 py-0.5 rounded-md text-slate-700 border border-white/60">
                     {isBn ? "কুষ্টিয়া সদর" : "Kushtia Sadar"}
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Card 1B: Gorai Tech / Freelancers to SaaS Builders (White Card) */}
+            {/* Card 1B: Gorai Tech / Freelancers to SaaS Builders */}
             <div
               onClick={onSelectCategory}
-              className="bg-white rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 cursor-pointer flex-1 min-h-[340px]"
+              className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer flex-1 min-h-[340px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
             >
               <div>
-                <span className="inline-block bg-[#18181B] text-white text-[11px] font-bold px-3.5 py-1.5 rounded-xl mb-3 tracking-wide">
-                  {isBn
-                    ? "গড়াই টেক ও সফটওয়্যার মেকার্স"
-                    : "Gorai Tech & AI Makers"}
-                </span>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-9 h-9 rounded-xl bg-white/75 border border-white/80 text-brand flex items-center justify-center shadow-2xs">
+                    <Code2 className="w-4 h-4" />
+                  </div>
+                  <span className="inline-block bg-[#18181B] text-white text-[10px] font-bold px-2.5 py-1 rounded-lg tracking-wide">
+                    {isBn ? "গড়াই টেক" : "Gorai Tech"}
+                  </span>
+                </div>
 
                 <h3 className="text-base font-bold text-slate-900 leading-snug">
                   {isBn
                     ? "ফ্রিল্যান্সার থেকে নিজস্ব SaaS ও সফটওয়্যার স্টার্টআপ"
-                    : "Transforming Freelancers into Global SaaS Founders"}
+                    : "Freelancers to Global SaaS Founders"}
                 </h3>
-              </div>
 
-              {/* Dual Rounded Capsule Portraits of Tech Builders */}
-              <div className="flex items-center justify-center gap-3 my-4">
-                <div className="w-20 h-28 rounded-full overflow-hidden relative border-2 border-slate-100 bg-slate-100">
-                  <Image
-                    src="/images/team/shourov.jpg"
-                    alt="Shourov"
-                    fill
-                    sizes="80px"
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <span className="absolute bottom-1 inset-x-0 text-center text-[9px] font-bold text-white bg-black/60 backdrop-blur-xs py-0.5">
-                    SaaS
-                  </span>
-                </div>
-                <div className="w-20 h-28 rounded-full overflow-hidden relative border-2 border-slate-100 bg-slate-100 translate-y-3">
-                  <Image
-                    src="/images/team/saqlaen.jpg"
-                    alt="Saqlaen"
-                    fill
-                    sizes="80px"
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-2 right-2 w-3 h-3 rounded-full bg-emerald-500 border border-white" />
-                  <span className="absolute bottom-1 inset-x-0 text-center text-[9px] font-bold text-white bg-black/60 backdrop-blur-xs py-0.5">
-                    AI Tech
-                  </span>
+                {/* Sleek Terminal / Code Interface Visual (No Photo) */}
+                <div className="my-5 p-3.5 rounded-2xl bg-slate-900/95 text-white shadow-inner font-mono text-xs space-y-2 border border-slate-800">
+                  <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                    </div>
+                    <span className="text-[10px] text-slate-400 font-sans font-semibold">
+                      gorai.tech
+                    </span>
+                  </div>
+                  <div className="text-[11px] text-emerald-400 font-medium">
+                    <span>$ launch-saas --kushtia</span>
+                  </div>
+                  <div className="flex items-center justify-between text-[10px] text-slate-300 pt-0.5">
+                    <span className="text-rose-300 font-bold">✓ AI & SaaS</span>
+                    <span className="text-emerald-400 font-bold">100% Local</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-brand">
+              <div className="pt-3 border-t border-brand-border/40 flex items-center justify-between text-xs font-bold text-brand group-hover:text-brand-hover transition-colors">
                 <span>
                   {isBn ? "টেক কমিউনিটিতে যুক্ত হোন" : "Join Tech Circle"}
                 </span>
@@ -183,10 +194,10 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
               COLUMNS 2 & 3 (Center): Kushtia Launchpad Hero + Building Blocks
              ======================================================== */}
           <div className="lg:col-span-2 flex flex-col gap-4 sm:gap-5 h-full">
-            {/* Card 2A: Large Centerpiece Hero with Authentic Kushtia Startup Pulse */}
+            {/* Card 2A: Large Centerpiece Hero with Authentic Kushtia Startup Pulse (No Photo) */}
             <div
               onClick={onSelectCategory}
-              className="bg-white rounded-[32px] p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-all duration-300 cursor-pointer flex-1 min-h-[440px]"
+              className="bg-white/50 backdrop-blur-md rounded-[32px] p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer flex-1 min-h-[440px] border border-white/85 shadow-[0_8px_30px_-4px_rgba(217,38,86,0.06),inset_0_1px_1px_rgba(255,255,255,0.95)]"
             >
               {/* Top Metrics Row: Upazilas & Community Network */}
               <div className="flex items-start justify-between relative z-10 mb-4">
@@ -208,110 +219,97 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                   </span>
                   <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight flex items-center justify-end gap-2">
                     <span>{isBn ? "৫০০+" : "500+"}</span>
-                    <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                    <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
                       {isBn ? "+৭৫% গ্রোথ" : "+75% Growth"}
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Center Portrait and Kushtia Startup Widgets */}
-              <div className="relative my-2 flex items-center justify-center">
-                {/* Central Founder Portrait Frame (Farhana - Women & SME Lead) */}
-                <div className="relative w-48 sm:w-56 h-56 sm:h-64 rounded-3xl overflow-hidden bg-slate-100 z-0">
-                  <Image
-                    src="/images/team/farhana.jpg"
-                    alt="Farhana Islam"
-                    fill
-                    sizes="(max-width: 640px) 192px, 224px"
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                  <div className="absolute bottom-2 inset-x-2 text-center">
-                    <span className="text-[10px] font-bold text-white bg-black/60 px-2.5 py-1 rounded-md backdrop-blur-xs">
-                      {isBn ? "নারী উদ্যোক্তা ও এসএমই উইং" : "Women & SME Wing"}
-                    </span>
-                  </div>
+              {/* Central Ecosystem Impact Hub Visual (Vector & Data Based, No Photo) */}
+              <div className="my-5 relative flex flex-col items-center justify-center py-6 px-4 rounded-2xl bg-white/40 border border-white/75 backdrop-blur-xs">
+                {/* Visual Launchpad Icon Pod */}
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand to-rose-400 text-white flex items-center justify-center shadow-lg shadow-brand/20 mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <Rocket className="w-8 h-8" />
+                </div>
+                <div className="text-center">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-slate-800">
+                    {isBn
+                      ? "কুষ্টিয়া স্টার্টআপ ইকোসিস্টেম হাব"
+                      : "Kushtia Startup Ecosystem Hub"}
+                  </span>
+                  <p className="text-[11px] text-slate-600 mt-0.5">
+                    {isBn
+                      ? "আইডিয়া ইনকিউবেশন · টেক মেন্টরশিপ · সিড নেটওয়ার্ক"
+                      : "Idea Incubation · Tech Mentorship · Seed Network"}
+                  </p>
                 </div>
 
-                {/* Floating Widget 1: Startup Pipeline Bars (Top Right of Photo) */}
-                <div className="absolute top-2 right-0 sm:right-4 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 border border-slate-100/90 shadow-xs z-10 hidden sm:block">
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                    {isBn ? "আইডিয়া ➔ এমভিপি পাইপলাইন" : "Ideate ➔ MVP"}
-                  </span>
-                  <div className="flex items-end gap-1.5 h-8">
-                    <span
-                      className="w-1.5 h-3 rounded-xs bg-amber-400"
-                      title={isBn ? "আইডিয়া" : "Idea"}
-                    />
-                    <span
-                      className="w-1.5 h-5 rounded-xs bg-orange-500"
-                      title={isBn ? "টিম" : "Team"}
-                    />
-                    <span
-                      className="w-1.5 h-4 rounded-xs bg-rose-400"
-                      title={isBn ? "ভ্যালিডেশন" : "Validation"}
-                    />
-                    <span
-                      className="w-1.5 h-8 rounded-xs bg-brand"
-                      title={isBn ? "এমভিপি" : "MVP"}
-                    />
-                    <span
-                      className="w-1.5 h-6 rounded-xs bg-emerald-500"
-                      title={isBn ? "মার্কেট লঞ্চ" : "Market Launch"}
-                    />
+                {/* 3 Impact Micro Badges Row */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full mt-5">
+                  {/* Pod 1: Pipeline */}
+                  <div className="p-3 rounded-xl bg-white/75 border border-white/80 shadow-2xs">
+                    <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider block mb-1.5">
+                      {isBn ? "আইডিয়া ➔ এমভিপি" : "Ideate ➔ MVP"}
+                    </span>
+                    <div className="flex items-end gap-1.5 h-6">
+                      <span
+                        className="w-1.5 h-2 rounded-xs bg-amber-400"
+                        title={isBn ? "আইডিয়া" : "Idea"}
+                      />
+                      <span
+                        className="w-1.5 h-3.5 rounded-xs bg-orange-500"
+                        title={isBn ? "টিম" : "Team"}
+                      />
+                      <span
+                        className="w-1.5 h-3 rounded-xs bg-rose-400"
+                        title={isBn ? "ভ্যালিডেশন" : "Validation"}
+                      />
+                      <span
+                        className="w-1.5 h-6 rounded-xs bg-brand"
+                        title={isBn ? "এমভিপি" : "MVP"}
+                      />
+                      <span
+                        className="w-1.5 h-4.5 rounded-xs bg-emerald-500"
+                        title={isBn ? "মার্কেট লঞ্চ" : "Market Launch"}
+                      />
+                    </div>
                   </div>
-                </div>
 
-                {/* Floating Widget 2: Meetup Attendees (Left of Photo) */}
-                <div className="absolute bottom-10 left-0 sm:left-4 bg-white/95 backdrop-blur-md rounded-2xl p-2.5 sm:p-3 border border-slate-100/90 shadow-xs z-10 flex items-center gap-2.5">
-                  <span className="w-6 h-6 rounded-full bg-brand flex items-center justify-center text-white shrink-0">
-                    <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
-                  </span>
-                  <div>
-                    <span className="text-xs font-bold text-slate-900 block leading-none">
-                      {isBn ? "১,২০০+" : "1,200+"}
-                    </span>
-                    <span className="text-[10px] text-slate-400 font-medium">
-                      {isBn ? "মিটআপ ও ওয়ার্কশপ উপস্থিতি" : "Meetup Attendees"}
+                  {/* Pod 2: Community Attendees */}
+                  <div className="p-3 rounded-xl bg-white/75 border border-white/80 shadow-2xs flex flex-col justify-between">
+                    <div>
+                      <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider block">
+                        {isBn ? "মিটআপ উপস্থিতি" : "Attendees"}
+                      </span>
+                      <span className="text-sm font-extrabold text-slate-900 block leading-tight mt-0.5">
+                        {isBn ? "১,২০০+" : "1,200+"}
+                      </span>
+                    </div>
+                    <span className="text-[9px] text-emerald-600 font-bold mt-1">
+                      {isBn ? "নিয়মিত সেশন" : "Regular Sessions"}
                     </span>
                   </div>
-                  <svg
-                    viewBox="0 0 50 16"
-                    className="w-12 h-4 text-brand ml-1"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M 2 13 Q 12 15 22 8 T 38 5 T 48 2"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </div>
 
-                {/* Floating Widget 3: Regional Impact Card (Bottom Right of Photo) */}
-                <div className="absolute -bottom-2 right-2 sm:right-6 bg-white/95 backdrop-blur-md rounded-2xl p-3 border border-slate-100/90 shadow-xs z-10">
-                  <div className="flex items-center gap-1.5 mb-1">
-                    <span className="w-4 h-4 rounded-full bg-rose-100 flex items-center justify-center">
-                      <Heart className="w-2.5 h-2.5 fill-brand text-brand" />
-                    </span>
-                    <span className="text-xs font-bold text-slate-900">
-                      {isBn ? "তৃণমূল উদ্ভাবন" : "Grassroots Impact"}
+                  {/* Pod 3: Regional Scope */}
+                  <div className="p-3 rounded-xl bg-white/75 border border-white/80 shadow-2xs flex flex-col justify-between">
+                    <div>
+                      <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider block">
+                        {isBn ? "তৃণমূল উদ্ভাবন" : "Grassroots"}
+                      </span>
+                      <span className="text-xs font-bold text-slate-900 block leading-tight mt-0.5">
+                        {isBn ? "পদ্মা ও গড়াই" : "Padma & Gorai"}
+                      </span>
+                    </div>
+                    <span className="text-[9px] font-bold text-brand mt-1">
+                      {isBn ? "▲ রিজিওনাল টু গ্লোবাল" : "▲ Regional to Global"}
                     </span>
                   </div>
-                  <span className="text-[10px] text-slate-400 font-medium block">
-                    {isBn ? "পদ্মা ও গড়াই অববাহিকা" : "Padma & Gorai Basin"}
-                  </span>
-                  <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded-full inline-block mt-1">
-                    {isBn ? "▲ কুষ্টিয়া টু গ্লোবাল" : "▲ Kushtia to Global"}
-                  </span>
                 </div>
               </div>
 
               {/* Bottom Official Slogan */}
-              <div className="relative z-10 pt-4 text-center sm:text-left">
+              <div className="relative z-10 pt-2 text-center sm:text-left">
                 <span className="text-xs font-bold text-brand uppercase tracking-wider">
                   {isBn
                     ? "বিল্ডিং ব্লকস · কানেক্টিং ডটস"
@@ -330,7 +328,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
               {/* Card 2B: 4 Core Building Blocks of Startup Kushtia */}
               <div
                 onClick={onSelectCategory}
-                className="bg-white rounded-[28px] p-6 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 cursor-pointer min-h-[170px]"
+                className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 flex flex-col justify-between group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer min-h-[170px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
               >
                 <div>
                   <h4 className="text-xl font-extrabold text-slate-900">
@@ -346,22 +344,22 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                 {/* The 4 Building Block Swatches */}
                 <div className="flex items-center gap-2 my-2.5">
                   <div className="flex-1 text-center">
-                    <span className="w-full h-7 rounded-lg bg-[#18181B] flex items-center justify-center text-[10px] font-bold text-white shadow-xs">
+                    <span className="w-full h-7 rounded-lg bg-[#18181B] flex items-center justify-center text-[10px] font-bold text-white shadow-2xs">
                       {isBn ? "জ্ঞান" : "Info"}
                     </span>
                   </div>
                   <div className="flex-1 text-center">
-                    <span className="w-full h-7 rounded-lg bg-[#64748B] flex items-center justify-center text-[10px] font-bold text-white shadow-xs">
+                    <span className="w-full h-7 rounded-lg bg-[#64748B] flex items-center justify-center text-[10px] font-bold text-white shadow-2xs">
                       {isBn ? "মেন্টর" : "Mentor"}
                     </span>
                   </div>
                   <div className="flex-1 text-center">
-                    <span className="w-full h-7 rounded-lg bg-[#D92656] flex items-center justify-center text-[10px] font-bold text-white shadow-xs">
+                    <span className="w-full h-7 rounded-lg bg-[#D92656] flex items-center justify-center text-[10px] font-bold text-white shadow-2xs">
                       {isBn ? "প্রযুক্তি" : "Tech"}
                     </span>
                   </div>
                   <div className="flex-1 text-center">
-                    <span className="w-full h-7 rounded-lg bg-[#FDECEF] border border-brand/20 flex items-center justify-center text-[10px] font-bold text-brand shadow-xs">
+                    <span className="w-full h-7 rounded-lg bg-[#FDECEF] border border-brand/20 flex items-center justify-center text-[10px] font-bold text-brand shadow-2xs">
                       {isBn ? "নেটওয়ার্ক" : "Capital"}
                     </span>
                   </div>
@@ -374,10 +372,10 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                 </p>
               </div>
 
-              {/* Card 2C: Lalon & Tagore Heritage to Tech Innovation (Blush Pink Card) */}
+              {/* Card 2C: Lalon & Tagore Heritage to Tech Innovation */}
               <div
                 onClick={onSelectCategory}
-                className="bg-[#FDECEF] rounded-[28px] p-6 flex items-center justify-between gap-3 group hover:-translate-y-1 transition-all duration-300 cursor-pointer min-h-[170px]"
+                className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 flex items-center justify-between gap-3 group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer min-h-[170px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
               >
                 <div>
                   <h4 className="text-base font-extrabold text-slate-900 leading-snug">
@@ -430,40 +428,48 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
               COLUMN 4 (Right): Founding Circle & Regional Hub
              ======================================================== */}
           <div className="flex flex-col gap-4 sm:gap-5 h-full">
-            {/* Card 3A: Kushtia Founding Circle & Verified Portfolio (White Card) */}
+            {/* Card 3A: Kushtia Founding Circle & Mentors (No Photos) */}
             <div
               onClick={onSelectCategory}
-              className="bg-white rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 cursor-pointer relative overflow-hidden min-h-[340px]"
+              className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer relative overflow-hidden min-h-[340px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
             >
               <div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="w-9 h-9 rounded-xl bg-white/75 border border-white/80 text-brand flex items-center justify-center shadow-2xs">
+                    <Users className="w-4 h-4" />
+                  </div>
+                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+                    {isBn ? "মেন্টর সার্কেল" : "Mentor Circle"}
+                  </span>
+                </div>
+
                 <h3 className="text-base font-bold text-slate-900 leading-snug">
                   {isBn
                     ? "ফাউন্ডিং লিডারশিপ ও মেন্টর সার্কেল"
                     : "Founding Leadership & Mentor Circle"}
                 </h3>
 
-                {/* Overlapping Avatar Stack of Kushtia Team Leads */}
-                <div className="flex items-center -space-x-2.5 my-4">
-                  {[
-                    "/images/team/shourov.jpg",
-                    "/images/team/saqlaen.jpg",
-                    "/images/team/farhana.jpg",
-                    "/images/team/xahid.jpg",
-                  ].map((imgSrc, i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded-full overflow-hidden relative border-2 border-white bg-slate-100 shrink-0"
-                    >
-                      <Image
-                        src={imgSrc}
-                        alt="Kushtia Leader"
-                        fill
-                        sizes="40px"
-                        className="object-cover object-top"
-                      />
-                    </div>
-                  ))}
-                  <div className="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center text-[11px] font-bold border-2 border-white shrink-0">
+                {/* Stylized Discipline Icon Badges (Clean vector icons, no face photos) */}
+                <div className="flex items-center -space-x-2 my-4">
+                  <div
+                    className="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center border-2 border-white shadow-2xs shrink-0"
+                    title="Tech & Software"
+                  >
+                    <Code2 className="w-4 h-4" />
+                  </div>
+                  <div
+                    className="w-10 h-10 rounded-full bg-brand text-white flex items-center justify-center border-2 border-white shadow-2xs shrink-0"
+                    title="Innovation & Launchpad"
+                  >
+                    <Rocket className="w-4 h-4" />
+                  </div>
+                  <div
+                    className="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center border-2 border-white shadow-2xs shrink-0"
+                    title="Business & SME"
+                  >
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-slate-700 text-white flex items-center justify-center text-[11px] font-bold border-2 border-white shadow-2xs shrink-0">
                     {isBn ? "+৫০" : "+50"}
                   </div>
                 </div>
@@ -477,7 +483,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                   <div className="text-4xl font-extrabold text-slate-900 tracking-tight mt-0.5">
                     {isBn ? "৩০+" : "30+"}
                   </div>
-                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full inline-block mt-1">
+                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100 inline-block mt-1">
                     {isBn ? "+৪০% নতুন উদ্যোগ" : "+40% New Ventures"}
                   </span>
                 </div>
@@ -487,7 +493,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
               <div className="self-end -mr-2 -mb-2 group-hover:scale-105 transition-transform duration-500">
                 <svg
                   viewBox="0 0 100 130"
-                  className="w-20 h-24 filter drop-shadow-sm"
+                  className="w-20 h-24 filter drop-shadow-2xs"
                   aria-hidden="true"
                 >
                   <defs>
@@ -521,9 +527,9 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
             {/* Card 3B: Startup Kushtia Hub — 3 Triple Helix Rings (Education ⋂ Business ⋂ Tech) */}
             <div
               onClick={onSelectCategory}
-              className="bg-white rounded-[28px] p-6 sm:p-7 flex flex-col items-center justify-between text-center group hover:-translate-y-1 transition-all duration-300 cursor-pointer flex-1 min-h-[250px]"
+              className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 sm:p-7 flex flex-col items-center justify-between text-center group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer flex-1 min-h-[250px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
             >
-              <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
+              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">
                 {isBn ? "শিক্ষা ⋂ ব্যবসা ⋂ প্রযুক্তি" : "Academia ⋂ SME ⋂ Tech"}
               </span>
 
@@ -570,20 +576,20 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
                 </p>
 
                 <div className="flex items-center justify-center gap-1 mt-2.5 flex-wrap">
-                  <span className="text-[9px] font-semibold bg-slate-100 px-2 py-0.5 rounded text-slate-600">
+                  <span className="text-[9px] font-semibold bg-white/80 px-2 py-0.5 rounded text-slate-700 border border-white/60">
                     {isBn ? "কুমারখালী তাঁত" : "Kumarkhali Handloom"}
                   </span>
-                  <span className="text-[9px] font-semibold bg-slate-100 px-2 py-0.5 rounded text-slate-600">
+                  <span className="text-[9px] font-semibold bg-white/80 px-2 py-0.5 rounded text-slate-700 border border-white/60">
                     {isBn ? "শিলাইদহ এগ্রো" : "Shilaidaha Agro"}
                   </span>
-                  <span className="text-[9px] font-semibold bg-slate-100 px-2 py-0.5 rounded text-slate-600">
+                  <span className="text-[9px] font-semibold bg-white/80 px-2 py-0.5 rounded text-slate-700 border border-white/60">
                     {isBn ? "তিলের খাজা" : "Tiler Khaja"}
                   </span>
                 </div>
               </div>
 
               {/* Bottom interactive link */}
-              <div className="pt-3 border-t border-slate-100 w-full flex items-center justify-between text-xs font-bold text-brand">
+              <div className="pt-3 border-t border-brand-border/40 w-full flex items-center justify-between text-xs font-bold text-brand group-hover:text-brand-hover transition-colors">
                 <span>
                   {isBn ? "আপনার উদ্যোগ যুক্ত করুন" : "Get Listed in Hub"}
                 </span>
@@ -594,8 +600,8 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
         </div>
       </div>
 
-      {/* Organic river wave transition into Pillars section */}
-      <RiverWaveDivider position="bottom" color="text-white" flip={true} />
+      {/* Organic river wave transition into dark Events section */}
+      <RiverWaveDivider position="bottom" color="text-dark" flip={true} />
     </section>
   );
 }
