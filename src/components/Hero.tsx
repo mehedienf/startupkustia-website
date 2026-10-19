@@ -218,7 +218,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Organic river wave transition into Audience section */}
+      {/* Organic river wave transition into About section */}
       <RiverWaveDivider position="bottom" color="text-brand-soft" />
     </section>
   );

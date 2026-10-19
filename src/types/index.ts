@@ -65,6 +65,8 @@ export interface AudienceItem {
   iconName: string;
 }
 
+export type AboutItem = AudienceItem;
+
 export interface ValueItem {
   id: string;
   titleBn: string;

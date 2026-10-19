@@ -13,9 +13,11 @@ export default function Team() {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isInView, setIsInView] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   const totalMembers = TEAM_MEMBERS.length;
   const activeMember = TEAM_MEMBERS[activeIndex];
@@ -42,17 +44,36 @@ export default function Team() {
     goTo(prev);
   }, [activeIndex, totalMembers, goTo]);
 
-  // Auto-rotation every 5s
+  // Detect when Team section enters the viewport
   useEffect(() => {
-    if (isPaused) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    const currentEl = sectionRef.current;
+    if (currentEl) {
+      observer.observe(currentEl);
+    }
+
+    return () => {
+      if (currentEl) observer.unobserve(currentEl);
+      observer.disconnect();
+    };
+  }, []);
+
+  // Auto-rotation every 5s ONLY when Team section is in view
+  useEffect(() => {
+    if (!isInView || isPaused) return;
     const timer = setInterval(() => {
-      setActiveIndex((prev) => {
-        const next = (prev + 1) % totalMembers;
-        return next;
-      });
+      handleNext();
     }, 5000);
     return () => clearInterval(timer);
-  }, [isPaused, totalMembers]);
+  }, [isInView, isPaused, handleNext]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -105,6 +126,7 @@ export default function Team() {
   return (
     <section
       id="team"
+      ref={sectionRef}
       className="pt-20 pb-28 md:pt-28 md:pb-36 bg-brand-soft relative overflow-hidden select-none"
     >
       {/* Subtle topographic river contour pattern */}

@@ -95,11 +95,11 @@ export default function Events({ onOpenJoin }: EventsProps) {
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light sm:font-normal text-white tracking-tight leading-tight">
               {isBn ? (
                 <>
-                  আসন্ন <span className="text-brand-accent-light italic">ইভেন্টস</span>
+                  আসন্ন <span className="text-brand-accent-light">ইভেন্টস</span>
                 </>
               ) : (
                 <>
-                  Upcoming <span className="text-brand-accent-light italic">Events</span>
+                  Upcoming <span className="text-brand-accent-light">Events</span>
                 </>
               )}
             </h2>
@@ -118,10 +118,10 @@ export default function Events({ onOpenJoin }: EventsProps) {
               <button
                 type="button"
                 onClick={() => setIsExpandedView(true)}
-                className="inline-flex items-center gap-3 text-brand-accent-light hover:text-white font-bold text-sm tracking-wider uppercase group transition-colors py-2"
+                className="inline-flex items-center gap-3 text-brand-accent-light hover:text-white font-bold text-sm tracking-wider uppercase group transition-colors py-2 bg-transparent hover:bg-transparent shadow-none border-none outline-none focus:outline-none focus:ring-0"
               >
                 <span>{isBn ? "সবগুলো দেখুন" : "SEE ALL"}</span>
-                <span className="w-9 h-9 rounded-full border-2 border-brand-accent-light/40 group-hover:border-brand-accent-light flex items-center justify-center transition-all group-hover:translate-x-1">
+                <span className="w-9 h-9 rounded-full border-2 border-brand-accent-light/40 group-hover:border-brand-accent-light bg-transparent group-hover:bg-transparent shadow-none flex items-center justify-center transition-all group-hover:translate-x-1">
                   <ArrowRight className="w-4 h-4 text-brand-accent-light group-hover:text-white" />
                 </span>
               </button>

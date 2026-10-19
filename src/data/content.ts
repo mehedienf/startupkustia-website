@@ -34,7 +34,7 @@ export const SITE_CONFIG = {
   facebookUrl: "https://facebook.com/startupkushtia",
 };
 
-export const AUDIENCE_ITEMS: AudienceItem[] = [
+export const ABOUT_ITEMS: AudienceItem[] = [
   {
     id: "students",
     titleBn: "আইডিয়াধারী শিক্ষার্থী",
@@ -96,6 +96,8 @@ export const AUDIENCE_ITEMS: AudienceItem[] = [
     iconName: "Code",
   },
 ];
+
+export const AUDIENCE_ITEMS = ABOUT_ITEMS;
 
 export const PILLAR_ITEMS: PillarItem[] = [
   {

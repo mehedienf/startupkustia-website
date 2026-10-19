@@ -2,7 +2,7 @@
 
 import AmbassadorModal from "@/components/AmbassadorModal";
 import Ambassadors from "@/components/Ambassadors";
-import Audience from "@/components/Audience";
+import About from "@/components/About";
 import ContactModal from "@/components/ContactModal";
 import CtaBanner from "@/components/CtaBanner";
 import Events from "@/components/Events";
@@ -74,8 +74,8 @@ export default function HomePage() {
         {/* Hero Section */}
         <Hero />
 
-        {/* For Who / Audience Section */}
-        <Audience onSelectCategory={() => setJoinModalOpen(true)} />
+        {/* About / Ecosystem Section */}
+        <About onSelectCategory={() => setJoinModalOpen(true)} />
 
         {/* Events Section */}
         <Events onOpenJoin={() => setJoinModalOpen(true)} />

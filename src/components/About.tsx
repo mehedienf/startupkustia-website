@@ -12,19 +12,21 @@ import {
   Users,
 } from "lucide-react";
 
-interface AudienceProps {
+interface AboutProps {
   onSelectCategory: () => void;
 }
 
-export default function Audience({ onSelectCategory }: AudienceProps) {
+export default function About({ onSelectCategory }: AboutProps) {
   const { language } = useLanguage();
   const isBn = language === "bn";
 
   return (
     <section
-      id="audience"
+      id="about"
       className="pt-20 pb-28 md:pt-28 md:pb-36 bg-brand-soft relative overflow-hidden"
     >
+      {/* Anchor alias for backward-compatible section scrolling */}
+      <span id="audience" className="sr-only" />
       {/* Subtle topographic river contour pattern */}
       <div
         className="absolute inset-0 bg-topography pointer-events-none"

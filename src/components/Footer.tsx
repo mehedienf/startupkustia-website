@@ -108,7 +108,7 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/"
-                  onClick={(e) => scrollToSection(e, "audience")}
+                  onClick={(e) => scrollToSection(e, "about")}
                   className="hover:text-brand-accent-light transition-colors cursor-pointer"
                 >
                   {isBn ? "স্টার্টআপ কুষ্টিয়া সম্পর্কে" : "About Platform"}
