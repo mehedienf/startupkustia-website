@@ -195,17 +195,17 @@ export default function Header({ onOpenJoin }: HeaderProps) {
             </Link>
             <Link
               href="/"
-              onClick={(e) => scrollToSection(e, "pillars")}
+              onClick={(e) => scrollToSection(e, "events")}
               className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all cursor-pointer text-left"
             >
-              {isBn ? "প্রোগ্রাম" : "Programs"}
+              {isBn ? "ইভেন্টস" : "Events"}
             </Link>
             <Link
               href="/"
-              onClick={(e) => scrollToSection(e, "directory")}
+              onClick={(e) => scrollToSection(e, "portfolio")}
               className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all cursor-pointer text-left"
             >
-              {isBn ? "ডিরেক্টরি" : "Directory"}
+              {isBn ? "পোর্টফোলিও" : "Portfolio"}
             </Link>
             <Link
               href="/"
@@ -317,17 +317,17 @@ export default function Header({ onOpenJoin }: HeaderProps) {
               </Link>
               <Link
                 href="/"
-                onClick={(e) => scrollToSection(e, "pillars")}
+                onClick={(e) => scrollToSection(e, "events")}
                 className="py-1.5 hover:text-brand transition-colors text-left"
               >
-                {isBn ? "প্রোগ্রাম ও উদ্যোগ" : "Programs"}
+                {isBn ? "ইভেন্টস" : "Events"}
               </Link>
               <Link
                 href="/"
-                onClick={(e) => scrollToSection(e, "directory")}
+                onClick={(e) => scrollToSection(e, "portfolio")}
                 className="py-1.5 hover:text-brand transition-colors text-left"
               >
-                {isBn ? "কুষ্টিয়ার ডিরেক্টরি" : "Directory"}
+                {isBn ? "পোর্টফোলিও" : "Portfolio"}
               </Link>
               <Link
                 href="/"

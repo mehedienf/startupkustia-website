@@ -24,9 +24,9 @@ export default function ContactFaq({ isBn }: ContactFaqProps) {
       aEn: "No, general membership, campus ambassador roles, and peer knowledge meetups are completely free of charge.",
     },
     {
-      qBn: "ডিরেক্টরিতে আমার ব্যবসা লাইভ হতে কত সময় লাগে?",
-      qEn: "How long does it take for a directory listing to go live?",
-      aBn: "ব্যবসার মৌলিক তথ্য এবং কুষ্টিয়াভিত্তিক সত্যতা যাচাই করার পর ২-৩ কার্যদিবসের মধ্যে আমাদের পাবলিক ডিরেক্টরিতে তালিকাটি যুক্ত করা হয়।",
+      qBn: "পোর্টফোলিওতে আমার ব্যবসা লাইভ হতে কত সময় লাগে?",
+      qEn: "How long does it take for a portfolio listing to go live?",
+      aBn: "ব্যবসার মৌলিক তথ্য এবং কুষ্টিয়াভিত্তিক সত্যতা যাচাই করার পর ২-৩ কার্যদিবসের মধ্যে আমাদের পাবলিক পোর্টফোলিওতে তালিকাটি যুক্ত করা হয়।",
       aEn: "After basic verification of your venture details and Kushtia presence, listings go live within 2-3 business days.",
     },
     {

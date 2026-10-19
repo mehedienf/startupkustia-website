@@ -6,7 +6,7 @@ import { ArrowLeft, ArrowRight, Plus } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-interface DirectoryProps {
+interface PortfolioProps {
   onOpenListingModal: () => void;
 }
 
@@ -35,7 +35,7 @@ const FEATURED_STARTUPS = [
   },
 ];
 
-export default function Directory({ onOpenListingModal }: DirectoryProps) {
+export default function Portfolio({ onOpenListingModal }: PortfolioProps) {
   const { language } = useLanguage();
   const isBn = language === "bn";
 
@@ -146,9 +146,10 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
 
   return (
     <section
-      id="directory"
+      id="portfolio"
       className="pt-20 pb-28 md:pt-28 md:pb-36 bg-brand-soft relative overflow-hidden select-none"
     >
+      <span id="directory" className="sr-only" />
       {/* Subtle topographic river contour pattern */}
       <div
         className="absolute inset-0 bg-topography pointer-events-none"
@@ -164,7 +165,7 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand ring-4 ring-brand/15 animate-pulse" />
-              <span>{isBn ? "আমাদের পোর্টফোলিও" : "Our Portfolios"}</span>
+              <span>{isBn ? "আমাদের পোর্টফোলিও" : "Our Portfolio"}</span>
             </div>
 
             {/* Giant Title: "Enterprises we / Empower" */}
@@ -193,7 +194,7 @@ export default function Directory({ onOpenListingModal }: DirectoryProps) {
                 className="px-5 py-2.5 rounded-full bg-white border border-slate-200/90 hover:border-brand hover:text-brand text-heading font-bold text-xs flex items-center gap-2 cursor-pointer transition-all shadow-xs"
               >
                 <Plus className="w-3.5 h-3.5 text-brand" />
-                <span>{isBn ? "তালিকাভুক্ত হোন" : "List Venture"}</span>
+                <span>{isBn ? "পোর্টফোলিওতে যুক্ত হোন" : "List Venture"}</span>
               </button>
 
               {/* Circular Prev/Next Arrow Buttons (Matching Screenshot) */}

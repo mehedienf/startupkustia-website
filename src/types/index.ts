@@ -1,6 +1,6 @@
 export type Language = "bn" | "en";
 
-export interface DirectoryItem {
+export interface PortfolioItem {
   id: string;
   name: string;
   category: string;
@@ -15,6 +15,8 @@ export interface DirectoryItem {
   founder?: string;
   tags: string[];
 }
+
+export type DirectoryItem = PortfolioItem;
 
 export interface TeamMember {
   id: string;

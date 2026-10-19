@@ -93,14 +93,14 @@ export default function Hero() {
         </div>
 
         {/* Main H1 Headline with Dynamic Animated Words */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight max-w-5xl leading-[1.2] text-white font-display mb-6 drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)]">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight max-w-5xl leading-[1.32] sm:leading-[1.26] md:leading-[1.24] text-white font-display mb-6 py-2 sm:py-4 px-2 drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] overflow-visible">
           {isBn ? (
             <>
               কুষ্টিয়া থেকে গড়ে তুলুন আগামীর{" "}
-              <span className="relative inline-block align-baseline mx-1">
+              <span className="relative inline-block align-baseline mx-1 py-1.5 sm:py-2.5 px-1 sm:px-2 overflow-visible">
                 {/* Animated text with colorful shimmering internal gradient light */}
                 <span
-                  className={`inline-block animate-aura-text font-black transition-all duration-400 ease-out drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] ${
+                  className={`inline-block py-1 sm:py-2 px-1 animate-aura-text font-black transition-all duration-400 ease-out drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] ${
                     fadeAnim
                       ? "opacity-100 translate-y-0 scale-100"
                       : "opacity-0 -translate-y-2 scale-95"
@@ -113,10 +113,10 @@ export default function Hero() {
           ) : (
             <>
               Empowering Kushtia’s{" "}
-              <span className="relative inline-block align-baseline mx-1">
+              <span className="relative inline-block align-baseline mx-1 py-1.5 sm:py-2.5 px-1 sm:px-2 overflow-visible">
                 {/* Animated text with colorful shimmering internal gradient light */}
                 <span
-                  className={`inline-block animate-aura-text font-black transition-all duration-400 ease-out drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] ${
+                  className={`inline-block py-1 sm:py-2 px-1 animate-aura-text font-black transition-all duration-400 ease-out drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] ${
                     fadeAnim
                       ? "opacity-100 translate-y-0 scale-100"
                       : "opacity-0 -translate-y-2 scale-95"
@@ -150,7 +150,9 @@ export default function Hero() {
             href="/"
             onClick={(e) => {
               e.preventDefault();
-              const el = document.getElementById("directory");
+              const el =
+                document.getElementById("portfolio") ||
+                document.getElementById("directory");
               if (el) {
                 const navHeight = 85;
                 const pos =
@@ -161,7 +163,7 @@ export default function Hero() {
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-base backdrop-blur-md border border-white/25 hover:border-white/50 hover:scale-102 active:scale-98 transition-all duration-200 text-center shadow-md flex items-center justify-center gap-2 cursor-pointer"
           >
             <Compass className="w-5 h-5 text-slate-300" />
-            <span>{isBn ? "ডিরেক্টরি দেখুন" : "Explore Directory"}</span>
+            <span>{isBn ? "পোর্টফোলিও দেখুন" : "Explore Portfolio"}</span>
           </Link>
         </div>
 

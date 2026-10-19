@@ -5,15 +5,15 @@ import Ambassadors from "@/components/Ambassadors";
 import Audience from "@/components/Audience";
 import ContactModal from "@/components/ContactModal";
 import CtaBanner from "@/components/CtaBanner";
-import Directory from "@/components/Directory";
-import DirectoryModal from "@/components/DirectoryModal";
+import Events from "@/components/Events";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import JoinModal from "@/components/JoinModal";
-import Pillars from "@/components/Pillars";
 import PolicyModal from "@/components/PolicyModal";
+import Portfolio from "@/components/Portfolio";
+import PortfolioModal from "@/components/PortfolioModal";
 import Team from "@/components/Team";
 import Values from "@/components/Values";
 import WelcomeSplash from "@/components/WelcomeSplash";
@@ -23,7 +23,7 @@ export default function HomePage() {
   const [showSplash, setShowSplash] = useState(true);
   const [joinModalOpen, setJoinModalOpen] = useState(false);
   const [ambassadorModalOpen, setAmbassadorModalOpen] = useState(false);
-  const [directoryModalOpen, setDirectoryModalOpen] = useState(false);
+  const [portfolioModalOpen, setPortfolioModalOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
   const [policyModalType, setPolicyModalType] = useState<
     "privacy" | "terms" | null
@@ -77,11 +77,11 @@ export default function HomePage() {
         {/* For Who / Audience Section */}
         <Audience onSelectCategory={() => setJoinModalOpen(true)} />
 
-        {/* 6 Ways We Support / Pillars */}
-        <Pillars onOpenJoin={() => setJoinModalOpen(true)} />
+        {/* Events Section */}
+        <Events onOpenJoin={() => setJoinModalOpen(true)} />
 
-        {/* Directory & Kushtia Ecosystem Showcase */}
-        <Directory onOpenListingModal={() => setDirectoryModalOpen(true)} />
+        {/* Portfolio & Kushtia Ecosystem Showcase */}
+        <Portfolio onOpenListingModal={() => setPortfolioModalOpen(true)} />
 
         {/* Campus Ambassador Program */}
         <Ambassadors
@@ -118,9 +118,9 @@ export default function HomePage() {
         onClose={() => setAmbassadorModalOpen(false)}
       />
 
-      <DirectoryModal
-        isOpen={directoryModalOpen}
-        onClose={() => setDirectoryModalOpen(false)}
+      <PortfolioModal
+        isOpen={portfolioModalOpen}
+        onClose={() => setPortfolioModalOpen(false)}
       />
 
       <ContactModal

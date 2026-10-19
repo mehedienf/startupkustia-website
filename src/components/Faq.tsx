@@ -44,7 +44,7 @@ export default function Faq({ onOpenContact }: FaqProps) {
           <p className="mt-3 text-base text-[#444E69]">
             {isBn
               ? "স্টার্টআপ কুষ্টিয়া সম্পর্কে সাধারণ প্রশ্ন ও উত্তরগুলো এক নজরে জেনে নিন।"
-              : "Everything you need to know about our community, directory, and initiatives."}
+              : "Everything you need to know about our community, portfolio, and initiatives."}
           </p>
         </div>
 

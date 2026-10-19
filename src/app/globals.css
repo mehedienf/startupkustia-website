@@ -327,6 +327,13 @@ html[lang="en"] .font-display {
 }
 
 .animate-aura-text {
+  display: inline-block;
+  padding-top: 0.12em;
+  padding-bottom: 0.16em;
+  padding-left: 0.04em;
+  padding-right: 0.04em;
+  line-height: normal;
+  overflow: visible;
   background: linear-gradient(
     90deg,
     #fda4af 0%,

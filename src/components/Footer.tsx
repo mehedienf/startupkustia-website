@@ -144,10 +144,10 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/"
-                  onClick={(e) => scrollToSection(e, "pillars")}
+                  onClick={(e) => scrollToSection(e, "events")}
                   className="hover:text-brand-accent-light transition-colors cursor-pointer"
                 >
-                  {isBn ? "প্রোগ্রাম ও উদ্যোগ" : "Programs"}
+                  {isBn ? "ইভেন্টস" : "Events"}
                 </Link>
               </li>
             </ul>
@@ -178,10 +178,10 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
               <li>
                 <Link
                   href="/"
-                  onClick={(e) => scrollToSection(e, "directory")}
+                  onClick={(e) => scrollToSection(e, "portfolio")}
                   className="hover:text-brand-accent-light transition-colors block cursor-pointer"
                 >
-                  {isBn ? "ব্যবসার ডিরেক্টরি" : "Business Directory"}
+                  {isBn ? "আমাদের পোর্টফোলিও" : "Our Portfolio"}
                 </Link>
               </li>
               <li>

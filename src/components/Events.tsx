@@ -13,11 +13,11 @@ import {
   Users,
 } from "lucide-react";
 
-interface PillarsProps {
+interface EventsProps {
   onOpenJoin: () => void;
 }
 
-export default function Pillars({ onOpenJoin }: PillarsProps) {
+export default function Events({ onOpenJoin }: EventsProps) {
   const { language } = useLanguage();
   const isBn = language === "bn";
 
@@ -42,9 +42,10 @@ export default function Pillars({ onOpenJoin }: PillarsProps) {
 
   return (
     <section
-      id="pillars"
+      id="events"
       className="pt-20 pb-28 md:pt-28 md:pb-36 bg-white relative overflow-hidden"
     >
+      <span id="pillars" className="sr-only" />
       {/* Subtle topographic river contour pattern */}
       <div
         className="absolute inset-0 bg-topography pointer-events-none"
@@ -55,24 +56,24 @@ export default function Pillars({ onOpenJoin }: PillarsProps) {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-brand ring-4 ring-brand/15 animate-pulse"></span>
-            <span>{isBn ? "আমরা যা করি" : "What We Do"}</span>
+            <span>{isBn ? "ইভেন্টস" : "Events"}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-heading tracking-tight">
             {isBn ? (
               <>
-                ছয়ভাবে আমরা আপনার বিকাশে{" "}
-                <span className="sk-hl">পাশে আছি</span>।
+                আমাদের নিয়মিত ও বিশেষ{" "}
+                <span className="sk-hl">ইভেন্টস</span>
               </>
             ) : (
               <>
-                Six Ways We Back Your <span className="sk-hl">Growth</span>.
+                Our Key & Upcoming <span className="sk-hl">Events</span>
               </>
             )}
           </h2>
           <p className="mt-3 text-base text-[#444E69]">
             {isBn
-              ? "কুষ্টিয়ার উদ্যোক্তা ইকোসিস্টেমকে সক্রিয় ও স্বয়ংসম্পূর্ণ করে তুলতে আমাদের কার্যকরী উদ্যোগসমূহ।"
-              : "Actionable programs designed to empower and accelerate entrepreneurs in Kushtia."}
+              ? "কুষ্টিয়ার উদ্যোক্তা ইকোসিস্টেমকে সক্রিয় ও স্বয়ংসম্পূর্ণ করে তুলতে আমাদের কার্যকরী ইভেন্ট ও উদ্যোগসমূহ।"
+              : "Actionable events and programs designed to empower and accelerate entrepreneurs in Kushtia."}
           </p>
         </div>
 
@@ -107,8 +108,19 @@ export default function Pillars({ onOpenJoin }: PillarsProps) {
                 <button
                   type="button"
                   onClick={
-                    pillar.id === "directory"
-                      ? () => (window.location.hash = "directory")
+                    pillar.id === "portfolio" || pillar.id === "directory"
+                      ? () => {
+                          const el =
+                            document.getElementById("portfolio") ||
+                            document.getElementById("directory");
+                          if (el) {
+                            const pos =
+                              el.getBoundingClientRect().top +
+                              window.scrollY -
+                              85;
+                            window.scrollTo({ top: pos, behavior: "smooth" });
+                          }
+                        }
                       : onOpenJoin
                   }
                   className="text-xs font-bold text-brand hover:text-brand-hover flex items-center gap-1 group"
@@ -122,7 +134,7 @@ export default function Pillars({ onOpenJoin }: PillarsProps) {
         </div>
       </div>
 
-      {/* Organic river wave transition into Directory section */}
+      {/* Organic river wave transition into Portfolio section */}
       <RiverWaveDivider position="bottom" color="text-brand-soft" />
     </section>
   );

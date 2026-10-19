@@ -1,8 +1,8 @@
 import {
   AudienceItem,
-  DirectoryItem,
   FaqItem,
   PillarItem,
+  PortfolioItem,
   TeamMember,
   ValueItem,
 } from "@/types";
@@ -133,16 +133,16 @@ export const PILLAR_ITEMS: PillarItem[] = [
     tagEn: "Guidance",
   },
   {
-    id: "directory",
-    titleBn: "স্টার্টআপ ও ব্যবসার ডিরেক্টরি",
-    titleEn: "Startup & Business Directory",
+    id: "portfolio",
+    titleBn: "স্টার্টআপ ও ব্যবসার পোর্টফোলিও",
+    titleEn: "Startup & Business Portfolio",
     descBn:
       "কুষ্টিয়া জেলার উদ্ভাবনী উদ্যোগ ও ব্যবসার এক উন্মুক্ত ডিজিটাল প্ল্যাটফর্ম, যা স্থানীয় পণ্যকে বৈশ্বিক দৃশ্যমানতা দেয়।",
     descEn:
       "A comprehensive public registry giving local ventures and artisan businesses discoverability.",
     iconName: "Layers",
-    tagBn: "ডিরেক্টরি",
-    tagEn: "Directory",
+    tagBn: "পোর্টফোলিও",
+    tagEn: "Portfolio",
   },
   {
     id: "resources",
@@ -170,7 +170,7 @@ export const PILLAR_ITEMS: PillarItem[] = [
   },
 ];
 
-export const DIRECTORY_ITEMS: DirectoryItem[] = [
+export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "gorai-tech",
     name: "Gorai Tech Labs",
@@ -275,6 +275,8 @@ export const DIRECTORY_ITEMS: DirectoryItem[] = [
   },
 ];
 
+export const DIRECTORY_ITEMS = PORTFOLIO_ITEMS;
+
 export const VALUES_ITEMS: ValueItem[] = [
   {
     id: "innovation",
@@ -340,13 +342,13 @@ export const VALUES_ITEMS: ValueItem[] = [
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: "1",
-    nameBn: "শৌরভ চৌধুরী",
-    nameEn: "Shourov Choudhury",
+    nameBn: "Md Altamis Nabil",
+    nameEn: "Md Altamis Nabil",
     roleBn: "ফাউন্ডার ও প্রেসিডেন্ট",
     roleEn: "Founder & President",
     designationBn: "প্রোগ্রাম ও জাতীয়–আন্তর্জাতিক সম্পর্ক",
     designationEn: "Programs & National-International Relations",
-    image: "/images/team/shourov.jpg",
+    image: "/images/team/MdAltamisNabil.jpeg",
     socials: {
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",
@@ -354,13 +356,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: "2",
-    nameBn: "সাকলাইন মোস্তাক",
-    nameEn: "Saqlaen Mostaq",
-    roleBn: "কো-ফাউন্ডার ও ভাইস প্রেসিডেন্ট",
-    roleEn: "Co-Founder & Vice President",
+    nameBn: "Ananda Kutum",
+    nameEn: "Ananda Kutum",
+    roleBn: "ফাউন্ডিং সেক্রেটারি",
+    roleEn: "Founding Secretary",
     designationBn: "অপারেশনস এবং কমিউনিটি গ্রোথ",
     designationEn: "Operations & Community Growth",
-    image: "/images/team/saqlaen.jpg",
+    image: "/images/team/AnandaKutum.jpeg",
     socials: {
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",
@@ -368,13 +370,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: "3",
-    nameBn: "জাহিদ হাসান শুভ",
-    nameEn: "Xahid Hasan Suvo",
-    roleBn: "কো-ফাউন্ডার ও সাধারণ সম্পাদক",
-    roleEn: "Co-Founder & General Secretary",
+    nameBn: "Anisur Rahman Rajib",
+    nameEn: "Anisur Rahman Rajib",
+    roleBn: "ফাউন্ডিং ইভিপি",
+    roleEn: "Founding EVP",
     designationBn: "ইভেন্ট এবং বিজনেস রিলেশনস",
     designationEn: "Events & Business Relations",
-    image: "/images/team/xahid.jpg",
+    image: "/images/team/AnisurRahmanRajib.jpeg",
     socials: {
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",
@@ -382,13 +384,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: "4",
-    nameBn: "জামিউল হাসান সোহান",
-    nameEn: "Jamiul Hasan Sohan",
-    roleBn: "কো-ফাউন্ডার ও কোষাধ্যক্ষ",
-    roleEn: "Co-Founder & Treasurer",
+    nameBn: "Isha Khan",
+    nameEn: "Isha Khan",
+    roleBn: "ফাউন্ডিং ডিরেক্টর",
+    roleEn: "Founding Director",
     designationBn: "অর্থ ও যুব সম্পৃক্ততা",
     designationEn: "Finance & Youth Engagement",
-    image: "/images/team/sohan.jpg",
+    image: "/images/team/IshaKhan.jpeg",
     socials: {
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",
@@ -396,13 +398,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: "5",
-    nameBn: "ফারহানা ইসলাম",
-    nameEn: "Farhana Islam",
-    roleBn: "কো-ফাউন্ডার ও পরিচালক",
-    roleEn: "Co-Founder & Director",
+    nameBn: "Syed Fahad Mahmud",
+    nameEn: "Syed Fahad Mahmud",
+    roleBn: "পরিচালক",
+    roleEn: "Director",
     designationBn: "নারী উদ্যোক্তা ও এসএমই নেটওয়ার্ক",
     designationEn: "Women Entrepreneurs & SME Relations",
-    image: "/images/team/farhana.jpg",
+    image: "/images/team/SyedFahadMahmud.jpeg",
     socials: {
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",
@@ -410,27 +412,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: "6",
-    nameBn: "আব্দুল কাইয়ুম তমাল",
-    nameEn: "Abdul Khium Tomal",
-    roleBn: "কো-ফাউন্ডার ও পরিচালক",
-    roleEn: "Co-Founder & Director",
+    nameBn: "S.M. Imdadul Haque",
+    nameEn: "S.M. Imdadul Haque",
+    roleBn: "পরিচালক",
+    roleEn: "Director",
     designationBn: "মিডিয়া, প্রেস ও পাবলিক রিলেশনস",
     designationEn: "Media, Press & Public Relations",
-    image: "/images/team/tomal.jpg",
-    socials: {
-      linkedin: "https://linkedin.com",
-      facebook: "https://facebook.com",
-    },
-  },
-  {
-    id: "7",
-    nameBn: "আল হাসান তরু",
-    nameEn: "Al Hasan Toru",
-    roleBn: "কো-ফাউন্ডার ও পরিচালক",
-    roleEn: "Co-Founder & Director",
-    designationBn: "ব্র্যান্ডিং, কনটেন্ট ও ক্রিয়েটিভ",
-    designationEn: "Branding, Content & Creative Direction",
-    image: "/images/team/toru.jpg",
+    image: "/images/team/SMImdadulHaque.jpeg",
     socials: {
       linkedin: "https://linkedin.com",
       facebook: "https://facebook.com",
@@ -468,12 +456,12 @@ export const FAQ_ITEMS: FaqItem[] = [
   },
   {
     id: "faq-4",
-    questionBn: "ডিরেক্টরি কীভাবে কাজ করে এবং তালিকাভুক্তির নিয়ম কী?",
-    questionEn: "How does the Directory work and how to get listed?",
+    questionBn: "পোর্টফোলিও কীভাবে কাজ করে এবং তালিকাভুক্তির নিয়ম কী?",
+    questionEn: "How does the Portfolio work and how to get listed?",
     answerBn:
-      'কুষ্টিয়ার যেকোনো চালু ব্যবসা বা স্টার্টআপ "তালিকাভুক্ত হোন" বাটনে চাপ দিয়ে আবেদন করতে পারে। অ্যাডমিন ভেরিফিকেশনের পর এটি পাবলিক ডিরেক্টরিতে প্রকাশিত হয়। যেকোনো সময় তথ্য হালনাগাদ বা অপসারণের অনুরোধ করা যায়।',
+      'কুষ্টিয়ার যেকোনো চালু ব্যবসা বা স্টার্টআপ "পোর্টফোলিওতে যুক্ত হোন" বাটনে চাপ দিয়ে আবেদন করতে পারে। অ্যাডমিন ভেরিফিকেশনের পর এটি পাবলিক পোর্টফোলিওতে প্রকাশিত হয়। যেকোনো সময় তথ্য হালনাগাদ বা অপসারণের অনুরোধ করা যায়।',
     answerEn:
-      "Any operating business or startup from Kushtia can request a listing. After verification, it appears in our public directory at no cost.",
+      "Any operating business or startup from Kushtia can request a listing. After verification, it appears in our public portfolio at no cost.",
   },
   {
     id: "faq-5",

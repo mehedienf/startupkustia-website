@@ -4,15 +4,15 @@ import { useLanguage } from "@/context/LanguageContext";
 import { Building2, CheckCircle, Send, X } from "lucide-react";
 import React, { useState } from "react";
 
-interface DirectoryModalProps {
+interface PortfolioModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export default function DirectoryModal({
+export default function PortfolioModal({
   isOpen,
   onClose,
-}: DirectoryModalProps) {
+}: PortfolioModalProps) {
   const { language } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -52,8 +52,8 @@ export default function DirectoryModal({
             <Building2 className="w-5 h-5 text-brand-accent-light" />
             <h3 className="font-bold text-lg text-white">
               {isBn
-                ? "ডিরেক্টরিতে তালিকাভুক্ত হোন"
-                : "List in Startup Kushtia Directory"}
+                ? "পোর্টফোলিওতে তালিকাভুক্ত হোন"
+                : "List in Startup Kushtia Portfolio"}
             </h3>
           </div>
           <button
@@ -78,8 +78,8 @@ export default function DirectoryModal({
               </h4>
               <p className="text-sm text-[#444E69] max-w-sm mx-auto">
                 {isBn
-                  ? "আপনার ব্যবসা বা স্টার্টআপের তথ্য যাচাই করে দ্রুত ডিরেক্টরিতে লাইভ করা হবে। কোনো তথ্যের প্রয়োজনে আমরা আপনার সাথে যোগাযোগ করব।"
-                  : "Our admin team will review and verify the listing details before publishing to the public directory."}
+                  ? "আপনার ব্যবসা বা স্টার্টআপের তথ্য যাচাই করে দ্রুত পোর্টফোলিওতে লাইভ করা হবে। কোনো তথ্যের প্রয়োজনে আমরা আপনার সাথে যোগাযোগ করব।"
+                  : "Our admin team will review and verify the venture details before publishing to the public portfolio."}
               </p>
               <div className="pt-4">
                 <button
@@ -95,8 +95,8 @@ export default function DirectoryModal({
             <form onSubmit={handleSubmit} className="space-y-3.5 text-left">
               <p className="text-xs text-[#444E69]">
                 {isBn
-                  ? "কুষ্টিয়ার উদ্যোক্তাদের পাবলিক ডিরেক্টরিতে আপনার উদ্যোগ অন্তর্ভুক্ত করে আরও গ্রাহক, বিনিয়োগকারী ও পার্টনারদের দৃষ্টি আকর্ষণ করুন।"
-                  : "Add your Kushtia venture to the public ecosystem directory for increased visibility."}
+                  ? "কুষ্টিয়ার উদ্যোক্তাদের পাবলিক পোর্টফোলিওতে আপনার উদ্যোগ অন্তর্ভুক্ত করে আরও গ্রাহক, বিনিয়োগকারী ও পার্টনারদের দৃষ্টি আকর্ষণ করুন।"
+                  : "Add your Kushtia venture to the public ecosystem portfolio for increased visibility."}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

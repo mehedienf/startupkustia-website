@@ -430,7 +430,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
               COLUMN 4 (Right): Founding Circle & Regional Hub
              ======================================================== */}
           <div className="flex flex-col gap-4 sm:gap-5 h-full">
-            {/* Card 3A: Kushtia Founding Circle & Verified Directory (White Card) */}
+            {/* Card 3A: Kushtia Founding Circle & Verified Portfolio (White Card) */}
             <div
               onClick={onSelectCategory}
               className="bg-white rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 cursor-pointer relative overflow-hidden min-h-[340px]"

@@ -62,18 +62,18 @@ export default function PolicyModal({ type, onClose }: PolicyModalProps) {
               </h4>
               <p>
                 {isBn
-                  ? "কমিউনিটি মেম্বারশিপ ফর্ম, ডিরেক্টরি সাবমিশন অথবা অ্যাম্বাসেডর আবেদনের মাধ্যমে আপনি যে নাম, ইমেইল, মোবাইল নম্বর এবং প্রাতিষ্ঠানিক তথ্য প্রদান করেন, তা শুধুমাত্র কমিউনিটি যোগাযোগ, নেটওয়ার্কিং ও অনুমোদিত প্ল্যাটফর্ম কার্যক্রমের জন্য সংরক্ষিত হয়।"
+                  ? "কমিউনিটি মেম্বারশিপ ফর্ম, পোর্টফোলিও সাবমিশন অথবা অ্যাম্বাসেডর আবেদনের মাধ্যমে আপনি যে নাম, ইমেইল, মোবাইল নম্বর এবং প্রাতিষ্ঠানিক তথ্য প্রদান করেন, তা শুধুমাত্র কমিউনিটি যোগাযোগ, নেটওয়ার্কিং ও অনুমোদিত প্ল্যাটফর্ম কার্যক্রমের জন্য সংরক্ষিত হয়।"
                   : "We collect relevant contact details like name, email, phone number, and venture information strictly to facilitate networking, mentorship, and ecosystem matchmaking."}
               </p>
               <h4 className="font-bold text-heading text-base">
                 {isBn
-                  ? "২. ডিরেক্টরি ডেটা ও দৃশ্যমানতা"
-                  : "2. Directory Visibility"}
+                  ? "২. পোর্টফোলিও ডেটা ও দৃশ্যমানতা"
+                  : "2. Portfolio Visibility"}
               </h4>
               <p>
                 {isBn
-                  ? "পাবলিক ডিরেক্টরিতে কেবল মাত্র আপনার প্রদত্ত ব্যবসার নাম, বিবরণ ও সর্বজনীন যোগাযোগের তথ্য প্রদর্শিত হবে। আপনি যেকোনো সময় আপনার তথ্য হালনাগাদ বা মুছে ফেলার জন্য অনুরোধ করতে পারেন।"
-                  : "Only authorized public information will be published in the public directory. You may request modifications or deletions at any time."}
+                  ? "পাবলিক পোর্টফোলিওতে কেবল মাত্র আপনার প্রদত্ত ব্যবসার নাম, বিবরণ ও সর্বজনীন যোগাযোগের তথ্য প্রদর্শিত হবে। আপনি যেকোনো সময় আপনার তথ্য হালনাগাদ বা মুছে ফেলার জন্য অনুরোধ করতে পারেন।"
+                  : "Only authorized public information will be published in the public portfolio. You may request modifications or deletions at any time."}
               </p>
               <h4 className="font-bold text-heading text-base">
                 {isBn
