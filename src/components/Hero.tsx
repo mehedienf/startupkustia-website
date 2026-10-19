@@ -4,7 +4,102 @@ import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
 import { ArrowRight, Compass, Rocket } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+
+
+interface RotatingTypewriterProps {
+  words: string[];
+  typingSpeed?: number;
+  deletingSpeed?: number;
+  pauseDuration?: number;
+  pauseEmptyDuration?: number;
+}
+
+function RotatingTypewriter({
+  words,
+  typingSpeed = 75,
+  deletingSpeed = 50,
+  pauseDuration = 2400,
+  pauseEmptyDuration = 450,
+}: RotatingTypewriterProps) {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  // Split all words into grapheme clusters for pristine Bengali & English typing & backspacing
+  const segmentedWords = useMemo(() => {
+    return words.map((word) => {
+      if (typeof Intl !== "undefined" && "Segmenter" in Intl) {
+        try {
+          const segmenter = new Intl.Segmenter(undefined, {
+            granularity: "grapheme",
+          });
+          return Array.from(segmenter.segment(word), (s) => s.segment);
+        } catch {
+          return Array.from(word);
+        }
+      }
+      return Array.from(word);
+    });
+  }, [words]);
+
+  const currentGraphemes =
+    segmentedWords[wordIndex % segmentedWords.length] || [];
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+
+    if (!isDeleting && subIndex < currentGraphemes.length) {
+      // Typing forward
+      timeout = setTimeout(() => {
+        setSubIndex((prev) => prev + 1);
+      }, typingSpeed);
+    } else if (!isDeleting && subIndex === currentGraphemes.length) {
+      // Finished typing full word: pause so user can read it
+      timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, pauseDuration);
+    } else if (isDeleting && subIndex > 0) {
+      // Deleting backward (backspace effect)
+      timeout = setTimeout(() => {
+        setSubIndex((prev) => prev - 1);
+      }, deletingSpeed);
+    } else if (isDeleting && subIndex === 0) {
+      // Word completely erased: pause briefly then advance to next word
+      timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setWordIndex((prev) => (prev + 1) % segmentedWords.length);
+      }, pauseEmptyDuration);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [
+    subIndex,
+    isDeleting,
+    currentGraphemes.length,
+    segmentedWords.length,
+    typingSpeed,
+    deletingSpeed,
+    pauseDuration,
+    pauseEmptyDuration,
+  ]);
+
+  const visibleText = currentGraphemes.slice(0, subIndex).join("");
+
+  return (
+    <span className="relative inline-block align-baseline mx-1 py-1.5 sm:py-2.5 px-1 sm:px-2 overflow-visible">
+      {/* Animated text with colorful shimmering internal gradient light */}
+      <span className="inline-block py-1 sm:py-2 px-1 animate-aura-text font-black drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)]">
+        {visibleText || "\u00A0"}
+      </span>
+      {/* Typewriter pulsating cursor */}
+      <span
+        className="inline-block w-[3px] sm:w-[4px] h-[0.85em] bg-brand-accent-light ml-1 sm:ml-1.5 align-middle animate-pulse"
+        aria-hidden="true"
+      />
+    </span>
+  );
+}
 
 export default function Hero() {
   const { language } = useLanguage();
@@ -24,23 +119,6 @@ export default function Hero() {
     "Next-Gen Founders",
     "Global Ventures",
   ];
-
-  const words = isBn ? rotatingWordsBn : rotatingWordsEn;
-
-  const [wordIndex, setWordIndex] = useState(0);
-  const [fadeAnim, setFadeAnim] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFadeAnim(false);
-      setTimeout(() => {
-        setWordIndex((prev) => (prev + 1) % words.length);
-        setFadeAnim(true);
-      }, 400);
-    }, 4500);
-
-    return () => clearInterval(interval);
-  }, [words.length]);
 
   return (
     <section
@@ -96,39 +174,17 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Main H1 Headline with Dynamic Animated Words */}
+        {/* Main H1 Headline with Dynamic Typewriter Animated Words */}
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight max-w-5xl leading-[1.32] sm:leading-[1.26] md:leading-[1.24] text-white font-display mb-6 py-2 sm:py-4 px-2 drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] overflow-visible">
           {isBn ? (
             <>
-              কুষ্টিয়া থেকে গড়ে তুলুন আগামীর{" "}
-              <span className="relative inline-block align-baseline mx-1 py-1.5 sm:py-2.5 px-1 sm:px-2 overflow-visible">
-                {/* Animated text with colorful shimmering internal gradient light */}
-                <span
-                  className={`inline-block py-1 sm:py-2 px-1 animate-aura-text font-black transition-all duration-400 ease-out drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] ${
-                    fadeAnim
-                      ? "opacity-100 translate-y-0 scale-100"
-                      : "opacity-0 -translate-y-2 scale-95"
-                  }`}
-                >
-                  {words[wordIndex]}
-                </span>
-              </span>
+              <span className="block">কুষ্টিয়া থেকে গড়ে তুলুন আগামীর</span>
+              <RotatingTypewriter key="hero-title-bn" words={rotatingWordsBn} />
             </>
           ) : (
             <>
-              Empowering Kushtia’s{" "}
-              <span className="relative inline-block align-baseline mx-1 py-1.5 sm:py-2.5 px-1 sm:px-2 overflow-visible">
-                {/* Animated text with colorful shimmering internal gradient light */}
-                <span
-                  className={`inline-block py-1 sm:py-2 px-1 animate-aura-text font-black transition-all duration-400 ease-out drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] ${
-                    fadeAnim
-                      ? "opacity-100 translate-y-0 scale-100"
-                      : "opacity-0 -translate-y-2 scale-95"
-                  }`}
-                >
-                  {words[wordIndex]}
-                </span>
-              </span>
+              <span className="block">Empowering Kushtia’s</span>
+              <RotatingTypewriter key="hero-title-en" words={rotatingWordsEn} />
             </>
           )}
         </h1>
