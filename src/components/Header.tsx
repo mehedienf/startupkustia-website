@@ -212,7 +212,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
               onClick={(e) => scrollToSection(e, "ambassadors")}
               className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all cursor-pointer text-left"
             >
-              {isBn ? "ক্যাম্পাস অ্যাম্বাসেডর" : "Ambassadors"}
+              {isBn ? "অ্যাম্বাসেডর" : "Ambassadors"}
             </Link>
             <Link
               href="/"

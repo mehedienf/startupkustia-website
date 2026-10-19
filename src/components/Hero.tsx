@@ -87,14 +87,21 @@ function RotatingTypewriter({
   const visibleText = currentGraphemes.slice(0, subIndex).join("");
 
   return (
-    <span className="relative inline-block align-baseline mx-1 py-1.5 sm:py-2.5 px-1 sm:px-2 overflow-visible">
+    <span className="relative inline-flex items-center justify-center align-middle min-h-[1.32em] sm:min-h-[1.26em] mx-1 py-1 sm:py-2 px-1 sm:px-2 overflow-visible">
       {/* Animated text with colorful shimmering internal gradient light */}
-      <span className="inline-block py-1 sm:py-2 px-1 animate-aura-text font-normal sm:font-medium drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)]">
-        {visibleText || "\u00A0"}
+      <span className="inline-flex items-center py-1 sm:py-2 px-1 animate-aura-text font-normal sm:font-medium drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] whitespace-nowrap">
+        <span>{visibleText}</span>
+        {/* Invisible typographic strut guaranteeing line-height & baseline never collapse */}
+        <span
+          className="inline-block opacity-0 w-0 select-none pointer-events-none"
+          aria-hidden="true"
+        >
+          {"\u200B"}অM
+        </span>
       </span>
       {/* Typewriter pulsating cursor */}
       <span
-        className="inline-block w-[3px] sm:w-[4px] h-[0.85em] bg-brand-accent-light ml-1 sm:ml-1.5 align-middle animate-pulse"
+        className="inline-block w-[3px] sm:w-[4px] h-[0.85em] bg-brand-accent-light ml-1 sm:ml-1.5 align-middle animate-pulse shrink-0"
         aria-hidden="true"
       />
     </span>
@@ -161,12 +168,16 @@ export default function Hero() {
           {isBn ? (
             <>
               <span className="block">কুষ্টিয়া থেকে গড়ে তুলুন আগামীর</span>
-              <RotatingTypewriter key="hero-title-bn" words={rotatingWordsBn} />
+              <span className="block mt-1 sm:mt-2 min-h-[1.32em] sm:min-h-[1.26em]">
+                <RotatingTypewriter key="hero-title-bn" words={rotatingWordsBn} />
+              </span>
             </>
           ) : (
             <>
               <span className="block">Empowering Kushtia’s</span>
-              <RotatingTypewriter key="hero-title-en" words={rotatingWordsEn} />
+              <span className="block mt-1 sm:mt-2 min-h-[1.32em] sm:min-h-[1.26em]">
+                <RotatingTypewriter key="hero-title-en" words={rotatingWordsEn} />
+              </span>
             </>
           )}
         </h1>
