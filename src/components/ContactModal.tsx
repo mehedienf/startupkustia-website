@@ -97,13 +97,13 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   <span>{SITE_CONFIG.email}</span>
                 </a>
                 <a
-                  href={SITE_CONFIG.whatsappUrl}
+                  href={SITE_CONFIG.whatsappChannelUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-brand transition-colors"
                 >
                   <Whatsapp className="w-4 h-4 text-brand" />
-                  <span>{SITE_CONFIG.whatsapp} (WhatsApp)</span>
+                  <span>{isBn ? "হোয়াটসঅ্যাপ চ্যানেল" : "WhatsApp Channel"}</span>
                 </a>
               </div>
 

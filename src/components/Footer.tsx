@@ -219,17 +219,6 @@ export default function Footer({ onOpenPolicy }: FooterProps) {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Whatsapp className="w-4 h-4 text-brand-accent-light shrink-0" />
-                <a
-                  href={SITE_CONFIG.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  {SITE_CONFIG.whatsapp} (হোয়াটসঅ্যাপ)
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-brand-accent-light shrink-0" />
                 <span>
                   {isBn ? "কুষ্টিয়া, বাংলাদেশ" : "Kushtia, Bangladesh"}

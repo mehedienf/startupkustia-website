@@ -27,8 +27,6 @@ export const SITE_CONFIG = {
   locationBn: "কুষ্টিয়া · বাংলাদেশ",
   locationEn: "Kushtia · Bangladesh",
   email: "startupkushtia@gmail.com",
-  whatsapp: "+880 1710-590259",
-  whatsappUrl: "https://wa.me/8801710590259",
   whatsappChannelUrl:
     "https://chat.whatsapp.com/CA9Exy8MAMm4n7SNnSKsdm?s=cl&p=a&mlu=4&ilr=4",
   facebookUrl: "https://facebook.com/startupkushtia",
@@ -738,8 +736,8 @@ export const FAQ_ITEMS: FaqItem[] = [
     questionBn: "কীভাবে পার্টনার বা স্পনসর হওয়া যায়?",
     questionEn: "How can I become an institutional partner or sponsor?",
     answerBn:
-      "আমাদের ইমেইল startupkushtia@gmail.com অথবা হোয়াটসঅ্যাপে (+৮৮০ ১৭১০-৫৯০২৫৯) বার্তা পাঠালে আমরা প্রাতিষ্ঠানিক পার্টনারশিপ ও স্পনসরশিপের বিস্তারিত প্রস্তাবনা পাঠিয়ে দেব।",
+      "আমাদের ইমেইল startupkushtia@gmail.com অথবা অফিশিয়াল ফেসবুক পেজ ও হোয়াটসঅ্যাপ চ্যানেলে বার্তা পাঠালে আমরা প্রাতিষ্ঠানিক পার্টনারশিপ ও স্পনসরশিপের বিস্তারিত প্রস্তাবনা পাঠিয়ে দেব।",
     answerEn:
-      "Email us at startupkushtia@gmail.com or contact us via WhatsApp (+880 1710-590259) to receive our partnership proposal.",
+      "Email us at startupkushtia@gmail.com or connect with us via our official WhatsApp Channel or Facebook page to receive our partnership proposal.",
   },
 ];

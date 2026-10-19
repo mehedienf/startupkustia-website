@@ -6,7 +6,6 @@ import {
   ExternalLink,
   Mail,
   MapPin,
-  Phone,
   Sparkles,
 } from "lucide-react";
 import { Facebook, Whatsapp } from "react-bootstrap-icons";
@@ -26,33 +25,29 @@ export default function ContactSidebar({ isBn }: ContactSidebarProps) {
           </div>
           <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-accent-light/15 text-brand-accent-light text-xs font-bold">
             <span className="w-2 h-2 rounded-full bg-brand-accent-light animate-pulse"></span>
-            <span>{isBn ? "লাইভ রেসপন্স" : "Live Hotline"}</span>
+            <span>{isBn ? "লাইভ আপডেট" : "Live Updates"}</span>
           </span>
         </div>
 
         <h3 className="text-lg font-black text-white mb-2">
-          {isBn ? "তাৎক্ষণিক হোয়াটসঅ্যাপ সাপোর্ট" : "Instant WhatsApp"}
+          {isBn ? "হোয়াটসঅ্যাপ চ্যানেল" : "WhatsApp Channel"}
         </h3>
 
-        <p className="text-xs text-slate-300 leading-relaxed mb-4">
+        <p className="text-xs text-slate-300 leading-relaxed mb-5">
           {isBn
-            ? "জরুরি প্রশ্ন বা দ্রুত সংযোগের জন্য আমাদের অফিশিয়াল হোয়াটসঅ্যাপ নম্বরে সরাসরি বার্তা পাঠান।"
-            : "For rapid replies and live support, reach out to our official WhatsApp helpline directly."}
+            ? "সকল ইভেন্ট আপডেট, নতুন সুযোগ ও সরাসরি ঘোষণার সাথে যুক্ত থাকতে আমাদের অফিশিয়াল হোয়াটসঅ্যাপ চ্যানেলে যোগ দিন।"
+            : "Join our official WhatsApp channel for real-time announcements, founder events, and ecosystem opportunities."}
         </p>
 
-        <div className="text-sm font-black text-brand-accent-light mb-5 tracking-wide">
-          {SITE_CONFIG.whatsapp}
-        </div>
-
         <a
-          href={SITE_CONFIG.whatsappUrl}
+          href={SITE_CONFIG.whatsappChannelUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="w-full py-3 px-4 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs btn-hard flex items-center justify-center gap-2 transition-all"
         >
           <Whatsapp className="w-4 h-4" />
           <span>
-            {isBn ? "হোয়াটসঅ্যাপে চ্যাট করুন" : "Start WhatsApp Chat"}
+            {isBn ? "চ্যানেলে যুক্ত হোন" : "Join WhatsApp Channel"}
           </span>
           <ExternalLink className="w-3.5 h-3.5" />
         </a>
@@ -79,21 +74,6 @@ export default function ContactSidebar({ isBn }: ContactSidebarProps) {
             >
               {SITE_CONFIG.email}
             </a>
-          </div>
-        </div>
-
-        {/* Phone Item */}
-        <div className="flex items-start gap-3.5">
-          <div className="w-10 h-10 rounded-xl bg-brand-soft text-brand flex items-center justify-center shrink-0">
-            <Phone className="w-5 h-5" />
-          </div>
-          <div className="min-w-0">
-            <div className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-              {isBn ? "ফোন / হেল্পলাইন" : "Phone / Helpline"}
-            </div>
-            <div className="text-sm font-bold text-heading">
-              {SITE_CONFIG.whatsapp}
-            </div>
           </div>
         </div>
 
