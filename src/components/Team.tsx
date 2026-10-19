@@ -122,7 +122,7 @@ export default function Team() {
               <span>{isBn ? "কোর টিম" : "Core Leadership"}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-heading tracking-tight leading-tight">
-              {isBn ? "যাঁদের হাত ধরে শুরু" : "Meet the Founding Team"}
+              {isBn ? "যাঁদের হাত ধরে শুরু" : "Meet the Team"}
             </h2>
             <p className="mt-3 text-base text-[#444E69] max-w-lg">
               {isBn
@@ -283,7 +283,7 @@ export default function Team() {
                       {isBn ? "কুষ্টিয়া চ্যাপ্টার" : "Kushtia Chapter"}
                     </span>
                     <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-500 text-xs font-semibold">
-                      {isBn ? "ফাউন্ডিং মেম্বার" : "Founding Member"}
+                      {isBn ? activeMember.categoryBn : activeMember.categoryEn}
                     </span>
                   </div>
                 </div>

@@ -22,6 +22,8 @@ export interface TeamMember {
   id: string;
   nameBn: string;
   nameEn: string;
+  categoryBn: string;
+  categoryEn: string;
   roleBn: string;
   roleEn: string;
   designationBn: string;
