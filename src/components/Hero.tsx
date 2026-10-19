@@ -91,17 +91,10 @@ function RotatingTypewriter({
       {/* Animated text with colorful shimmering internal gradient light */}
       <span className="inline-flex items-center py-1 sm:py-2 px-1 animate-aura-text font-normal sm:font-medium drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] whitespace-nowrap">
         <span>{visibleText}</span>
-        {/* Invisible typographic strut guaranteeing line-height & baseline never collapse */}
-        <span
-          className="inline-block opacity-0 w-0 select-none pointer-events-none"
-          aria-hidden="true"
-        >
-          {"\u200B"}অM
-        </span>
       </span>
       {/* Typewriter pulsating cursor */}
       <span
-        className="inline-block w-[3px] sm:w-[4px] h-[0.85em] bg-brand-accent-light ml-1 sm:ml-1.5 align-middle animate-pulse shrink-0"
+        className="inline-block w-[3px] sm:w-[4px] md:w-[4.5px] h-[0.85em] bg-brand-accent-light ml-2 sm:ml-2.5 md:ml-3 align-middle rounded-full animate-pulse shrink-0"
         aria-hidden="true"
       />
     </span>
