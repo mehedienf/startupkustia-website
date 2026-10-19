@@ -360,7 +360,7 @@ export const LAUNCHPAD_TRACKS: LaunchpadTrack[] = [
       "কাঁচা ভাবনাকে মার্কেট রিসার্চ, কাস্টমার ডিসকভারি ও দ্রুত প্রোটোটাইপিংয়ের মাধ্যমে টেকসই ব্যবসায়িক মডেলে রূপান্তর।",
     descEn:
       "Turn raw concepts into tested startup models via structured customer discovery and lean business canvas validation.",
-    coverImage: "/images/events/event3_bootcamp.jpg",
+    coverImage: "/images/launchpad/track1_validation.jpg",
     highlightsBn: ["কাস্টমার ডিসকভারি", "বিজনেস মডেল ক্যানভাস", "এমভিপি প্রোটোটাইপ"],
     highlightsEn: ["Customer Discovery", "Lean Canvas", "MVP Prototyping"],
   },
@@ -374,7 +374,7 @@ export const LAUNCHPAD_TRACKS: LaunchpadTrack[] = [
       "সফল স্টার্টআপ প্রতিষ্ঠাতা ও ইন্ডাস্ট্রি বিশেষজ্ঞদের কাছ থেকে প্রতি সপ্তাহে প্র্যাকটিক্যাল গাইডলাইন ও রোডব্লক দূরীকরণ।",
     descEn:
       "Hands-on weekly coaching from veteran founders to debug roadblocks, optimize unit economics, and accelerate growth.",
-    coverImage: "/images/events/event1_meetup.jpg",
+    coverImage: "/images/launchpad/track2_mentorship.jpg",
     highlightsBn: ["সাপ্তাহিক ওয়ান-অন-ওয়ান", "গ্রোথ রোডম্যাপ", "ফাউন্ডার ট্রাবলশুটিং"],
     highlightsEn: ["Weekly 1-on-1s", "Growth Roadmap", "Founder Troubleshooting"],
   },
@@ -388,7 +388,7 @@ export const LAUNCHPAD_TRACKS: LaunchpadTrack[] = [
       "আধুনিক জেনারেটিভ এআই, এলএলএম এপিআই, ক্লাউড আর্কিটেকচার এবং অটোমেশন দিয়ে কুষ্টিয়া থেকেই বৈশ্বিক মানের ডিজিটাল প্রোডাক্ট তৈরি।",
     descEn:
       "Build global-grade digital products from Kushtia leveraging Generative AI, cloud infrastructure, and modern developer tools.",
-    coverImage: "/images/events/event2_workshop.jpg",
+    coverImage: "/images/launchpad/track3_technology.jpg",
     highlightsBn: ["জেনারেটিভ এআই ও এলএলএম", "ক্লাউড আর্কিটেকচার", "ফুল-স্ট্যাক স্কেলিং"],
     highlightsEn: ["Generative AI & LLMs", "Cloud Architecture", "Full-Stack Scale"],
   },
@@ -402,7 +402,7 @@ export const LAUNCHPAD_TRACKS: LaunchpadTrack[] = [
       "আন্তর্জাতিক মানের পিচ ডেক তৈরি, কুষ্টিয়া ও জাতীয় পর্যায়ের অ্যাঞ্জেল ইনভেস্টরদের সামনে পিচ এবং সিড ফান্ডিংয়ের সংযোগ।",
     descEn:
       "Craft world-class investor pitch decks, present at our regional Demo Day, and connect with active angel networks.",
-    coverImage: "/images/directory/shilaidaha_agro_cover.jpg",
+    coverImage: "/images/launchpad/track4_investment.jpg",
     highlightsBn: ["ইনভেস্টর পিচ ডেক", "অ্যাঞ্জেল নেটওয়ার্ক", "ডেমো ডে ২০২৬"],
     highlightsEn: ["Pitch Deck Polish", "Angel Network", "Demo Day 2026"],
   },
