@@ -57,21 +57,34 @@ export default function About({ onSelectCategory }: AboutProps) {
             {/* Card 1A: Islamic University & Campus Innovations */}
             <div
               onClick={onSelectCategory}
-              className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer flex-1 min-h-[310px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
+              className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer flex-1 min-h-[310px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)] relative overflow-hidden"
             >
+              {/* Background pattern: concentric arcs (graduation ring motif) */}
+              <svg
+                className="absolute -bottom-6 -right-6 w-36 h-36 opacity-[0.065] pointer-events-none"
+                viewBox="0 0 120 120"
+                aria-hidden="true"
+              >
+                <circle cx="105" cy="105" r="24" fill="none" stroke="#D92656" strokeWidth="4"/>
+                <circle cx="105" cy="105" r="42" fill="none" stroke="#D92656" strokeWidth="4"/>
+                <circle cx="105" cy="105" r="60" fill="none" stroke="#D92656" strokeWidth="4"/>
+                <circle cx="105" cy="105" r="78" fill="none" stroke="#D92656" strokeWidth="4"/>
+                <circle cx="105" cy="105" r="96" fill="none" stroke="#D92656" strokeWidth="4"/>
+              </svg>
+
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-9 h-9 rounded-xl bg-white/75 border border-white/80 text-brand flex items-center justify-center shadow-2xs">
                     <GraduationCap className="w-4 h-4" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
                     {isBn ? "ক্যাম্পাস ইনোভেশন" : "Campus Hub"}
                   </span>
                 </div>
 
-                <p className="text-xs font-bold text-slate-800 tracking-tight uppercase">
+                <p className="text-sm font-bold text-slate-800 tracking-tight uppercase">
                   {isBn
-                    ? "ইসলামী বিশ্ববিদ্যালয় ও তরুণ মেধা"
+                    ? "ইসলামী বিশ্ববিদ্যালয় ও তরুণ মেধা"
                     : "IU Campus & Youth Hub"}
                 </p>
 
@@ -106,7 +119,7 @@ export default function About({ onSelectCategory }: AboutProps) {
                     <span className="text-2xl font-extrabold text-slate-900 tracking-tight">
                       {isBn ? "৮৫%" : "85%"}
                     </span>
-                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
                       {isBn ? "আইডিয়া যাচাই" : "Validated"}
                     </span>
                   </div>
@@ -117,20 +130,17 @@ export default function About({ onSelectCategory }: AboutProps) {
                 <div className="text-3xl font-extrabold text-slate-900 tracking-tight">
                   {isBn ? "১২+" : "12+"}
                 </div>
-                <p className="text-xs text-[#525D7A] font-medium mt-1 leading-snug">
+                <p className="text-sm text-[#525D7A] font-medium mt-1 leading-snug">
                   {isBn
-                    ? "ইসলামী বিশ্ববিদ্যালয় ও কুষ্টিয়ার কলেজ ক্যাম্পাস"
+                    ? "ইসলামী বিশ্ববিদ্যালয় ও কুষ্টিয়ার কলেজ ক্যাম্পাস"
                     : "Islamic University & Kushtia Colleges"}
                 </p>
-                <div className="flex items-center justify-center gap-1.5 mt-2.5 flex-wrap">
-                  <span className="text-[10px] font-semibold bg-white/80 px-2 py-0.5 rounded-md text-slate-700 border border-white/60">
+                <div className="pb-2 flex items-center justify-center gap-1.5 mt-2.5 flex-wrap">
+                  <span className="text-xs font-semibold bg-white/80 px-2.5 py-0.5 rounded-md text-slate-700 border border-white/60">
                     IU Campus
                   </span>
-                  <span className="text-[10px] font-semibold bg-white/80 px-2 py-0.5 rounded-md text-slate-700 border border-white/60">
+                  <span className="text-xs font-semibold bg-white/80 px-2.5 py-0.5 rounded-md text-slate-700 border border-white/60">
                     {isBn ? "পলিটেকনিক" : "Polytechnic"}
-                  </span>
-                  <span className="text-[10px] font-semibold bg-white/80 px-2 py-0.5 rounded-md text-slate-700 border border-white/60">
-                    {isBn ? "কুষ্টিয়া সদর" : "Kushtia Sadar"}
                   </span>
                 </div>
               </div>
@@ -139,21 +149,35 @@ export default function About({ onSelectCategory }: AboutProps) {
             {/* Card 1B: Gorai Tech / Freelancers to SaaS Builders */}
             <div
               onClick={onSelectCategory}
-              className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer flex-1 min-h-[340px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
+              className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer flex-1 min-h-[340px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)] relative overflow-hidden"
             >
+              {/* Background pattern: dot grid (tech/code motif) */}
+              <svg
+                className="absolute inset-0 w-full h-full opacity-[0.055] pointer-events-none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <defs>
+                  <pattern id="dots-1b" x="0" y="0" width="18" height="18" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="1.5" fill="#D92656"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#dots-1b)"/>
+              </svg>
+
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-9 h-9 rounded-xl bg-white/75 border border-white/80 text-brand flex items-center justify-center shadow-2xs">
                     <Code2 className="w-4 h-4" />
                   </div>
-                  <span className="inline-block bg-[#18181B] text-white text-[10px] font-bold px-2.5 py-1 rounded-lg tracking-wide">
+                  <span className="inline-block bg-[#18181B] text-white text-xs font-bold px-2.5 py-1 rounded-lg tracking-wide">
                     {isBn ? "গড়াই টেক" : "Gorai Tech"}
                   </span>
                 </div>
 
                 <h3 className="text-base font-bold text-slate-900 leading-snug">
                   {isBn
-                    ? "ফ্রিল্যান্সার থেকে নিজস্ব SaaS ও সফটওয়্যার স্টার্টআপ"
+                    ? "ফ্রিল্যান্সার থেকে নিজস্ব SaaS ও সফটওয়্যার স্টার্টআপ"
                     : "Freelancers to Global SaaS Founders"}
                 </h3>
 
@@ -165,21 +189,21 @@ export default function About({ onSelectCategory }: AboutProps) {
                       <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
                     </div>
-                    <span className="text-[10px] text-slate-400 font-sans font-semibold">
+                    <span className="text-xs text-slate-400 font-sans font-semibold">
                       gorai.tech
                     </span>
                   </div>
-                  <div className="text-[11px] text-emerald-400 font-medium">
+                  <div className="text-xs text-emerald-400 font-medium">
                     <span>$ launch-saas --kushtia</span>
                   </div>
-                  <div className="flex items-center justify-between text-[10px] text-slate-300 pt-0.5">
-                    <span className="text-rose-300 font-bold">✓ AI & SaaS</span>
+                  <div className="flex items-center justify-between text-xs text-slate-300 pt-0.5">
+                    <span className="text-rose-300 font-bold">✓ AI &amp; SaaS</span>
                     <span className="text-emerald-400 font-bold">100% Local</span>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-brand-border/40 flex items-center justify-between text-xs font-bold text-brand group-hover:text-brand-hover transition-colors">
+              <div className="pt-3 border-t border-brand-border/40 flex items-center justify-between text-sm font-bold text-brand group-hover:text-brand-hover transition-colors">
                 <span>
                   {isBn ? "টেক কমিউনিটিতে যুক্ত হোন" : "Join Tech Circle"}
                 </span>
@@ -197,6 +221,22 @@ export default function About({ onSelectCategory }: AboutProps) {
               onClick={onSelectCategory}
               className="bg-white/50 backdrop-blur-md rounded-[32px] p-6 sm:p-8 flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer flex-1 min-h-[440px] border border-white/85 shadow-[0_8px_30px_-4px_rgba(217,38,86,0.06),inset_0_1px_1px_rgba(255,255,255,0.95)]"
             >
+              {/* Background pattern: diagonal brand stripe mesh */}
+              <svg
+                className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <defs>
+                  <pattern id="diag-2a" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                    <line x1="0" y1="0" x2="0" y2="28" stroke="#D92656" strokeWidth="2"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#diag-2a)"/>
+              </svg>
+              {/* Soft brand glow top-right */}
+              <div className="absolute -top-12 -right-12 w-48 h-48 bg-brand/10 rounded-full blur-2xl pointer-events-none" aria-hidden="true"/>
+
               {/* Top Metrics Row: Upazilas & Community Network */}
               <div className="flex items-start justify-between relative z-10 mb-4">
                 <div>
@@ -204,7 +244,7 @@ export default function About({ onSelectCategory }: AboutProps) {
                     <span>{isBn ? "৬টি উপজেলা" : "6 Upazilas"}</span>
                     <Heart className="w-5 h-5 fill-rose-500 text-rose-500" />
                   </div>
-                  <p className="text-xs text-slate-500 font-medium mt-1">
+                  <p className="text-sm text-slate-500 font-medium mt-1">
                     {isBn
                       ? "সমন্বিত কুষ্টিয়া জেলা নেটওয়ার্ক"
                       : "6 Upazilas of Kushtia Connected"}
@@ -212,7 +252,7 @@ export default function About({ onSelectCategory }: AboutProps) {
                 </div>
 
                 <div className="text-right">
-                  <span className="text-xs text-slate-400 font-medium">
+                  <span className="text-sm text-slate-500 font-medium">
                     {isBn ? "কমিউনিটি উদ্যোক্তা" : "Active Founders"}
                   </span>
                   <div className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight flex items-center justify-end gap-2">
@@ -231,12 +271,12 @@ export default function About({ onSelectCategory }: AboutProps) {
                   <Rocket className="w-8 h-8" />
                 </div>
                 <div className="text-center">
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-slate-800">
+                  <span className="text-sm font-extrabold uppercase tracking-wider text-slate-800">
                     {isBn
                       ? "কুষ্টিয়া স্টার্টআপ ইকোসিস্টেম হাব"
                       : "Kushtia Startup Ecosystem Hub"}
                   </span>
-                  <p className="text-[11px] text-slate-600 mt-0.5">
+                  <p className="text-sm text-slate-600 mt-1">
                     {isBn
                       ? "আইডিয়া ইনকিউবেশন · টেক মেন্টরশিপ · সিড নেটওয়ার্ক"
                       : "Idea Incubation · Tech Mentorship · Seed Network"}
@@ -247,7 +287,7 @@ export default function About({ onSelectCategory }: AboutProps) {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 w-full mt-5">
                   {/* Pod 1: Pipeline */}
                   <div className="p-3 rounded-xl bg-white/75 border border-white/80 shadow-2xs">
-                    <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider block mb-1.5">
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-1.5">
                       {isBn ? "আইডিয়া ➔ এমভিপি" : "Ideate ➔ MVP"}
                     </span>
                     <div className="flex items-end gap-1.5 h-6">
@@ -277,14 +317,14 @@ export default function About({ onSelectCategory }: AboutProps) {
                   {/* Pod 2: Community Attendees */}
                   <div className="p-3 rounded-xl bg-white/75 border border-white/80 shadow-2xs flex flex-col justify-between">
                     <div>
-                      <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider block">
+                      <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
                         {isBn ? "মিটআপ উপস্থিতি" : "Attendees"}
                       </span>
                       <span className="text-sm font-extrabold text-slate-900 block leading-tight mt-0.5">
                         {isBn ? "১,২০০+" : "1,200+"}
                       </span>
                     </div>
-                    <span className="text-[9px] text-emerald-600 font-bold mt-1">
+                    <span className="text-xs text-emerald-600 font-bold mt-1">
                       {isBn ? "নিয়মিত সেশন" : "Regular Sessions"}
                     </span>
                   </div>
@@ -292,14 +332,14 @@ export default function About({ onSelectCategory }: AboutProps) {
                   {/* Pod 3: Regional Scope */}
                   <div className="p-3 rounded-xl bg-white/75 border border-white/80 shadow-2xs flex flex-col justify-between">
                     <div>
-                      <span className="text-[9px] font-bold text-slate-500 uppercase tracking-wider block">
+                      <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">
                         {isBn ? "তৃণমূল উদ্ভাবন" : "Grassroots"}
                       </span>
                       <span className="text-xs font-bold text-slate-900 block leading-tight mt-0.5">
                         {isBn ? "পদ্মা ও গড়াই" : "Padma & Gorai"}
                       </span>
                     </div>
-                    <span className="text-[9px] font-bold text-brand mt-1">
+                    <span className="text-xs font-bold text-brand mt-1">
                       {isBn ? "▲ রিজিওনাল টু গ্লোবাল" : "▲ Regional to Global"}
                     </span>
                   </div>
@@ -308,12 +348,12 @@ export default function About({ onSelectCategory }: AboutProps) {
 
               {/* Bottom Official Slogan */}
               <div className="relative z-10 pt-2 text-center sm:text-left">
-                <span className="text-xs font-bold text-brand uppercase tracking-wider">
+                <span className="text-sm font-bold text-brand uppercase tracking-wider">
                   {isBn
                     ? "বিল্ডিং ব্লকস · কানেক্টিং ডটস"
                     : "Building Blocks · Connecting Dots"}
                 </span>
-                <p className="text-sm font-bold text-heading mt-0.5">
+                <p className="text-base font-bold text-heading mt-1">
                   {isBn
                     ? "জ্ঞান, মেন্টরশিপ, প্রযুক্তি ও নেটওয়ার্কে কুষ্টিয়ার উদ্যোক্তাদের ঐক্যবদ্ধ প্ল্যাটফর্ম"
                     : "Connecting ideas, founders & capital across Kushtia"}
@@ -326,13 +366,27 @@ export default function About({ onSelectCategory }: AboutProps) {
               {/* Card 2B: 4 Core Building Blocks of Startup Kushtia */}
               <div
                 onClick={onSelectCategory}
-                className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 flex flex-col justify-between group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer min-h-[170px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
+                className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 flex flex-col justify-between group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer min-h-[170px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)] relative overflow-hidden"
               >
+                {/* Background pattern: stacked horizontal lines (building block strata) */}
+                <svg
+                  className="absolute bottom-0 left-0 w-full h-16 opacity-[0.05] pointer-events-none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <line x1="0" y1="4"  x2="100%" y2="4"  stroke="#D92656" strokeWidth="2.5"/>
+                  <line x1="0" y1="10" x2="100%" y2="10" stroke="#D92656" strokeWidth="2.5"/>
+                  <line x1="0" y1="16" x2="100%" y2="16" stroke="#D92656" strokeWidth="2.5"/>
+                  <line x1="0" y1="22" x2="100%" y2="22" stroke="#D92656" strokeWidth="2.5"/>
+                  <line x1="0" y1="28" x2="100%" y2="28" stroke="#D92656" strokeWidth="2.5"/>
+                  <line x1="0" y1="34" x2="100%" y2="34" stroke="#D92656" strokeWidth="2.5"/>
+                </svg>
+
                 <div>
                   <h4 className="text-xl font-extrabold text-slate-900">
                     {isBn ? "৪টি কোর বিল্ডিং ব্লক" : "4 Building Blocks"}
                   </h4>
-                  <p className="text-xs font-semibold text-slate-500 mt-0.5">
+                  <p className="text-sm font-semibold text-slate-500 mt-1">
                     {isBn
                       ? "উদ্যোগকে সফল করার ৪ ধাপ"
                       : "How We Accelerate Founders"}
@@ -342,28 +396,28 @@ export default function About({ onSelectCategory }: AboutProps) {
                 {/* The 4 Building Block Swatches */}
                 <div className="flex items-center gap-2 my-2.5">
                   <div className="flex-1 text-center">
-                    <span className="w-full h-7 rounded-lg bg-[#18181B] flex items-center justify-center text-[10px] font-bold text-white shadow-2xs">
+                    <span className="w-full h-7 rounded-lg bg-[#18181B] flex items-center justify-center text-xs font-bold text-white shadow-2xs">
                       {isBn ? "জ্ঞান" : "Info"}
                     </span>
                   </div>
                   <div className="flex-1 text-center">
-                    <span className="w-full h-7 rounded-lg bg-[#64748B] flex items-center justify-center text-[10px] font-bold text-white shadow-2xs">
+                    <span className="w-full h-7 rounded-lg bg-[#64748B] flex items-center justify-center text-xs font-bold text-white shadow-2xs">
                       {isBn ? "মেন্টর" : "Mentor"}
                     </span>
                   </div>
                   <div className="flex-1 text-center">
-                    <span className="w-full h-7 rounded-lg bg-[#D92656] flex items-center justify-center text-[10px] font-bold text-white shadow-2xs">
+                    <span className="w-full h-7 rounded-lg bg-[#D92656] flex items-center justify-center text-xs font-bold text-white shadow-2xs">
                       {isBn ? "প্রযুক্তি" : "Tech"}
                     </span>
                   </div>
                   <div className="flex-1 text-center">
-                    <span className="w-full h-7 rounded-lg bg-[#FDECEF] border border-brand/20 flex items-center justify-center text-[10px] font-bold text-brand shadow-2xs">
-                      {isBn ? "নেটওয়ার্ক" : "Capital"}
+                    <span className="w-full h-7 rounded-lg bg-[#FDECEF] border border-brand/20 flex items-center justify-center text-xs font-bold text-brand shadow-2xs">
+                      {isBn ? "নেটওয়ার্ক" : "Capital"}
                     </span>
                   </div>
                 </div>
 
-                <p className="text-[11px] text-[#525D7A] font-medium leading-relaxed">
+                <p className="text-sm text-[#525D7A] font-medium leading-relaxed">
                   {isBn
                     ? "জ্ঞান · মেন্টরশিপ · প্রযুক্তি · নেটওয়ার্ক"
                     : "Knowledge · Mentorship · Technology · Network"}
@@ -373,15 +427,27 @@ export default function About({ onSelectCategory }: AboutProps) {
               {/* Card 2C: Lalon & Tagore Heritage to Tech Innovation */}
               <div
                 onClick={onSelectCategory}
-                className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 flex items-center justify-between gap-3 group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer min-h-[170px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
+                className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 flex items-center justify-between gap-3 group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer min-h-[170px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)] relative overflow-hidden"
               >
+                {/* Background pattern: flowing river wave curves (heritage/cultural motif) */}
+                <svg
+                  className="absolute bottom-0 left-0 w-full h-20 opacity-[0.06] pointer-events-none"
+                  viewBox="0 0 200 40"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path d="M0 20 Q25 5 50 20 Q75 35 100 20 Q125 5 150 20 Q175 35 200 20" fill="none" stroke="#D92656" strokeWidth="2"/>
+                  <path d="M0 30 Q25 15 50 30 Q75 45 100 30 Q125 15 150 30 Q175 45 200 30" fill="none" stroke="#D92656" strokeWidth="1.5"/>
+                </svg>
+
                 <div>
                   <h4 className="text-base font-extrabold text-slate-900 leading-snug">
                     {isBn
                       ? "ঐতিহ্যের মাটি থেকে টেক-উদ্ভাবন"
                       : "Heritage Soil to Modern Tech"}
                   </h4>
-                  <p className="text-xs text-[#525D7A] font-medium mt-1.5 leading-relaxed">
+                  <p className="text-sm text-[#525D7A] font-medium mt-1.5 leading-relaxed">
                     {isBn
                       ? "তাঁত, জৈব কৃষি ও কুষ্টিয়ার সৃজনশীল মেধা — আধুনিক প্রযুক্তিতে বৈশ্বিক প্রসার।"
                       : "Preserving cultural heritage with modern tech solutions."}
@@ -389,7 +455,7 @@ export default function About({ onSelectCategory }: AboutProps) {
                 </div>
 
                 {/* 3D Asterisk / River Confluence Star Vector */}
-                <div className="shrink-0 group-hover:rotate-45 transition-transform duration-500">
+                {/* <div className="shrink-0 group-hover:rotate-45 transition-transform duration-500">
                   <svg
                     viewBox="0 0 100 100"
                     className="w-16 h-16 sm:w-20 sm:h-20"
@@ -417,7 +483,7 @@ export default function About({ onSelectCategory }: AboutProps) {
                     </g>
                     <circle cx="50" cy="50" r="14" fill="#09090b" />
                   </svg>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -431,12 +497,31 @@ export default function About({ onSelectCategory }: AboutProps) {
               onClick={onSelectCategory}
               className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 sm:p-7 flex flex-col justify-between group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer relative overflow-hidden min-h-[340px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
             >
+              {/* Background pattern: radial spokes (mentor network motif) */}
+              <svg
+                className="absolute -top-8 -right-8 w-40 h-40 opacity-[0.06] pointer-events-none"
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+              >
+                {[0,30,60,90,120,150].map(a => (
+                  <line
+                    key={a}
+                    x1="50" y1="50"
+                    x2={50 + 55 * Math.cos((a * Math.PI)/180)}
+                    y2={50 + 55 * Math.sin((a * Math.PI)/180)}
+                    stroke="#D92656" strokeWidth="2" strokeLinecap="round"
+                  />
+                ))}
+                <circle cx="50" cy="50" r="10" fill="none" stroke="#D92656" strokeWidth="2"/>
+                <circle cx="50" cy="50" r="28" fill="none" stroke="#D92656" strokeWidth="1.5"/>
+              </svg>
+
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div className="w-9 h-9 rounded-xl bg-white/75 border border-white/80 text-brand flex items-center justify-center shadow-2xs">
                     <Users className="w-4 h-4" />
                   </div>
-                  <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-500">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-slate-500">
                     {isBn ? "মেন্টর সার্কেল" : "Mentor Circle"}
                   </span>
                 </div>
@@ -467,13 +552,13 @@ export default function About({ onSelectCategory }: AboutProps) {
                   >
                     <Sparkles className="w-4 h-4" />
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-slate-700 text-white flex items-center justify-center text-[11px] font-bold border-2 border-white shadow-2xs shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-slate-700 text-white flex items-center justify-center text-xs font-bold border-2 border-white shadow-2xs shrink-0">
                     {isBn ? "+৫০" : "+50"}
                   </div>
                 </div>
 
                 <div className="pt-2">
-                  <span className="text-xs text-slate-500 font-medium">
+                  <span className="text-sm text-slate-500 font-medium">
                     {isBn
                       ? "তালিকাভুক্ত স্থানীয় ব্যবসা"
                       : "Listed Regional Ventures"}
@@ -481,7 +566,7 @@ export default function About({ onSelectCategory }: AboutProps) {
                   <div className="text-4xl font-extrabold text-slate-900 tracking-tight mt-0.5">
                     {isBn ? "৩০+" : "30+"}
                   </div>
-                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100 inline-block mt-1">
+                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100 inline-block mt-1">
                     {isBn ? "+৪০% নতুন উদ্যোগ" : "+40% New Ventures"}
                   </span>
                 </div>
@@ -491,9 +576,24 @@ export default function About({ onSelectCategory }: AboutProps) {
             {/* Card 3B: Startup Kushtia Hub — 3 Triple Helix Rings (Education ⋂ Business ⋂ Tech) */}
             <div
               onClick={onSelectCategory}
-              className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 sm:p-7 flex flex-col items-center justify-between text-center group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer flex-1 min-h-[250px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)]"
+              className="bg-white/45 backdrop-blur-md rounded-[28px] p-6 sm:p-7 flex flex-col items-center justify-between text-center group hover:-translate-y-1 hover:bg-white/65 transition-all duration-300 cursor-pointer flex-1 min-h-[250px] border border-white/80 shadow-[0_4px_20px_-2px_rgba(217,38,86,0.05),inset_0_1px_1px_rgba(255,255,255,0.9)] relative overflow-hidden"
             >
-              <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">
+              {/* Background pattern: crosshatch grid (hub / intersection motif) */}
+              <svg
+                className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <defs>
+                  <pattern id="cross-3b" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+                    <line x1="0" y1="0" x2="22" y2="22" stroke="#D92656" strokeWidth="1"/>
+                    <line x1="22" y1="0" x2="0" y2="22" stroke="#D92656" strokeWidth="1"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#cross-3b)"/>
+              </svg>
+
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-widest relative z-10">
                 {isBn ? "শিক্ষা ⋂ ব্যবসা ⋂ প্রযুক্তি" : "Academia ⋂ SME ⋂ Tech"}
               </span>
 
@@ -533,27 +633,27 @@ export default function About({ onSelectCategory }: AboutProps) {
                 <h4 className="text-xl font-black tracking-widest text-slate-900 uppercase mt-3">
                   {isBn ? "স্টার্টআপ কুষ্টিয়া হাব" : "STARTUP KUSHTIA HUB"}
                 </h4>
-                <p className="text-xs text-slate-500 font-medium mt-1.5 max-w-[210px] leading-relaxed">
+                <p className="text-sm text-slate-600 font-medium mt-1.5 max-w-[240px] leading-relaxed">
                   {isBn
                     ? "তাঁত, তিলের খাজা, জৈব কৃষি ও সফটওয়্যার — স্থানীয় পণ্যকে জাতীয় বাজারে পৌঁছানোর সেতুবন্ধন।"
                     : "Connecting Kumarkhali handloom, agro & software to wider markets."}
                 </p>
 
                 <div className="flex items-center justify-center gap-1 mt-2.5 flex-wrap">
-                  <span className="text-[9px] font-semibold bg-white/80 px-2 py-0.5 rounded text-slate-700 border border-white/60">
+                  <span className="text-xs font-semibold bg-white/80 px-2 py-0.5 rounded text-slate-700 border border-white/60">
                     {isBn ? "কুমারখালী তাঁত" : "Kumarkhali Handloom"}
                   </span>
-                  <span className="text-[9px] font-semibold bg-white/80 px-2 py-0.5 rounded text-slate-700 border border-white/60">
+                  <span className="text-xs font-semibold bg-white/80 px-2 py-0.5 rounded text-slate-700 border border-white/60">
                     {isBn ? "শিলাইদহ এগ্রো" : "Shilaidaha Agro"}
                   </span>
-                  <span className="text-[9px] font-semibold bg-white/80 px-2 py-0.5 rounded text-slate-700 border border-white/60">
+                  <span className="text-xs font-semibold bg-white/80 px-2 py-0.5 rounded text-slate-700 border border-white/60">
                     {isBn ? "তিলের খাজা" : "Tiler Khaja"}
                   </span>
                 </div>
               </div>
 
               {/* Bottom interactive link */}
-              <div className="pt-3 border-t border-brand-border/40 w-full flex items-center justify-between text-xs font-bold text-brand group-hover:text-brand-hover transition-colors">
+              <div className="pt-3 border-t border-brand-border/40 w-full flex items-center justify-between text-sm font-bold text-brand group-hover:text-brand-hover transition-colors">
                 <span>
                   {isBn ? "আপনার উদ্যোগ যুক্ত করুন" : "Get Listed in Hub"}
                 </span>
