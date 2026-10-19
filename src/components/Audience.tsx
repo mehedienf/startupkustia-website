@@ -34,11 +34,7 @@ export default function Audience({ onSelectCategory }: AudienceProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Heading */}
         <div className="max-w-2xl mx-auto text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/70 border border-brand-border/60 text-brand text-xs font-bold shadow-2xs mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand ring-4 ring-brand/15 animate-pulse" />
-            <span>{isBn ? "পরিচিতি ও ইকোসিস্টেম" : "About Ecosystem"}</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light sm:font-normal text-heading tracking-tight">
             {isBn
               ? "যাঁরা নতুন কিছু গড়েন, তাঁদের জন্য।"
               : "Built for Those Who Create & Scale."}

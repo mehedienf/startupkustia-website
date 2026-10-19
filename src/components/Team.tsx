@@ -117,11 +117,7 @@ export default function Team() {
         {/* ─── Section Header ─── */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 sm:mb-16">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand ring-4 ring-brand/15 animate-pulse" />
-              <span>{isBn ? "কোর টিম" : "Core Leadership"}</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-heading tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light sm:font-normal text-heading tracking-tight leading-tight">
               {isBn ? "যাঁদের হাত ধরে শুরু" : "Meet the Team"}
             </h2>
             <p className="mt-3 text-base text-[#444E69] max-w-lg">

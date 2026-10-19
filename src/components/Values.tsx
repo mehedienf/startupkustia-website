@@ -48,11 +48,7 @@ export default function Values() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         {/* Section Heading */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-soft border border-brand-border/60 text-brand text-xs font-bold shadow-xs mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand ring-4 ring-brand/15 animate-pulse"></span>
-            <span>{isBn ? "আমাদের মূল্যবোধ" : "Our Core Values"}</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light sm:font-normal text-heading tracking-tight">
             {isBn ? "আমরা যা বিশ্বাস করি।" : "What We Stand For."}
           </h2>
           <p className="mt-3 text-base text-[#444E69]">

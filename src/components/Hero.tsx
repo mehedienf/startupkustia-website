@@ -2,7 +2,7 @@
 
 import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowRight, Compass, Rocket } from "lucide-react";
+import { ArrowRight, Compass } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
@@ -89,7 +89,7 @@ function RotatingTypewriter({
   return (
     <span className="relative inline-block align-baseline mx-1 py-1.5 sm:py-2.5 px-1 sm:px-2 overflow-visible">
       {/* Animated text with colorful shimmering internal gradient light */}
-      <span className="inline-block py-1 sm:py-2 px-1 animate-aura-text font-black drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)]">
+      <span className="inline-block py-1 sm:py-2 px-1 animate-aura-text font-normal sm:font-medium drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)]">
         {visibleText || "\u00A0"}
       </span>
       {/* Typewriter pulsating cursor */}
@@ -156,26 +156,8 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-8 text-center flex flex-col items-center z-10 w-full my-auto py-8 sm:py-12 md:py-16">
-        {/* Eyebrow badge with glowing pulse */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/12 border border-white/20 text-brand-accent-light text-xs font-bold mb-6 backdrop-blur-md shadow-lg transition-transform hover:scale-105 duration-200">
-          <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent-light opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-accent-light"></span>
-          </span>
-          <span className="tracking-wide text-white">
-            {isBn ? "কুষ্টিয়া · বাংলাদেশ" : "Kushtia · Bangladesh"}
-          </span>
-          <span className="text-white/30">|</span>
-          <span className="text-brand-accent-light font-medium flex items-center gap-1">
-            <Rocket className="w-3.5 h-3.5 inline-block text-brand-accent-light" />
-            <span>
-              {isBn ? "স্টার্টআপ ও ইনোভেশন হাব" : "Startup & Innovation Hub"}
-            </span>
-          </span>
-        </div>
-
         {/* Main H1 Headline with Dynamic Typewriter Animated Words */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight max-w-5xl leading-[1.32] sm:leading-[1.26] md:leading-[1.24] text-white font-display mb-6 py-2 sm:py-4 px-2 drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] overflow-visible">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light sm:font-normal tracking-tight max-w-5xl leading-[1.32] sm:leading-[1.26] md:leading-[1.24] text-white font-display mb-6 py-2 sm:py-4 px-2 drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] overflow-visible">
           {isBn ? (
             <>
               <span className="block">কুষ্টিয়া থেকে গড়ে তুলুন আগামীর</span>

@@ -88,17 +88,11 @@ export default function Events({ onOpenJoin }: EventsProps) {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
-        {/* Section Top Header: Pill + Title/Subtitle on Top Left, SEE ALL on Top Right */}
+        {/* Section Top Header: Title/Subtitle on Top Left, SEE ALL on Top Right */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 gap-6">
           <div className="max-w-3xl">
-            {/* Section Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-brand-accent-light text-xs font-bold backdrop-blur-md shadow-sm mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent-light ring-4 ring-brand-accent-light/25 animate-pulse" />
-              <span>{isBn ? "ইভেন্টস ও সেশন" : "Events & Sessions"}</span>
-            </div>
-
             {/* Title */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light sm:font-normal text-white tracking-tight leading-tight">
               {isBn ? (
                 <>
                   আসন্ন <span className="text-brand-accent-light italic">ইভেন্টস</span>
@@ -361,7 +355,7 @@ export default function Events({ onOpenJoin }: EventsProps) {
             {/* Header with Title and "Back to Highlights" */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/15">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                <h2 className="text-2xl sm:text-3xl font-light sm:font-normal text-white">
                   {isBn ? "সকল ইভেন্ট ও আর্কাইভ" : "All Events & Sessions"}
                 </h2>
                 <p className="text-sm text-slate-300 mt-1">

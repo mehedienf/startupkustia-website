@@ -2,7 +2,7 @@
 
 import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowRight, CheckCircle2, GraduationCap } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 interface AmbassadorsProps {
   onOpenAmbassadorModal: () => void;
@@ -33,15 +33,7 @@ export default function Ambassadors({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left content */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-brand-accent-light text-xs font-bold backdrop-blur-md shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent-light ring-4 ring-brand-accent-light/25 animate-pulse"></span>
-              <GraduationCap className="w-3.5 h-3.5" />
-              <span>
-                {isBn ? "উন্মুক্ত আহ্বান · শিক্ষার্থী" : "Open Call · Students"}
-              </span>
-            </div>
-
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light sm:font-normal text-white tracking-tight leading-tight">
               {isBn ? (
                 <>
                   হোন{" "}

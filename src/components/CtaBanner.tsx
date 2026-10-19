@@ -1,7 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 interface CtaBannerProps {
@@ -25,13 +25,7 @@ export default function CtaBanner({ onOpenContact }: CtaBannerProps) {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-brand/20 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-8 text-center relative z-10 space-y-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-brand-accent-light text-xs font-bold backdrop-blur-md shadow-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-brand-accent-light ring-4 ring-brand-accent-light/25 animate-pulse"></span>
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>{isBn ? "শুরু হোক আজই" : "Start Today"}</span>
-        </div>
-
-        <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight font-display text-white">
+        <h2 className="text-3xl sm:text-5xl md:text-6xl font-light sm:font-normal tracking-tight font-display text-white">
           {isBn ? (
             <>
               কুষ্টিয়া থেকে গড়ে তুলতে{" "}

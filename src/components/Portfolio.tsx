@@ -155,21 +155,11 @@ export default function Portfolio({ onOpenListingModal }: PortfolioProps) {
            ======================================================== */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-12 gap-8">
           <div>
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-border/60 text-brand text-xs font-bold shadow-2xs mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand ring-4 ring-brand/15 animate-pulse" />
-              <span>
-                {isBn
-                  ? "লঞ্চপ্যাড কোহোর্ট-১ · ব্যাচ ২০২৬"
-                  : "Launchpad Cohort-1 · Batch 2026"}
-              </span>
-            </div>
-
-            {/* Giant Title: "Building the Next Breakthrough / Are You Next?" */}
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-heading tracking-tight leading-[1.15]">
+            {/* Title */}
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light sm:font-normal text-heading tracking-tight leading-[1.2]">
               {isBn ? "কুষ্টিয়ার পরবর্তী বড় ভেঞ্চার" : "Building the Next Breakthrough"}
               <br />
-              <span className="text-brand font-black">
+              <span className="text-brand font-normal sm:font-medium">
                 {isBn ? "আপনি কি প্রস্তুত?" : "Are You Next?"}
               </span>
             </h2>
