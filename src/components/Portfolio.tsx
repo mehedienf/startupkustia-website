@@ -107,13 +107,13 @@ export default function Portfolio({ onOpenListingModal }: PortfolioProps) {
           </div>
 
           {/* Right Header Column: Subtitle */}
-          <div className="max-w-md flex flex-col lg:items-end justify-between">
+          {/* <div className="max-w-md flex flex-col lg:items-end justify-between">
             <p className="text-sm sm:text-base text-[#444E69] leading-relaxed">
               {isBn
                 ? "আমরা কুষ্টিয়ার সম্ভাবনাময় প্রথম ১০টি স্টার্টআপ ও উদ্ভাবনী উদ্যোগকে সিড মেন্টরশিপ, আধুনিক টেক সাপোর্ট ও বিনিয়োগ নেটওয়ার্কের শক্তি দিতে প্রস্তুত। আপনার আইডিয়া নিয়ে আজই আবেদন করুন।"
                 : "We are gearing up to empower our inaugural batch of 10 high-potential Kushtia ventures with seed mentorship, tech stack, and network access. Apply with your idea today."}
             </p>
-          </div>
+          </div> */}
         </div>
 
         {/* ========================================================
@@ -169,7 +169,7 @@ export default function Portfolio({ onOpenListingModal }: PortfolioProps) {
             {/* ----------------------------------------------------
                 RIGHT SIDE: Card Text, Details, Badges & Actions
                ---------------------------------------------------- */}
-            <div className="lg:col-span-6 xl:col-span-5">
+            <div className="lg:col-span-6 xl:col-span-5 flex flex-col justify-between">
               {/* CSS Grid stack overlay ensures zero height jumping between slides */}
               <div className="grid grid-cols-1 grid-rows-1">
                 {LAUNCHPAD_TRACKS.map((track, idx) => {
@@ -221,56 +221,69 @@ export default function Portfolio({ onOpenListingModal }: PortfolioProps) {
                           </div>
                         </div>
                       </div>
-
-                      {/* Action & Slide Nav Footer */}
-                      <div className="pt-6 sm:pt-8 flex flex-wrap items-center justify-between gap-4 border-t border-brand-border/50 mt-6 sm:mt-8">
-                        <button
-                          type="button"
-                          onClick={onOpenListingModal}
-                          className="px-6 py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs sm:text-sm flex items-center gap-2 cursor-pointer transition-all shadow-md shadow-brand/20 active:scale-95"
-                        >
-                          <Rocket className="w-4 h-4" />
-                          <span>
-                            {isBn
-                              ? "কোহোর্ট-১ এ আবেদন করুন"
-                              : "Apply for Cohort 1"}
-                          </span>
-                        </button>
-
-                        {/* Slider Controls & Track Counter */}
-                        <div className="flex items-center gap-3">
-                          <span className="text-xs font-mono font-bold text-slate-400">
-                            {String(currentIndex + 1).padStart(2, "0")} /{" "}
-                            {String(totalItems).padStart(2, "0")}
-                          </span>
-
-                          <div className="flex items-center gap-1.5">
-                            <button
-                              type="button"
-                              onClick={handlePrev}
-                              aria-label={
-                                isBn ? "পূর্ববর্তী ট্র্যাক" : "Previous track"
-                              }
-                              className="w-9 h-9 rounded-full border border-slate-200 bg-white hover:border-brand hover:bg-brand hover:text-white text-slate-700 transition-all flex items-center justify-center cursor-pointer shadow-2xs active:scale-95"
-                            >
-                              <ChevronLeft className="w-4 h-4" />
-                            </button>
-                            <button
-                              type="button"
-                              onClick={handleNext}
-                              aria-label={
-                                isBn ? "পরবর্তী ট্র্যাক" : "Next track"
-                              }
-                              className="w-9 h-9 rounded-full border border-slate-200 bg-white hover:border-brand hover:bg-brand hover:text-white text-slate-700 transition-all flex items-center justify-center cursor-pointer shadow-2xs active:scale-95"
-                            >
-                              <ChevronRight className="w-4 h-4" />
-                            </button>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   );
                 })}
+              </div>
+
+              {/* ========================================================
+                  AUTO-ADVANCE PROGRESS BAR (Replaces static divider)
+                 ======================================================== */}
+              <div className="w-full bg-brand-border/40 h-[3px] rounded-full overflow-hidden mt-6 sm:mt-8">
+                <div
+                  key={currentIndex}
+                  className="h-full bg-gradient-to-r from-brand to-brand-accent rounded-full animate-launchpad-progress"
+                  style={{
+                    animationPlayState: isPaused ? "paused" : "running",
+                  }}
+                />
+              </div>
+
+              {/* Action & Slide Nav Footer */}
+              <div className="pt-5 sm:pt-6 flex flex-wrap items-center justify-between gap-4">
+                <button
+                  type="button"
+                  onClick={onOpenListingModal}
+                  className="px-6 py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs sm:text-sm flex items-center gap-2 cursor-pointer transition-all shadow-md shadow-brand/20 active:scale-95"
+                >
+                  <Rocket className="w-4 h-4" />
+                  <span>
+                    {isBn
+                      ? "কোহোর্ট-১ এ আবেদন করুন"
+                      : "Apply for Cohort 1"}
+                  </span>
+                </button>
+
+                {/* Slider Controls & Track Counter */}
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-mono font-bold text-slate-400">
+                    {String(currentIndex + 1).padStart(2, "0")} /{" "}
+                    {String(totalItems).padStart(2, "0")}
+                  </span>
+
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={handlePrev}
+                      aria-label={
+                        isBn ? "পূর্ববর্তী ট্র্যাক" : "Previous track"
+                      }
+                      className="w-9 h-9 rounded-full border border-slate-200 bg-white hover:border-brand hover:bg-brand hover:text-white text-slate-700 transition-all flex items-center justify-center cursor-pointer shadow-2xs active:scale-95"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleNext}
+                      aria-label={
+                        isBn ? "পরবর্তী ট্র্যাক" : "Next track"
+                      }
+                      className="w-9 h-9 rounded-full border border-slate-200 bg-white hover:border-brand hover:bg-brand hover:text-white text-slate-700 transition-all flex items-center justify-center cursor-pointer shadow-2xs active:scale-95"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
