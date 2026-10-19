@@ -25,6 +25,26 @@ const tiroBangla = localFont({
       style: "normal",
     },
     {
+      path: "./fonts/TiroBangla-Regular.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/TiroBangla-Regular.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/TiroBangla-Regular.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/TiroBangla-Regular.ttf",
+      weight: "800",
+      style: "normal",
+    },
+    {
       path: "./fonts/TiroBangla-Italic.ttf",
       weight: "400",
       style: "italic",
@@ -32,12 +52,6 @@ const tiroBangla = localFont({
   ],
   variable: "--font-tiro-bangla",
   display: "swap",
-  declarations: [
-    {
-      prop: "unicode-range",
-      value: "U+0980-09FF, U+200C-200D, U+25CC",
-    },
-  ],
 });
 
 export const metadata: Metadata = {
@@ -87,7 +101,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="bn"
+      lang="en"
       className={`scroll-smooth ${tiroBangla.variable} ${inter.variable} ${montserrat.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-[var(--sk-shell)] text-[var(--sk-body)] antialiased">

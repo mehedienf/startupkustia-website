@@ -4,6 +4,7 @@ import { Language } from "@/types";
 import React, {
   createContext,
   useContext,
+  useEffect,
   useState,
   useSyncExternalStore,
 } from "react";
@@ -25,13 +26,14 @@ function subscribe(callback: () => void) {
 }
 
 function getSnapshot(): Language {
-  if (typeof window === "undefined") return "bn";
+  if (typeof window === "undefined") return "en";
   const saved = localStorage.getItem("sk_lang");
-  return saved === "en" ? "en" : "bn";
+  if (saved === "bn" || saved === "en") return saved;
+  return "en";
 }
 
 function getServerSnapshot(): Language {
-  return "bn";
+  return "en";
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
@@ -56,6 +58,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const next = language === "bn" ? "en" : "bn";
     setLanguage(next);
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      document.documentElement.lang = language;
+    }
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>

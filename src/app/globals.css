@@ -52,33 +52,61 @@
 
   /* Modern typography font stacks */
   --font-sans:
-    var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, var(--font-tiro-bangla), "Tiro Bangla",
-    sans-serif;
+    var(--font-inter), "Inter", var(--font-tiro-bangla), "Tiro Bangla",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
   --font-display:
     var(--font-montserrat), "Montserrat", var(--font-inter), "Inter",
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    var(--font-tiro-bangla), "Tiro Bangla", sans-serif;
+    var(--font-tiro-bangla), "Tiro Bangla", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
 }
 
 body {
   font-family:
     var(--font-inter),
     "Inter",
+    var(--font-tiro-bangla),
+    "Tiro Bangla",
+    "Hind Siliguri",
+    "Noto Sans Bengali",
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     Roboto,
     "Helvetica Neue",
     Arial,
-    var(--font-tiro-bangla),
-    "Tiro Bangla",
-    "Hind Siliguri",
-    "Noto Sans Bengali",
     sans-serif;
   color: var(--sk-text);
   background-color: var(--sk-shell);
   -webkit-font-smoothing: antialiased;
+}
+
+/* Bengali mode styling - strictly ensures Tiro Bangla is applied in Safari, Chrome & Firefox */
+html[lang="bn"],
+html[lang="bn"] body {
+  font-family:
+    var(--font-tiro-bangla),
+    "Tiro Bangla",
+    var(--font-inter),
+    "Inter",
+    "Hind Siliguri",
+    "Noto Sans Bengali",
+    sans-serif !important;
+}
+
+html[lang="bn"] h1,
+html[lang="bn"] h2,
+html[lang="bn"] h3,
+html[lang="bn"] h4,
+html[lang="bn"] h5,
+html[lang="bn"] h6,
+html[lang="bn"] .font-display {
+  font-family:
+    var(--font-tiro-bangla),
+    "Tiro Bangla",
+    var(--font-montserrat),
+    "Montserrat",
+    sans-serif !important;
 }
 
 /* English mode styling - strictly clean modern tech sans */
