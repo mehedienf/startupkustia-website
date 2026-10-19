@@ -1,6 +1,7 @@
 "use client";
 
 import EventModal from "@/components/EventModal";
+import RiverWaveDivider from "@/components/RiverWaveDivider";
 import { useLanguage } from "@/context/LanguageContext";
 import { EVENT_ITEMS } from "@/data/content";
 import { EventItem } from "@/types";
@@ -65,7 +66,7 @@ export default function Events({ onOpenJoin }: EventsProps) {
   return (
     <section
       id="events"
-      className="py-20 md:py-28 bg-[#fbfbfe] relative overflow-hidden text-left"
+      className="pt-20 pb-28 md:pt-28 md:pb-36 bg-white relative overflow-hidden text-left -mt-px"
     >
       <span id="pillars" className="sr-only" />
 
@@ -466,6 +467,9 @@ export default function Events({ onOpenJoin }: EventsProps) {
           setSelectedEvent(null);
         }}
       />
+
+      {/* Organic river wave transition into Portfolio section */}
+      <RiverWaveDivider position="bottom" color="text-brand-soft" />
     </section>
   );
 }

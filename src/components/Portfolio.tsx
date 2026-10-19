@@ -147,7 +147,7 @@ export default function Portfolio({ onOpenListingModal }: PortfolioProps) {
   return (
     <section
       id="portfolio"
-      className="pt-20 pb-28 md:pt-28 md:pb-36 bg-brand-soft relative overflow-hidden select-none"
+      className="pt-20 pb-28 md:pt-28 md:pb-36 bg-brand-soft relative overflow-hidden select-none -mt-px"
     >
       <span id="directory" className="sr-only" />
       {/* Subtle topographic river contour pattern */}
