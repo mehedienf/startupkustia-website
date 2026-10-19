@@ -210,16 +210,17 @@ html[lang="en"] .font-display {
   background: #94a3b8;
 }
 
-/* Hero background image: full screen width on laptops with 0% horizontal crop */
+/* Hero background image: centered along both horizontal and vertical axes */
 .hero-bg-image {
   background-size: cover;
-  background-position: top center;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
 @media (min-width: 768px) {
   .hero-bg-image {
     background-size: 100% auto;
+    background-position: center center;
   }
 }
 

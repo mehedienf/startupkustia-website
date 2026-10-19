@@ -43,13 +43,17 @@ export default function Hero() {
   }, [words.length]);
 
   return (
-    <section className="relative w-full overflow-hidden bg-dark text-white pt-32 pb-32 md:pt-40 md:pb-40">
-      {/* Background Image of Shilaidaha Kuthibari spanning exact 100% width */}
+    <section
+      id="hero"
+      className="relative w-full min-h-[92vh] lg:min-h-screen flex flex-col justify-center items-center overflow-hidden bg-dark text-white pt-[104px] pb-8 sm:pt-[110px] sm:pb-12 md:pt-[112px] md:pb-16 lg:pb-20"
+    >
+      {/* Background Image of Shilaidaha Kuthibari spanning exact 100% width, centered on vertical axis */}
       <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0">
         <div
           className="hero-bg-image absolute inset-0 w-full h-full opacity-88 transition-opacity"
           style={{
             backgroundImage: "url('/images/hero_image1.webp')",
+            backgroundPosition: "center center",
           }}
         />
         {/* Soft balanced dark overlay: preserves full visibility of Kuthibari while keeping text crisp */}
@@ -57,7 +61,7 @@ export default function Hero() {
           className="absolute inset-0 w-full h-full"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(25, 10, 15, 0.50) 0%, rgba(0, 0, 0, 0.25) 25%, rgba(25, 10, 15, 0.65) 65%, var(--sk-dark) 95%)",
+              "linear-gradient(to bottom, var(--sk-dark) 0%, rgba(25, 10, 15, 0.45) 15%, rgba(0, 0, 0, 0.20) 40%, rgba(0, 0, 0, 0.20) 60%, rgba(25, 10, 15, 0.65) 85%, var(--sk-dark) 100%)",
           }}
         />
 
@@ -73,7 +77,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-8 text-center flex flex-col items-center z-10">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-8 text-center flex flex-col items-center z-10 w-full my-auto py-8 sm:py-12 md:py-16">
         {/* Eyebrow badge with glowing pulse */}
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/12 border border-white/20 text-brand-accent-light text-xs font-bold mb-6 backdrop-blur-md shadow-lg transition-transform hover:scale-105 duration-200">
           <span className="flex h-2 w-2 relative">
