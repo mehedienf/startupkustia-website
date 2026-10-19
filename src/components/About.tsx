@@ -486,40 +486,6 @@ export default function About({ onSelectCategory }: AboutProps) {
                   </span>
                 </div>
               </div>
-
-              {/* 3D Chrome Metallic Spring Element: Dynamic Growth Momentum */}
-              <div className="self-end -mr-2 -mb-2 group-hover:scale-105 transition-transform duration-500">
-                <svg
-                  viewBox="0 0 100 130"
-                  className="w-20 h-24 filter drop-shadow-2xs"
-                  aria-hidden="true"
-                >
-                  <defs>
-                    <linearGradient
-                      id="springChrome"
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="100%"
-                    >
-                      <stop offset="0%" stopColor="#f8fafc" />
-                      <stop offset="20%" stopColor="#94a3b8" />
-                      <stop offset="50%" stopColor="#ffffff" />
-                      <stop offset="80%" stopColor="#475569" />
-                      <stop offset="100%" stopColor="#0f172a" />
-                    </linearGradient>
-                  </defs>
-                  {/* Coiled loops */}
-                  <path
-                    d="M 25 20 C 70 8 95 24 80 42 C 60 62 20 48 20 58 C 20 68 70 54 85 72 C 95 86 65 102 30 96 C 15 92 40 114 75 110"
-                    fill="none"
-                    stroke="url(#springChrome)"
-                    strokeWidth="12"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
             </div>
 
             {/* Card 3B: Startup Kushtia Hub — 3 Triple Helix Rings (Education ⋂ Business ⋂ Tech) */}
