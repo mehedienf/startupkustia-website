@@ -11,7 +11,76 @@ import {
   Sparkles,
 } from "lucide-react";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+
+interface TypewriterActiveProps {
+  text: string;
+  speed?: number;
+}
+
+function TypewriterActive({ text, speed = 20 }: TypewriterActiveProps) {
+  const [count, setCount] = useState(0);
+
+  // Split into natural grapheme clusters for flawless Bengali & English character typing
+  const segments = useMemo(() => {
+    if (typeof Intl !== "undefined" && "Segmenter" in Intl) {
+      try {
+        const segmenter = new Intl.Segmenter(undefined, {
+          granularity: "grapheme",
+        });
+        return Array.from(segmenter.segment(text), (s) => s.segment);
+      } catch {
+        return Array.from(text);
+      }
+    }
+    return Array.from(text);
+  }, [text]);
+
+  useEffect(() => {
+    let current = 0;
+    const total = segments.length;
+
+    const timer = setInterval(() => {
+      current++;
+      setCount(current);
+      if (current >= total) {
+        clearInterval(timer);
+      }
+    }, speed);
+
+    return () => clearInterval(timer);
+  }, [segments, speed]);
+
+  const isComplete = count >= segments.length;
+  const visibleText = segments.slice(0, count).join("");
+
+  return (
+    <span aria-label={text}>
+      <span>{visibleText}</span>
+      {!isComplete && (
+        <span
+          className="inline-block w-[2px] h-[1.1em] bg-brand ml-0.5 align-middle animate-pulse"
+          aria-hidden="true"
+        />
+      )}
+    </span>
+  );
+}
+
+interface TypewriterTextProps {
+  text: string;
+  isActive: boolean;
+  speed?: number;
+}
+
+function TypewriterText({ text, isActive, speed = 20 }: TypewriterTextProps) {
+  // When inactive, render full text so CSS grid row preserves exact height
+  if (!isActive) {
+    return <span>{text}</span>;
+  }
+
+  return <TypewriterActive key={text} text={text} speed={speed} />;
+}
 
 interface PortfolioProps {
   onOpenListingModal: () => void;
@@ -105,15 +174,18 @@ export default function Portfolio({ onOpenListingModal }: PortfolioProps) {
               </span>
             </h2>
           </div>
-
-          {/* Right Header Column: Subtitle */}
-          {/* <div className="max-w-md flex flex-col lg:items-end justify-between">
-            <p className="text-sm sm:text-base text-[#444E69] leading-relaxed">
-              {isBn
-                ? "আমরা কুষ্টিয়ার সম্ভাবনাময় প্রথম ১০টি স্টার্টআপ ও উদ্ভাবনী উদ্যোগকে সিড মেন্টরশিপ, আধুনিক টেক সাপোর্ট ও বিনিয়োগ নেটওয়ার্কের শক্তি দিতে প্রস্তুত। আপনার আইডিয়া নিয়ে আজই আবেদন করুন।"
-                : "We are gearing up to empower our inaugural batch of 10 high-potential Kushtia ventures with seed mentorship, tech stack, and network access. Apply with your idea today."}
-            </p>
-          </div> */}
+          <button
+                  type="button"
+                  onClick={onOpenListingModal}
+                  className="px-6 py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs sm:text-sm flex items-center gap-2 cursor-pointer transition-all shadow-md shadow-brand/20 active:scale-95"
+                >
+                  <Rocket className="w-4 h-4" />
+                  <span>
+                    {isBn
+                      ? "কোহোর্ট-১ এ আবেদন করুন"
+                      : "Apply for Cohort 1"}
+                  </span>
+                </button>
         </div>
 
         {/* ========================================================
@@ -195,9 +267,13 @@ export default function Portfolio({ onOpenListingModal }: PortfolioProps) {
                           {isBn ? track.titleBn : track.titleEn}
                         </h3>
 
-                        {/* Track Description */}
-                        <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                          {isBn ? track.descBn : track.descEn}
+                        {/* Track Description with Typewriter Effect */}
+                        <p className="text-slate-600 text-sm sm:text-base leading-relaxed min-h-[44px] sm:min-h-[48px]">
+                          <TypewriterText
+                            text={isBn ? track.descBn : track.descEn}
+                            isActive={isActive}
+                            speed={20}
+                          />
                         </p>
 
                         {/* Key Deliverables / Focus Areas */}
@@ -241,19 +317,6 @@ export default function Portfolio({ onOpenListingModal }: PortfolioProps) {
 
               {/* Action & Slide Nav Footer */}
               <div className="pt-5 sm:pt-6 flex flex-wrap items-center justify-between gap-4">
-                <button
-                  type="button"
-                  onClick={onOpenListingModal}
-                  className="px-6 py-3 rounded-full bg-brand hover:bg-brand-hover text-white font-bold text-xs sm:text-sm flex items-center gap-2 cursor-pointer transition-all shadow-md shadow-brand/20 active:scale-95"
-                >
-                  <Rocket className="w-4 h-4" />
-                  <span>
-                    {isBn
-                      ? "কোহোর্ট-১ এ আবেদন করুন"
-                      : "Apply for Cohort 1"}
-                  </span>
-                </button>
-
                 {/* Slider Controls & Track Counter */}
                 <div className="flex items-center gap-3">
                   <span className="text-xs font-mono font-bold text-slate-400">
