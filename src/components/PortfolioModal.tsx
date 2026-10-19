@@ -1,7 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
-import { Building2, CheckCircle, Send, X } from "lucide-react";
+import { CheckCircle, Rocket, Send, X } from "lucide-react";
 import React, { useState } from "react";
 
 interface PortfolioModalProps {
@@ -49,11 +49,11 @@ export default function PortfolioModal({
       <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl overflow-hidden">
         <div className="bg-dark text-white px-6 py-4 flex items-center justify-between border-b-2 border-brand-accent-light">
           <div className="flex items-center gap-2">
-            <Building2 className="w-5 h-5 text-brand-accent-light" />
+            <Rocket className="w-5 h-5 text-brand-accent-light" />
             <h3 className="font-bold text-lg text-white">
               {isBn
-                ? "পোর্টফোলিওতে তালিকাভুক্ত হোন"
-                : "List in Startup Kushtia Portfolio"}
+                ? "কোহোর্ট-১ লঞ্চপ্যাডে আবেদন করুন"
+                : "Apply for Cohort-1 Launchpad"}
             </h3>
           </div>
           <button
@@ -74,12 +74,12 @@ export default function PortfolioModal({
               <h4 className="text-xl font-bold text-heading">
                 {isBn
                   ? "আবেদনটি সফলভাবে জমা হয়েছে!"
-                  : "Listing Submission Received!"}
+                  : "Application Submitted Successfully!"}
               </h4>
               <p className="text-sm text-[#444E69] max-w-sm mx-auto">
                 {isBn
-                  ? "আপনার ব্যবসা বা স্টার্টআপের তথ্য যাচাই করে দ্রুত পোর্টফোলিওতে লাইভ করা হবে। কোনো তথ্যের প্রয়োজনে আমরা আপনার সাথে যোগাযোগ করব।"
-                  : "Our admin team will review and verify the venture details before publishing to the public portfolio."}
+                  ? "আমাদের সিলেকশন কমিটি আপনার আবেদন ও ধারণার বিবরণী পর্যালোচনা করে দ্রুততম সময়ে আপনার সাথে যোগাযোগ করবে।"
+                  : "Our team will review your application details and get in touch with you via WhatsApp or phone."}
               </p>
               <div className="pt-4">
                 <button
@@ -95,8 +95,8 @@ export default function PortfolioModal({
             <form onSubmit={handleSubmit} className="space-y-3.5 text-left">
               <p className="text-xs text-[#444E69]">
                 {isBn
-                  ? "কুষ্টিয়ার উদ্যোক্তাদের পাবলিক পোর্টফোলিওতে আপনার উদ্যোগ অন্তর্ভুক্ত করে আরও গ্রাহক, বিনিয়োগকারী ও পার্টনারদের দৃষ্টি আকর্ষণ করুন।"
-                  : "Add your Kushtia venture to the public ecosystem portfolio for increased visibility."}
+                  ? "কুষ্টিয়া থেকে গড়ে ওঠা প্রথম ১০টি উদ্যোগের ব্যাচে যুক্ত হতে আপনার প্রাথমিক স্টার্টআপ বা বিজনেস প্ল্যানের তথ্য জমা দিন।"
+                  : "Submit your idea or early-stage venture details to join Startup Kushtia's inaugural 10-team cohort."}
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

@@ -167,7 +167,7 @@ export default function Hero() {
             className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-base backdrop-blur-md border border-white/25 hover:border-white/50 hover:scale-102 active:scale-98 transition-all duration-200 text-center shadow-md flex items-center justify-center gap-2 cursor-pointer"
           >
             <Compass className="w-5 h-5 text-slate-300" />
-            <span>{isBn ? "পোর্টফোলিও দেখুন" : "Explore Portfolio"}</span>
+            <span>{isBn ? "লঞ্চপ্যাড দেখুন" : "Explore Launchpad"}</span>
           </Link>
         </div>
 

@@ -205,7 +205,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
               onClick={(e) => scrollToSection(e, "portfolio")}
               className="px-3.5 py-2 rounded-xl hover:text-brand hover:bg-slate-100/70 transition-all cursor-pointer text-left"
             >
-              {isBn ? "পোর্টফোলিও" : "Portfolio"}
+              {isBn ? "লঞ্চপ্যাড" : "Launchpad"}
             </Link>
             <Link
               href="/"
@@ -327,7 +327,7 @@ export default function Header({ onOpenJoin }: HeaderProps) {
                 onClick={(e) => scrollToSection(e, "portfolio")}
                 className="py-1.5 hover:text-brand transition-colors text-left"
               >
-                {isBn ? "পোর্টফোলিও" : "Portfolio"}
+                {isBn ? "লঞ্চপ্যাড" : "Launchpad"}
               </Link>
               <Link
                 href="/"

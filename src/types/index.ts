@@ -114,3 +114,16 @@ export interface EventItem {
   speakers?: EventSpeaker[];
   tags?: string[];
 }
+
+export interface LaunchpadTrack {
+  id: string;
+  stepBn: string;
+  stepEn: string;
+  titleBn: string;
+  titleEn: string;
+  descBn: string;
+  descEn: string;
+  coverImage: string;
+  highlightsBn: string[];
+  highlightsEn: string[];
+}
