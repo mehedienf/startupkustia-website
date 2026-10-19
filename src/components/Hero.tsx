@@ -87,16 +87,23 @@ function RotatingTypewriter({
   const visibleText = currentGraphemes.slice(0, subIndex).join("");
 
   return (
-    <span className="relative inline-flex items-center justify-center align-middle min-h-[1.32em] sm:min-h-[1.26em] mx-1 py-1 sm:py-2 px-1 sm:px-2 overflow-visible">
+    <span className="relative inline-flex items-center justify-center align-middle h-full mx-1 overflow-visible">
       {/* Animated text with colorful shimmering internal gradient light */}
-      <span className="inline-flex items-center py-1 sm:py-2 px-1 animate-aura-text font-normal sm:font-medium drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] whitespace-nowrap">
+      <span className="inline-flex items-center animate-aura-text font-normal sm:font-medium drop-shadow-[0_2px_14px_rgba(244,63,94,0.35)] whitespace-nowrap">
+        {/* Typographic strut ensuring 100% constant baseline and line-box height even when visibleText is empty */}
+        <span
+          className="invisible select-none inline-block w-0 overflow-hidden pointer-events-none"
+          aria-hidden="true"
+        >
+          Agক
+        </span>
         <span>{visibleText}</span>
-      </span>
       {/* Typewriter pulsating cursor */}
       <span
         className="inline-block w-[3px] sm:w-[4px] md:w-[4.5px] h-[0.85em] bg-brand-accent-light ml-2 sm:ml-2.5 md:ml-3 align-middle rounded-full animate-pulse shrink-0"
         aria-hidden="true"
       />
+      </span>
     </span>
   );
 }
@@ -156,24 +163,20 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-8 text-center flex flex-col items-center z-10 w-full my-auto py-8 sm:py-12 md:py-16">
-        {/* Main H1 Headline with Dynamic Typewriter Animated Words */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light sm:font-normal tracking-tight max-w-5xl leading-[1.32] sm:leading-[1.26] md:leading-[1.24] text-white font-display mb-6 py-2 sm:py-4 px-2 drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] overflow-visible">
-          {isBn ? (
-            <>
-              <span className="block">কুষ্টিয়া থেকে গড়ে তুলুন আগামীর</span>
-              <span className="block mt-1 sm:mt-2 min-h-[1.32em] sm:min-h-[1.26em]">
-                <RotatingTypewriter key="hero-title-bn" words={rotatingWordsBn} />
-              </span>
-            </>
-          ) : (
-            <>
-              <span className="block">Empowering Kushtia’s</span>
-              <span className="block mt-1 sm:mt-2 min-h-[1.32em] sm:min-h-[1.26em]">
-                <RotatingTypewriter key="hero-title-en" words={rotatingWordsEn} />
-              </span>
-            </>
-          )}
-        </h1>
+        {/* Main Headline with Dynamic Typewriter Animated Words */}
+        <div className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light sm:font-normal tracking-tight max-w-5xl leading-[1.32] sm:leading-[1.26] md:leading-[1.24] text-white font-display mb-6 py-2 sm:py-4 px-2 drop-shadow-[0_2px_14px_rgba(0,0,0,0.9)] overflow-visible">
+          <h1 className="block">
+            {isBn ? "কুষ্টিয়া থেকে গড়ে তুলুন আগামীর" : "Empowering Kushtia’s"}
+          </h1>
+          {/* Fixed height container for changing title */}
+          <div className="h-[48px] sm:h-[68px] md:h-[80px] lg:h-[96px] flex items-center justify-center overflow-visible mt-1 sm:mt-2">
+            {isBn ? (
+              <RotatingTypewriter key="hero-title-bn" words={rotatingWordsBn} />
+            ) : (
+              <RotatingTypewriter key="hero-title-en" words={rotatingWordsEn} />
+            )}
+          </div>
+        </div>
 
         {/* Subtitle / Lead Paragraph - High Contrast Crisp White Text */}
         <p className="text-base sm:text-lg md:text-xl text-slate-200 max-w-2xl leading-relaxed mb-10 font-normal drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)]">
