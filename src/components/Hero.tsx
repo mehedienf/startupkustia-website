@@ -6,7 +6,6 @@ import { ArrowRight, Compass } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
-
 interface RotatingTypewriterProps {
   words: string[];
   typingSpeed?: number;
@@ -98,11 +97,11 @@ function RotatingTypewriter({
           Agক
         </span>
         <span>{visibleText}</span>
-      {/* Typewriter pulsating cursor */}
-      <span
-        className="inline-block w-[3px] sm:w-[4px] md:w-[4.5px] h-[0.85em] bg-brand-accent-light ml-2 sm:ml-2.5 md:ml-3 align-middle rounded-full animate-pulse shrink-0"
-        aria-hidden="true"
-      />
+        {/* Typewriter pulsating cursor */}
+        <span
+          className="inline-block w-[3px] sm:w-[4px] md:w-[4.5px] h-[0.85em] bg-brand-accent-light ml-2 sm:ml-2.5 md:ml-3 align-middle rounded-full animate-pulse shrink-0"
+          aria-hidden="true"
+        />
       </span>
     </span>
   );
